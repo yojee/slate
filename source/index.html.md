@@ -4516,3 +4516,371 @@ settings | {{delivery_options}} : {{time_window}} : {{pickup}} | Timestamp
 | {{pickup_allowance}} | Integer
 | {{max_weight}} | Integer
 | {{advance_bookings}} | Integer
+
+## Creates a Region
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'tag: {{tag}}' \
+  -d 'description: {{description}}' \
+  -d 'coordinates: {{coordinates}}' \
+  -d 'color: {{color}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tag": "poly5",
+  "inserted_at": "2018-05-19 05:05:11.646174Z",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "company_id": 1,
+  "color": "red"
+}
+```
+
+This endpoint creates a Region.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+tag | {{tag}} | String
+description | {{description}} | String
+coordinates | {{lng}} | Number
+| {{lat}} | Number
+color | {{color}} | String
+
+## Get all regions
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tag": "poly5",
+  "inserted_at": "2018-05-19 05:05:11.646174Z",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "company_id": 1,
+  "color": "red"
+}
+```
+
+This endpoint gets all regions.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Updates a Region
+
+```shell
+curl -X PATCH \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'tag: {{tag}}' \
+  -d 'description: {{description}}' \
+  -d 'coordinates: {{coordinates}}' \
+  -d 'color: {{color}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tag": "poly5",
+  "inserted_at": "2018-05-19 05:05:11.646174Z",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "company_id": 1,
+  "color": "red"
+}
+```
+
+This endpoint updates a Region.
+
+### HTTP Request
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+tag | {{tag}} | String
+description | {{description}} | String
+coordinates | {{lng}} | Number
+| {{lat}} | Number
+color | {{color}} | String
+
+## Get all regions
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tag": "poly5",
+  "inserted_at": "2018-05-19 05:05:11.646174Z",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "company_id": 1,
+  "color": "red"
+}
+```
+
+This endpoint gets all regions.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Delete all regions
+
+```shell
+curl -X DELETE \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tag": "poly5",
+  "inserted_at": "2018-05-19 05:05:11.646174Z",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "company_id": 1,
+  "color": "red"
+}
+```
+
+This endpoint deletes all regions.
+
+### HTTP Request
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Updates a Hub
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'tag: {{tag}}' \
+  -d 'description: {{description}}' \
+  -d 'coordinates: {{coordinates}}' \
+  -d 'color: {{color}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "inserted_at": "2018-05-19 05:05:11.646750Z",
+  "company_id": 1
+}
+```
+
+This endpoint updates a Hub.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+regions | {{regions}} | String
+properties | {{description}} | String
+| {{address}} | String
+name | {{name}} | String
+location | {{lng}} | Number
+| {{lat}} | Number
