@@ -6,7 +6,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://yojee.com/consultation/'>Demo request form</a>
-  - <a href='https://yojee.com/'>Yojee</a>
 
 includes:
   - errors
@@ -17,11 +16,819 @@ home: true
 
 # Yojee API Reference
 
-Welcome to Yojee API! You can use our API to access Yojee API endpoints, which can get information on Orders created, fetch status updates of an Order/OrderIte, view list of ongoing/completed Orders in our database.
+Welcome to Yojee API! You can use our API to access Yojee API endpoints, which you can get information on orders created, fetch status updates of an order, view list of ongoing/completed orders in our database and also create/pay/cancel an order.
 
 <aside class="notice">
-Make sure to replace ACCESS_TOKEN with your API key
+Make sure to replace {{ACCESS_TOKEN}} with your API key
 </aside>
+
+# Public
+
+## Get user information
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/sender/info' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "order_schema": {
+      "size_weight": {
+        "package": {
+          "required": [
+            "size",
+            "weight"
+          ],
+          "properties": "properties",
+      "job_details": "job_details",
+      "delivery_type": "delivery_type",
+      "addresses": "addresses"
+    },
+    "customer_language": "en",
+    "cs_phone": "+6531591335",
+    "branding": {
+      "text_color_highlighted": "#8ecb1b",
+      "text_color": "#2c3e50",
+      "pricing_url": "https://yojee.com/prices/",
+      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_logo.jpg",
+      "generated_favicon": {},
+      "favicon": {
+        "original": "https://yojee-uploads-dev.s3.amazonaws.com/uploads/companies/1/favicon/1_original_favicon-96x96.png?v=63693763628",
+        "96x96": ,
+      "banner_text_line1": "MON TO SAT 10AM-10PM. BOOKINGS AFTER 4PM WILL BE PROCESSED THE FOLLOWING DAY.",
+      "banner_text_color": "#ffffff",
+      "banner_header": "SAME DAY, NEXT DAY, EXPRESS DELIVERY",
+      "banner": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_banner.jpg",
+      "background_color": "#ffffff",
+      "admin_primary_color": "#80c939"
+      }
+     }
+    }
+  }
+}
+```
+
+This endpoint retrieves all user information.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/users/info`
+
+### Headers
+
+Key | Value
+--------- | -------
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Get OTP code
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/otp/' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "otp_code": "123456"
+}
+```
+
+This endpoint gets OTP code.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/otp/`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+phone | Phone number
+
+## Verify OTP code
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/verify_otp/' \
+  -H 'PHONE: {{PHONE}}' \
+  -H 'OTP: {{OTP}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "user_profile_id": 1,
+    "phone": "+99999999999",
+    "id": 1,
+    "email": "test@yojee.com",
+    "access_token": "T5P2rQrC6KbkPnLE9ebyjskMUTju3vKFBzlAr+bCUpc="
+  }
+```
+
+This endpoint verifies OTP code.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/`
+
+### Headers
+
+Key | Value
+--------- | -------
+PHONE | {{PHONE}}
+OTP | {{OTP}}
+
+## Get price estimate
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/public/orders/price' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'slug: {{slug}}' \
+  -d 'item: {{item}}' \
+  -d 'to_address: {{to_address}}' \
+  -d 'from_address: {{from_address}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "type": "express",
+  "success": true,
+  "msg": {
+    "surcharges": {
+      "CBD": 2
+    },
+    "price": 20,
+    "pickup_zip": "068896",
+    "dropoff_zip": "189703",
+    "base_price": 18
+  }
+}
+```
+
+This endpoint gets an estimated price of a delivery request.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/public/orders/price`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+slug | {{slug}} | String
+item | {{weight}} | Integer
+to_address	 | {{zipcode}} | String
+ | {{location}} | String
+ | {{lng}}  | String
+ | {{lat}} | String
+ | {{country}} | String
+from_address	 | {{zipcode}} | String
+| {{location}} | String
+| {{lng}}  | String
+| {{lat}} | String
+| {{country}} | String
+
+## Get tracking data of an order
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/track/{number}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tracking_number": "O-SK1LAUPOQXJF",
+  "status": "created",
+  "price_currency": "SGD",
+  "price_amount": 10,
+  "order_items": [
+    {
+      "status": "scheduled_for_fulfilment",
+      "service_type": "sameday",
+      "order_item_logs": [
+        {
+          "inserted_at": "2018-03-20T15:18:38.770110",
+          "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
+        },
+        {
+          "inserted_at": "2018-03-20T15:18:38.772850",
+          "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
+        }
+      ],
+      "item_id": 2673
+    }
+  ],
+  "number": "bmFvQTA1c3dybS9sNWdnOUVSdEZlZz09",
+  "inserted_at": "2018-03-20T15:18:38.613719",
+  "description": "Gift",
+  "currency": "SGD"
+}
+```
+
+This endpoint gets tracking data of an order.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/track/{number}`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+number | Order number
+
+# Auth
+
+## Sign up a new individual sender
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/auth/signup' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'sender_type: {{sender_type}}' \
+  -d 'phone: {{phone}}' \
+  -d 'password: {{password}}' \
+  -d 'name: {{name}}' \
+  -d 'email: {{email}}' \
+  -d 'billing_address: {{billing_address}}' \
+  -d 'account_type: {{account_type}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "phone": "+6598765432",
+  "email": "bob@mail.com",
+  "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+}
+```
+
+This endpoint signs up a new individual sender.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/auth/signup`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+sender_type | {{sender_type}} | String
+phone	| {{phone}} | String
+password	| {{password}} | String
+name	| {{name}} | String
+email	| {{email}} | String
+billing_address	| {{billing_address}} | String
+account_type	| {{account_type}} | String
+
+## Sign in as a sender
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/auth/signin' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'password: {{password}}' \
+  -d 'email: {{email}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "phone": "+6598765432",
+  "email": "bob@mail.com",
+  "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+}
+```
+
+This endpoint signs up as a sender.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/auth/signin`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+password | {{password}} | String
+email	| {{email}} | String
+
+## Sign up a new corporate sender
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/auth/corporate_sender/signup' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'uen_no: {{uen_no}}' \
+  -d 'title: {{title}}' \
+  -d 'sender_type: {{sender_type}}' \
+  -d 'phone: {{phone}}' \
+  -d 'payment_option: {{payment_option}}' \
+  -d 'password: {{password}}' \
+  -d 'organisation: {{organisation}}' \
+  -d 'name: {{name}}' \
+  -d 'gst_no: {{gst_no}}' \
+  -d 'email: {{email}}' \
+  -d 'organisation: {{organisation}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "phone": "+6598765432",
+  "email": "bob@mail.com",
+  "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+}
+```
+
+This endpoint signs up a new corporate sender.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/auth/corporate_sender/signup`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+uen_no | {{uen_no}} | String
+title	| {{title}} | String
+sender_type	| {{sender_type}} | String
+phone	| {{phone}} | String
+payment_option	| {{payment_option}} | String
+password	| {{password}} | String
+organisation	 | {{reg_address}} | String
+| {{postal_code}} | String
+| {{phone}}  | String
+| {{name}} | String
+| {{country}} | String
+| {{city}} | String
+name	| {{name}} | String
+gst_no	| {{gst_no}} | String
+email	| {{email}} | String
+billing_address	| {{billing_address}} | String
+
+## Validate if reset password token is still valid before changing password
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/password/edit' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "ok"
+}
+```
+
+This endpoint validates if reset password token is still valid before changing password.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/password/edit`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+reset_password_token | Reset password token
+
+## Validate if reset password token is still valid to update password
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/public/password' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Password is updated!"
+}
+```
+
+This endpoint validates if reset password token is still valid to update password.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/public/password`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+password | New password
+reset_password_token | Reset password token
+
+## Create reset password token and send a password reset email
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/public/password' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "An email has been sent to [email] with further instructions."
+}
+```
+
+This endpoint creates reset password token and sends a password reset email.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/public/password`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+password | New password
+reset_password_token | Reset password token
+
+## Validate if reset password token is still valid
+
+```shell
+curl -X PATCH \
+  'https://umbrella-demo.yojee.com/api/v3/public/password' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Password is updated!"
+}
+```
+
+This endpoint validates if reset password token is still valid.
+
+### HTTP Request
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/public/password`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+email | Email
+
+## Generate an invoice on the fly
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "Create label binary fow download"
+}
+```
+
+This endpoint generates an invoice on the fly.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+order_number | Order number
+
+## Generate a label on the fly
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "Label to be downloaded."
+}
+```
+
+This endpoint generates a label on the fly.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+tracking_number | Tracking_number
+format | Output format
+
+## Generate a label on the fly under order item
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/labels/order_item/{tracking_number}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "Label to be downloaded."
+}
+```
+
+This endpoint generates a label on the fly under order item.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/labels/order_item/{tracking_number}`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+tracking_number | Tracking_number
+format | Output format
+
+## Generate a label on the fly from order number
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "Label to be downloaded."
+}
+```
+
+This endpoint generates a label on the fly from order number.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+order_number | Order_number
+format | Output format
+
+# Launcher
+
+## Create new dispatcher
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+  -d 'phone: {{phone}}' \
+  -d 'password: {{password}}' \
+  -d 'name: {{name}}' \
+  -d 'email: {{email}}' \
+  -d 'company_id: {{company_id}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "user_profile_id": 1,
+  "phone": "+9999999999",
+  "name": "Yojee",
+  "inserted_at": "2018-01-24T08:54:54.204128",
+  "id": 1,
+  "email": "test@yojee.com",
+  "access_token": "{{ACCESS_TOKEN}}"
+}
+```
+
+This endpoint creates a new dispatcher.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+phone	| {{phone}} | String
+password	| {{password}} | String
+name	| {{name}} | String
+email	| {{email}} | String
+company_id	| {{company_id}} | String
+
+## Create new company
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/launcher/companies' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+  -d 'slug: {{slug}}' \
+  -d 'name: {{name}}' \
+  -d 'country: {{country}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "organisation_id": 1,
+  "inserted_at": "2018-01-24T08:54:54.204128",
+  "id": 1
+}
+```
+
+This endpoint creates a new company.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/launcher/companies`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+slug	| {{slug}} | String
+name	| {{name}} | String
+country	| {{country}} | String
+
+# Map
+
+## Get geocode of an address
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/maps/geocode' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'query: {{query}}' \
+  -d 'country_code: {{country_code}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "zipcode": "",
+  "lng": 103.8462451,
+  "lat": 1.2754876,
+  "country": "Singapore",
+  "address": "1 Anson Rd, Singapore"
+}
+```
+
+This endpoint gets geocode of an address.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/maps/geocode`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+query | {{query}} | String
+country_code	| {{country_code}} | String
+
+## Get direction information
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/maps/geocode' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'origin: {{origin}}' \
+  -d 'mode: {{mode}}' \
+  -d 'destination: {{destination}}' \
+  -d 'country_iso: {{country_iso}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "overview_polyline": "overview_polyline",
+  "duration": 222,
+  "distance": 968,
+  "data": [
+    [
+      "data"
+    ]
+  ]
+}
+```
+
+This endpoint gets direction information.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/maps/geocode`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+origin | {{origin}} | String
+mode	| {{mode}} | String
+destination	| {{destination}} | String
+country_iso	| {{country_iso}} | String
+
+## Get complete suggestions of an address
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/maps/autocomplete' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'query: {{query}}' \
+  -d 'country_iso: {{country_iso}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "name": "1 Anson Rd",
+  "lng": 103.8462451,
+  "lat": 1.2754876,
+  "address": "1 Anson Rd, Singapore"
+}
+```
+
+This endpoint gets complete suggestions of an address.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/maps/autocomplete`
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+query	| {{query}} | String
+country_iso	| {{country_iso}} | String
 
 # Sender
 
@@ -280,6 +1087,88 @@ Parameter | Description | Default Value
 page | Page number | 1
 page_size | Page size | 10
 
+## Batch upload multiple orders
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/sender/batches' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -F 'file: {{file}}' \
+  -d 'uploader_id: {{uploader_id}}' \
+  -d 'company_id: {{company_id}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": "batch id"
+}
+```
+
+This endpoint uploads a csv file with multiple orders.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/sender/batches`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+file  | File to be uploaded
+uploader_id | Uploader ID
+company_id  | Company ID
+
+## Check batch status
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'batch_id: {{batch_id}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status": "status"
+}
+```
+
+This endpoint checks batch status.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+batch_id  | Batch ID
+
 ## Create payment request
 
 ```shell
@@ -390,3 +1279,750 @@ COMPANY_SLUG | {{COMPANY_SLUG}}
 Parameter | Description
 --------- | -----------
 number | Order number
+
+# Worker
+
+## Get worker information
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/info' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "vehicles": [
+    {
+      "name": "Truck",
+      "id": 1
+    },
+    {
+      "name": "Boat",
+      "id": 2
+    }
+  ],
+  "status": "on_duty",
+  "phone": "+849032230423",
+  "name": "John Doe",
+  "id": 1,
+  "email": "test@yojee.com",
+  "device_token": "AI73LASYS93SDKD",
+  "current_vehicle_type_id": 2,
+  "avatar": "https://s3-ap-southeast-1.amazonaws.com/avatar.jpg"
+}
+```
+
+This endpoint retrieves all worker information.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/info`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Get task statistics of a worker
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/statistics' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tasks": {
+    "failed": 0,
+    "completed": 1,
+    "assigned": 0,
+    "accepted": 1
+  },
+  "income": "10.00",
+  "date": "2018-03-31"
+}
+```
+
+This endpoint gets task statistics of a worker.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/statistics`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+range | Time Range
+
+## Update worker information
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/worker/update' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'status: {{status}}' \
+  -d 'avatar: {{avatar}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status": "on_duty",
+  "id": 1,
+  "avatar": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg"
+}
+```
+
+This endpoint update worker information.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/update`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+status | {{status}} | String
+avatar | {{avatar}} | String
+
+## Select a vehicle type
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Vehicle was selected."
+}
+```
+
+This endpoint selects a vehicle type.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | Vehicle ID
+
+## Get all configurations for a specific company
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/companies/config' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "rules": {
+    "pickup": [
+      {
+        "title": "Upload image of client",
+        "id": 1478,
+        "action": "upload_photo"
+      }
+    ],
+    "dropoff": [
+      {
+        "title": "Upload image of client",
+        "id": 1479,
+        "action": "upload_photo"
+      }
+    ]
+  },
+  "reasons": [
+    {
+      "reason": "Address is wrong",
+      "id": 2
+    }
+  ]
+}
+```
+
+This endpoint gets all configurations for a specific company.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Create a sub task
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'task_id: {{task_id}}' \
+  -d 'sub_task_rule_id: {{sub_task_rule_id}}' \
+  -d 'photo: {{photo}}' \
+  -d 'meta: {{meta}}' \
+  -d 'event: {{event}}' \
+  -d 'completion_time: {{completion_time}}' \
+  -d 'action: {{action}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "task_id": 2,
+  "sub_task_rule_id": 3,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "event": "pickup_completed",
+  "completion_time": "2018-03-10T03:37:08",
+  "action": "upload_photo"
+}
+```
+
+This endpoint creates a sub task.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+task_id | {{task_id}} | Integer
+sub_task_rule_id | {{sub_task_rule_id}} | Integer
+photo | {{photo}} | String
+meta | {{photo_type}} | String
+| {{photo_title}} | String
+event | {{event}} | String
+completion_time | {{completion_time}} | String
+action | {{action}} | String
+
+## Update the location of worker
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/worker/location' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Worker location updated"
+}
+```
+
+This endpoint updates the location of worker.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/location`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+lng | {{lng}} | Number
+lat | {{lng}} | Number
+
+## Check status of bulk complete
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "total": 100,
+  "status": "completed",
+  "processed": 100,
+  "logs": []
+}
+```
+
+This endpoint checks status of bulk complete.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Marks a task as failed by creating an associated task exception
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'description: {{description}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "OK"
+}
+```
+
+This endpoint marks a task as failed by creating an associated task exception.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+description | {{description}} | String
+
+## Complete a list of tasks
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'tasks: {{tasks}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "OK"
+}
+```
+
+This endpoint completes a list of tasks.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+tasks | {{type}} | String
+| {{tracking_numbers}} | String
+| {{location}} : {{lng}} | Number
+| {{location}} : {{lat}} | Number
+| {{completion_time}} | Timestamp
+
+## Get all ongoing tasks of a worker
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves all ongoing tasks of a worker.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+page | Page number | 1
+page_size | Page size | 10
+
+## Get all completed tasks of a worker
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves all completed tasks of a worker.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+page | Page number | 1
+page_size | Page size | 10
+
+## List completed and failed tasks
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves all completed and failed tasks.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+page | Page number | 1
+page_size | Page size | 10
+time_range | Time Range | -
+
+## Complete a task
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'completion_time: {{completion_time}}' \
+  -d 'location: {{location}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint completes a task.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+completion_time | {{completion_time}} | Timestamp
+location | {{lng}} | Number
+| {{lat}} | Number
+
+## List task group by statuses
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "state": "created",
+  "price": "SGD 10",
+  "id": 1
+}
+```
+
+This endpoint retrieves task group by statuses.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+status | An array of statuses, e.g: [unassigned, assigned, accepted, completed, cancelled] | -
+
+## Get a task group
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "state": "created",
+  "price": "SGD 10",
+  "id": 1
+}
+```
+
+This endpoint retrieves a task group.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Accept a task group
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "state": "created",
+  "price": "SGD 10",
+  "id": 1
+}
+```
+
+This endpoint accepts a task group.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Reject a task group
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Reject a task group successfully."
+}
+```
+
+This endpoint rejects a task group.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
