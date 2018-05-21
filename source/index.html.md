@@ -4646,6 +4646,76 @@ COMPANY_SLUG | {{COMPANY_SLUG}}
 ## Updates a Region
 
 ```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'tag: {{tag}}' \
+  -d 'description: {{description}}' \
+  -d 'coordinates: {{coordinates}}' \
+  -d 'color: {{color}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tag": "poly5",
+  "inserted_at": "2018-05-19 05:05:11.646174Z",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "company_id": 1,
+  "color": "red"
+}
+```
+
+This endpoint updates a Region.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+tag | {{tag}} | String
+description | {{description}} | String
+coordinates | {{lng}} | Number
+| {{lat}} | Number
+color | {{color}} | String
+
+## Updates a Region
+
+```shell
 curl -X PATCH \
   'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}' \
   -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
@@ -4825,19 +4895,317 @@ Key | Value
 ACCESS_TOKEN | {{ACCESS_TOKEN}}
 COMPANY_SLUG | {{COMPANY_SLUG}}
 
-## Updates a Hub
+## Creates a Spoke
 
 ```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}' \
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes' \
   -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
   -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
   -H 'Cache-Control: no-cache' \
   -H 'content-type: application/json' \
-  -d 'tag: {{tag}}' \
-  -d 'description: {{description}}' \
-  -d 'coordinates: {{coordinates}}' \
-  -d 'color: {{color}}'
+  -d 'properties: {{properties}}' \
+  -d 'pessimistic_estimated_duration: {{pessimistic_estimated_duration}}' \
+  -d 'origin_hub_id: {{origin_hub_id}}' \
+  -d 'optimistic_estimated_duration: {{optimistic_estimated_duration}}' \
+  -d 'name: {{name}}' \
+  -d 'modality: {{modality}}' \
+  -d 'destination_hub_id: {{destination_hub_id}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "inserted_at": "2018-05-19 05:02:57.208315Z",
+  "destination_hub_id": 2,
+  "company_id": 1
+}
+```
+
+This endpoint creates a Spoke.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+properties | {{properties}} | String
+pessimistic_estimated_duration | {{pessimistic_estimated_duration}} | Integer
+origin_hub_id | {{origin_hub_id}} | Integer
+optimistic_estimated_duration | {{optimistic_estimated_duration}} | Integer
+name | {{name}} | String
+modality | {{modality}} | String
+destination_hub_id | {{destination_hub_id}} | Integer
+
+## Get all spokes
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "inserted_at": "2018-05-19 05:02:57.208315Z",
+  "destination_hub_id": 2,
+  "company_id": 1
+}
+```
+
+This endpoint gets all spokes.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Updates a Spoke
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'properties: {{properties}}' \
+  -d 'pessimistic_estimated_duration: {{pessimistic_estimated_duration}}' \
+  -d 'origin_hub_id: {{origin_hub_id}}' \
+  -d 'optimistic_estimated_duration: {{optimistic_estimated_duration}}' \
+  -d 'name: {{name}}' \
+  -d 'modality: {{modality}}' \
+  -d 'destination_hub_id: {{destination_hub_id}}'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "inserted_at": "2018-05-19 05:02:57.208315Z",
+  "destination_hub_id": 2,
+  "company_id": 1
+}
+```
+
+This endpoint updates a Spoke.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+properties | {{properties}} | String
+pessimistic_estimated_duration | {{pessimistic_estimated_duration}} | Integer
+origin_hub_id | {{origin_hub_id}} | Integer
+optimistic_estimated_duration | {{optimistic_estimated_duration}} | Integer
+name | {{name}} | String
+modality | {{modality}} | String
+destination_hub_id | {{destination_hub_id}} | Integer
+
+## Updates a Spoke
+
+```shell
+curl -X PATCH \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'properties: {{properties}}' \
+  -d 'pessimistic_estimated_duration: {{pessimistic_estimated_duration}}' \
+  -d 'origin_hub_id: {{origin_hub_id}}' \
+  -d 'optimistic_estimated_duration: {{optimistic_estimated_duration}}' \
+  -d 'name: {{name}}' \
+  -d 'modality: {{modality}}' \
+  -d 'destination_hub_id: {{destination_hub_id}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "inserted_at": "2018-05-19 05:02:57.208315Z",
+  "destination_hub_id": 2,
+  "company_id": 1
+}
+```
+
+This endpoint updates a Spoke.
+
+### HTTP Request
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+properties | {{properties}} | String
+pessimistic_estimated_duration | {{pessimistic_estimated_duration}} | Integer
+origin_hub_id | {{origin_hub_id}} | Integer
+optimistic_estimated_duration | {{optimistic_estimated_duration}} | Integer
+name | {{name}} | String
+modality | {{modality}} | String
+destination_hub_id | {{destination_hub_id}} | Integer
+
+## Get all spokes
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "inserted_at": "2018-05-19 05:02:57.208315Z",
+  "destination_hub_id": 2,
+  "company_id": 1
+}
+```
+
+This endpoint gets all spokes.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Delete all spokes
+
+```shell
+curl -X DELETE \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "inserted_at": "2018-05-19 05:02:57.208315Z",
+  "destination_hub_id": 2,
+  "company_id": 1
+}
+```
+
+This endpoint deletes all spokes.
+
+### HTTP Request
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Creates a Hub
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'regions: {{regions}}' \
+  -d 'properties: {{properties}}' \
+  -d 'name: {{name}}' \
+  -d 'location: {{location}}'
 ```
 
 > The above command returns JSON structured like this:
@@ -4856,7 +5224,67 @@ curl -X PUT \
     "lng": 122.6428429677108,
     "lat": 65.67691234535297
   },
-  "inserted_at": "2018-05-19 05:05:11.646750Z",
+  "inserted_at": "2018-05-19 05:02:57.207612Z",
+  "company_id": 1
+}
+```
+
+This endpoint creates a Hub.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+regions | {{regions}} | String
+properties | {{description}} | String
+| {{address}} | String
+name | {{name}} | String
+location | {{lng}} | Number
+| {{lat}} | Number
+
+## Updates a Hub
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'regions: {{regions}}' \
+  -d 'properties: {{properties}}' \
+  -d 'name: {{name}}' \
+  -d 'location: {{location}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "inserted_at": "2018-05-19 05:02:57.207612Z",
   "company_id": 1
 }
 ```
@@ -4884,3 +5312,1274 @@ properties | {{description}} | String
 name | {{name}} | String
 location | {{lng}} | Number
 | {{lat}} | Number
+
+## Get all hubs
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "inserted_at": "2018-05-19 05:02:57.207612Z",
+  "company_id": 1
+}
+```
+
+This endpoint gets all hubs.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Updates a Hub
+
+```shell
+curl -X PATCH \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'regions: {{regions}}' \
+  -d 'properties: {{properties}}' \
+  -d 'name: {{name}}' \
+  -d 'location: {{location}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "inserted_at": "2018-05-19 05:02:57.207612Z",
+  "company_id": 1
+}
+```
+
+This endpoint updates a Hub.
+
+### HTTP Request
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+regions | {{regions}} | String
+properties | {{description}} | String
+| {{address}} | String
+name | {{name}} | String
+location | {{lng}} | Number
+| {{lat}} | Number
+
+## Get all hubs
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "inserted_at": "2018-05-19 05:02:57.207612Z",
+  "company_id": 1
+}
+```
+
+This endpoint gets all hubs.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Delete all hubs
+
+```shell
+curl -X DELETE \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "inserted_at": "2018-05-19 05:02:57.207612Z",
+  "company_id": 1
+}
+```
+
+This endpoint deletes all hubs.
+
+### HTTP Request
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Search for a sender
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint searches for a sender.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+q | Search query | -
+
+## Search for a worker
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint searches for a worker.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+q | Search query | -
+
+## Search for an order
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint searches for an order.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+q | Search query | -
+
+## Search for an order item
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint searches for an order item.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+q | Search query | -
+
+## Search for a task
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint searches for a task.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+q | Search query | -
+
+## List failed task
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves a list of failed task.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+page | Page number | 1
+page_size | Page size | 10
+
+## List assigned task
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves a list of assigned task.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+page | Page number | 1
+page_size | Page size | 10
+
+## List completed task
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves a list of completed task.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+page | Page number | 1
+page_size | Page size | 10
+
+## List order items
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "weight": 20,
+  "volume": 300,
+  "tracking_number": "yoyoyoyo",
+  "to_address": "Airport Blvd, Changi Airport Singapore (SIN), Singapore",
+  "status": "assigned",
+  "service_type": "same_day",
+  "sender_phone": "+6590050680",
+  "sender_name": "champ",
+  "receipient_phone": "+6598765432",
+  "receipient_name": "test2",
+  "order_number": "order_number",
+  "order_id": 1,
+  "item_number": 2,
+  "id": 7,
+  "from_address": "144 Robinson Road, Level 15, Singapore 068908",
+  "description": "Gifts",
+  "created_at": "2018-03-08T14:58:24.280533"
+}
+```
+
+This endpoint retrieves a list of order items.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/v3/api/dispatcher/order_items`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+page | Page number | 1
+page_size | Page size | 10
+status | Status of the order item | optional
+service_type | Service type of the order item | optional
+order_id | Order ID | optional
+from | From timestamp | optional
+to | To timestamp | optional
+
+## Show detail of an order item
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "progress_session": [
+    {
+      "type": "assigned",
+      "status": "blank"
+    },
+    {
+      "type": "started",
+      "status": "blank"
+    },
+    {
+      "type": "pickup",
+      "status": "blank"
+    },
+    {
+      "type": "dropoff",
+      "status": "blank"
+    },
+    {
+      "type": "completed",
+      "status": "blank"
+    }
+  ],
+  "message": "detail of an order_item",
+  "item_session": {
+    "weight": 12,
+    "service_type": "same_day",
+    "price": "SGD 4",
+    "pickup": {
+      "worker_phone": "+8469331112302",
+      "worker_name": "Khoa Worker",
+      "address": "144 Robinson Rd, Singapore 068908"
+    },
+    "payload_type": "Package",
+    "order_reference_number": "N3hqZHZrN2dUYUs0dmVJUUZpeUVpQT09",
+    "item_id": 1,
+    "dropoff": {
+      "worker_phone": "+8469331112302",
+      "worker_name": "Khoa Worker",
+      "address": "Boon Keng Rd, Singapore"
+    },
+    "description": "Gift",
+    "can_edit": true
+  },
+  "delivery_trial": [
+    {
+      "type": "dropoff",
+      "task_id": 2,
+      "logs": [
+        {
+          "inserted_at": "2018-03-22T07:52:30.181011",
+          "description": "Task created"
+        }
+      ]
+    },
+    {
+      "type": "pickup",
+      "task_id": 1,
+      "logs": [
+        {
+          "inserted_at": "2018-03-22T07:52:30.178729",
+          "description": "Task created"
+        }
+      ]
+    }
+  ]
+}
+```
+
+This endpoint retrieves a list of order items.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/v3/api/dispatcher/order_items/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+delivery_trial_sort | Asc/Desc | -
+
+## Update an order item
+
+```shell
+curl -X PATCH \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'payload_type: {{payload_type}}' \
+  -d 'description: {{description}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "progress_session": [
+    {
+      "type": "assigned",
+      "status": "blank"
+    },
+    {
+      "type": "started",
+      "status": "blank"
+    },
+    {
+      "type": "pickup",
+      "status": "blank"
+    },
+    {
+      "type": "dropoff",
+      "status": "blank"
+    },
+    {
+      "type": "completed",
+      "status": "blank"
+    }
+  ],
+  "message": "detail of an order_item",
+  "item_session": {
+    "weight": 12,
+    "service_type": "same_day",
+    "price": "SGD 4",
+    "pickup": {
+      "worker_phone": "+8469331112302",
+      "worker_name": "Khoa Worker",
+      "address": "144 Robinson Rd, Singapore 068908"
+    },
+    "payload_type": "Package",
+    "order_reference_number": "N3hqZHZrN2dUYUs0dmVJUUZpeUVpQT09",
+    "item_id": 1,
+    "dropoff": {
+      "worker_phone": "+8469331112302",
+      "worker_name": "Khoa Worker",
+      "address": "Boon Keng Rd, Singapore"
+    },
+    "description": "Gift",
+    "can_edit": true
+  },
+  "delivery_trial": [
+    {
+      "type": "dropoff",
+      "task_id": 2,
+      "logs": [
+        {
+          "inserted_at": "2018-03-22T07:52:30.181011",
+          "description": "Task created"
+        }
+      ]
+    },
+    {
+      "type": "pickup",
+      "task_id": 1,
+      "logs": [
+        {
+          "inserted_at": "2018-03-22T07:52:30.178729",
+          "description": "Task created"
+        }
+      ]
+    }
+  ]
+}
+```
+
+This endpoint updates an order item.
+
+### HTTP Request
+
+`PATCH https://umbrella-demo.yojee.com/v3/api/dispatcher/order_items/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+payload_type | {{payload_type}} | String
+description | {{description}} | String
+
+## Update an order item
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'payload_type: {{payload_type}}' \
+  -d 'description: {{description}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "progress_session": [
+    {
+      "type": "assigned",
+      "status": "blank"
+    },
+    {
+      "type": "started",
+      "status": "blank"
+    },
+    {
+      "type": "pickup",
+      "status": "blank"
+    },
+    {
+      "type": "dropoff",
+      "status": "blank"
+    },
+    {
+      "type": "completed",
+      "status": "blank"
+    }
+  ],
+  "message": "detail of an order_item",
+  "item_session": {
+    "weight": 12,
+    "service_type": "same_day",
+    "price": "SGD 4",
+    "pickup": {
+      "worker_phone": "+8469331112302",
+      "worker_name": "Khoa Worker",
+      "address": "144 Robinson Rd, Singapore 068908"
+    },
+    "payload_type": "Package",
+    "order_reference_number": "N3hqZHZrN2dUYUs0dmVJUUZpeUVpQT09",
+    "item_id": 1,
+    "dropoff": {
+      "worker_phone": "+8469331112302",
+      "worker_name": "Khoa Worker",
+      "address": "Boon Keng Rd, Singapore"
+    },
+    "description": "Gift",
+    "can_edit": true
+  },
+  "delivery_trial": [
+    {
+      "type": "dropoff",
+      "task_id": 2,
+      "logs": [
+        {
+          "inserted_at": "2018-03-22T07:52:30.181011",
+          "description": "Task created"
+        }
+      ]
+    },
+    {
+      "type": "pickup",
+      "task_id": 1,
+      "logs": [
+        {
+          "inserted_at": "2018-03-22T07:52:30.178729",
+          "description": "Task created"
+        }
+      ]
+    }
+  ]
+}
+```
+
+This endpoint updates an order item.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/v3/api/dispatcher/order_items/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+payload_type | {{payload_type}} | String
+description | {{description}} | String
+
+## List sub tasks
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "task_id": 103,
+  "sub_task_rule_id": 21,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "id": 21,
+  "event": "pickup_completed",
+  "completion_time": "2018-03-10T03:37:08",
+  "company_id": 136,
+  "action": "upload_photo"
+}
+```
+
+This endpoint retrieves a list of sub tasks.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/v3/api/dispatcher/order_items/{order_item_id}/sub_tasks`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Get a sub task
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "task_id": 103,
+  "sub_task_rule_id": 21,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "id": 21,
+  "event": "pickup_completed",
+  "completion_time": "2018-03-10T03:37:08",
+  "company_id": 136,
+  "action": "upload_photo"
+}
+```
+
+This endpoint retrieves a sub task.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/v3/api/dispatcher/order_items/{order_item_id}/sub_tasks/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Get order detail of batch
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/batches/get_order' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves order detail of batch.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/v3/api/dispatcher/batches/get_order`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+batch_id | Batch ID | -
+
+## Get batch status
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/batches/check_status' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves batch status.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/v3/api/dispatcher/batches/check_status`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+batch_id | Batch ID | -
+
+## Upload a file
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/roles' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+
+}
+```
+
+This endpoint retrieves batch status.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/v3/api/dispatcher/roles`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Parameters
+
+Parameter | Description | Default Value
+--------- | ----------- | -----------
+file | File to be uploaded | -
+uploader_id | Uploader ID | -
+company_id | Company ID | -
+
+## Create a role
+
+```shell
+curl -X POST \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/roles' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'name: {{name}}' \
+  -d 'company_id: {{company_id}}' \
+  -d 'access_map: {{access_map}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{  
+  "name": "role_1",
+  "inserted_at": "2018-05-19 05:02:57.206135Z",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+      }
+    }
+}
+```
+
+This endpoint creates a role.
+
+### HTTP Request
+
+`POST https://umbrella-demo.yojee.com/v3/api/dispatcher/roles`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+name | {{name}} | String
+company_id | {{company_id}} | Integer
+access_map | {{access_map}} | Array
+
+## List roles
+
+```shell
+curl -X GET \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/roles' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{  
+  "name": "role_1",
+  "inserted_at": "2018-05-19 05:02:57.206135Z",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+      }
+    }
+}
+```
+
+This endpoint retrieves a list of roles.
+
+### HTTP Request
+
+`GET https://umbrella-demo.yojee.com/v3/api/dispatcher/roles`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+## Update a role
+
+```shell
+curl -X PUT \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'name: {{name}}' \
+  -d 'company_id: {{company_id}}' \
+  -d 'access_map: {{access_map}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{  
+  "name": "role_1",
+  "inserted_at": "2018-05-19 05:02:57.206135Z",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+      }
+    }
+}
+```
+
+This endpoint updates a role.
+
+### HTTP Request
+
+`PUT https://umbrella-demo.yojee.com/v3/api/dispatcher/roles/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+name | {{name}} | String
+company_id | {{company_id}} | Integer
+access_map | {{access_map}} | Array
+
+## Update a role
+
+```shell
+curl -X PATCH \
+  'https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id}' \
+  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
+  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'content-type: application/json' \
+  -d 'name: {{name}}' \
+  -d 'company_id: {{company_id}}' \
+  -d 'access_map: {{access_map}}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{  
+  "name": "role_1",
+  "inserted_at": "2018-05-19 05:02:57.206135Z",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+      }
+    }
+}
+```
+
+This endpoint updates a role.
+
+### HTTP Request
+
+`PATCH https://umbrella-demo.yojee.com/v3/api/dispatcher/roles/{id}`
+
+### Headers
+
+Key | Value
+--------- | -------
+ACCESS_TOKEN | {{ACCESS_TOKEN}}
+COMPANY_SLUG | {{COMPANY_SLUG}}
+
+### Body
+
+Key | Value | Type
+--------- | ------- | -------
+name | {{name}} | String
+company_id | {{company_id}} | Integer
+access_map | {{access_map}} | Array
