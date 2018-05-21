@@ -28,6 +28,7 @@ $tg-slate: #2d3033;
 $tg-grey: #6c7279;
 $tg-teal: #65d5d9;
 $tg-red: #f6574d;
+$red: #ff0000;
 $tg-bermuda-green: #7be3bd;
 $base-grey-10: #f4f4f5;
 $base-grey-5: rgba($base-grey-10, .5);
@@ -60,7 +61,7 @@ $search-notice-bg: #c97a7e;
 $main-text: $tg-slate; // main content text color
 $nav-text: $tg-grey;
 $nav-active-text: $main-text;
-$nav-footer-text: $tg-red;
+$nav-footer-text: $red;
 $content-link: $tg-green;
 $content-link-hover: $tg-dark-green;
 $code: $tg-red;

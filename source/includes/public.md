@@ -1,6 +1,6 @@
 # Public
 
-## Get user information
+## Get company information
 
 ```shell
 curl -X GET \
@@ -50,11 +50,11 @@ curl -X GET \
 }
 ```
 
-This endpoint retrieves all user information.
+This endpoint retrieves company information.
 
 ### HTTP Request
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/user/info`
+`GET https://umbrella-demo.yojee.com/api/v3/public/users/info`
 
 ### Headers
 
