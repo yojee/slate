@@ -1,518 +1,746 @@
-# Worker
+<h1 id="Yojee-APIs-[Worker]-Info">[Worker] Info</h1>
 
-## Get worker information
+## ApiWeb.V3.Worker.InfoController.me
+
+<a id="opIdApiWeb.V3.Worker.InfoController.me"></a>
+
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/info' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "vehicles": [
-    {
-      "name": "Truck",
-      "id": 1
-    },
-    {
-      "name": "Boat",
-      "id": 2
-    }
-  ],
-  "status": "on_duty",
-  "phone": "+849032230423",
-  "name": "John Doe",
-  "id": 1,
-  "email": "test@yojee.com",
-  "device_token": "{{DEVICE_TOKEN}}",
-  "current_vehicle_type_id": 2,
-  "avatar": "avatar.jpg"
-}
-```
-
-This endpoint retrieves all worker information.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/info`
 
-### Headers
+*Get worker infomation*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.worker.infocontroller.me-parameters">Parameters</h3>
 
-## Get task statistics of a worker
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.infocontroller.me-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[InfoResponse](#schemainforesponse)|
+
+
+
+## ApiWeb.V3.Worker.InfoController.statistics
+
+<a id="opIdApiWeb.V3.Worker.InfoController.statistics"></a>
+
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/statistics' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/statistics \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "tasks": {
-    "failed": 0,
-    "completed": 1,
-    "assigned": 0,
-    "accepted": 1
-  },
-  "income": "10.00",
-  "date": "2018-03-31"
-}
-```
-
-This endpoint gets task statistics of a worker.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/statistics`
 
-### Headers
+Get statistics about task
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.worker.infocontroller.statistics-parameters">Parameters</h3>
 
-### Parameters
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|range|query|string|false|Time range|
 
-Parameter | Description
---------- | -----------
-range | Time Range
+### Enumerated Values
 
-## Update worker information
+|Parameter|Value|
+|---|---|
+|range|today|
+|range|last_week|
+|range|last_four_weeks|
 
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/update' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'status: {{status}}' \
-  -d 'avatar: {{avatar}}'
-```
+> Example responses
 
-> The above command returns JSON structured like this:
+> 200 Response
 
-```json
-{
-  "status": "on_duty",
-  "id": 1,
-  "avatar": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg"
-}
-```
+<h3 id="apiweb.v3.worker.infocontroller.statistics-responses">Responses</h3>
 
-This endpoint update worker information.
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[StatisticsResponse](#schemastatisticsresponse)|
 
-### HTTP Request
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/update`
+<h1 id="Yojee-APIs-[Worker]-Location">[Worker] Location</h1>
 
-### Headers
+## ApiWeb.V3.Worker.UserController.location
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<a id="opIdApiWeb.V3.Worker.UserController.location"></a>
 
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-status | {{status}} | String
-avatar | {{avatar}} | String
-
-## Select a vehicle type
+> Code samples
 
 ```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/location \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "Vehicle was selected."
-}
-```
-
-This endpoint selects a vehicle type.
-
-### HTTP Request
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-id | Vehicle ID
-
-## Get all configurations for a specific company
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/companies/config' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "rules": {
-    "pickup": [
-      {
-        "title": "Upload image of client",
-        "id": 1478,
-        "action": "upload_photo"
-      }
-    ],
-    "dropoff": [
-      {
-        "title": "Upload image of client",
-        "id": 1479,
-        "action": "upload_photo"
-      }
-    ]
-  },
-  "reasons": [
-    {
-      "reason": "Address is wrong",
-      "id": 2
-    }
-  ]
-}
-```
-
-This endpoint gets all configurations for a specific company.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-## Create a sub task
-
-```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'task_id: {{task_id}}' \
-  -d 'sub_task_rule_id: {{sub_task_rule_id}}' \
-  -d 'photo: {{photo}}' \
-  -d 'meta: {{meta}}' \
-  -d 'event: {{event}}' \
-  -d 'completion_time: {{completion_time}}' \
-  -d 'action: {{action}}'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "task_id": 2,
-  "sub_task_rule_id": 3,
-  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-  "meta": {
-    "photo_type": "Proof",
-    "photo_title": "Signature"
-  },
-  "event": "pickup_completed",
-  "completion_time": "2018-03-10T03:37:08",
-  "action": "upload_photo"
-}
-```
-
-This endpoint creates a sub task.
-
-### HTTP Request
-
-`POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-task_id | {{task_id}} | Integer
-sub_task_rule_id | {{sub_task_rule_id}} | Integer
-photo | {{photo}} | String
-meta | {{photo_type}} | String
- | {{photo_title}} | String
-event | {{event}} | String
-completion_time | {{completion_time}} | String
-action | {{action}} | String
-
-## Update the location of worker
-
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/location' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'lng: {{lng}}' \
-  -d 'lat: {{lat}}'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "Worker location updated"
-}
-```
-
-This endpoint updates the location of worker.
-
-### HTTP Request
 
 `PUT https://umbrella-demo.yojee.com/api/v3/worker/location`
 
-### Headers
+*Update the location of worker*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+Update the location of worker
 
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-lng | {{lng}} | Number
-lat | {{lng}} | Number
-
-## Stores the device token of a worker
-
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/store_device_token' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'\
-  -d 'device_token: {{device_token}}'
-```
-
-> The above command returns JSON structured like this:
+> Body parameter
 
 ```json
 {
-  "message": "Stored device token successfully"
+  "lng": 122.6428429677108,
+  "lat": 65.67691234535297
 }
 ```
 
-This endpoint stores the device token of a worker.
+<h3 id="apiweb.v3.worker.usercontroller.location-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[WorkerLocationUpdateRequest](#schemaworkerlocationupdaterequest)|false|Location information|
+
+<h3 id="apiweb.v3.worker.usercontroller.location-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker location updated|None|
+
+
+
+<h1 id="Yojee-APIs-[Worker]-Device Token">[Worker] Device Token</h1>
+
+## ApiWeb.V3.Worker.UserController.store_device_token
+
+<a id="opIdApiWeb.V3.Worker.UserController.store_device_token"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
 
 `PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token`
 
-### Headers
+*Stores the device token of a worker*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-device_token | {{device_token}} | String
-
-## Check status of bulk complete
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
+> Body parameter
 
 ```json
-{
-  "total": 100,
-  "status": "completed",
-  "processed": 100,
-  "logs": []
-}
+null
 ```
 
-This endpoint checks status of bulk complete.
+<h3 id="apiweb.v3.worker.usercontroller.store_device_token-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|any|true|device token|
+
+<h3 id="apiweb.v3.worker.usercontroller.store_device_token-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stored device token successfully|None|
+
+
+
+
+<h1 id="Yojee-APIs-[Worker]-User">[Worker] User</h1>
+
+## ApiWeb.V3.Worker.UserController.update
+
+<a id="opIdApiWeb.V3.Worker.UserController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/update \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/update`
+
+*Update worker infomation*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.worker.usercontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|any|false|worker's status|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.usercontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerResponse](#schemaworkerresponse)|
+
+
+<h1 id="Yojee-APIs-[Worker]-Company">[Worker] Company</h1>
+
+## ApiWeb.V3.Worker.CompanyController.config
+
+<a id="opIdApiWeb.V3.Worker.CompanyController.config"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config`
+
+Get all configs for a specific company
+
+<h3 id="apiweb.v3.worker.companycontroller.config-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.companycontroller.config-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyConfigsResponse](#schemacompanyconfigsresponse)|
+
+
+<h1 id="Yojee-APIs-[Worker]-Vehicle">[Worker] Vehicle</h1>
+
+## ApiWeb.V3.Worker.VehicleController.select
+
+<a id="opIdApiWeb.V3.Worker.VehicleController.select"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select`
+
+Select a vehicle
+
+<h3 id="apiweb.v3.worker.vehiclecontroller.select-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Vehicle ID|
+
+<h3 id="apiweb.v3.worker.vehiclecontroller.select-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+<h1 id="Yojee-APIs-[Worker]-TaskGroup">[Worker] TaskGroup</h1>
+
+## ApiWeb.V3.Worker.TaskGroupController.index
+
+<a id="opIdApiWeb.V3.Worker.TaskGroupController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups`
+
+*List task group by statuses*
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|status|query|array[any]|false|An array of statuses, e.g: [unassigned, assigned, accepted, completed, cancelled]|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Filter task group by statuses|[TaskGroupResponse](#schemataskgroupresponse)|
+
+
+
+## ApiWeb.V3.Worker.TaskGroupController.reject
+
+<a id="opIdApiWeb.V3.Worker.TaskGroupController.reject"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject`
+
+*Reject a task group*
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.reject-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task group ID|
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.reject-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Reject a task group successfully|None|
+
+
+
+## ApiWeb.V3.Worker.TaskGroupController.show
+
+<a id="opIdApiWeb.V3.Worker.TaskGroupController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}`
+
+*Get a task groups*
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task group ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Show a task group successfully|[TaskGroupResponse](#schemataskgroupresponse)|
+
+
+
+## ApiWeb.V3.Worker.TaskGroupController.accept
+
+<a id="opIdApiWeb.V3.Worker.TaskGroupController.accept"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept`
+
+*Accept a task group*
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.accept-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task group ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.accept-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Accept a task group successfully|[TaskGroupsResponse](#schemataskgroupsresponse)|
+
+
+<h1 id="Yojee-APIs-[Worker]-Task">[Worker] Task</h1>
+
+## ApiWeb.V3.Worker.TaskController.batch_complete_status
+
+<a id="opIdApiWeb.V3.Worker.TaskController.batch_complete_status"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status`
 
-### Headers
+*Check status of bulk complete*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.worker.taskcontroller.batch_complete_status-parameters">Parameters</h3>
 
-### Parameters
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Batch ID|
 
-Parameter | Description
---------- | -----------
-id | Batch ID
+> Example responses
 
-## Marks a task as failed by creating an associated task exception
+> 200 Response
+
+<h3 id="apiweb.v3.worker.taskcontroller.batch_complete_status-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[BulkCompletionStatus](#schemabulkcompletionstatus)|
+
+
+
+## ApiWeb.V3.Worker.TaskController.mark_as_failed
+
+<a id="opIdApiWeb.V3.Worker.TaskController.mark_as_failed"></a>
+
+> Code samples
 
 ```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'description: {{description}}'
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "OK"
-}
-```
-
-This endpoint marks a task as failed by creating an associated task exception.
-
-### HTTP Request
 
 `POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
 
-### Headers
+Marks a task as failed by creating an associated task exception
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-description | {{description}} | String
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-id | Task ID
-
-## Complete a list of tasks
-
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'type: {{type}}' \
-  -d 'tracking_numbers: {{tracking_numbers}}' \
-  -d 'location: {{location}}' \
-  -d 'completion_time: {{completion_time}}'
-```
-
-> The above command returns JSON structured like this:
+> Body parameter
 
 ```json
-{
-  "message": "OK"
-}
+null
 ```
 
-This endpoint completes a list of tasks.
+<h3 id="apiweb.v3.worker.taskcontroller.mark_as_failed-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task Id|
+|body|body|[ApiWeb.V3.Worker.TaskController.mark_as_failedDescriptions](#schemaapiweb.v3.worker.taskcontroller.mark_as_faileddescriptions)|true|Task Exception descriptions|
+
+<h3 id="apiweb.v3.worker.taskcontroller.mark_as_failed-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+
+## ApiWeb.V3.Worker.TaskController.bulk_complete
+
+<a id="opIdApiWeb.V3.Worker.TaskController.bulk_complete"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
 
 `PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete`
 
-### Headers
+*Complete a list of tasks*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+> Body parameter
 
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-type | {{type}} | String
-tracking_numbers  | {{tracking_numbers}} | String
-location | {{lng}} | Number
- | {{lat}} | Number
-completion_time | {{completion_time}} | Timestamp
-
-## Get all ongoing tasks of a worker
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+```json
+{
+  "type": "pickup",
+  "tracking_numbers": [
+    "YOJ-YXFCYNNRPT0",
+    "YOJ-YXFCYNNRPT8",
+    "YOJ-YXFCYNNRPT0"
+  ],
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "completion_time": "2018-03-10T03:37:08Z"
+}
 ```
 
-> The above command returns JSON structured like this:
+<h3 id="apiweb.v3.worker.taskcontroller.bulk_complete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[BulkTaskCompletionRequest](#schemabulktaskcompletionrequest)|false|Task Completion information|
+
+
+
+## ApiWeb.V3.Worker.TaskController.ongoing
+
+<a id="opIdApiWeb.V3.Worker.TaskController.ongoing"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing`
+
+*List ongoing tasks*
+
+<h3 id="apiweb.v3.worker.taskcontroller.ongoing-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+
+
+## ApiWeb.V3.Worker.TaskController.completed
+
+<a id="opIdApiWeb.V3.Worker.TaskController.completed"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed`
+
+*List completed tasks*
+
+<h3 id="apiweb.v3.worker.taskcontroller.completed-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|range|query|string|false|Time range|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|range|today|
+|range|last_week|
+|range|last_four_weeks|
+
+
+
+## ApiWeb.V3.Worker.TaskController.complete
+
+<a id="opIdApiWeb.V3.Worker.TaskController.complete"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete`
+
+*Complete a task*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.worker.taskcontroller.complete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task ID|
+|body|body|any|false|Completion Time|
+
+
+
+## ApiWeb.V3.Worker.TaskController.history
+
+<a id="opIdApiWeb.V3.Worker.TaskController.history"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history`
+
+*List completed and failed tasks*
+
+<h3 id="apiweb.v3.worker.taskcontroller.history-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|range|query|string|false|Time range|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|range|today|
+|range|last_week|
+|range|last_four_weeks|
+
+<h1 id="Yojee-APIs-[Worker]-SubTask">[Worker] SubTask</h1>
+
+## ApiWeb.V3.Worker.SubTaskController.create
+
+<a id="opIdApiWeb.V3.Worker.SubTaskController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
+
+Create a sub task
+
+> Body parameter
 
 ```json
 {
@@ -529,325 +757,20 @@ curl -X GET \
 }
 ```
 
-This endpoint retrieves all ongoing tasks of a worker.
+<h3 id="apiweb.v3.worker.subtaskcontroller.create-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[SubTaskRequest](#schemasubtaskrequest)|false|SubTask|
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing`
+> Example responses
 
-### Headers
+> 200 Response
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.worker.subtaskcontroller.create-responses">Responses</h3>
 
-### Parameters
-
-Parameter | Description | Default Value
---------- | ----------- | -----------
-page | Page number | 1
-page_size | Page size | 10
-
-## Get all completed tasks of a worker
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "task_id": 2,
-  "sub_task_rule_id": 3,
-  "photo": "signature.jpg",
-  "meta": {
-    "photo_type": "Proof",
-    "photo_title": "Signature"
-  },
-  "event": "pickup_completed",
-  "completion_time": "2018-03-10T03:37:08",
-  "action": "upload_photo"
-}
-```
-
-This endpoint retrieves all completed tasks of a worker.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description | Default Value
---------- | ----------- | -----------
-page | Page number | 1
-page_size | Page size | 10
-
-## List completed and failed tasks
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/history' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "task_id": 2,
-  "sub_task_rule_id": 3,
-  "photo": "signature.jpg",
-  "meta": {
-    "photo_type": "Proof",
-    "photo_title": "Signature"
-  },
-  "event": "pickup_completed",
-  "completion_time": "2018-03-10T03:37:08",
-  "action": "upload_photo"
-}
-```
-
-This endpoint retrieves all completed and failed tasks.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description | Default Value
---------- | ----------- | -----------
-page | Page number | 1
-page_size | Page size | 10
-time_range | Time Range | -
-
-## Complete a task
-
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'completion_time: {{completion_time}}' \
-  -d 'location: {{location}}'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "OK"
-}
-```
-
-This endpoint completes a task.
-
-### HTTP Request
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-completion_time | {{completion_time}} | Timestamp
-location | {{lng}} | Number
- | {{lat}} | Number
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-id | Task ID
-
-## List task group by statuses
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "state": "created",
-  "price": "SGD 10",
-  "id": 1
-}
-```
-
-This endpoint retrieves task group by statuses.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-status | An array of statuses, e.g: [unassigned, assigned, accepted, completed, cancelled]
-
-## Get a task group
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "state": "created",
-  "price": "SGD 10",
-  "id": 1
-}
-```
-
-This endpoint retrieves a task group.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-id | Task group ID
-
-## Accept a task group
-
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "state": "created",
-  "price": "SGD 10",
-  "id": 1
-}
-```
-
-This endpoint accepts a task group.
-
-### HTTP Request
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-id | Task group ID
-
-## Reject a task group
-
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "Reject a task group successfully."
-}
-```
-
-This endpoint rejects a task group.
-
-### HTTP Request
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-id | Task group ID
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SubTaskResponse](#schemasubtaskresponse)|

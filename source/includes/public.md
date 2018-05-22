@@ -1,470 +1,440 @@
-# Public
+<h1 id="Yojee-APIs-[Public]-Info">[Public] Info</h1>
 
-## Get company information
+## ApiWeb.V3.UserController.info
+
+<a id="opIdApiWeb.V3.UserController.info"></a>
+
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/users/info' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slug=string
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "order_schema": {
-      "size_weight": {
-        "package": {
-          "required": [
-            "size",
-            "weight"
-          ],
-          "properties": "properties",
-      "job_details": "job_details",
-      "delivery_type": "delivery_type",
-      "addresses": "addresses"
-    },
-    "customer_language": "en",
-    "cs_phone": "+6531591335",
-    "branding": {
-      "text_color_highlighted": "#8ecb1b",
-      "text_color": "#2c3e50",
-      "pricing_url": "https://yojee.com/prices/",
-      "logo": "logo.jpg",
-      "generated_favicon": {},
-      "favicon": {
-        "original": "favicon.jpg",
-        "96x96": ,
-      "banner_text_line1": "MON TO SAT 10AM-10PM. BOOKINGS AFTER 4PM WILL BE PROCESSED THE FOLLOWING DAY.",
-      "banner_text_color": "#ffffff",
-      "banner_header": "SAME DAY, NEXT DAY, EXPRESS DELIVERY",
-      "banner": "banner.jpg",
-      "background_color": "#ffffff",
-      "admin_primary_color": "#80c939"
-      }
-     }
-    }
-  }
-}
-```
-
-This endpoint retrieves company information.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/users/info`
 
-### Headers
+*Get user infomation*
 
-Key | Value
---------- | -------
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.usercontroller.info-parameters">Parameters</h3>
 
-## Get OTP code
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|company_slug|query|string|true|Company slug|
 
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/otp/' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
 
-> The above command returns JSON structured like this:
 
-```json
-{
-  "otp_code": "123456"
-}
-```
+## ApiWeb.V3.ApiController.verify_otp
 
-This endpoint gets OTP code.
+<a id="opIdApiWeb.V3.ApiController.verify_otp"></a>
 
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/public/otp/`
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-phone | Phone number
-
-## Verify OTP code
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/verify_otp/' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
+  -H 'Accept: */*'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "user_profile_id": 1,
-    "phone": "+99999999999",
-    "id": 1,
-    "email": "test@yojee.com",
-    "access_token": "T5P2rQrC6KbkPnLE9ebyjskMUTju3vKFBzlAr+bCUpc="
-  }
-```
-
-This endpoint verifies OTP code.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/`
 
-### Parameters
+*Verify OTP code*
 
-Parameter | Description
---------- | -----------
-phone | Phone number
-otp | OTP
+<h3 id="apiweb.v3.apicontroller.verify_otp-parameters">Parameters</h3>
 
-## Get price estimate
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|phone|query|string|false|Phone number|
+|otp_code|query|string|false|OTP code|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.apicontroller.verify_otp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OTP Verified|[VerifyOtpResponse](#schemaverifyotpresponse)|
+
+
+
+## ApiWeb.V3.Public.OrdersController.get_prices
+
+<a id="opIdApiWeb.V3.Public.OrdersController.get_prices"></a>
+
+> Code samples
 
 ```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/public/orders/price' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'slug: {{slug}}' \
-  -d 'item: {{item}}' \
-  -d 'to_address: {{to_address}}' \
-  -d 'from_address: {{from_address}}'
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
 ```
 
-> The above command returns JSON structured like this:
+`POST https://umbrella-demo.yojee.com/api/v3/public/orders/price`
+
+*Get price estimate*
+
+> Body parameter
 
 ```json
 {
-  "type": "express",
-  "success": true,
-  "msg": {
-    "surcharges": {
-      "CBD": 2
-    },
-    "price": 20,
-    "pickup_zip": "068896",
-    "dropoff_zip": "189703",
-    "base_price": 18
+  "to_address": {
+    "zipcode": "189703",
+    "location": "1.2976764,103.85701760000006",
+    "lng": "103.85701760000006",
+    "lat": "1.2976764",
+    "country": "Singpore"
+  },
+  "slug": "yojee",
+  "item": {
+    "weight": 4
+  },
+  "from_address": {
+    "zipcode": "068896",
+    "location": "1.2777689,103.84839149999993",
+    "lng": "103.84839149999993",
+    "lat": "1.2777689",
+    "country": "Singpore"
   }
 }
 ```
 
-This endpoint gets a price estimate of a delivery request.
+<h3 id="apiweb.v3.public.orderscontroller.get_prices-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[GetPricesRequest](#schemagetpricesrequest)|false|Get Prices information|
 
-`POST https://umbrella-demo.yojee.com/api/v3/public/orders/price`
+> Example responses
 
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-slug | {{slug}} | String
-item | {{weight}} | Integer
-to_address | {{zipcode}} | String
- | {{location}} | String
- | {{lng}} | String
- | {{lat}} | String
- | {{country}} | String
-from_address | {{zipcode}} | String
- | {{location}} | String
- | {{lng}} | String
- | {{lat}} | String
- | {{country}} | String
-
-## Get tracking data of an order
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/track/{number}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
+> 200 Response
 
 ```json
 {
-  "tracking_number": "O-SK1LAUPOQXJF",
-  "status": "created",
-  "price_currency": "SGD",
-  "price_amount": 10,
-  "order_items": [
+  "data": [
     {
-      "status": "scheduled_for_fulfilment",
-      "service_type": "sameday",
-      "order_item_logs": [
-        {
-          "inserted_at": "2018-03-20T15:18:38.770110",
-          "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
+      "type": "express",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
         },
-        {
-          "inserted_at": "2018-03-20T15:18:38.772850",
-          "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
-        }
-      ],
-      "item_id": 2673
+        "price": 20,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 18
+      }
+    },
+    {
+      "type": "same_day",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 12,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 10
+      }
+    },
+    {
+      "type": "next_day",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 9,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 7
+      }
     }
-  ],
-  "number": "bmFvQTA1c3dybS9sNWdnOUVSdEZlZz09",
-  "inserted_at": "2018-03-20T15:18:38.613719",
-  "description": "Gift",
-  "currency": "SGD"
+  ]
 }
 ```
 
-This endpoint gets tracking data of an order.
+<h3 id="apiweb.v3.public.orderscontroller.get_prices-responses">Responses</h3>
 
-### HTTP Request
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Get Prices Response|[GetPricesResponse](#schemagetpricesresponse)|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
+
+
+
+## ApiWeb.V3.ApiController.track_order
+
+<a id="opIdApiWeb.V3.ApiController.track_order"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
+  -H 'Accept: */*'
+
+```
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/track/{number}`
 
-### Parameters
+*Get tracking data of an order*
 
-Parameter | Description
---------- | -----------
-number | Order number
+<h3 id="apiweb.v3.apicontroller.track_order-parameters">Parameters</h3>
 
-## Validate if reset password token is still valid
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|number|path|string|true|Tracking number|
 
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/password/edit' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
+> Example responses
 
-> The above command returns JSON structured like this:
+> 200 Response
 
-```json
-{
-  "message": "ok"
-}
-```
+<h3 id="apiweb.v3.apicontroller.track_order-responses">Responses</h3>
 
-This endpoint validates if reset password token is still valid.
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderResponse](#schematrackorderresponse)|
 
-### HTTP Request
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/password/edit`
 
-### Parameters
+## ApiWeb.V3.ApiController.get_otp
 
-Parameter | Description
---------- | -----------
-reset_password_token | Reset password token
+<a id="opIdApiWeb.V3.ApiController.get_otp"></a>
 
-## Validate if reset password token is still valid to update password
+> Code samples
 
 ```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/public/password' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
+  -H 'Accept: */*'
+
 ```
 
-> The above command returns JSON structured like this:
+`GET https://umbrella-demo.yojee.com/api/v3/public/otp/`
 
-```json
-{
-  "message": "Password is updated!"
-}
-```
+*Get OTP code*
 
-This endpoint validates if reset password token is still valid to update password.
+<h3 id="apiweb.v3.apicontroller.get_otp-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|phone|query|string|false|Phone number|
 
-`PUT https://umbrella-demo.yojee.com/api/v3/public/password`
+> Example responses
 
-### Parameters
+> 200 Response
 
-Parameter | Description
---------- | -----------
-password | New password
-reset_password_token | Reset password token
+<h3 id="apiweb.v3.apicontroller.get_otp-responses">Responses</h3>
 
-## Create reset password token and send a password reset email
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got OTP|[GetOtpResponse](#schemagetotpresponse)|
+
+<h1 id="Yojee-APIs-[Public]-Invoice">[Public] Invoice</h1>
+
+## ApiWeb.V3.Public.InvoiceController.generate
+
+<a id="opIdApiWeb.V3.Public.InvoiceController.generate"></a>
+
+> Code samples
 
 ```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/public/password' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "An email has been sent to [email] with further instructions."
-}
-```
-
-This endpoint creates reset password token and sends a password reset email.
-
-### HTTP Request
-
-`POST https://umbrella-demo.yojee.com/api/v3/public/password`
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-email | Email
-
-## Validate if reset password token is still valid
-
-```shell
-curl -X PATCH \
-  'https://umbrella-demo.yojee.com/api/v3/public/password' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "Password is updated!"
-}
-```
-
-This endpoint validates if reset password token is still valid.
-
-### HTTP Request
-
-`PATCH https://umbrella-demo.yojee.com/api/v3/public/password`
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-password | New password
-reset_password_token | Reset password token
-
-## Generate an invoice on the fly
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "Create label binary flow download"
-}
-```
-
-This endpoint generates an invoice on the fly.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}`
 
-### Parameters
+*Generate an invoice on the fly*
 
-Parameter | Description
---------- | -----------
-order_number | Order number
+<h3 id="apiweb.v3.public.invoicecontroller.generate-parameters">Parameters</h3>
 
-## Generate a label on the fly
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|order_number|query|string|false|Order Number|
+
+<h3 id="apiweb.v3.public.invoicecontroller.generate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create label binary fow download|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+<h1 id="Yojee-APIs-[Public]-Label">[Public] Label</h1>
+
+## ApiWeb.V3.Public.LabelController.generate_from_tracking_number
+
+<a id="opIdApiWeb.V3.Public.LabelController.generate_from_tracking_number"></a>
+
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "Label to be downloaded."
-}
-```
-
-This endpoint generates a label on the fly.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}`
 
-### Parameters
+*Generate a label on the fly*
 
-Parameter | Description
---------- | -----------
-tracking_number | Tracking_number
-format | Output format
+<h3 id="apiweb.v3.public.labelcontroller.generate_from_tracking_number-parameters">Parameters</h3>
 
-## Generate a label on the fly under order item
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|tracking_number|query|string|false|Tracking number|
+|format|query|string|false|Output format|
 
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/labels/order_item/{tracking_number}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
+### Enumerated Values
 
-> The above command returns JSON structured like this:
+|Parameter|Value|
+|---|---|
+|format|html|
+|format|pdf|
 
-```json
-{
-  "Label to be downloaded."
-}
-```
+<h3 id="apiweb.v3.public.labelcontroller.generate_from_tracking_number-responses">Responses</h3>
 
-This endpoint generates a label on the fly under order item.
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Label to be downloaded.|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-### HTTP Request
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/labels/order_item/{tracking_number}`
 
-### Parameters
+## ApiWeb.V3.Public.LabelController.generate_from_order_number
 
-Parameter | Description
---------- | -----------
-tracking_number | Tracking_number
-format | Output format
+<a id="opIdApiWeb.V3.Public.LabelController.generate_from_order_number"></a>
 
-## Generate a label on the fly from order number
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "Label to be downloaded."
-}
-```
-
-This endpoint generates a label on the fly from order number.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}`
 
-### Parameters
+*Generate a label on the fly from order number*
 
-Parameter | Description
---------- | -----------
-order_number | Order_number
-format | Output format
+<h3 id="apiweb.v3.public.labelcontroller.generate_from_order_number-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|order_number|query|string|false|Order number|
+|format|query|string|false|Output format|
+
+### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+|format|html|
+|format|pdf|
+
+<h3 id="apiweb.v3.public.labelcontroller.generate_from_order_number-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Label to be downloaded.|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+<h1 id="Yojee-APIs-[Public]-Password">[Public] Password</h1>
+
+## ApiWeb.V3.Public.PasswordController.edit
+
+<a id="opIdApiWeb.V3.Public.PasswordController.edit"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/password/edit
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/password/edit`
+
+*Validate if reset password token is still valid*
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|reset_password_token|query|string|false|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+
+## ApiWeb.V3.Public.PasswordController.update
+
+<a id="opIdApiWeb.V3.Public.PasswordController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PATCH https://umbrella-demo.yojee.com/api/v3/public/password
+
+```
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/public/password`
+
+*Validate if reset password token is still valid*
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|password|query|string|false|New password|
+|reset_password_token|query|string|false|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+
+## ApiWeb.V3.Public.PasswordController.create
+
+<a id="opIdApiWeb.V3.Public.PasswordController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/public/password
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/public/password`
+
+*Create reset password token and send email*
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|email|query|string|false|Email of the account to reset password|
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|

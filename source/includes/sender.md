@@ -1,449 +1,348 @@
-# Sender
+<h1 id="Yojee-APIs-[Sender]-Info">[Sender] Info</h1>
 
-## Get sender information
+## ApiWeb.V3.Sender.InfoController.me
+
+<a id="opIdApiWeb.V3.Sender.InfoController.me"></a>
+
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/sender/info' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "vehicle_types": [
-      {
-          "name": "Car",
-          "id": 35
-      }
-  ],
-  "sender_type": "organisation",
-  "phone": "+65 3138 9076",
-  "name": "Yojee",
-  "id": 1,
-  "email": "yojee@yojee.com",
-  "billing_address": "144 Robinson Road, Singapore"
-}
-```
-
-This endpoint retrieves all sender information.
-
-### HTTP Request
 
 `GET https://umbrella-demo.yojee.com/api/v3/sender/info`
 
-### Headers
+*Get sender infomation*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.sender.infocontroller.me-parameters">Parameters</h3>
 
-## Create order request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
 
-```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/sender/orders' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'vehicle_type_id: {{vehicle_type_id}}' \
-  -d 'sender_id: {{sender_id}}' \
-  -d 'price_currency: {{price_currency}}' \
-  -d 'price_amount: {{price_amount}}' \
-  -d 'placed_by_user_profile_id: {{placed_by_user_profile_id}}' \
-  -d 'jobs: {{jobs}}' \
-  -d 'items: {{items}}'
-```
 
-> The above command returns JSON structured like this:
+<h1 id="Yojee-APIs-[Sender]-Order">[Sender] Order</h1>
 
-```json
-{
-  "tracking_number": "O-ABCDEFGHIJKL",
-  "sender_id": 1,
-  "price": "SGD 10",
-  "placed_by_user_profile_id": 1,
-  "number": "{{NUMBER}}",
-  "inserted_at": "2018-01-01T00:00:00.000000",
-  "id": 17
-}
-```
+## ApiWeb.V3.Sender.OrderController.cancel
 
-This endpoint creates an order.
+<a id="opIdApiWeb.V3.Sender.OrderController.cancel"></a>
 
-### HTTP Request
-
-`POST https://umbrella-demo.yojee.com/api/v3/sender/orders`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-vehicle_type_id | {{vehicle_type_id}} | Integer
-sender_id | {{sender_id}} | Integer
-price_currency | {{price_currency}} | String
-price_amount | {{price_amount}} | Integer
-placed_by_user_profile_id | {{placed_by_user_profile_id}} | Integer
-jobs | {{jobs}} | Array
-items | {{items}} | Array
-
-## Get order detail
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "status": "paid",
-  "sender_id": 1,
-  "price": {
-      "currency": "SGD",
-      "amount": "1.00000000"
-  },
-  "placed_by_user_profile_id": 1,
-  "number": "O-ABCDEFGHIJKL",
-  "inserted_at": "2018-01-01T00:00:00.000000Z",
-  "id": 1,
-  "external_id": null,
-  "external_customer_id": null,
-  "display_price": "SGD 1",
-  "description": "test"
-}
-```
-
-This endpoint retrieves a specific order.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-number | Order number
-
-## Get all ongoing orders of a sender
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "status": "paid",
-  "sender_id": 1,
-  "price": {
-      "currency": "SGD",
-      "amount": "1.00000000"
-  },
-  "placed_by_user_profile_id": 1,
-  "number": "O-ABCDEFGHIJKL",
-  "inserted_at": "2018-01-01T00:00:00.000000Z",
-  "id": 1,
-  "external_id": null,
-  "external_customer_id": null,
-  "display_price": "SGD 1",
-  "description": "test"
-}
-```
-
-This endpoint retrieves all ongoing orders of a sender.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description | Default Value
---------- | ----------- | -----------
-page | Page number | 1
-page_size | Page size | 10
-
-## Get all completed orders of a sender
-
-```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/sender/orders/completed' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "status": "completed",
-  "sender_id": 1,
-  "price": {
-      "currency": "SGD",
-      "amount": "1.00000000"
-  },
-  "placed_by_user_profile_id": 1,
-  "number": "O-ABCDEFGHIJKL",
-  "inserted_at": "2018-01-01T00:00:00.000000Z",
-  "id": 1,
-  "external_id": null,
-  "external_customer_id": null,
-  "display_price": "SGD 1",
-  "description": "test"
-}
-```
-
-This endpoint retrieves all completed orders of a sender.
-
-### HTTP Request
-
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description | Default Value
---------- | ----------- | -----------
-page | Page number | 1
-page_size | Page size | 10
-
-## Create payment request
-
-```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'payment_method: {{payment_method}}' \
-  -d 'sender_id: {{sender_id}}' \
-  -d 'price_currency: {{price_currency}}' \
-  -d 'price_amount: {{price_amount}}' \
-  -d 'placed_by_user_profile_id: {{placed_by_user_profile_id}}' \
-  -d 'jobs: {{jobs}}' \
-  -d 'items: {{items}}'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "status": "paid",
-  "sender_id": 1,
-  "price": {
-      "currency": "SGD",
-      "amount": "1.00000000"
-  },
-  "placed_by_user_profile_id": 1,
-  "number": "O-ABCDEFGHIJKL",
-  "inserted_at": "2018-01-01T00:00:00.000000Z",
-  "id": 1,
-  "external_id": null,
-  "external_customer_id": null,
-  "display_price": "SGD 1",
-  "description": "test"
-}
-```
-
-This endpoint creates payment request of an order.
-
-### HTTP Request
-
-`POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments`
-
-### Headers
-
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
-
-### Parameters
-
-Parameter | Description
---------- | -----------
-number | Order number
-
-### Body
-
-Key | Value | Type
---------- | ------- | -------
-payment_method | {{payment_method}} | String
-order_id | {{order_id}} | Integer
-description | {{description}} | String
-currency | {{currency}} | String
-credit_card | {{year}} | Integer
- | {{number}} | String
- | {{name}}  | String
- | {{month}} | Integer
- | {{cvc}} | Integer
-amount | {{amount}} | Number
-
-## Cancel an order
-
-```shell
-curl -X PUT \
-  'https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "Order cancelled."
-}
-```
-
-This endpoint cancels an order.
-
-### HTTP Request
 
 `PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel`
 
-### Headers
+*Cancel an order*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.sender.ordercontroller.cancel-parameters">Parameters</h3>
 
-### Parameters
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Order number|
 
-Parameter | Description
---------- | -----------
-number | Order number
+<h3 id="apiweb.v3.sender.ordercontroller.cancel-responses">Responses</h3>
 
-## Batch upload multiple orders
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+
+## ApiWeb.V3.Sender.OrderController.completed
+
+<a id="opIdApiWeb.V3.Sender.OrderController.completed"></a>
+
+> Code samples
 
 ```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/sender/batches' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -F 'file: {{file}}' \
-  -d 'uploader_id: {{uploader_id}}' \
-  -d 'company_id: {{company_id}}'
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
 
-> The above command returns JSON structured like this:
+`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed`
+
+Get all completed orders of a sender
+
+<h3 id="apiweb.v3.sender.ordercontroller.completed-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+<h3 id="apiweb.v3.sender.ordercontroller.completed-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+
+## ApiWeb.V3.Sender.PaymentsController.create
+
+<a id="opIdApiWeb.V3.Sender.PaymentsController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments`
+
+*Create payment request*
+
+> Body parameter
 
 ```json
 {
-  "id": "batch id"
+  "payment_method": "stripe",
+  "order_id": 1,
+  "description": "This is a test description",
+  "currency": "SGD",
+  "credit_card": {
+    "year": 22,
+    "number": 4242424242424242,
+    "name": "Jane Doe",
+    "month": 11,
+    "cvc": 111
+  },
+  "amount": 500
 }
 ```
 
-This endpoint uploads a csv file with multiple orders.
+<h3 id="apiweb.v3.sender.paymentscontroller.create-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Order Number|
+|body|body|[CreatePaymentRequest](#schemacreatepaymentrequest)|false|Payment information|
 
-`POST https://umbrella-demo.yojee.com/api/v3/sender/batches`
+<h3 id="apiweb.v3.sender.paymentscontroller.create-responses">Responses</h3>
 
-### Headers
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Payment is executed|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Payment failed!|None|
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
 
-### Parameters
 
-Parameter | Description
---------- | -----------
-file | File to be uploaded
-uploader_id | Uploader ID
-company_id  | Company ID
+## ApiWeb.V3.Sender.OrderController.create
 
-## Check batch status
+<a id="opIdApiWeb.V3.Sender.OrderController.create"></a>
+
+> Code samples
 
 ```shell
-curl -X GET \
-  'https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status' \
-  -H 'ACCESS_TOKEN: {{ACCESS_TOKEN}}' \
-  -H 'COMPANY_SLUG: {{COMPANY_SLUG}}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'batch_id: {{batch_id}}'
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
 ```
 
-> The above command returns JSON structured like this:
+`POST https://umbrella-demo.yojee.com/api/v3/sender/orders`
+
+*Create order request*
+
+> Body parameter
 
 ```json
 {
-  "status": "status"
+  "vehicle_type_id": 0,
+  "sender_id": 0,
+  "price_currency": "string",
+  "price_amount": 0,
+  "placed_by_user_profile_id": 0,
+  "jobs": [
+    null
+  ],
+  "items": [
+    null
+  ]
 }
 ```
 
-This endpoint checks batch status.
+<h3 id="apiweb.v3.sender.ordercontroller.create-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[CreateOrderRequest](#schemacreateorderrequest)|false|Order information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.sender.ordercontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+
+## ApiWeb.V3.Sender.OrderController.show
+
+<a id="opIdApiWeb.V3.Sender.OrderController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}`
+
+*Get order detail*
+
+<h3 id="apiweb.v3.sender.ordercontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Order Number|
+
+<h3 id="apiweb.v3.sender.ordercontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
+
+
+
+## ApiWeb.V3.Sender.OrderController.ongoing
+
+<a id="opIdApiWeb.V3.Sender.OrderController.ongoing"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing?page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing`
+
+Get all onging orders of a sender
+
+<h3 id="apiweb.v3.sender.ordercontroller.ongoing-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+<h3 id="apiweb.v3.sender.ordercontroller.ongoing-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+<h1 id="Yojee-APIs-[Sender]-Batch">[Sender] Batch</h1>
+
+## ApiWeb.V3.Sender.BatchController.check_status
+
+<a id="opIdApiWeb.V3.Sender.BatchController.check_status"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
 
 `GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status`
 
-### Headers
+*Check batch status*
 
-Key | Value
---------- | -------
-ACCESS_TOKEN | {{ACCESS_TOKEN}}
-COMPANY_SLUG | {{COMPANY_SLUG}}
+<h3 id="apiweb.v3.sender.batchcontroller.check_status-parameters">Parameters</h3>
 
-### Parameters
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|batch_id|query|integer|false|Batch Id|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
 
-Parameter | Description
---------- | -----------
-batch_id  | Batch ID
+
+## ApiWeb.V3.Sender.BatchController.create
+
+<a id="opIdApiWeb.V3.Sender.BatchController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/batches \
+  -H 'Content-Type: multipart/form-data' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/sender/batches`
+
+*Uploads a file*
+
+> Body parameter
+
+```yaml
+file: string
+
+```
+
+<h3 id="apiweb.v3.sender.batchcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|uploader_id|query|integer|false|Uploader Id|
+|company_id|query|integer|false|Company Id|
+|body|body|[ApiWeb.V3.Dispatcher.BatchController.create](#schemaapiweb.v3.dispatcher.batchcontroller.create)|false|none|
+|» file|body|string(binary)|false|The file to upload|

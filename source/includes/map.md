@@ -1,111 +1,136 @@
-# Map
+<h1 id="Yojee-APIs-[Map]">[Map]</h1>
 
-## Get geocode of an address
+## ApiWeb.V3.MapsController.geocode
+
+<a id="opIdApiWeb.V3.MapsController.geocode"></a>
+
+> Code samples
 
 ```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/maps/geocode' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'query: {{query}}' \
-  -d 'country_code: {{country_code}}'
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/maps/geocode \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*'
+
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "zipcode": "",
-  "lng": 103.8462451,
-  "lat": 1.2754876,
-  "country": "Singapore",
-  "address": "1 Anson Rd, Singapore"
-}
-```
-
-This endpoint gets geocode of an address.
-
-### HTTP Request
 
 `POST https://umbrella-demo.yojee.com/api/v3/maps/geocode`
 
-### Body
+*Get geocode of an address*
 
-Key | Value | Type
---------- | ------- | -------
-query | {{query}} | String
-country_code	| {{country_code}} | String
-
-## Get direction information
-
-```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/maps/geocode' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'origin: {{origin}}' \
-  -d 'mode: {{mode}}' \
-  -d 'destination: {{destination}}' \
-  -d 'country_iso: {{country_iso}}'
-```
-
-> The above command returns JSON structured like this:
+> Body parameter
 
 ```json
 {
-  "overview_polyline": "{{OVERVIEW_POLYLINE}}",
-  "duration": 222,
-  "distance": 968,
-  "data": "{{DATA}}"
+  "query": "1 Anson Rd",
+  "country_code": "SG"
 }
 ```
 
-This endpoint gets direction information.
+<h3 id="apiweb.v3.mapscontroller.geocode-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[MapsGeoCodeRequest](#schemamapsgeocoderequest)|false|Address information|
 
-`POST https://umbrella-demo.yojee.com/api/v3/maps/geocode`
+> Example responses
 
-### Body
+> 200 Response
 
-Key | Value | Type
---------- | ------- | -------
-origin | {{origin}} | String
-mode | {{mode}} | String
-destination	| {{destination}} | String
-country_iso	| {{country_iso}} | String
+<h3 id="apiweb.v3.mapscontroller.geocode-responses">Responses</h3>
 
-## Get complete suggestions of an address
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got geocode|[MapsGeoCodeResponse](#schemamapsgeocoderesponse)|
+
+
+
+## ApiWeb.V3.MapsController.direction
+
+<a id="opIdApiWeb.V3.MapsController.direction"></a>
+
+> Code samples
 
 ```shell
-curl -X POST \
-  'https://umbrella-demo.yojee.com/api/v3/maps/autocomplete' \
-  -H 'Cache-Control: no-cache' \
-  -H 'content-type: application/json' \
-  -d 'query: {{query}}' \
-  -d 'country_iso: {{country_iso}}'
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/maps/direction \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*'
+
 ```
 
-> The above command returns JSON structured like this:
+`POST https://umbrella-demo.yojee.com/api/v3/maps/direction`
+
+*Get direction information*
+
+> Body parameter
 
 ```json
 {
-  "name": "1 Anson Rd",
-  "lng": 103.8462451,
-  "lat": 1.2754876,
-  "address": "1 Anson Rd, Singapore"
+  "origin": "1 Anson Rd, Singapore",
+  "mode": "driving",
+  "destination": "10 Anson Rd, Singapore",
+  "country_iso": "sg"
 }
 ```
 
-This endpoint gets complete suggestions of an address.
+<h3 id="apiweb.v3.mapscontroller.direction-parameters">Parameters</h3>
 
-### HTTP Request
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[MapsDirectionRequest](#schemamapsdirectionrequest)|false|Address information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.mapscontroller.direction-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got directions information|[MapsDirectionResponse](#schemamapsdirectionresponse)|
+
+
+
+## ApiWeb.V3.MapsController.autocomplete
+
+<a id="opIdApiWeb.V3.MapsController.autocomplete"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/maps/autocomplete \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*'
+
+```
 
 `POST https://umbrella-demo.yojee.com/api/v3/maps/autocomplete`
 
-### Body
+*Get complete suggestions of an address*
 
-Key | Value | Type
---------- | ------- | -------
-query	| {{query}} | String
-country_iso	| {{country_iso}} | String
+> Body parameter
+
+```json
+{
+  "query": "1 Anson Rd, Singapore",
+  "country_iso": "sg"
+}
+```
+
+<h3 id="apiweb.v3.mapscontroller.autocomplete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[MapsAutoCompleteRequest](#schemamapsautocompleterequest)|false|Address information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.mapscontroller.autocomplete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got geocode|[MapsAutoCompleteResponse](#schemamapsautocompleteresponse)|
