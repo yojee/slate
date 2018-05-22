@@ -12,7 +12,6 @@ includes:
   - sender
   - worker
   - dispatcher
-  - schema
 
 search: true
 home: true
