@@ -1,5 +1,7 @@
 <h1 id="Yojee-APIs-[Auth]">[Auth]</h1>
 
+Authentication APIs
+
 ## ApiWeb.V3.AuthController.signup
 
 <a id="opIdApiWeb.V3.AuthController.signup"></a>
@@ -7,16 +9,16 @@
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signup \
+# You can also use wget
+curl -X POST ///api/v3/auth/signup \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/auth/signup`
+`POST /api/v3/auth/signup`
 
-*Individual Sender Sign up*
+*This endpoint registers a new user*
 
 > Body parameter
 
@@ -36,7 +38,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signup \
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[SignupRequest](#schemasignuprequest)|false|Account Info|
+|body|body|[SignupRequest](#schemasignuprequest)|false|Account info|
 
 > Example responses
 
@@ -49,6 +51,49 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signup \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[AuthResponse](#schemaauthresponse)|
 
 
+## ApiWeb.V3.AuthController.signin
+
+<a id="opIdApiWeb.V3.AuthController.signin"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST ///api/v3/auth/signin \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*'
+
+```
+
+`POST /api/v3/auth/signin`
+
+*This endpoint allows a registered user to log in*
+
+> Body parameter
+
+```json
+{
+  "password": "abc123$%^",
+  "email": "long@yojee.com"
+}
+```
+
+<h3 id="apiweb.v3.authcontroller.signin-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[SigninRequest](#schemasigninrequest)|false|Account info|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.authcontroller.signin-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[AuthResponse](#schemaauthresponse)|
+
 
 ## ApiWeb.V3.AuthController.corporate_sender_signup
 
@@ -57,16 +102,16 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signup \
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/corporate_sender/signup \
+# You can also use wget
+curl -X POST ///api/v3/auth/corporate_sender/signup \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/auth/corporate_sender/signup`
+`POST /api/v3/auth/corporate_sender/signup`
 
-*Corporate Sender Sign up*
+*This endpoint registers a new Corporate Sender*
 
 > Body parameter
 
@@ -97,58 +142,13 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/corporate_sender/signup
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[CorporateSenderSignupRequest](#schemacorporatesendersignuprequest)|false|Account Info|
+|body|body|[CorporateSenderSignupRequest](#schemacorporatesendersignuprequest)|false|Account info|
 
 > Example responses
 
 > 200 Response
 
 <h3 id="apiweb.v3.authcontroller.corporate_sender_signup-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[AuthResponse](#schemaauthresponse)|
-
-
-
-## ApiWeb.V3.AuthController.signin
-
-<a id="opIdApiWeb.V3.AuthController.signin"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signin \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/auth/signin`
-
-*Sign in*
-
-> Body parameter
-
-```json
-{
-  "password": "abc123$%^",
-  "email": "long@yojee.com"
-}
-```
-
-<h3 id="apiweb.v3.authcontroller.signin-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[SigninRequest](#schemasigninrequest)|false|Account Info|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.authcontroller.signin-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|

@@ -1,4 +1,6 @@
-<h1 id="Yojee-APIs-[Sender]-Info">[Sender] Info</h1>
+<h1 id="Yojee-APIs-[Sender]">[Sender]</h1>
+
+Sender APIs
 
 ## ApiWeb.V3.Sender.InfoController.me
 
@@ -7,16 +9,16 @@
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
+# You can also use wget
+curl -X GET ///api/v3/sender/info \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/info`
+`GET /api/v3/sender/info`
 
-*Get sender infomation*
+*This endpoint retrieves a Sender's infomation*
 
 <h3 id="apiweb.v3.sender.infocontroller.me-parameters">Parameters</h3>
 
@@ -28,6 +30,8 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
 
 <h1 id="Yojee-APIs-[Sender]-Order">[Sender] Order</h1>
 
+Sender Order APIs
+
 ## ApiWeb.V3.Sender.OrderController.cancel
 
 <a id="opIdApiWeb.V3.Sender.OrderController.cancel"></a>
@@ -35,16 +39,16 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
 > Code samples
 
 ```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel \
+# You can also use wget
+curl -X PUT ///api/v3/sender/orders/{number}/cancel \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel`
+`PUT /api/v3/sender/orders/{number}/cancel`
 
-*Cancel an order*
+*This endpoint cancels an Order*
 
 <h3 id="apiweb.v3.sender.ordercontroller.cancel-parameters">Parameters</h3>
 
@@ -61,7 +65,6 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
 
-
 ## ApiWeb.V3.Sender.OrderController.completed
 
 <a id="opIdApiWeb.V3.Sender.OrderController.completed"></a>
@@ -69,16 +72,16 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
+# You can also use wget
+curl -X GET ///api/v3/sender/orders/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed`
+`GET /api/v3/sender/orders/completed`
 
-Get all completed orders of a sender
+*This endpoint retrieves all completed Orders of a Sender*
 
 <h3 id="apiweb.v3.sender.ordercontroller.completed-parameters">Parameters</h3>
 
@@ -96,7 +99,6 @@ Get all completed orders of a sender
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
 
-
 ## ApiWeb.V3.Sender.PaymentsController.create
 
 <a id="opIdApiWeb.V3.Sender.PaymentsController.create"></a>
@@ -104,17 +106,17 @@ Get all completed orders of a sender
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments \
+# You can also use wget
+curl -X POST ///api/v3/sender/orders/{number}/payments \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments`
+`POST /api/v3/sender/orders/{number}/payments`
 
-*Create payment request*
+*This endpoint creates a payment request*
 
 > Body parameter
 
@@ -148,9 +150,8 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payme
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Payment is executed|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Payment successful|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Payment failed!|None|
-
 
 
 ## ApiWeb.V3.Sender.OrderController.create
@@ -160,8 +161,8 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payme
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
+# You can also use wget
+curl -X POST ///api/v3/sender/orders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -169,9 +170,9 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/sender/orders`
+`POST /api/v3/sender/orders`
 
-*Create order request*
+*This endpoint creates an Order*
 
 > Body parameter
 
@@ -211,7 +212,6 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
 
-
 ## ApiWeb.V3.Sender.OrderController.show
 
 <a id="opIdApiWeb.V3.Sender.OrderController.show"></a>
@@ -219,16 +219,16 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
+# You can also use wget
+curl -X GET ///api/v3/sender/orders/{number} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}`
+`GET /api/v3/sender/orders/{number}`
 
-*Get order detail*
+*This endpoint retrieves information about an Order*
 
 <h3 id="apiweb.v3.sender.ordercontroller.show-parameters">Parameters</h3>
 
@@ -246,7 +246,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
 
 
-
 ## ApiWeb.V3.Sender.OrderController.ongoing
 
 <a id="opIdApiWeb.V3.Sender.OrderController.ongoing"></a>
@@ -254,16 +253,16 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing?page=1&page_size=10 \
+# You can also use wget
+curl -X GET ///api/v3/sender/orders/ongoing?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing`
+`GET /api/v3/sender/orders/ongoing`
 
-Get all onging orders of a sender
+*This endpoint retrieves all ongoing Orders of a Sender*
 
 <h3 id="apiweb.v3.sender.ordercontroller.ongoing-parameters">Parameters</h3>
 
@@ -283,6 +282,8 @@ Get all onging orders of a sender
 
 <h1 id="Yojee-APIs-[Sender]-Batch">[Sender] Batch</h1>
 
+Sender Batch APIs
+
 ## ApiWeb.V3.Sender.BatchController.check_status
 
 <a id="opIdApiWeb.V3.Sender.BatchController.check_status"></a>
@@ -290,16 +291,16 @@ Get all onging orders of a sender
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
+# You can also use wget
+curl -X GET ///api/v3/sender/batches/check_status \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status`
+`GET /api/v3/sender/batches/check_status`
 
-*Check batch status*
+*This endpoint checks the status of a Batch*
 
 <h3 id="apiweb.v3.sender.batchcontroller.check_status-parameters">Parameters</h3>
 
@@ -317,17 +318,17 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/batches \
+# You can also use wget
+curl -X POST ///api/v3/sender/batches \
   -H 'Content-Type: multipart/form-data' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/sender/batches`
+`POST /api/v3/sender/batches`
 
-*Uploads a file*
+*This endpoint is used by a Sender to upload a batch file*
 
 > Body parameter
 

@@ -1,4 +1,161 @@
-<h1 id="Yojee-APIs-[Worker]-Info">[Worker] Info</h1>
+<h1 id="Yojee-APIs-[Worker]">[Worker]</h1>
+
+Worker APIs
+
+## ApiWeb.V3.Worker.UserController.store_device_token
+
+<a id="opIdApiWeb.V3.Worker.UserController.store_device_token"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT ///api/v3/worker/store_device_token \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT /api/v3/worker/store_device_token`
+
+*This endpoint stores a Worker's device token*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.worker.usercontroller.store_device_token-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|any|true|Device token|
+
+<h3 id="apiweb.v3.worker.usercontroller.store_device_token-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stored device token successfully|None|
+
+
+## ApiWeb.V3.Worker.UserController.update
+
+<a id="opIdApiWeb.V3.Worker.UserController.update"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT ///api/v3/worker/update \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT /api/v3/worker/update`
+
+*This endpoint updates a Worker's information*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.worker.usercontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|any|false|Worker's status|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.usercontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerResponse](#schemaworkerresponse)|
+
+
+## ApiWeb.V3.Worker.VehicleController.select
+
+<a id="opIdApiWeb.V3.Worker.VehicleController.select"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PUT ///api/v3/worker/vehicles/{id}/select \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT /api/v3/worker/vehicles/{id}/select`
+
+*This endpoint is used by a Worker to select a Vehicle*
+
+<h3 id="apiweb.v3.worker.vehiclecontroller.select-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Vehicle ID|
+
+<h3 id="apiweb.v3.worker.vehiclecontroller.select-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+## ApiWeb.V3.Worker.CompanyController.config
+
+<a id="opIdApiWeb.V3.Worker.CompanyController.config"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET ///api/v3/worker/companies/config \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET /api/v3/worker/companies/config`
+
+*This endpoint retrieves configuration information about a Worker's Company*
+
+<h3 id="apiweb.v3.worker.companycontroller.config-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.companycontroller.config-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyConfigsResponse](#schemacompanyconfigsresponse)|
+
 
 ## ApiWeb.V3.Worker.InfoController.me
 
@@ -7,17 +164,17 @@
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
+# You can also use wget
+curl -X GET ///api/v3/worker/info \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/info`
+`GET /api/v3/worker/info`
 
-*Get worker infomation*
+*This endpoint retrieves a Worker's infomation*
 
 <h3 id="apiweb.v3.worker.infocontroller.me-parameters">Parameters</h3>
 
@@ -37,7 +194,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[InfoResponse](#schemainforesponse)|
 
 
-
 ## ApiWeb.V3.Worker.InfoController.statistics
 
 <a id="opIdApiWeb.V3.Worker.InfoController.statistics"></a>
@@ -45,17 +201,17 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/statistics \
+# You can also use wget
+curl -X GET ///api/v3/worker/statistics \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/statistics`
+`GET /api/v3/worker/statistics`
 
-Get statistics about task
+*This endpoint retrieves a Worker's Task statistics*
 
 <h3 id="apiweb.v3.worker.infocontroller.statistics-parameters">Parameters</h3>
 
@@ -84,8 +240,6 @@ Get statistics about task
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[StatisticsResponse](#schemastatisticsresponse)|
 
 
-<h1 id="Yojee-APIs-[Worker]-Location">[Worker] Location</h1>
-
 ## ApiWeb.V3.Worker.UserController.location
 
 <a id="opIdApiWeb.V3.Worker.UserController.location"></a>
@@ -93,19 +247,17 @@ Get statistics about task
 > Code samples
 
 ```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/location \
+# You can also use wget
+curl -X PUT ///api/v3/worker/location \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/location`
+`PUT /api/v3/worker/location`
 
-*Update the location of worker*
-
-Update the location of worker
+*This endpoint updates a Worker's location*
 
 > Body parameter
 
@@ -131,173 +283,9 @@ Update the location of worker
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker location updated|None|
 
 
-
-<h1 id="Yojee-APIs-[Worker]-Device Token">[Worker] Device Token</h1>
-
-## ApiWeb.V3.Worker.UserController.store_device_token
-
-<a id="opIdApiWeb.V3.Worker.UserController.store_device_token"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token`
-
-*Stores the device token of a worker*
-
-> Body parameter
-
-```json
-null
-```
-
-<h3 id="apiweb.v3.worker.usercontroller.store_device_token-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|any|true|device token|
-
-<h3 id="apiweb.v3.worker.usercontroller.store_device_token-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stored device token successfully|None|
-
-
-
-
-<h1 id="Yojee-APIs-[Worker]-User">[Worker] User</h1>
-
-## ApiWeb.V3.Worker.UserController.update
-
-<a id="opIdApiWeb.V3.Worker.UserController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/update \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/update`
-
-*Update worker infomation*
-
-> Body parameter
-
-```json
-null
-```
-
-<h3 id="apiweb.v3.worker.usercontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|any|false|worker's status|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.worker.usercontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerResponse](#schemaworkerresponse)|
-
-
-<h1 id="Yojee-APIs-[Worker]-Company">[Worker] Company</h1>
-
-## ApiWeb.V3.Worker.CompanyController.config
-
-<a id="opIdApiWeb.V3.Worker.CompanyController.config"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config`
-
-Get all configs for a specific company
-
-<h3 id="apiweb.v3.worker.companycontroller.config-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.worker.companycontroller.config-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyConfigsResponse](#schemacompanyconfigsresponse)|
-
-
-<h1 id="Yojee-APIs-[Worker]-Vehicle">[Worker] Vehicle</h1>
-
-## ApiWeb.V3.Worker.VehicleController.select
-
-<a id="opIdApiWeb.V3.Worker.VehicleController.select"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select`
-
-Select a vehicle
-
-<h3 id="apiweb.v3.worker.vehiclecontroller.select-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Vehicle ID|
-
-<h3 id="apiweb.v3.worker.vehiclecontroller.select-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
 <h1 id="Yojee-APIs-[Worker]-TaskGroup">[Worker] TaskGroup</h1>
+
+Worker TaskGroup APIs
 
 ## ApiWeb.V3.Worker.TaskGroupController.index
 
@@ -306,17 +294,17 @@ Select a vehicle
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
+# You can also use wget
+curl -X GET ///api/v3/worker/task_groups \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups`
+`GET /api/v3/worker/task_groups`
 
-*List task group by statuses*
+*This endpoint retrieves a list of a Worker's TaskGroups*
 
 <h3 id="apiweb.v3.worker.taskgroupcontroller.index-parameters">Parameters</h3>
 
@@ -337,7 +325,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Filter task group by statuses|[TaskGroupResponse](#schemataskgroupresponse)|
 
 
-
 ## ApiWeb.V3.Worker.TaskGroupController.reject
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.reject"></a>
@@ -345,16 +332,16 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
 > Code samples
 
 ```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject \
+# You can also use wget
+curl -X PUT ///api/v3/worker/task_groups/{id}/reject \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject`
+`PUT /api/v3/worker/task_groups/{id}/reject`
 
-*Reject a task group*
+*This endpoint is used by a Worker to reject an assigned TaskGroup*
 
 <h3 id="apiweb.v3.worker.taskgroupcontroller.reject-parameters">Parameters</h3>
 
@@ -371,7 +358,6 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/rejec
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Reject a task group successfully|None|
 
 
-
 ## ApiWeb.V3.Worker.TaskGroupController.show
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.show"></a>
@@ -379,17 +365,17 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/rejec
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
+# You can also use wget
+curl -X GET ///api/v3/worker/task_groups/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}`
+`GET /api/v3/worker/task_groups/{id}`
 
-*Get a task groups*
+*This endpoint retrieves information about a TaskGroup*
 
 <h3 id="apiweb.v3.worker.taskgroupcontroller.show-parameters">Parameters</h3>
 
@@ -410,7 +396,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Show a task group successfully|[TaskGroupResponse](#schemataskgroupresponse)|
 
 
-
 ## ApiWeb.V3.Worker.TaskGroupController.accept
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.accept"></a>
@@ -418,17 +403,17 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
 > Code samples
 
 ```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept \
+# You can also use wget
+curl -X PUT ///api/v3/worker/task_groups/{id}/accept \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept`
+`PUT /api/v3/worker/task_groups/{id}/accept`
 
-*Accept a task group*
+*This endpoint is used by a Worker to accept an assigned TaskGroup*
 
 <h3 id="apiweb.v3.worker.taskgroupcontroller.accept-parameters">Parameters</h3>
 
@@ -451,6 +436,8 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accep
 
 <h1 id="Yojee-APIs-[Worker]-Task">[Worker] Task</h1>
 
+Worker Task APIs
+
 ## ApiWeb.V3.Worker.TaskController.batch_complete_status
 
 <a id="opIdApiWeb.V3.Worker.TaskController.batch_complete_status"></a>
@@ -458,17 +445,17 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accep
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status \
+# You can also use wget
+curl -X GET ///api/v3/worker/tasks/batches/{id}/status \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status`
+`GET /api/v3/worker/tasks/batches/{id}/status`
 
-*Check status of bulk complete*
+*This endpoint checks the status of all Tasks in a Batch*
 
 <h3 id="apiweb.v3.worker.taskcontroller.batch_complete_status-parameters">Parameters</h3>
 
@@ -489,7 +476,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/sta
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[BulkCompletionStatus](#schemabulkcompletionstatus)|
 
 
-
 ## ApiWeb.V3.Worker.TaskController.mark_as_failed
 
 <a id="opIdApiWeb.V3.Worker.TaskController.mark_as_failed"></a>
@@ -497,17 +483,17 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/sta
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed \
+# You can also use wget
+curl -X POST ///api/v3/worker/task/{id}/mark_as_failed \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
+`POST /api/v3/worker/task/{id}/mark_as_failed`
 
-Marks a task as failed by creating an associated task exception
+*This endpoint marks a Task as failed by creating an associated TaskException*
 
 > Body parameter
 
@@ -531,7 +517,6 @@ null
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
 
-
 ## ApiWeb.V3.Worker.TaskController.bulk_complete
 
 <a id="opIdApiWeb.V3.Worker.TaskController.bulk_complete"></a>
@@ -539,17 +524,17 @@ null
 > Code samples
 
 ```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
+# You can also use wget
+curl -X PUT ///api/v3/worker/tasks/bulk_complete \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete`
+`PUT /api/v3/worker/tasks/bulk_complete`
 
-*Complete a list of tasks*
+*This endpoint is used by a Worker to complete multiple Tasks*
 
 > Body parameter
 
@@ -578,7 +563,6 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
 |body|body|[BulkTaskCompletionRequest](#schemabulktaskcompletionrequest)|false|Task Completion information|
 
 
-
 ## ApiWeb.V3.Worker.TaskController.ongoing
 
 <a id="opIdApiWeb.V3.Worker.TaskController.ongoing"></a>
@@ -586,16 +570,16 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10 \
+# You can also use wget
+curl -X GET ///api/v3/worker/tasks/ongoing?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing`
+`GET /api/v3/worker/tasks/ongoing`
 
-*List ongoing tasks*
+*This endpoint retrieves a list of a Worker's ongoing Tasks*
 
 <h3 id="apiweb.v3.worker.taskcontroller.ongoing-parameters">Parameters</h3>
 
@@ -607,7 +591,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&p
 |page_size|query|integer|true|Page size|
 
 
-
 ## ApiWeb.V3.Worker.TaskController.completed
 
 <a id="opIdApiWeb.V3.Worker.TaskController.completed"></a>
@@ -615,16 +598,16 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&p
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10 \
+# You can also use wget
+curl -X GET ///api/v3/worker/tasks/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed`
+`GET /api/v3/worker/tasks/completed`
 
-*List completed tasks*
+*This endpoint retrieves a list of a Worker's completed Tasks*
 
 <h3 id="apiweb.v3.worker.taskcontroller.completed-parameters">Parameters</h3>
 
@@ -645,7 +628,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1
 |range|last_four_weeks|
 
 
-
 ## ApiWeb.V3.Worker.TaskController.complete
 
 <a id="opIdApiWeb.V3.Worker.TaskController.complete"></a>
@@ -653,17 +635,17 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1
 > Code samples
 
 ```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete \
+# You can also use wget
+curl -X PUT ///api/v3/worker/tasks/{id}/complete \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete`
+`PUT /api/v3/worker/tasks/{id}/complete`
 
-*Complete a task*
+*This endpoint is used by a Worker to complete a Task*
 
 > Body parameter
 
@@ -678,8 +660,7 @@ null
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
 |id|path|integer|true|Task ID|
-|body|body|any|false|Completion Time|
-
+|body|body|any|false|Completion time|
 
 
 ## ApiWeb.V3.Worker.TaskController.history
@@ -689,16 +670,16 @@ null
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10 \
+# You can also use wget
+curl -X GET ///api/v3/worker/tasks/history?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history`
+`GET /api/v3/worker/tasks/history`
 
-*List completed and failed tasks*
+*This endpoint retrieves a Worker's Task history*
 
 <h3 id="apiweb.v3.worker.taskcontroller.history-parameters">Parameters</h3>
 
@@ -718,7 +699,10 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&p
 |range|last_week|
 |range|last_four_weeks|
 
+
 <h1 id="Yojee-APIs-[Worker]-SubTask">[Worker] SubTask</h1>
+
+Worker SubTask APIs
 
 ## ApiWeb.V3.Worker.SubTaskController.create
 
@@ -727,8 +711,8 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&p
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
+# You can also use wget
+curl -X POST ///api/v3/worker/sub_tasks \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -736,9 +720,9 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
+`POST /api/v3/worker/sub_tasks`
 
-Create a sub task
+*This endpoint creates a SubTask*
 
 > Body parameter
 

@@ -1,4 +1,6 @@
-<h1 id="Yojee-APIs-[Public]-Info">[Public] Info</h1>
+<h1 id="Yojee-APIs-[Public]">[Public]</h1>
+
+Public APIs
 
 ## ApiWeb.V3.UserController.info
 
@@ -7,21 +9,20 @@
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slug=string
+# You can also use wget
+curl -X GET ///api/v3/public/users/info?company_slug=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/users/info`
+`GET /api/v3/public/users/info`
 
-*Get user infomation*
+*This endpoint retrieves infomation about a Company*
 
 <h3 id="apiweb.v3.usercontroller.info-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |company_slug|query|string|true|Company slug|
-
 
 
 ## ApiWeb.V3.ApiController.verify_otp
@@ -31,15 +32,15 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slu
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
+# You can also use wget
+curl -X GET ///api/v3/public/verify_otp/ \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/`
+`GET /api/v3/public/verify_otp/`
 
-*Verify OTP code*
+*This endpoint verifies the entered OTP code*
 
 <h3 id="apiweb.v3.apicontroller.verify_otp-parameters">Parameters</h3>
 
@@ -59,6 +60,134 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OTP Verified|[VerifyOtpResponse](#schemaverifyotpresponse)|
 
 
+## ApiWeb.V3.Public.PasswordController.edit
+
+<a id="opIdApiWeb.V3.Public.PasswordController.edit"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET ///api/v3/public/password/edit
+
+```
+
+`GET /api/v3/public/password/edit`
+
+*This endpoint validates if a reset password token is still valid*
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|reset_password_token|query|string|false|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+## ApiWeb.V3.ApiController.get_otp
+
+<a id="opIdApiWeb.V3.ApiController.get_otp"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET ///api/v3/public/otp/ \
+  -H 'Accept: */*'
+
+```
+
+`GET /api/v3/public/otp/`
+
+*This endpoint requests an OTP code for logging in*
+
+<h3 id="apiweb.v3.apicontroller.get_otp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|phone|query|string|false|Phone number|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.apicontroller.get_otp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got OTP|[GetOtpResponse](#schemagetotpresponse)|
+
+
+## ApiWeb.V3.Public.PasswordController.update
+
+<a id="opIdApiWeb.V3.Public.PasswordController.update"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PATCH ///api/v3/public/password?password=string&reset_password_token=string
+
+```
+
+`PATCH /api/v3/public/password`
+
+*This endpoint updates a user's password*
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|password|query|string|true|New password|
+|reset_password_token|query|string|true|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+## ApiWeb.V3.Public.PasswordController.create
+
+<a id="opIdApiWeb.V3.Public.PasswordController.create"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST ///api/v3/public/password?email=string
+
+```
+
+`POST /api/v3/public/password`
+
+*This endpoint creates a reset password token and sends an email*
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|email|query|string|true|Email of the account to reset password|
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+<h1 id="Yojee-APIs-[Public]-Order">[Public] Order</h1>
+
+Public APIs for Order Tracking
 
 ## ApiWeb.V3.Public.OrdersController.get_prices
 
@@ -67,16 +196,16 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
+# You can also use wget
+curl -X POST ///api/v3/public/orders/price \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/public/orders/price`
+`POST /api/v3/public/orders/price`
 
-*Get price estimate*
+*This endpoint obtains a price quote for an Order*
 
 > Body parameter
 
@@ -107,7 +236,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[GetPricesRequest](#schemagetpricesrequest)|false|Get Prices information|
+|body|body|[GetPricesRequest](#schemagetpricesrequest)|true|Order details|
 
 > Example responses
 
@@ -167,7 +296,6 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
 
 
-
 ## ApiWeb.V3.ApiController.track_order
 
 <a id="opIdApiWeb.V3.ApiController.track_order"></a>
@@ -175,15 +303,15 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
+# You can also use wget
+curl -X GET ///api/v3/public/track/{number} \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/track/{number}`
+`GET /api/v3/public/track/{number}`
 
-*Get tracking data of an order*
+*This endpoint retrieves tracking information for an Order*
 
 <h3 id="apiweb.v3.apicontroller.track_order-parameters">Parameters</h3>
 
@@ -202,41 +330,9 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderResponse](#schematrackorderresponse)|
 
 
+<h1 id="Yojee-APIs-[Public]-Docs">[Public] Docs</h1>
 
-## ApiWeb.V3.ApiController.get_otp
-
-<a id="opIdApiWeb.V3.ApiController.get_otp"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
-  -H 'Accept: */*'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/public/otp/`
-
-*Get OTP code*
-
-<h3 id="apiweb.v3.apicontroller.get_otp-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|phone|query|string|false|Phone number|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.apicontroller.get_otp-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got OTP|[GetOtpResponse](#schemagetotpresponse)|
-
-<h1 id="Yojee-APIs-[Public]-Invoice">[Public] Invoice</h1>
+Public APIs for Waybills, Invoices, EPODs and other Documentation
 
 ## ApiWeb.V3.Public.InvoiceController.generate
 
@@ -245,29 +341,28 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}
+# You can also use wget
+curl -X GET ///api/v3/public/invoices/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}`
+`GET /api/v3/public/invoices/{order_number}`
 
-*Generate an invoice on the fly*
+*This endpoint generates an Invoice from an Order number*
 
 <h3 id="apiweb.v3.public.invoicecontroller.generate-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|order_number|query|string|false|Order Number|
+|order_number|query|string|true|Order number|
 
 <h3 id="apiweb.v3.public.invoicecontroller.generate-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create label binary fow download|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create label binary for download|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-<h1 id="Yojee-APIs-[Public]-Label">[Public] Label</h1>
 
 ## ApiWeb.V3.Public.LabelController.generate_from_tracking_number
 
@@ -276,20 +371,20 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}
+# You can also use wget
+curl -X GET ///api/v3/public/labels/{tracking_number}?tracking_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}`
+`GET /api/v3/public/labels/{tracking_number}`
 
-*Generate a label on the fly*
+*This endpoint generates a Label from a tracking number*
 
 <h3 id="apiweb.v3.public.labelcontroller.generate_from_tracking_number-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|tracking_number|query|string|false|Tracking number|
+|tracking_number|query|string|true|Tracking number|
 |format|query|string|false|Output format|
 
 ### Enumerated Values
@@ -307,7 +402,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_numbe
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
 
-
 ## ApiWeb.V3.Public.LabelController.generate_from_order_number
 
 <a id="opIdApiWeb.V3.Public.LabelController.generate_from_order_number"></a>
@@ -315,20 +409,20 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_numbe
 > Code samples
 
 ```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}
+# You can also use wget
+curl -X GET ///api/v3/public/labels/order/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}`
+`GET /api/v3/public/labels/order/{order_number}`
 
-*Generate a label on the fly from order number*
+*This endpoint generates a Label from an Order number*
 
 <h3 id="apiweb.v3.public.labelcontroller.generate_from_order_number-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|order_number|query|string|false|Order number|
+|order_number|query|string|true|Order number|
 |format|query|string|false|Output format|
 
 ### Enumerated Values
@@ -343,98 +437,4 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_nu
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Label to be downloaded.|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
-<h1 id="Yojee-APIs-[Public]-Password">[Public] Password</h1>
-
-## ApiWeb.V3.Public.PasswordController.edit
-
-<a id="opIdApiWeb.V3.Public.PasswordController.edit"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/password/edit
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/public/password/edit`
-
-*Validate if reset password token is still valid*
-
-<h3 id="apiweb.v3.public.passwordcontroller.edit-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|reset_password_token|query|string|false|Reset password token|
-
-<h3 id="apiweb.v3.public.passwordcontroller.edit-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
-
-
-## ApiWeb.V3.Public.PasswordController.update
-
-<a id="opIdApiWeb.V3.Public.PasswordController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/public/password
-
-```
-
-`PATCH https://umbrella-demo.yojee.com/api/v3/public/password`
-
-*Validate if reset password token is still valid*
-
-<h3 id="apiweb.v3.public.passwordcontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|password|query|string|false|New password|
-|reset_password_token|query|string|false|Reset password token|
-
-<h3 id="apiweb.v3.public.passwordcontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
-
-
-## ApiWeb.V3.Public.PasswordController.create
-
-<a id="opIdApiWeb.V3.Public.PasswordController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/public/password
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/public/password`
-
-*Create reset password token and send email*
-
-<h3 id="apiweb.v3.public.passwordcontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|email|query|string|false|Email of the account to reset password|
-
-<h3 id="apiweb.v3.public.passwordcontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|

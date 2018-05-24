@@ -19,10 +19,11 @@ Make sure to replace {{ACCESS_TOKEN}} with your API key
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
+<h1 id="Yojee-APIs-[Public]">[Public]</h1>
 
-<h1 id="Yojee-APIs-[Public]-Info">[Public] Info</h1>
+Public APIs
 
-## ApiWeb.V3.UserController.info
+## UserController.info
 
 <a id="opIdApiWeb.V3.UserController.info"></a>
 
@@ -36,7 +37,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slu
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/users/info`
 
-*Get user infomation*
+*This endpoint retrieves infomation about a Company*
 
 <h3 id="apiweb.v3.usercontroller.info-parameters">Parameters</h3>
 
@@ -44,9 +45,41 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slu
 |---|---|---|---|---|
 |company_slug|query|string|true|Company slug|
 
+## ApiController.get_otp
+
+<a id="opIdApiWeb.V3.ApiController.get_otp"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
+  -H 'Accept: */*'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/otp/`
+
+*This endpoint requests an OTP code for logging in*
+
+<h3 id="apiweb.v3.apicontroller.get_otp-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|phone|query|string|false|Phone number|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.apicontroller.get_otp-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got OTP|[GetOtpResponse](#schemagetotpresponse)|
 
 
-## ApiWeb.V3.ApiController.verify_otp
+## ApiController.verify_otp
 
 <a id="opIdApiWeb.V3.ApiController.verify_otp"></a>
 
@@ -61,7 +94,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/`
 
-*Verify OTP code*
+*This endpoint verifies the entered OTP code*
 
 <h3 id="apiweb.v3.apicontroller.verify_otp-parameters">Parameters</h3>
 
@@ -81,8 +114,102 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OTP Verified|[VerifyOtpResponse](#schemaverifyotpresponse)|
 
 
+## Public.PasswordController.edit
 
-## ApiWeb.V3.Public.OrdersController.get_prices
+<a id="opIdApiWeb.V3.Public.PasswordController.edit"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/password/edit
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/public/password/edit`
+
+*This endpoint validates if a reset password token is still valid*
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|reset_password_token|query|string|false|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+## Public.PasswordController.update
+
+<a id="opIdApiWeb.V3.Public.PasswordController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PATCH https://umbrella-demo.yojee.com/api/v3/public/password?password=string&reset_password_token=string
+
+```
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/public/password`
+
+*This endpoint updates a user's password*
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|password|query|string|true|New password|
+|reset_password_token|query|string|true|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+## Public.PasswordController.create
+
+<a id="opIdApiWeb.V3.Public.PasswordController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/public/password?email=string
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/public/password`
+
+*This endpoint creates a reset password token and sends an email*
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|email|query|string|true|Email of the account to reset password|
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+
+<h1 id="Yojee-APIs-[Public]-Order">[Public] Order</h1>
+
+Public APIs for Order Tracking
+
+## Public.OrdersController.get_prices
 
 <a id="opIdApiWeb.V3.Public.OrdersController.get_prices"></a>
 
@@ -98,7 +225,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 
 `POST https://umbrella-demo.yojee.com/api/v3/public/orders/price`
 
-*Get price estimate*
+*This endpoint obtains a price quote for an Order*
 
 > Body parameter
 
@@ -129,7 +256,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[GetPricesRequest](#schemagetpricesrequest)|false|Get Prices information|
+|body|body|[GetPricesRequest](#schemagetpricesrequest)|true|Order details|
 
 > Example responses
 
@@ -189,8 +316,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
 
 
-
-## ApiWeb.V3.ApiController.track_order
+## ApiController.track_order
 
 <a id="opIdApiWeb.V3.ApiController.track_order"></a>
 
@@ -205,7 +331,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/track/{number}`
 
-*Get tracking data of an order*
+*This endpoint retrieves tracking information for an Order*
 
 <h3 id="apiweb.v3.apicontroller.track_order-parameters">Parameters</h3>
 
@@ -224,43 +350,11 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderResponse](#schematrackorderresponse)|
 
 
+<h1 id="Yojee-APIs-[Public]-Docs">[Public] Docs</h1>
 
-## ApiWeb.V3.ApiController.get_otp
+Public APIs for Waybills, Invoices, EPODs and other Documentation
 
-<a id="opIdApiWeb.V3.ApiController.get_otp"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
-  -H 'Accept: */*'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/public/otp/`
-
-*Get OTP code*
-
-<h3 id="apiweb.v3.apicontroller.get_otp-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|phone|query|string|false|Phone number|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.apicontroller.get_otp-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got OTP|[GetOtpResponse](#schemagetotpresponse)|
-
-<h1 id="Yojee-APIs-[Public]-Invoice">[Public] Invoice</h1>
-
-## ApiWeb.V3.Public.InvoiceController.generate
+## Public.InvoiceController.generate
 
 <a id="opIdApiWeb.V3.Public.InvoiceController.generate"></a>
 
@@ -268,30 +362,29 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}?order_number=string
 
 ```
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}`
 
-*Generate an invoice on the fly*
+*This endpoint generates an Invoice from an Order number*
 
 <h3 id="apiweb.v3.public.invoicecontroller.generate-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|order_number|query|string|false|Order Number|
+|order_number|query|string|true|Order number|
 
 <h3 id="apiweb.v3.public.invoicecontroller.generate-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create label binary fow download|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create invoice binary for download|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Invoice creation failed!|None|
 
-<h1 id="Yojee-APIs-[Public]-Label">[Public] Label</h1>
 
-## ApiWeb.V3.Public.LabelController.generate_from_tracking_number
+## Public.LabelController.generate_from_tracking_number
 
 <a id="opIdApiWeb.V3.Public.LabelController.generate_from_tracking_number"></a>
 
@@ -299,19 +392,19 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}?tracking_number=string
 
 ```
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}`
 
-*Generate a label on the fly*
+*This endpoint generates a Label from a tracking number*
 
 <h3 id="apiweb.v3.public.labelcontroller.generate_from_tracking_number-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|tracking_number|query|string|false|Tracking number|
+|tracking_number|query|string|true|Tracking number|
 |format|query|string|false|Output format|
 
 ### Enumerated Values
@@ -326,11 +419,10 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_numbe
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Label to be downloaded.|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Label creation failed!|None|
 
 
-
-## ApiWeb.V3.Public.LabelController.generate_from_order_number
+## Public.LabelController.generate_from_order_number
 
 <a id="opIdApiWeb.V3.Public.LabelController.generate_from_order_number"></a>
 
@@ -338,19 +430,19 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_numbe
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}
+curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}?order_number=string
 
 ```
 
 `GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}`
 
-*Generate a label on the fly from order number*
+*This endpoint generates a Label from an Order number*
 
 <h3 id="apiweb.v3.public.labelcontroller.generate_from_order_number-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|order_number|query|string|false|Order number|
+|order_number|query|string|true|Order number|
 |format|query|string|false|Output format|
 
 ### Enumerated Values
@@ -367,215 +459,12 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_nu
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Label to be downloaded.|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-<h1 id="Yojee-APIs-[Public]-Password">[Public] Password</h1>
-
-## ApiWeb.V3.Public.PasswordController.edit
-
-<a id="opIdApiWeb.V3.Public.PasswordController.edit"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/password/edit
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/public/password/edit`
-
-*Validate if reset password token is still valid*
-
-<h3 id="apiweb.v3.public.passwordcontroller.edit-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|reset_password_token|query|string|false|Reset password token|
-
-<h3 id="apiweb.v3.public.passwordcontroller.edit-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
-
-
-## ApiWeb.V3.Public.PasswordController.update
-
-<a id="opIdApiWeb.V3.Public.PasswordController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/public/password
-
-```
-
-`PATCH https://umbrella-demo.yojee.com/api/v3/public/password`
-
-*Validate if reset password token is still valid*
-
-<h3 id="apiweb.v3.public.passwordcontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|password|query|string|false|New password|
-|reset_password_token|query|string|false|Reset password token|
-
-<h3 id="apiweb.v3.public.passwordcontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
-
-
-## ApiWeb.V3.Public.PasswordController.create
-
-<a id="opIdApiWeb.V3.Public.PasswordController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/public/password
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/public/password`
-
-*Create reset password token and send email*
-
-<h3 id="apiweb.v3.public.passwordcontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|email|query|string|false|Email of the account to reset password|
-
-<h3 id="apiweb.v3.public.passwordcontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
 
 <h1 id="Yojee-APIs-[Auth]">[Auth]</h1>
 
-## ApiWeb.V3.AuthController.signup
+Authentication APIs
 
-<a id="opIdApiWeb.V3.AuthController.signup"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signup \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/auth/signup`
-
-*Individual Sender Sign up*
-
-> Body parameter
-
-```json
-{
-  "sender_type": "individual",
-  "phone": "+6598765432",
-  "password": "abc123$%^",
-  "name": "Alex",
-  "email": "long@yojee.com",
-  "billing_address": "77 Robinson road, Singapore.",
-  "account_type": "sender"
-}
-```
-
-<h3 id="apiweb.v3.authcontroller.signup-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[SignupRequest](#schemasignuprequest)|false|Account Info|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.authcontroller.signup-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[AuthResponse](#schemaauthresponse)|
-
-
-
-## ApiWeb.V3.AuthController.corporate_sender_signup
-
-<a id="opIdApiWeb.V3.AuthController.corporate_sender_signup"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/corporate_sender/signup \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/auth/corporate_sender/signup`
-
-*Corporate Sender Sign up*
-
-> Body parameter
-
-```json
-{
-  "uen_no": "ABC1235M",
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "payment_option": "monthly_billing",
-  "password": "abc123$%^",
-  "organisation": {
-    "reg_address": "77 Robinson road, Singapore.",
-    "postal_code": "321021",
-    "phone": "+6591245934",
-    "name": "ABC",
-    "country": "Singapore",
-    "city": "Singapore"
-  },
-  "name": "Ralston",
-  "gst_no": "2AS9890",
-  "email": "primary@abc.com",
-  "billing_address": "77 Robinson road, Singapore."
-}
-```
-
-<h3 id="apiweb.v3.authcontroller.corporate_sender_signup-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[CorporateSenderSignupRequest](#schemacorporatesendersignuprequest)|false|Account Info|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.authcontroller.corporate_sender_signup-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[AuthResponse](#schemaauthresponse)|
-
-
-
-## ApiWeb.V3.AuthController.signin
+## AuthController.signin
 
 <a id="opIdApiWeb.V3.AuthController.signin"></a>
 
@@ -591,7 +480,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signin \
 
 `POST https://umbrella-demo.yojee.com/api/v3/auth/signin`
 
-*Sign in*
+*This endpoint allows a registered user to log in*
 
 > Body parameter
 
@@ -606,7 +495,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signin \
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[SigninRequest](#schemasigninrequest)|false|Account Info|
+|body|body|[SigninRequest](#schemasigninrequest)|false|Account info|
 
 > Example responses
 
@@ -619,242 +508,11 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signin \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[AuthResponse](#schemaauthresponse)|
 
 
-<h1 id="Yojee-APIs-[Map]">[Map]</h1>
+<h1 id="Yojee-APIs-[Sender]">[Sender]</h1>
 
-## ApiWeb.V3.MapsController.geocode
+Sender APIs
 
-<a id="opIdApiWeb.V3.MapsController.geocode"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/maps/geocode \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/maps/geocode`
-
-*Get geocode of an address*
-
-> Body parameter
-
-```json
-{
-  "query": "1 Anson Rd",
-  "country_code": "SG"
-}
-```
-
-<h3 id="apiweb.v3.mapscontroller.geocode-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[MapsGeoCodeRequest](#schemamapsgeocoderequest)|false|Address information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.mapscontroller.geocode-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got geocode|[MapsGeoCodeResponse](#schemamapsgeocoderesponse)|
-
-
-
-## ApiWeb.V3.MapsController.direction
-
-<a id="opIdApiWeb.V3.MapsController.direction"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/maps/direction \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/maps/direction`
-
-*Get direction information*
-
-> Body parameter
-
-```json
-{
-  "origin": "1 Anson Rd, Singapore",
-  "mode": "driving",
-  "destination": "10 Anson Rd, Singapore",
-  "country_iso": "sg"
-}
-```
-
-<h3 id="apiweb.v3.mapscontroller.direction-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[MapsDirectionRequest](#schemamapsdirectionrequest)|false|Address information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.mapscontroller.direction-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got directions information|[MapsDirectionResponse](#schemamapsdirectionresponse)|
-
-
-
-## ApiWeb.V3.MapsController.autocomplete
-
-<a id="opIdApiWeb.V3.MapsController.autocomplete"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/maps/autocomplete \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/maps/autocomplete`
-
-*Get complete suggestions of an address*
-
-> Body parameter
-
-```json
-{
-  "query": "1 Anson Rd, Singapore",
-  "country_iso": "sg"
-}
-```
-
-<h3 id="apiweb.v3.mapscontroller.autocomplete-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[MapsAutoCompleteRequest](#schemamapsautocompleterequest)|false|Address information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.mapscontroller.autocomplete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got geocode|[MapsAutoCompleteResponse](#schemamapsautocompleteresponse)|
-
-
-<h1 id="Yojee-APIs-[Launcher]">[Launcher]</h1>
-
-## ApiWeb.V3.Launcher.DispatcherController.create
-
-<a id="opIdApiWeb.V3.Launcher.DispatcherController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers`
-
-*Create new dispatcher*
-
-> Body parameter
-
-```json
-{
-  "phone": "+8412345678",
-  "password": "passwd112233",
-  "name": "Mike",
-  "email": "michael@yojee.com",
-  "company_id": 1
-}
-```
-
-<h3 id="apiweb.v3.launcher.dispatchercontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[launcher_request](#schemalauncher_request)|false|Dispatcher information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.launcher.dispatchercontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|created|[launcher_response](#schemalauncher_response)|
-
-
-
-## ApiWeb.V3.Launcher.CompanyController.create
-
-<a id="opIdApiWeb.V3.Launcher.CompanyController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/launcher/companies \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/launcher/companies`
-
-*Create new company*
-
-> Body parameter
-
-```json
-{
-  "slug": "yojee",
-  "name": "Yojee",
-  "country": "Singapore"
-}
-```
-
-<h3 id="apiweb.v3.launcher.companycontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[LauncherCreateCompanyRequest](#schemalaunchercreatecompanyrequest)|false|Company information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.launcher.companycontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created company|[LauncherCreateCompanyResponse](#schemalaunchercreatecompanyresponse)|
-
-
-<h1 id="Yojee-APIs-[Sender]-Info">[Sender] Info</h1>
-
-## ApiWeb.V3.Sender.InfoController.me
+## Sender.InfoController.me
 
 <a id="opIdApiWeb.V3.Sender.InfoController.me"></a>
 
@@ -870,7 +528,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
 
 `GET https://umbrella-demo.yojee.com/api/v3/sender/info`
 
-*Get sender infomation*
+*This endpoint retrieves a Sender's infomation*
 
 <h3 id="apiweb.v3.sender.infocontroller.me-parameters">Parameters</h3>
 
@@ -882,132 +540,9 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
 
 <h1 id="Yojee-APIs-[Sender]-Order">[Sender] Order</h1>
 
-## ApiWeb.V3.Sender.OrderController.cancel
+Sender Order APIs
 
-<a id="opIdApiWeb.V3.Sender.OrderController.cancel"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel`
-
-*Cancel an order*
-
-<h3 id="apiweb.v3.sender.ordercontroller.cancel-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|number|path|string|true|Order number|
-
-<h3 id="apiweb.v3.sender.ordercontroller.cancel-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
-
-## ApiWeb.V3.Sender.OrderController.completed
-
-<a id="opIdApiWeb.V3.Sender.OrderController.completed"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed`
-
-Get all completed orders of a sender
-
-<h3 id="apiweb.v3.sender.ordercontroller.completed-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-<h3 id="apiweb.v3.sender.ordercontroller.completed-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
-
-## ApiWeb.V3.Sender.PaymentsController.create
-
-<a id="opIdApiWeb.V3.Sender.PaymentsController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments`
-
-*Create payment request*
-
-> Body parameter
-
-```json
-{
-  "payment_method": "stripe",
-  "order_id": 1,
-  "description": "This is a test description",
-  "currency": "SGD",
-  "credit_card": {
-    "year": 22,
-    "number": 4242424242424242,
-    "name": "Jane Doe",
-    "month": 11,
-    "cvc": 111
-  },
-  "amount": 500
-}
-```
-
-<h3 id="apiweb.v3.sender.paymentscontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|number|path|string|true|Order Number|
-|body|body|[CreatePaymentRequest](#schemacreatepaymentrequest)|false|Payment information|
-
-<h3 id="apiweb.v3.sender.paymentscontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Payment is executed|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Payment failed!|None|
-
-
-
-## ApiWeb.V3.Sender.OrderController.create
+## Sender.OrderController.create
 
 <a id="opIdApiWeb.V3.Sender.OrderController.create"></a>
 
@@ -1025,7 +560,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 
 `POST https://umbrella-demo.yojee.com/api/v3/sender/orders`
 
-*Create order request*
+*This endpoint creates an Order*
 
 > Body parameter
 
@@ -1065,43 +600,40 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
 
+## Sender.OrderController.cancel
 
-## ApiWeb.V3.Sender.OrderController.show
-
-<a id="opIdApiWeb.V3.Sender.OrderController.show"></a>
+<a id="opIdApiWeb.V3.Sender.OrderController.cancel"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}`
+`PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel`
 
-*Get order detail*
+*This endpoint cancels an Order*
 
-<h3 id="apiweb.v3.sender.ordercontroller.show-parameters">Parameters</h3>
+<h3 id="apiweb.v3.sender.ordercontroller.cancel-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|number|path|string|true|Order Number|
+|number|path|string|true|Order number|
 
-<h3 id="apiweb.v3.sender.ordercontroller.show-responses">Responses</h3>
+<h3 id="apiweb.v3.sender.ordercontroller.cancel-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
 
-
-## ApiWeb.V3.Sender.OrderController.ongoing
+## Sender.OrderController.ongoing
 
 <a id="opIdApiWeb.V3.Sender.OrderController.ongoing"></a>
 
@@ -1117,7 +649,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing?page=1&
 
 `GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing`
 
-Get all onging orders of a sender
+*This endpoint retrieves all ongoing Orders of a Sender*
 
 <h3 id="apiweb.v3.sender.ordercontroller.ongoing-parameters">Parameters</h3>
 
@@ -1135,36 +667,134 @@ Get all onging orders of a sender
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
 
-<h1 id="Yojee-APIs-[Sender]-Batch">[Sender] Batch</h1>
+## Sender.OrderController.completed
 
-## ApiWeb.V3.Sender.BatchController.check_status
-
-<a id="opIdApiWeb.V3.Sender.BatchController.check_status"></a>
+<a id="opIdApiWeb.V3.Sender.OrderController.completed"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status`
+`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed`
 
-*Check batch status*
+*This endpoint retrieves all completed Orders of a Sender*
 
-<h3 id="apiweb.v3.sender.batchcontroller.check_status-parameters">Parameters</h3>
+<h3 id="apiweb.v3.sender.ordercontroller.completed-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|batch_id|query|integer|false|Batch Id|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+<h3 id="apiweb.v3.sender.ordercontroller.completed-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
 
-## ApiWeb.V3.Sender.BatchController.create
+## Sender.OrderController.show
+
+<a id="opIdApiWeb.V3.Sender.OrderController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}`
+
+*This endpoint retrieves information about an Order*
+
+<h3 id="apiweb.v3.sender.ordercontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Order Number|
+
+<h3 id="apiweb.v3.sender.ordercontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
+
+
+## Sender.PaymentsController.create
+
+<a id="opIdApiWeb.V3.Sender.PaymentsController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments`
+
+*This endpoint creates a payment request*
+
+> Body parameter
+
+```json
+{
+  "payment_method": "stripe",
+  "order_id": 1,
+  "description": "This is a test description",
+  "currency": "SGD",
+  "credit_card": {
+    "year": 22,
+    "number": 4242424242424242,
+    "name": "Jane Doe",
+    "month": 11,
+    "cvc": 111
+  },
+  "amount": 500
+}
+```
+
+<h3 id="apiweb.v3.sender.paymentscontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Order Number|
+|body|body|[CreatePaymentRequest](#schemacreatepaymentrequest)|false|Payment information|
+
+<h3 id="apiweb.v3.sender.paymentscontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Payment successful|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Payment failed!|None|
+
+
+<h1 id="Yojee-APIs-[Sender]-Batch">[Sender] Batch</h1>
+
+Sender Batch APIs
+
+## Sender.BatchController.create
 
 <a id="opIdApiWeb.V3.Sender.BatchController.create"></a>
 
@@ -1181,7 +811,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/batches \
 
 `POST https://umbrella-demo.yojee.com/api/v3/sender/batches`
 
-*Uploads a file*
+*This endpoint is used by a Sender to upload a batch file*
 
 > Body parameter
 
@@ -1198,13 +828,239 @@ file: string
 |COMPANY_SLUG|header|string|true|company slug|
 |uploader_id|query|integer|false|Uploader Id|
 |company_id|query|integer|false|Company Id|
-|body|body|[ApiWeb.V3.Dispatcher.BatchController.create](#schemaapiweb.v3.dispatcher.batchcontroller.create)|false|none|
 |» file|body|string(binary)|false|The file to upload|
 
 
-<h1 id="Yojee-APIs-[Worker]-Info">[Worker] Info</h1>
+## Sender.BatchController.check_status
 
-## ApiWeb.V3.Worker.InfoController.me
+<a id="opIdApiWeb.V3.Sender.BatchController.check_status"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status`
+
+*This endpoint checks the status of a Batch*
+
+<h3 id="apiweb.v3.sender.batchcontroller.check_status-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|batch_id|query|integer|false|Batch Id|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+
+<h1 id="Yojee-APIs-[Worker]">[Worker]</h1>
+
+Worker APIs
+
+## Worker.UserController.store_device_token
+
+<a id="opIdApiWeb.V3.Worker.UserController.store_device_token"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token`
+
+*This endpoint stores a Worker's device token*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.worker.usercontroller.store_device_token-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|any|true|Device token|
+
+<h3 id="apiweb.v3.worker.usercontroller.store_device_token-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stored device token successfully|None|
+
+
+## Worker.UserController.update
+
+<a id="opIdApiWeb.V3.Worker.UserController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/update \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/update`
+
+*This endpoint updates a Worker's information*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.worker.usercontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|any|false|Worker's status|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.usercontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerResponse](#schemaworkerresponse)|
+
+
+## Worker.UserController.location
+
+<a id="opIdApiWeb.V3.Worker.UserController.location"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/location \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/location`
+
+*This endpoint updates a Worker's location*
+
+> Body parameter
+
+```json
+{
+  "lng": 122.6428429677108,
+  "lat": 65.67691234535297
+}
+```
+
+<h3 id="apiweb.v3.worker.usercontroller.location-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[WorkerLocationUpdateRequest](#schemaworkerlocationupdaterequest)|false|Location information|
+
+<h3 id="apiweb.v3.worker.usercontroller.location-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker location updated|None|
+
+
+## Worker.VehicleController.select
+
+<a id="opIdApiWeb.V3.Worker.VehicleController.select"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select`
+
+*This endpoint is used by a Worker to select a Vehicle*
+
+<h3 id="apiweb.v3.worker.vehiclecontroller.select-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Vehicle ID|
+
+<h3 id="apiweb.v3.worker.vehiclecontroller.select-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+## Worker.CompanyController.config
+
+<a id="opIdApiWeb.V3.Worker.CompanyController.config"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config`
+
+*This endpoint retrieves configuration information about a Worker's Company*
+
+<h3 id="apiweb.v3.worker.companycontroller.config-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.companycontroller.config-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyConfigsResponse](#schemacompanyconfigsresponse)|
+
+
+## Worker.InfoController.me
 
 <a id="opIdApiWeb.V3.Worker.InfoController.me"></a>
 
@@ -1221,7 +1077,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/info`
 
-*Get worker infomation*
+*This endpoint retrieves a Worker's infomation*
 
 <h3 id="apiweb.v3.worker.infocontroller.me-parameters">Parameters</h3>
 
@@ -1241,8 +1097,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[InfoResponse](#schemainforesponse)|
 
 
-
-## ApiWeb.V3.Worker.InfoController.statistics
+## Worker.InfoController.statistics
 
 <a id="opIdApiWeb.V3.Worker.InfoController.statistics"></a>
 
@@ -1259,7 +1114,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/statistics \
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/statistics`
 
-Get statistics about task
+*This endpoint retrieves a Worker's Task statistics*
 
 <h3 id="apiweb.v3.worker.infocontroller.statistics-parameters">Parameters</h3>
 
@@ -1287,223 +1142,11 @@ Get statistics about task
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[StatisticsResponse](#schemastatisticsresponse)|
 
-
-<h1 id="Yojee-APIs-[Worker]-Location">[Worker] Location</h1>
-
-## ApiWeb.V3.Worker.UserController.location
-
-<a id="opIdApiWeb.V3.Worker.UserController.location"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/location \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/location`
-
-*Update the location of worker*
-
-Update the location of worker
-
-> Body parameter
-
-```json
-{
-  "lng": 122.6428429677108,
-  "lat": 65.67691234535297
-}
-```
-
-<h3 id="apiweb.v3.worker.usercontroller.location-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[WorkerLocationUpdateRequest](#schemaworkerlocationupdaterequest)|false|Location information|
-
-<h3 id="apiweb.v3.worker.usercontroller.location-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker location updated|None|
-
-
-
-<h1 id="Yojee-APIs-[Worker]-Device Token">[Worker] Device Token</h1>
-
-## ApiWeb.V3.Worker.UserController.store_device_token
-
-<a id="opIdApiWeb.V3.Worker.UserController.store_device_token"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token`
-
-*Stores the device token of a worker*
-
-> Body parameter
-
-```json
-null
-```
-
-<h3 id="apiweb.v3.worker.usercontroller.store_device_token-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|any|true|device token|
-
-<h3 id="apiweb.v3.worker.usercontroller.store_device_token-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stored device token successfully|None|
-
-
-
-
-<h1 id="Yojee-APIs-[Worker]-User">[Worker] User</h1>
-
-## ApiWeb.V3.Worker.UserController.update
-
-<a id="opIdApiWeb.V3.Worker.UserController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/update \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/update`
-
-*Update worker infomation*
-
-> Body parameter
-
-```json
-null
-```
-
-<h3 id="apiweb.v3.worker.usercontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|any|false|worker's status|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.worker.usercontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerResponse](#schemaworkerresponse)|
-
-
-<h1 id="Yojee-APIs-[Worker]-Company">[Worker] Company</h1>
-
-## ApiWeb.V3.Worker.CompanyController.config
-
-<a id="opIdApiWeb.V3.Worker.CompanyController.config"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config`
-
-Get all configs for a specific company
-
-<h3 id="apiweb.v3.worker.companycontroller.config-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.worker.companycontroller.config-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyConfigsResponse](#schemacompanyconfigsresponse)|
-
-
-<h1 id="Yojee-APIs-[Worker]-Vehicle">[Worker] Vehicle</h1>
-
-## ApiWeb.V3.Worker.VehicleController.select
-
-<a id="opIdApiWeb.V3.Worker.VehicleController.select"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select`
-
-Select a vehicle
-
-<h3 id="apiweb.v3.worker.vehiclecontroller.select-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Vehicle ID|
-
-<h3 id="apiweb.v3.worker.vehiclecontroller.select-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
 <h1 id="Yojee-APIs-[Worker]-TaskGroup">[Worker] TaskGroup</h1>
 
-## ApiWeb.V3.Worker.TaskGroupController.index
+Worker TaskGroup APIs
+
+## Worker.TaskGroupController.index
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.index"></a>
 
@@ -1520,7 +1163,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups`
 
-*List task group by statuses*
+*This endpoint retrieves a list of a Worker's TaskGroups*
 
 <h3 id="apiweb.v3.worker.taskgroupcontroller.index-parameters">Parameters</h3>
 
@@ -1541,42 +1184,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Filter task group by statuses|[TaskGroupResponse](#schemataskgroupresponse)|
 
 
-
-## ApiWeb.V3.Worker.TaskGroupController.reject
-
-<a id="opIdApiWeb.V3.Worker.TaskGroupController.reject"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject`
-
-*Reject a task group*
-
-<h3 id="apiweb.v3.worker.taskgroupcontroller.reject-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Task group ID|
-
-<h3 id="apiweb.v3.worker.taskgroupcontroller.reject-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Reject a task group successfully|None|
-
-
-
-## ApiWeb.V3.Worker.TaskGroupController.show
+## Worker.TaskGroupController.show
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.show"></a>
 
@@ -1593,7 +1201,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}`
 
-*Get a task groups*
+*This endpoint retrieves information about a TaskGroup*
 
 <h3 id="apiweb.v3.worker.taskgroupcontroller.show-parameters">Parameters</h3>
 
@@ -1615,7 +1223,40 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
 
 
 
-## ApiWeb.V3.Worker.TaskGroupController.accept
+## Worker.TaskGroupController.reject
+
+<a id="opIdApiWeb.V3.Worker.TaskGroupController.reject"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject`
+
+*This endpoint is used by a Worker to reject an assigned TaskGroup*
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.reject-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task group ID|
+
+<h3 id="apiweb.v3.worker.taskgroupcontroller.reject-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Reject a task group successfully|None|
+
+
+## Worker.TaskGroupController.accept
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.accept"></a>
 
@@ -1632,7 +1273,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accep
 
 `PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept`
 
-*Accept a task group*
+*This endpoint is used by a Worker to accept an assigned TaskGroup*
 
 <h3 id="apiweb.v3.worker.taskgroupcontroller.accept-parameters">Parameters</h3>
 
@@ -1655,7 +1296,9 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accep
 
 <h1 id="Yojee-APIs-[Worker]-Task">[Worker] Task</h1>
 
-## ApiWeb.V3.Worker.TaskController.batch_complete_status
+Worker Task APIs
+
+## Worker.TaskController.batch_complete_status
 
 <a id="opIdApiWeb.V3.Worker.TaskController.batch_complete_status"></a>
 
@@ -1672,7 +1315,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/sta
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status`
 
-*Check status of bulk complete*
+*This endpoint checks the status of all Tasks in a Batch*
 
 <h3 id="apiweb.v3.worker.taskcontroller.batch_complete_status-parameters">Parameters</h3>
 
@@ -1693,8 +1336,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/sta
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[BulkCompletionStatus](#schemabulkcompletionstatus)|
 
 
-
-## ApiWeb.V3.Worker.TaskController.mark_as_failed
+## Worker.TaskController.mark_as_failed
 
 <a id="opIdApiWeb.V3.Worker.TaskController.mark_as_failed"></a>
 
@@ -1711,7 +1353,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_fai
 
 `POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
 
-Marks a task as failed by creating an associated task exception
+*This endpoint marks a Task as failed by creating an associated TaskException*
 
 > Body parameter
 
@@ -1726,7 +1368,7 @@ null
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
 |id|path|integer|true|Task Id|
-|body|body|[ApiWeb.V3.Worker.TaskController.mark_as_failedDescriptions](#schemaapiweb.v3.worker.taskcontroller.mark_as_faileddescriptions)|true|Task Exception descriptions|
+|body|body|string|true|Task Exception descriptions|
 
 <h3 id="apiweb.v3.worker.taskcontroller.mark_as_failed-responses">Responses</h3>
 
@@ -1735,8 +1377,7 @@ null
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
 
-
-## ApiWeb.V3.Worker.TaskController.bulk_complete
+## Worker.TaskController.bulk_complete
 
 <a id="opIdApiWeb.V3.Worker.TaskController.bulk_complete"></a>
 
@@ -1753,7 +1394,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
 
 `PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete`
 
-*Complete a list of tasks*
+*This endpoint is used by a Worker to complete multiple Tasks*
 
 > Body parameter
 
@@ -1782,8 +1423,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
 |body|body|[BulkTaskCompletionRequest](#schemabulktaskcompletionrequest)|false|Task Completion information|
 
 
-
-## ApiWeb.V3.Worker.TaskController.ongoing
+## Worker.TaskController.ongoing
 
 <a id="opIdApiWeb.V3.Worker.TaskController.ongoing"></a>
 
@@ -1799,7 +1439,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&p
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing`
 
-*List ongoing tasks*
+*This endpoint retrieves a list of a Worker's ongoing Tasks*
 
 <h3 id="apiweb.v3.worker.taskcontroller.ongoing-parameters">Parameters</h3>
 
@@ -1811,8 +1451,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&p
 |page_size|query|integer|true|Page size|
 
 
-
-## ApiWeb.V3.Worker.TaskController.completed
+## Worker.TaskController.completed
 
 <a id="opIdApiWeb.V3.Worker.TaskController.completed"></a>
 
@@ -1828,7 +1467,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed`
 
-*List completed tasks*
+*This endpoint retrieves a list of a Worker's completed Tasks*
 
 <h3 id="apiweb.v3.worker.taskcontroller.completed-parameters">Parameters</h3>
 
@@ -1849,8 +1488,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1
 |range|last_four_weeks|
 
 
-
-## ApiWeb.V3.Worker.TaskController.complete
+## Worker.TaskController.complete
 
 <a id="opIdApiWeb.V3.Worker.TaskController.complete"></a>
 
@@ -1867,7 +1505,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete \
 
 `PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete`
 
-*Complete a task*
+*This endpoint is used by a Worker to complete a Task*
 
 > Body parameter
 
@@ -1882,11 +1520,10 @@ null
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
 |id|path|integer|true|Task ID|
-|body|body|any|false|Completion Time|
+|body|body|any|false|Completion time|
 
 
-
-## ApiWeb.V3.Worker.TaskController.history
+## Worker.TaskController.history
 
 <a id="opIdApiWeb.V3.Worker.TaskController.history"></a>
 
@@ -1902,7 +1539,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&p
 
 `GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history`
 
-*List completed and failed tasks*
+*This endpoint retrieves a Worker's Task history*
 
 <h3 id="apiweb.v3.worker.taskcontroller.history-parameters">Parameters</h3>
 
@@ -1922,9 +1559,12 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&p
 |range|last_week|
 |range|last_four_weeks|
 
+
 <h1 id="Yojee-APIs-[Worker]-SubTask">[Worker] SubTask</h1>
 
-## ApiWeb.V3.Worker.SubTaskController.create
+Worker SubTask APIs
+
+## Worker.SubTaskController.create
 
 <a id="opIdApiWeb.V3.Worker.SubTaskController.create"></a>
 
@@ -1942,7 +1582,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 
 `POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
 
-Create a sub task
+*This endpoint creates a SubTask*
 
 > Body parameter
 
@@ -1980,9 +1620,11 @@ Create a sub task
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SubTaskResponse](#schemasubtaskresponse)|
 
 
-<h1 id="Yojee-APIs-[Dispatcher]-Info">[Dispatcher] Info</h1>
+<h1 id="Yojee-APIs-[Dispatcher]">[Dispatcher]</h1>
 
-## ApiWeb.V3.Dispatcher.InfoController.me
+Dispatcher APIs
+
+## Dispatcher.InfoController.me
 
 <a id="opIdApiWeb.V3.Dispatcher.InfoController.me"></a>
 
@@ -1999,7 +1641,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/info \
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/info`
 
-*Get current dispatcher user*
+*This endpoint retrieves a Dispatcher's infomation*
 
 <h3 id="apiweb.v3.dispatcher.infocontroller.me-parameters">Parameters</h3>
 
@@ -2019,12 +1661,160 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/info \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherInfoResponse](#schemadispatcherinforesponse)|
 
 
+<h1 id="Yojee-APIs-[Dispatcher]-Search">[Dispatcher] Search</h1>
+
+Dispatcher APIs for Search
+
+## Dispatcher.SearchController.sender
+
+<a id="opIdApiWeb.V3.Dispatcher.SearchController.sender"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender?page=1&page_size=25&q=string \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender`
+
+*This endpoint is used to search for a Sender*
+
+<h3 id="apiweb.v3.dispatcher.searchcontroller.sender-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|q|query|string|true|search query|
+
+
+## Dispatcher.SearchController.worker
+
+<a id="opIdApiWeb.V3.Dispatcher.SearchController.worker"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker?page=1&page_size=25&q=string \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker`
+
+*This endpoint is used to search for a Worker*
+
+<h3 id="apiweb.v3.dispatcher.searchcontroller.worker-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|q|query|string|true|search query|
+
+
+## Dispatcher.SearchController.order
+
+<a id="opIdApiWeb.V3.Dispatcher.SearchController.order"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?page=1&page_size=25&q=string \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order`
+
+*This endpoint is used to search for an Order*
+
+<h3 id="apiweb.v3.dispatcher.searchcontroller.order-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|q|query|string|true|search query|
+
+
+## Dispatcher.SearchController.order_item
+
+<a id="opIdApiWeb.V3.Dispatcher.SearchController.order_item"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item?page=1&page_size=25&q=string \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item`
+
+*This endpoint is used to search for an OrderItem*
+
+<h3 id="apiweb.v3.dispatcher.searchcontroller.order_item-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|q|query|string|true|search query|
+
+
+## Dispatcher.SearchController.task
+
+<a id="opIdApiWeb.V3.Dispatcher.SearchController.task"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task?page=1&page_size=25&q=string \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task`
+
+*This endpoint is used to search for a Task*
+
+<h3 id="apiweb.v3.dispatcher.searchcontroller.task-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|q|query|string|true|search query|
+
 
 <h1 id="Yojee-APIs-[Dispatcher]-User">[Dispatcher] User</h1>
 
-Dispatcher (aka User) management
+Dispatcher APIs for User Management
 
-## ApiWeb.V3.Dispatcher.UserController.create
+## Dispatcher.UserController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.UserController.create"></a>
 
@@ -2042,7 +1832,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 
 `POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users`
 
-*Create new company user*
+*This endpoint creates a new Dispatcher*
 
 > Body parameter
 
@@ -2074,8 +1864,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created the company user|[DispatcherCreateUserResponse](#schemadispatchercreateuserresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.UserController.index
+## Dispatcher.UserController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.UserController.index"></a>
 
@@ -2092,7 +1881,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/users`
 
-*List company users*
+*This endpoint retrieves a list of Dispatchers belonging to a Company*
 
 <h3 id="apiweb.v3.dispatcher.usercontroller.index-parameters">Parameters</h3>
 
@@ -2112,8 +1901,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company users|[DispatcherIndexUserResponse](#schemadispatcherindexuserresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.UserController.update
+## Dispatcher.UserController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.UserController.update"></a>
 
@@ -2131,7 +1919,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id} \
 
 `PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id}`
 
-*Update company user*
+*This endpoint updates a Dispatcher's information*
 
 > Body parameter
 
@@ -2163,2688 +1951,11 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id} \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company user|[DispatcherCreateUserResponse](#schemadispatchercreateuserresponse)|
 
 
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-Partner">[Dispatcher] Partner</h1>
-
-Partner management
-
-## ApiWeb.V3.Dispatcher.PartnerController.decline
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.decline"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite`
-
-*Declines a partner company invite*
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.decline-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|cip|path|string|true|Partner CIP|
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.decline-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite declined successfully|None|
-
-
-
-## ApiWeb.V3.Dispatcher.PartnerController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company_partner_info \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company_partner_info`
-
-*Update company partner info*
-
-> Body parameter
-
-```json
-{
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCompanyPartnerInfoUpdate](#schemadispatchercompanypartnerinfoupdate)|false|My info|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnerResponse](#schemadispatcherpartnerresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.PartnerController.send
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.send"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite?partnership_type=upstream \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite`
-
-*Invite a partner company*
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.send-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|cip|path|string|true|Partner CIP|
-|partnership_type|query|array[string]|true|Partnership Type|
-
-### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|partnership_type|upstream|
-|partnership_type|downstream|
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.send-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite sent successfully|None|
-
-
-
-## ApiWeb.V3.Dispatcher.PartnerController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{id}`
-
-*Get partner details*
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|cip|path|string|true|Partner CIP|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnerResponse](#schemadispatcherpartnerresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.PartnerController.accept
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.accept"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite`
-
-*Accepts a partner company invite*
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.accept-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|cip|path|string|true|Partner CIP|
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.accept-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite accepted successfully|None|
-
-
-
-## ApiWeb.V3.Dispatcher.PartnerController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/partners \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/partners`
-
-*Create a partner*
-
-> Body parameter
-
-```json
-{
-  "postal_code": "321021",
-  "partnership_type": "downstream",
-  "country": "Singapore",
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com",
-  "company_name": "XYZ",
-  "city": "Singapore",
-  "address": "77 Robinson road, Singapore."
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherPartnerCreate](#schemadispatcherpartnercreate)|false|Partner information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created partner|[DispatcherPartnerResponse](#schemadispatcherpartnerresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.PartnerController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners`
-
-*List partners of a company*
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartners](#schemadispatcherpartners)|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-Sender">[Dispatcher] Sender</h1>
-
-Sender management
-
-## ApiWeb.V3.Dispatcher.SenderController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.SenderController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders`
-
-*Create new individual sender*
-
-> Body parameter
-
-```json
-{
-  "sender_type": "individual",
-  "phone": "+8412345611",
-  "password": "passwd112233",
-  "name": "Mike Sender",
-  "email": "michael@yojee.com",
-  "billing_address": "144 Robinson Road"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCreateSenderRequest](#schemadispatchercreatesenderrequest)|false|Sender information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SenderController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.SenderController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders`
-
-*List individual senders*
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|sender_type|query|string|false|Sender type (individual/organisation)|
-|q|query|string|false|Search by sender name or organisation name|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSendersResponse](#schemadispatchersendersresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SenderController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.SenderController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
-
-*Update an individual sender*
-
-> Body parameter
-
-```json
-{
-  "phone": "+8412345611",
-  "name": "Mike Sender",
-  "email": "michael@yojee.com",
-  "billing_address": "144 Robinson Road"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Sender ID|
-|body|body|[DispatcherUpdateSenderRequest](#schemadispatcherupdatesenderrequest)|false|Sender information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SenderController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.SenderController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
-
-*Get an individual sender*
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Sender ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SenderController.delete
-
-<a id="opIdApiWeb.V3.Dispatcher.SenderController.delete"></a>
-
-> Code samples
-
-```shell
-
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
-
-*Delete an individual sender*
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.delete-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Sender ID|
-
-<h3 id="apiweb.v3.dispatcher.sendercontroller.delete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-CorporateSender">[Dispatcher] CorporateSender</h1>
-
-Corporate Sender management
-
-## ApiWeb.V3.Dispatcher.DispatcherController.sender_admins
-
-<a id="opIdApiWeb.V3.Dispatcher.DispatcherController.sender_admins"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/dispatchers/senders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/dispatchers/senders`
-
-*List sender admins*
-
-List sender admins
-
-<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSenderAdminsRequest](#schemadispatchersenderadminsrequest)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrganisationController.organisation_senders
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.organisation_senders"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisation_senders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisation_senders`
-
-*List organisation users (Primary and Secondary account) of a company*
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrganisationController.create_corporate_sender
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create_corporate_sender"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
-
-*Create new corporate sender*
-
-> Body parameter
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "name": "Ralston",
-  "email": "secondary_account@abc.com",
-  "billing_address": "77 Robinson road, Singapore."
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Organisation ID|
-|body|body|[DispatcherCreateCorporateSenderRequest](#schemadispatchercreatecorporatesenderrequest)|false|Corporate Sender information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateCorporateSenderResponse](#schemadispatchercreatecorporatesenderresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrganisationController.corporate_senders
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.corporate_senders"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
-
-*List client company users (CCUs) of an organisation*
-
-List client company users (CCUs) of an organisation
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Organisation ID|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrganisationController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations`
-
-*Create new organisation*
-
-> Body parameter
-
-```json
-{
-  "uen_no": "ABC1235M",
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "payment_option": "monthly_billing",
-  "organisation": {
-    "reg_address": "77 Robinson road, Singapore.",
-    "postal_code": "321021",
-    "phone": "+6591245934",
-    "name": "ABC",
-    "country": "Singapore",
-    "city": "Singapore"
-  },
-  "name": "Ralston",
-  "gst_no": "2AS9890",
-  "email": "primary_account@abc.com",
-  "billing_address": "77 Robinson road, Singapore."
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCreateOrganisationRequest](#schemadispatchercreateorganisationrequest)|false|Organisation information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateOrganisationResponse](#schemadispatchercreateorganisationresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrganisationController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations`
-
-*List organisations of a company*
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationsResponse](#schemadispatcherorganisationsresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrganisationController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}`
-
-*Get organisation details*
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Organisation ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationResponse](#schemadispatcherorganisationresponse)|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-Worker">[Dispatcher] Worker</h1>
-
-Worker management
-
-## ApiWeb.V3.Dispatcher.WorkerController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers`
-
-*Create a worker*
-
-> Body parameter
-
-```json
-{
-  "vehicle_type_ids": [
-    1,
-    2
-  ],
-  "tester": false,
-  "phone": "+987654322",
-  "password": "passwd112233",
-  "otp_token": "1122334455",
-  "name": "Mike Driver",
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  },
-  "email": "mike-driver@yojee.com",
-  "current_vehicle_type_id": 1
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCreateWorkerRequest](#schemadispatchercreateworkerrequest)|false|Worker information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created worker|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.WorkerController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers`
-
-*List workers*
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-|sort|query|string|false|the field to sort (id/distance/etc.)|
-|order|query|string|false|asc, or desc|
-|status|query|string|false|driver status|
-|from|query|string|false|from timestamp|
-|to|query|string|false|to timestamp|
-|name|query|string|false|worker name|
-|target_location|query|string|false|Geospatial coordinates of a location|
-|with_in|query|float|false|Length of range (with target_location at center) in meters|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherWorkersResponse](#schemadispatcherworkersresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.WorkerController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
-
-*Update a worker*
-
-Update a worker
-
-> Body parameter
-
-```json
-{
-  "vehicle_type_ids": [
-    1,
-    2
-  ],
-  "tester": true,
-  "phone": "+987654322",
-  "otp_token": "TNUSTU2YF7BCDOYR",
-  "name": "Mike Driver",
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  },
-  "email": "mike-driver@yojee.com",
-  "current_vehicle_type_id": 1
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Worker ID|
-|body|body|[DispatcherUpdateWorkerRequest](#schemadispatcherupdateworkerrequest)|false|Worker information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.WorkerController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
-
-*Get a worker*
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Worker ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got worker|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.WorkerController.delete
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.delete"></a>
-
-> Code samples
-
-```shell
-
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
-
-*Delete a worker*
-
-Delete a worker
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.delete-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Worker ID|
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.delete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
-
-## ApiWeb.V3.Dispatcher.WorkerController.approve
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.approve"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/approve \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/approve`
-
-*Approve a worker*
-
-Approve a worker
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.approve-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Worker ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.approve-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-Order">[Dispatcher] Order</h1>
-
-Order management
-
-## ApiWeb.V3.Dispatcher.OrderController.cancel
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderController.cancel"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/cancel \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/cancel`
-
-Cancel an order
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.cancel-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|number|path|string|true|Order number|
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.cancel-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
-
-## ApiWeb.V3.Dispatcher.OrderController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}`
-
-*Update price, external_id, for order*
-
-> Body parameter
-
-```json
-{
-  "price_currency": "string",
-  "price_amount": 0,
-  "external_id": "string"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|number|path|string|true|Order number|
-|body|body|[DispatcherUpdateOrderRequest](#schemadispatcherupdateorderrequest)|false|Order information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrderController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}`
-
-*Show an order*
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|number|path|string|true|Order Number|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrderResponse](#schemadispatcherorderresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrderController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders`
-
-*Create order request*
-
-> Body parameter
-
-```json
-{
-  "vehicle_type_id": 0,
-  "sender_id": 0,
-  "price_currency": "string",
-  "price_amount": 0,
-  "placed_by_user_profile_id": 0,
-  "jobs": [
-    null
-  ],
-  "items": [
-    null
-  ]
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[CreateOrderRequest](#schemacreateorderrequest)|false|Order information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
-
-
-## ApiWeb.V3.Dispatcher.OrderController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders`
-
-*List orders*
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|status|query|string|false|an array of status for order, ie: [initial, processing, paid, complete, cancelled]|
-|from|query|string|false|from datetime in ISO8601 format|
-|to|query|string|false|to datetime in ISO8601 format|
-|sender_id|query|integer|false|Sender ID|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-|order|query|string|false|asc, or desc|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.ordercontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrdersResponse](#schemadispatcherordersresponse)|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-Batch">[Dispatcher] Batch</h1>
-
-## ApiWeb.V3.Dispatcher.BatchController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.BatchController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/batches \
-  -H 'Content-Type: multipart/form-data' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/batches`
-
-*Uploads a file*
-
-> Body parameter
-
-```yaml
-file: string
-
-```
-
-<h3 id="apiweb.v3.dispatcher.batchcontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|uploader_id|query|integer|false|Uploader Id|
-|company_id|query|integer|false|Company Id|
-|body|body|[ApiWeb.V3.Dispatcher.BatchController.create](#schemaapiweb.v3.dispatcher.batchcontroller.create)|false|none|
-|» file|body|string(binary)|false|The file to upload|
-
-
-## ApiWeb.V3.Dispatcher.BatchController.check_status
-
-<a id="opIdApiWeb.V3.Dispatcher.BatchController.check_status"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_status \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_status`
-
-*Check batch status*
-
-<h3 id="apiweb.v3.dispatcher.batchcontroller.check_status-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|batch_id|query|integer|false|Batch Id|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-
-## ApiWeb.V3.Dispatcher.BatchController.get_order
-
-<a id="opIdApiWeb.V3.Dispatcher.BatchController.get_order"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order`
-
-*Get order detail of batch*
-
-<h3 id="apiweb.v3.dispatcher.batchcontroller.get_order-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|batch_id|query|integer|false|Batch Id|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-Task">[Dispatcher] Task</h1>
-
-## ApiWeb.V3.Dispatcher.TaskController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id}`
-
-*Update a task*
-
-<h3 id="apiweb.v3.dispatcher.taskcontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Task ID|
-|task_group_id|path|integer|true|Task group ID|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskController.delete_task_exception
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskController.delete_task_exception"></a>
-
-> Code samples
-
-```shell
-
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception`
-
-Deletes a TaskException associated with a task
-
-<h3 id="apiweb.v3.dispatcher.taskcontroller.delete_task_exception-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|task_group_id|path|integer|true|Task Group Id|
-|id|path|integer|true|Task Exception Id|
-
-<h3 id="apiweb.v3.dispatcher.taskcontroller.delete_task_exception-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskController.mark_as_failed
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskController.mark_as_failed"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed`
-
-Marks a task as failed by creating an associated task exception
-
-> Body parameter
-
-```json
-null
-```
-
-<h3 id="apiweb.v3.dispatcher.taskcontroller.mark_as_failed-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|task_group_id|path|integer|true|Task Group Id|
-|id|path|integer|true|Task Id|
-|body|body|[ApiWeb.V3.Worker.TaskController.mark_as_failedDescriptions](#schemaapiweb.v3.worker.taskcontroller.mark_as_faileddescriptions)|true|Task Exception descriptions|
-
-<h3 id="apiweb.v3.dispatcher.taskcontroller.mark_as_failed-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ok|None|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskController.complete
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskController.complete"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete`
-
-Marks a task as completed by the dispatcher
-
-<h3 id="apiweb.v3.dispatcher.taskcontroller.complete-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|task_group_id|path|integer|true|Task Group Id|
-|id|path|integer|true|Task ID|
-
-<h3 id="apiweb.v3.dispatcher.taskcontroller.complete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ok|None|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-Worker-tasks">[Dispatcher] Worker tasks</h1>
-
-## ApiWeb.V3.Dispatcher.WorkerController.failed
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.failed"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed?page=1&page_size=10 \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed`
-
-*List failed tasks*
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.failed-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Worker ID|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-
-
-## ApiWeb.V3.Dispatcher.WorkerController.assigned
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.assigned"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned?page=1&page_size=10 \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned`
-
-*List assigned tasks*
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.assigned-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Worker ID|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-
-
-## ApiWeb.V3.Dispatcher.WorkerController.completed
-
-<a id="opIdApiWeb.V3.Dispatcher.WorkerController.completed"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed?page=1&page_size=10 \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed`
-
-*List completed tasks*
-
-<h3 id="apiweb.v3.dispatcher.workercontroller.completed-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Worker ID|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-
-## ApiWeb.V3.Dispatcher.ManifestController.generate_worker_manifest
-
-<a id="opIdApiWeb.V3.Dispatcher.ManifestController.generate_worker_manifest"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}`
-
-*Generate a label on the fly*
-
-<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|worker_id|query|integer|false|Worker ID|
-
-<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker manifest to be downloaded.|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-TaskGroup">[Dispatcher] TaskGroup</h1>
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}`
-
-*Show a task group*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Task group ID|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.unassigned
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.unassigned"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassigned?page=1&page_size=10 \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassigned`
-
-*Get unassigned task groups*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.unassigned-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|task_group_ids|query|string|false|an array of task_group_id for task group|
-|from|query|string|false|from datetime in ISO8601 format|
-|to|query|string|false|to datetime in ISO8601 format|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.assign_multiple
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assign_multiple"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign_multiple \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign_multiple`
-
-*Assign worker multiple task groups*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assign_multiple-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|ids|query|array[any]|false|array of task_group ids|
-|worker_id|query|integer|false|Worker ID|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.step_items
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.step_items"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}?type=string \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}`
-
-*Get detailed items about a step in task group*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.step_items-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Task Group ID|
-|step_id|path|integer|true|Step ID|
-|type|query|string|true|Pickup/Dropoff|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.assigned
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assigned"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assigned?page=1&page_size=10 \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assigned`
-
-*Get assigned task groups*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assigned-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|status|query|string|false|an array of status for task group, ie: [assigned, accepted, completed, cancelled], defaults to [assigned]|
-|worker_type|query|string|false|Worker contract type (employee/freelancer)|
-|current_vehicle_type_id|query|integer|false|Worker vehicle type id|
-|task_group_ids|query|string|false|an array of task_group_id for task group|
-|from|query|string|false|from datetime in ISO8601 format|
-|to|query|string|false|to datetime in ISO8601 format|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.unassign_worker
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.unassign_worker"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker`
-
-*Unassign a worker from a task group*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.unassign_worker-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Task Group ID|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.join_chat
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.join_chat"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat`
-
-*Add the dispatcher to a group chat*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.join_chat-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Task Group ID|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.accepted
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.accepted"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accepted \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accepted`
-
-*show list of task_groups which is accepted by a worker*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.accepted-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|worker_id|query|integer|false|Worker ID|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.assign_worker
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assign_worker"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker`
-
-*Assign worker for a task group*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assign_worker-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Task group ID|
-|worker_id|query|integer|false|Worker ID|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskGroupController.regroup
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.regroup"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/regroup \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/regroup`
-
-*Groups unassigned tasks*
-
-<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.regroup-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|order|query|boolean|false|Group by Order|
-|pickup|query|boolean|false|Group by Pickup|
-|dropoff|query|boolean|false|Group by Dropoff|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-TaskExceptionReason">[Dispatcher] TaskExceptionReason</h1>
-
-## ApiWeb.V3.Dispatcher.TaskExceptionReasonController.delete
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.delete"></a>
-
-> Code samples
-
-```shell
-
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons/{id}`
-
-Deletes a TaskExceptionReason
-
-<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.delete-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|TaskExceptionReason Id|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.delete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonResponse](#schemataskexceptionreasonresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskExceptionReasonController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons`
-
-Creates a TaskExceptionReason
-
-> Body parameter
-
-```json
-{
-  "description": "Sender not available",
-  "company_id": 1
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[TaskExceptionReasonRequest](#schemataskexceptionreasonrequest)|false|TaskExceptionReason|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonResponse](#schemataskexceptionreasonresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.TaskExceptionReasonController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons`
-
-Get all task exception reasons for a specific company
-
-<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonsResponse](#schemataskexceptionreasonsresponse)|
-
-
-
-
-## ApiWeb.V3.Dispatcher.SearchController.order_item
-
-<a id="opIdApiWeb.V3.Dispatcher.SearchController.order_item"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item?q=string \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item`
-
-*Search for an item*
-
-<h3 id="apiweb.v3.dispatcher.searchcontroller.order_item-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|q|query|string|true|search query|
-
-
-
-## ApiWeb.V3.Dispatcher.SearchController.task
-
-<a id="opIdApiWeb.V3.Dispatcher.SearchController.task"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task?q=string \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task`
-
-*Search for a task*
-
-<h3 id="apiweb.v3.dispatcher.searchcontroller.task-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|q|query|string|true|search query|
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-OrderItem">[Dispatcher] OrderItem</h1>
-
-## ApiWeb.V3.Dispatcher.OrderItemController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderItemController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}`
-
-*Update an order item*
-
-> Body parameter
-
-```json
-{
-  "payload_type": "Updated document",
-  "external_customer_id": "changed_external_customer_id",
-  "description": "Updated Gift"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.orderitemcontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Order Item id|
-|body|body|[OrderItemsUpdateRequest](#schemaorderitemsupdaterequest)|false|Order Item information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.orderitemcontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsShowResponse](#schemaorderitemsshowresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrderItemController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderItemController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}`
-
-*Show Detail of an Order_item*
-
-<h3 id="apiweb.v3.dispatcher.orderitemcontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Order Item id|
-|delivery_trial_sort|query|string|false|asc or desc for delivery trial sort|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.orderitemcontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsShowResponse](#schemaorderitemsshowresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.OrderItemController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.OrderItemController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items`
-
-*List order_items*
-
-<h3 id="apiweb.v3.dispatcher.orderitemcontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|status|query|string|false|status of the order item, can be string or list|
-|service_type|query|string|false|service type of the order item, can be string or list|
-|order_id|query|string|false|order_id, can be string or an array|
-|from|query|string|false|from timestamp|
-|to|query|string|false|to timestamp|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.orderitemcontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsIndexResponse](#schemaorderitemsindexresponse)|
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-SubTask">[Dispatcher] SubTask</h1>
-
-## ApiWeb.V3.Dispatcher.SubTaskController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.SubTaskController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks`
-
-*List sub tasks*
-
-<h3 id="apiweb.v3.dispatcher.subtaskcontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|order_item_id|path|integer|true|Order Item ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.subtaskcontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSubTasksResponse](#schemadispatchersubtasksresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SubTaskController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.SubTaskController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id}`
-
-*Get a sub task*
-
-<h3 id="apiweb.v3.dispatcher.subtaskcontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Sub Task ID|
-|order_item_id|path|integer|true|Order Item ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.subtaskcontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got sub task|[DispatcherRuleResponse](#schemadispatcherruleresponse)|
-
-
-
-
-<h1 id="Yojee-APIs-[Dispatcher]-SubTaskRule">[Dispatcher] SubTaskRule</h1>
-
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
-
-*Update a sub task rule*
-
-Update a sub task rule
-
-> Body parameter
-
-```json
-{
-  "meta": {
-    "photo_type": "signature",
-    "photo_title": "Signature of client"
-  },
-  "event": "pickup_completed",
-  "company_id": 1,
-  "action": "upload_photo"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Sub Task Rule ID|
-|body|body|[DispatcherUpdateRuleRequest](#schemadispatcherupdaterulerequest)|false|Sub Task Rule information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
-
-*Get a sub task rule*
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Sub Task Rule ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got sub task rule|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.delete
-
-<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.delete"></a>
-
-> Code samples
-
-```shell
-
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
-
-*Delete a sub task rule*
-
-Delete a sub task rule
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.delete-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Sub Task Rule ID|
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.delete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-
-
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules`
-
-*Create a sub task rule*
-
-> Body parameter
-
-```json
-{
-  "meta": {
-    "photo_type": "signature",
-    "photo_title": "Signature of client"
-  },
-  "event": "pickup_completed",
-  "company_id": 1,
-  "action": "upload_photo"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCreateRuleRequest](#schemadispatchercreaterulerequest)|false|Sub Task Rule information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created sub task rule|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
-
-
-
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules`
-
-*List sub task rules*
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherRulesResponse](#schemadispatcherrulesresponse)|
-
-
-
-
 <h1 id="Yojee-APIs-[Dispatcher]-Company">[Dispatcher] Company</h1>
 
-## ApiWeb.V3.Dispatcher.CompanyController.vehicle_types
+Dispatcher APIs for Company Management
+
+## Dispatcher.CompanyController.vehicle_types
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.vehicle_types"></a>
 
@@ -4861,7 +1972,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/vehicle_types \
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/vehicle_types`
 
-Get vehicle types which are available for current company
+*This endpoint retrieves a list of VehicleTypes belonging to a Company*
 
 <h3 id="apiweb.v3.dispatcher.companycontroller.vehicle_types-parameters">Parameters</h3>
 
@@ -4881,8 +1992,7 @@ Get vehicle types which are available for current company
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyVehicleTypesResponse](#schemacompanyvehicletypesresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.CompanyController.show
+## Dispatcher.CompanyController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.show"></a>
 
@@ -4899,7 +2009,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/company \
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/company`
 
-*Get company info*
+*This endpoint retrieves infomation about a Company*
 
 <h3 id="apiweb.v3.dispatcher.companycontroller.show-parameters">Parameters</h3>
 
@@ -4919,8 +2029,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/company \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got the company info|[CompanyInfoResponse](#schemacompanyinforesponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.CompanyController.transportation_companies
+## Dispatcher.CompanyController.transportation_companies
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.transportation_companies"></a>
 
@@ -4937,7 +2046,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/transportation_com
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/transportation_companies`
 
-Get transportation companies which works for current company
+*This endpoint retrieves a list of TransportationCompanies which work for a Company*
 
 <h3 id="apiweb.v3.dispatcher.companycontroller.transportation_companies-parameters">Parameters</h3>
 
@@ -4957,8 +2066,7 @@ Get transportation companies which works for current company
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyTransportationCompaniesResponse](#schemacompanytransportationcompaniesresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.CompanyController.upload_assets
+## Dispatcher.CompanyController.upload_assets
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.upload_assets"></a>
 
@@ -4976,7 +2084,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/company/assets \
 
 `POST https://umbrella-demo.yojee.com/api/v3/dispatcher/company/assets`
 
-*Upload company assets*
+*This endpoint is used to upload branding assets for a Company*
 
 > Body parameter
 
@@ -5013,8 +2121,7 @@ file_type: string
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Uploaded the company asset|[CompanyUploadAssetsResponse](#schemacompanyuploadassetsresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.CompanyController.update_settings
+## Dispatcher.CompanyController.update_settings
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.update_settings"></a>
 
@@ -5032,7 +2139,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings \
 
 `PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings`
 
-*Update company settings*
+*This endpoint updates a Company's settings*
 
 > Body parameter
 
@@ -5077,11 +2184,11 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company setting|[CompanyInfoResponse](#schemacompanyinforesponse)|
 
 
-
-
 <h1 id="Yojee-APIs-[Dispatcher]-Role">[Dispatcher] Role</h1>
 
-## ApiWeb.V3.Dispatcher.RoleController.create
+Dispatcher APIs for Role Management
+
+## Dispatcher.RoleController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.RoleController.create"></a>
 
@@ -5098,9 +2205,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
 
 `POST https://umbrella-demo.yojee.com/api/v3/dispatcher/roles`
 
-*Create a role*
-
-Create a role
+*This endpoint creates a new Role*
 
 > Body parameter
 
@@ -5131,8 +2236,7 @@ Create a role
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
 
 
-
-## ApiWeb.V3.Dispatcher.RoleController.index
+## Dispatcher.RoleController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.RoleController.index"></a>
 
@@ -5149,9 +2253,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/roles`
 
-*List roles*
-
-List roles
+*This endpoint retrieves a list of Roles*
 
 <h3 id="apiweb.v3.dispatcher.rolecontroller.index-parameters">Parameters</h3>
 
@@ -5171,8 +2273,7 @@ List roles
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of roles|[DispatcherIndexRoleResponse](#schemadispatcherindexroleresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.RoleController.update
+## Dispatcher.RoleController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.RoleController.update"></a>
 
@@ -5189,15 +2290,13 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id} \
 
 `PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id}`
 
-*Update a role*
-
-Update a role
+*This endpoint updates a Role*
 
 > Body parameter
 
 ```json
 {
-  "updated_at": "2018-05-22 09:31:31.464265Z",
+  "updated_at": "2018-05-23 07:16:40.139117Z",
   "name": "role_1",
   "company_id": 123,
   "access_map": {
@@ -5223,11 +2322,838 @@ Update a role
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
 
 
+<h1 id="Yojee-APIs-[Dispatcher]-Partner">[Dispatcher] Partner</h1>
+
+Dispatcher APIs for Partner Management
+
+## Dispatcher.PartnerController.reject_invite
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.reject_invite"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite`
+
+*This endpoint is used to decline a Partner invite*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.reject_invite-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|cip|path|string|true|Partner CIP|
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.reject_invite-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite declined successfully|None|
 
 
-<h1 id="Yojee-APIs-[Dispatcher]-Region">[Dispatcher] Region</h1>
+## Dispatcher.PartnerController.sent_invites
 
-## ApiWeb.V3.Dispatcher.Network.RegionController.create
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.sent_invites"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/sent?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/sent`
+
+*This endpoint retrieves a list of sent partnership requests*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.sent_invites-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.sent_invites-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartners](#schemadispatcherpartners)|
+
+
+## Dispatcher.PartnerController.cancel_invite
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.cancel_invite"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite`
+
+*This endpoint is used to cancel a sent Partner invite*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.cancel_invite-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|cip|path|string|true|Partner CIP|
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.cancel_invite-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite canceled successfully|None|
+
+
+## Dispatcher.PartnerController.update_partnership_info
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.update_partnership_info"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info`
+
+*This endpoint updates a Partner's information*
+
+> Body parameter
+
+```json
+{
+  "contact_phone": "+6591245934",
+  "contact_name": "Ralston",
+  "contact_email": "ralston@xyz.com"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.update_partnership_info-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherPartnershipInfoUpdate](#schemadispatcherpartnershipinfoupdate)|false|Dispatcher company partnership info|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.update_partnership_info-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnershipInfo](#schemadispatcherpartnershipinfo)|
+
+
+## Dispatcher.PartnerController.partnership_info
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.partnership_info"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info`
+
+*This endpoint retrieves a Company's partnership information*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.partnership_info-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.partnership_info-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnershipInfo](#schemadispatcherpartnershipinfo)|
+
+
+## Dispatcher.PartnerController.send_invite
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.send_invite"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite`
+
+*This endpoint is used to send a Partner invite*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.send_invite-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|cip|path|string|true|Partner CIP|
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.send_invite-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite sent successfully|None|
+
+
+## Dispatcher.PartnerController.received_invites
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.received_invites"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/received?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/received`
+
+*This endpoint retrieves a list of received partnership requests*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.received_invites-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.received_invites-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartners](#schemadispatcherpartners)|
+
+
+## Dispatcher.PartnerController.accept_invite
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.accept_invite"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite`
+
+*This endpoint is used to accept a Partner invite*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.accept_invite-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|cip|path|string|true|Partner CIP|
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.accept_invite-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite accepted successfully|None|
+
+
+## Dispatcher.PartnerController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}`
+
+*This endpoint retrieves information about a Partner*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|cip|path|string|true|Partner CIP|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnerResponse](#schemadispatcherpartnerresponse)|
+
+
+## Dispatcher.PartnerController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners`
+
+*This endpoint retrieves a list of Partners belonging to a Company*
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.partnercontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartners](#schemadispatcherpartners)|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-Network">[Dispatcher] Network</h1>
+
+Dispatcher APIs for Network Management
+
+## Dispatcher.Network.SpokeController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+
+*This endpoint creates a new Spoke*
+
+> Body parameter
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "destination_hub_id": 2
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[SpokeRequest](#schemaspokerequest)|false|Spoke|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+
+
+## Dispatcher.Network.SpokeController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+
+*This endpoint retrieves a list of Spokes belonging to a Company*
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokesResponse](#schemaspokesresponse)|
+
+
+## Dispatcher.Network.SpokeController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+
+*This endpoint updates a Spoke*
+
+> Body parameter
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "destination_hub_id": 2
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Spoke Id|
+|body|body|[SpokeRequest](#schemaspokerequest)|false|Spoke|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+
+
+## Dispatcher.Network.SpokeController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+
+*This endpoint retrieves information about a Spoke*
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Spoke Id|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+
+
+## Dispatcher.Network.SpokeController.delete
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.delete"></a>
+
+> Code samples
+
+```shell
+
+curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+
+*This endpoint deletes a Spoke*
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.delete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Spoke Id|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.spokecontroller.delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+
+
+## Dispatcher.Network.HubController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+
+*This endpoint updates a Hub*
+
+> Body parameter
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  }
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Hub Id|
+|body|body|[HubRequest](#schemahubrequest)|false|Hub|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+
+
+## Dispatcher.Network.HubController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+
+*This endpoint retrieves information about a Hub*
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Hub Id|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+
+
+## Dispatcher.Network.HubController.delete
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.delete"></a>
+
+> Code samples
+
+```shell
+
+curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+
+*This endpoint deletes a Hub*
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.delete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Hub Id|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+
+
+## Dispatcher.Network.HubController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+
+*This endpoint creates a new Hub*
+
+> Body parameter
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  }
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[HubRequest](#schemahubrequest)|false|Hub|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+
+
+## Dispatcher.Network.HubController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+
+*This endpoint retrieves a list of Hubs belonging to a Company*
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.network.hubcontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubsResponse](#schemahubsresponse)|
+
+
+## Dispatcher.Network.RegionController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.create"></a>
 
@@ -5245,7 +3171,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 
 `POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions`
 
-*Create a Region*
+*This endpoint creates a new Region*
 
 > Body parameter
 
@@ -5318,8 +3244,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionResponse](#schemaregionresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.Network.RegionController.index
+## Dispatcher.Network.RegionController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.index"></a>
 
@@ -5336,7 +3261,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions`
 
-*Get all regions*
+*This endpoint retrieves a list of Regions belonging to a Company*
 
 <h3 id="apiweb.v3.dispatcher.network.regioncontroller.index-parameters">Parameters</h3>
 
@@ -5356,8 +3281,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionsResponse](#schemaregionsresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.Network.RegionController.update
+## Dispatcher.Network.RegionController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.update"></a>
 
@@ -5375,7 +3299,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/
 
 `PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
-*Updates a Region*
+*This endpoint updates a Region*
 
 > Body parameter
 
@@ -5435,7 +3359,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Region Id|
+|id|path|integer|true|Region ID|
 |body|body|[RegionRequest](#schemaregionrequest)|false|Region|
 
 > Example responses
@@ -5449,8 +3373,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionResponse](#schemaregionresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.Network.RegionController.show
+## Dispatcher.Network.RegionController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.show"></a>
 
@@ -5467,7 +3390,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{i
 
 `GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
-*Gets a Region*
+*This endpoint retrieves information about a Region*
 
 <h3 id="apiweb.v3.dispatcher.network.regioncontroller.show-parameters">Parameters</h3>
 
@@ -5475,7 +3398,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{i
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Region Id|
+|id|path|integer|true|Region ID|
 
 > Example responses
 
@@ -5488,8 +3411,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{i
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionResponse](#schemaregionresponse)|
 
 
-
-## ApiWeb.V3.Dispatcher.Network.RegionController.delete
+## Dispatcher.Network.RegionController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.delete"></a>
 
@@ -5506,7 +3428,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions
 
 `DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
-*Delete a Region*
+*This endpoint deletes a Region*
 
 <h3 id="apiweb.v3.dispatcher.network.regioncontroller.delete-parameters">Parameters</h3>
 
@@ -5514,7 +3436,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Region Id|
+|id|path|integer|true|Region ID|
 
 > Example responses
 
@@ -5528,18 +3450,19 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions
 
 
 
+<h1 id="Yojee-APIs-[Dispatcher]-Sender">[Dispatcher] Sender</h1>
 
-<h1 id="Yojee-APIs-[Dispatcher]-Hub">[Dispatcher] Hub</h1>
+Dispatcher APIs for Sender Management
 
-## ApiWeb.V3.Dispatcher.Network.HubController.update
+## Dispatcher.SenderController.create
 
-<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.update"></a>
+<a id="opIdApiWeb.V3.Dispatcher.SenderController.create"></a>
 
 > Code samples
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5547,137 +3470,700 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders`
 
-*Update a Hub*
+*This endpoint creates a new Sender*
 
 > Body parameter
 
 ```json
 {
-  "regions": [
-    "poly5"
-  ],
-  "properties": {
-    "description": "Sample description",
-    "address": "Singapore"
+  "sender_type": "individual",
+  "phone": "+8412345611",
+  "password": "passwd112233",
+  "name": "Mike Sender",
+  "email": "michael@yojee.com",
+  "billing_address": "144 Robinson Road"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherCreateSenderRequest](#schemadispatchercreatesenderrequest)|false|Sender information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
+
+
+## Dispatcher.SenderController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.SenderController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders`
+
+*This endpoint retrieves a list of Senders*
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|sender_type|query|string|false|Sender type (individual/organisation)|
+|q|query|string|false|Search by sender name or organisation name|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSendersResponse](#schemadispatchersendersresponse)|
+
+
+## Dispatcher.SenderController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.SenderController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
+
+*This endpoint updates a Sender's information*
+
+> Body parameter
+
+```json
+{
+  "phone": "+8412345611",
+  "name": "Mike Sender",
+  "email": "michael@yojee.com",
+  "billing_address": "144 Robinson Road"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Sender ID|
+|body|body|[DispatcherUpdateSenderRequest](#schemadispatcherupdatesenderrequest)|false|Sender information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
+
+
+## Dispatcher.SenderController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.SenderController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
+
+*This endpoint retrieves information about a Sender*
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Sender ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
+
+
+## Dispatcher.SenderController.delete
+
+<a id="opIdApiWeb.V3.Dispatcher.SenderController.delete"></a>
+
+> Code samples
+
+```shell
+
+curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
+
+*This endpoint deletes a Sender*
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.delete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Sender ID|
+
+<h3 id="apiweb.v3.dispatcher.sendercontroller.delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-CorporateSender">[Dispatcher] CorporateSender</h1>
+
+Dispatcher APIs for Corporate Sender Management
+
+## Dispatcher.DispatcherController.sender_admins
+
+<a id="opIdApiWeb.V3.Dispatcher.DispatcherController.sender_admins"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/dispatchers/senders?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/dispatchers/senders`
+
+*This endpoint retrieves a list of Sender Admins and the Organisations they manage*
+
+<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSenderAdminsRequest](#schemadispatchersenderadminsrequest)|
+
+
+## Dispatcher.OrganisationController.organisation_senders
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.organisation_senders"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisation_senders?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisation_senders`
+
+*This endpoint retrieves a list of Organisation Senders*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
+
+
+## Dispatcher.OrganisationController.create_corporate_sender
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create_corporate_sender"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
+
+*This endpoint creates a new Corporate Sender*
+
+> Body parameter
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "name": "Ralston",
+  "email": "secondary_account@abc.com",
+  "billing_address": "77 Robinson road, Singapore."
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Organisation ID|
+|body|body|[DispatcherCreateCorporateSenderRequest](#schemadispatchercreatecorporatesenderrequest)|false|Corporate Sender information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateCorporateSenderResponse](#schemadispatchercreatecorporatesenderresponse)|
+
+
+## Dispatcher.OrganisationController.corporate_senders
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.corporate_senders"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
+
+*This endpoint retrieves a list of Corporate Senders*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Organisation ID|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
+
+
+## Dispatcher.OrganisationController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations`
+
+*This endpoint creates a new Organisation Sender*
+
+> Body parameter
+
+```json
+{
+  "uen_no": "ABC1235M",
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "payment_option": "monthly_billing",
+  "organisation": {
+    "reg_address": "77 Robinson road, Singapore.",
+    "postal_code": "321021",
+    "phone": "+6591245934",
+    "name": "ABC",
+    "country": "Singapore",
+    "city": "Singapore"
   },
-  "name": "Sample Hub",
+  "name": "Ralston",
+  "gst_no": "2AS9890",
+  "email": "primary_account@abc.com",
+  "billing_address": "77 Robinson road, Singapore."
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherCreateOrganisationRequest](#schemadispatchercreateorganisationrequest)|false|Organisation information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateOrganisationResponse](#schemadispatchercreateorganisationresponse)|
+
+
+## Dispatcher.OrganisationController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations`
+
+*This endpoint retrieves a list of Organisations managed by a Dispatcher*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationsResponse](#schemadispatcherorganisationsresponse)|
+
+
+## Dispatcher.OrganisationController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}`
+
+*This endpoint retrieves information about an Organisation*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Organisation ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationResponse](#schemadispatcherorganisationresponse)|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-Worker">[Dispatcher] Worker</h1>
+
+Dispatcher APIs for Worker Management
+
+## Dispatcher.WorkerController.failed
+
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.failed"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed?page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed`
+
+*This endpoint retrieves a list of a Worker's failed Tasks*
+
+<h3 id="apiweb.v3.dispatcher.workercontroller.failed-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Worker ID|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+
+## Dispatcher.WorkerController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers`
+
+*This endpoint creates a new Worker*
+
+> Body parameter
+
+```json
+{
+  "vehicle_type_ids": [
+    1,
+    2
+  ],
+  "tester": false,
+  "phone": "+987654322",
+  "password": "passwd112233",
+  "otp_token": "1122334455",
+  "name": "Mike Driver",
   "location": {
     "lng": 122.6428429677108,
     "lat": 65.67691234535297
-  }
+  },
+  "email": "mike-driver@yojee.com",
+  "current_vehicle_type_id": 1
 }
 ```
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.update-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.create-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Hub Id|
-|body|body|[HubRequest](#schemahubrequest)|false|Hub|
+|body|body|[DispatcherCreateWorkerRequest](#schemadispatchercreateworkerrequest)|false|Worker information|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.update-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.create-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created worker|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
 
 
+## Dispatcher.WorkerController.index
 
-## ApiWeb.V3.Dispatcher.Network.HubController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.show"></a>
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.index"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers`
 
-*Get a Hub*
+*This endpoint retrieves a list of Workers*
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.show-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.index-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Hub Id|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|sort|query|string|false|the field to sort (id/distance/etc.)|
+|order|query|string|false|asc, or desc|
+|status|query|string|false|driver status|
+|from|query|string|false|from timestamp|
+|to|query|string|false|to timestamp|
+|name|query|string|false|worker name|
+|target_location|query|string|false|Geospatial coordinates of a location|
+|with_in|query|float|false|Length of range (with target_location at center) in meters|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.show-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.index-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherWorkersResponse](#schemadispatcherworkersresponse)|
 
 
+## Dispatcher.WorkerController.assigned
 
-## ApiWeb.V3.Dispatcher.Network.HubController.delete
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.delete"></a>
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.assigned"></a>
 
 > Code samples
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
-  -H 'Accept: */*' \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned`
 
-*Delete a Hub*
+*This endpoint retrieves a list of a Worker's assigned Tasks*
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.delete-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.assigned-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Hub Id|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.delete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+|id|path|string|true|Worker ID|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
 
 
+## Dispatcher.WorkerController.update
 
-## ApiWeb.V3.Dispatcher.Network.HubController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.create"></a>
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.update"></a>
 
 > Code samples
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5685,99 +4171,234 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
 
-*Create a Hub*
+*This endpoint updates a Worker's information*
 
 > Body parameter
 
 ```json
 {
-  "regions": [
-    "poly5"
+  "vehicle_type_ids": [
+    1,
+    2
   ],
-  "properties": {
-    "description": "Sample description",
-    "address": "Singapore"
-  },
-  "name": "Sample Hub",
+  "tester": true,
+  "phone": "+987654322",
+  "otp_token": "TNUSTU2YF7BCDOYR",
+  "name": "Mike Driver",
   "location": {
     "lng": 122.6428429677108,
     "lat": 65.67691234535297
-  }
+  },
+  "email": "mike-driver@yojee.com",
+  "current_vehicle_type_id": 1
 }
 ```
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.create-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.update-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|body|body|[HubRequest](#schemahubrequest)|false|Hub|
+|id|path|string|true|Worker ID|
+|body|body|[DispatcherUpdateWorkerRequest](#schemadispatcherupdateworkerrequest)|false|Worker information|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.create-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.update-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
 
 
+## Dispatcher.WorkerController.show
 
-## ApiWeb.V3.Dispatcher.Network.HubController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.HubController.index"></a>
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.show"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
 
-*Get all hubs*
+*This endpoint retrieves information about a Worker*
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.index-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.show-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Worker ID|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.hubcontroller.index-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.workercontroller.show-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubsResponse](#schemahubsresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got worker|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
 
 
+## Dispatcher.WorkerController.delete
 
-
-<h1 id="Yojee-APIs-[Dispatcher]-Spoke">[Dispatcher] Spoke</h1>
-
-## ApiWeb.V3.Dispatcher.Network.SpokeController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.create"></a>
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.delete"></a>
 
 > Code samples
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
+curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
+
+*This endpoint deletes a Worker*
+
+<h3 id="apiweb.v3.dispatcher.workercontroller.delete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Worker ID|
+
+<h3 id="apiweb.v3.dispatcher.workercontroller.delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+## Dispatcher.WorkerController.approve
+
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.approve"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/approve \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/approve`
+
+*This endpoint is used by a Dispatcher to approve a Worker*
+
+<h3 id="apiweb.v3.dispatcher.workercontroller.approve-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Worker ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.workercontroller.approve-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
+
+
+## Dispatcher.WorkerController.completed
+
+<a id="opIdApiWeb.V3.Dispatcher.WorkerController.completed"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed?page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed`
+
+*This endpoint retrieves a list of a Worker's completed Tasks*
+
+<h3 id="apiweb.v3.dispatcher.workercontroller.completed-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Worker ID|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-Docs">[Dispatcher] Docs</h1>
+
+## Dispatcher.ManifestController.generate_worker_manifest
+
+<a id="opIdApiWeb.V3.Dispatcher.ManifestController.generate_worker_manifest"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}`
+
+*This endpoint generates a Manifest for a Worker*
+
+<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|worker_id|query|integer|false|Worker ID|
+
+<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker manifest to be downloaded.|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Worker manifest creation downloaded.|None|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-Order">[Dispatcher] Order</h1>
+
+Dispatcher APIs for Order Management
+
+## Dispatcher.OrderController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.OrderController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5785,91 +4406,134 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders`
 
-*Create a Spoke*
+*This endpoint creates an Order*
 
 > Body parameter
 
 ```json
 {
-  "properties": {},
-  "pessimistic_estimated_duration": 40,
-  "origin_hub_id": 1,
-  "optimistic_estimated_duration": 40,
-  "name": "spoker",
-  "modality": "road",
-  "destination_hub_id": 2
+  "vehicle_type_id": 0,
+  "sender_id": 0,
+  "price_currency": "string",
+  "price_amount": 0,
+  "placed_by_user_profile_id": 0,
+  "jobs": [
+    null
+  ],
+  "items": [
+    null
+  ]
 }
 ```
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.create-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.create-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|body|body|[SpokeRequest](#schemaspokerequest)|false|Spoke|
+|body|body|[CreateOrderRequest](#schemacreateorderrequest)|false|Order information|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.create-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.create-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
 
+## Dispatcher.OrderController.index
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.index"></a>
+<a id="opIdApiWeb.V3.Dispatcher.OrderController.index"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders`
 
-*Get all spokes*
+*This endpoint retrieves a list of Orders*
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.index-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.index-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
+|status|query|string|false|an array of status for order, ie: [initial, processing, paid, complete, cancelled]|
+|from|query|string|false|from datetime in ISO8601 format|
+|to|query|string|false|to datetime in ISO8601 format|
+|sender_id|query|integer|false|Sender ID|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|order|query|string|false|asc, or desc|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.index-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.index-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokesResponse](#schemaspokesresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrdersResponse](#schemadispatcherordersresponse)|
 
 
+## Dispatcher.OrderController.cancel
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.update"></a>
+<a id="opIdApiWeb.V3.Dispatcher.OrderController.cancel"></a>
 
 > Code samples
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/cancel \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/cancel`
+
+*This endpoint cancels an Order*
+
+<h3 id="apiweb.v3.dispatcher.ordercontroller.cancel-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Order number|
+
+<h3 id="apiweb.v3.dispatcher.ordercontroller.cancel-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+## Dispatcher.OrderController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.OrderController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5877,237 +4541,1172 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}`
 
-*Update a Spoke*
+*This endpoint is used by a Dispatcher to update an Order*
 
 > Body parameter
 
 ```json
 {
-  "properties": {},
-  "pessimistic_estimated_duration": 40,
-  "origin_hub_id": 1,
-  "optimistic_estimated_duration": 40,
-  "name": "spoker",
-  "modality": "road",
-  "destination_hub_id": 2
+  "price_currency": "string",
+  "price_amount": 0,
+  "external_id": "string"
 }
 ```
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.update-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.update-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Spoke Id|
-|body|body|[SpokeRequest](#schemaspokerequest)|false|Spoke|
+|number|path|string|true|Order number|
+|body|body|[DispatcherUpdateOrderRequest](#schemadispatcherupdateorderrequest)|false|Order information|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.update-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.update-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
 
 
+## Dispatcher.OrderController.show
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.show"></a>
+<a id="opIdApiWeb.V3.Dispatcher.OrderController.show"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}`
 
-*Get a Spoke*
+*This endpoint retrieves information about an Order*
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.show-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.show-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Spoke Id|
+|number|path|string|true|Order Number|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.show-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.ordercontroller.show-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrderResponse](#schemadispatcherorderresponse)|
 
 
+<h1 id="Yojee-APIs-[Dispatcher]-OrderItem">[Dispatcher] OrderItem</h1>
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.delete
+Dispatcher APIs for OrderItem Management
 
-<a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.delete"></a>
+## Dispatcher.OrderItemController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.OrderItemController.show"></a>
 
 > Code samples
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}`
 
-*Delete a Spoke*
+*This endpoint retrieves information about an OrderItem*
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.delete-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.orderitemcontroller.show-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Spoke Id|
+|id|path|string|true|Order Item id|
+|delivery_trail_sort|query|string|false|asc or desc for delivery trail sort|
 
 > Example responses
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.network.spokecontroller.delete-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.orderitemcontroller.show-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsShowResponse](#schemaorderitemsshowresponse)|
 
 
+## Dispatcher.OrderItemController.index
 
-
-<h1 id="Yojee-APIs-[Dispatcher]-Search">[Dispatcher] Search</h1>
-
-Search
-
-## ApiWeb.V3.Dispatcher.SearchController.sender
-
-<a id="opIdApiWeb.V3.Dispatcher.SearchController.sender"></a>
+<a id="opIdApiWeb.V3.Dispatcher.OrderItemController.index"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender?q=string \
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items?page=1&page_size=10 \
+  -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender`
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items`
 
-*Search for a sender*
+*This endpoint retrieves a list of OrderItems*
 
-<h3 id="apiweb.v3.dispatcher.searchcontroller.sender-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.orderitemcontroller.index-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|q|query|string|true|search query|
+|status|query|string|false|status of the order item, can be string or list|
+|service_type|query|string|false|service type of the order item, can be string or list|
+|order_id|query|string|false|order_id, can be string or an array|
+|from|query|string|false|from timestamp|
+|to|query|string|false|to timestamp|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.orderitemcontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsIndexResponse](#schemaorderitemsindexresponse)|
 
 
+<h1 id="Yojee-APIs-[Dispatcher]-Batch">[Dispatcher] Batch</h1>
 
-## ApiWeb.V3.Dispatcher.SearchController.worker
+Dispatcher APIs for Batch Management
 
-<a id="opIdApiWeb.V3.Dispatcher.SearchController.worker"></a>
+## Dispatcher.BatchController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.BatchController.create"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker?q=string \
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/batches \
+  -H 'Content-Type: multipart/form-data' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker`
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/batches`
 
-*Search for a worker*
+*This endpoint is used by a Dispatcher to upload a batch file*
 
-<h3 id="apiweb.v3.dispatcher.searchcontroller.worker-parameters">Parameters</h3>
+> Body parameter
+
+```yaml
+file: string
+
+```
+
+<h3 id="apiweb.v3.dispatcher.batchcontroller.create-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|q|query|string|true|search query|
+|uploader_id|query|integer|false|Uploader Id|
+|company_id|query|integer|false|Company Id|
+|» file|body|string(binary)|false|The file to upload|
 
+## Dispatcher.OrderItemController.update
 
-
-## ApiWeb.V3.Dispatcher.SearchController.order
-
-<a id="opIdApiWeb.V3.Dispatcher.SearchController.order"></a>
+<a id="opIdApiWeb.V3.Dispatcher.OrderItemController.update"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=string \
+curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order`
+`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}`
 
-*Search for an order*
+*This endpoint is used by a Dispatcher to update an OrderItem*
 
-<h3 id="apiweb.v3.dispatcher.searchcontroller.order-parameters">Parameters</h3>
+> Body parameter
+
+```json
+{
+  "payload_type": "Updated document",
+  "external_customer_id": "changed_external_customer_id",
+  "description": "Updated Gift"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.orderitemcontroller.update-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|q|query|string|true|search query|
+|id|path|string|true|Order Item id|
+|body|body|[OrderItemsUpdateRequest](#schemaorderitemsupdaterequest)|false|Order Item information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.orderitemcontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsShowResponse](#schemaorderitemsshowresponse)|
+
+## Dispatcher.BatchController.check_status
+
+<a id="opIdApiWeb.V3.Dispatcher.BatchController.check_status"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_status \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_status`
+
+*This endpoint checks the status of a Batch*
+
+<h3 id="apiweb.v3.dispatcher.batchcontroller.check_status-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|batch_id|query|integer|false|Batch Id|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+
+## Dispatcher.BatchController.get_order
+
+<a id="opIdApiWeb.V3.Dispatcher.BatchController.get_order"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order`
+
+*This endpoint retrieves detailed information about a Batch*
+
+<h3 id="apiweb.v3.dispatcher.batchcontroller.get_order-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|batch_id|query|integer|false|Batch Id|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-TaskGroup">[Dispatcher] TaskGroup</h1>
+
+Dispatcher APIs for TaskGroup Management
+
+## Dispatcher.TaskGroupController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}`
+
+*This endpoint retrieves information about a TaskGroup*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task group ID|
+
+
+## Dispatcher.TaskGroupController.unassigned
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.unassigned"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassigned?page=1&page_size=25 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassigned`
+
+*This endpoint retrieves a list of unassigned TaskGroups*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.unassigned-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|task_group_ids|query|string|false|an array of task_group_id for task group|
+|from|query|string|false|from datetime in ISO8601 format|
+|to|query|string|false|to datetime in ISO8601 format|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+
+## Dispatcher.TaskGroupController.assign_multiple
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assign_multiple"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign_multiple \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign_multiple`
+
+*This endpoint assigns multiple TaskGroups to a Worker*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assign_multiple-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|ids|query|array[any]|false|array of task_group ids|
+|worker_id|query|integer|false|Worker ID|
+
+
+## Dispatcher.TaskGroupController.step_items
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.step_items"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}?type=string \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}`
+
+*This endpoint retrieves detailed information for Items in a TaskGroup*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.step_items-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task Group ID|
+|step_id|path|integer|true|Step ID|
+|type|query|string|true|Pickup/Dropoff|
+
+
+## Dispatcher.TaskGroupController.assigned
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assigned"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assigned?page=1&page_size=25 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assigned`
+
+*This endpoint retrieves a list of assigned TaskGroups*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assigned-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|status|query|string|false|an array of status for task group, ie: [assigned, accepted, completed, cancelled], defaults to [assigned]|
+|worker_type|query|string|false|Worker contract type (employee/freelancer)|
+|current_vehicle_type_id|query|integer|false|Worker vehicle type id|
+|task_group_ids|query|string|false|an array of task_group_id for task group|
+|from|query|string|false|from datetime in ISO8601 format|
+|to|query|string|false|to datetime in ISO8601 format|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+
+## Dispatcher.TaskGroupController.unassign_worker
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.unassign_worker"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker`
+
+*This endpoint unassigns a TaskGroup from a Worker*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.unassign_worker-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task Group ID|
+
+
+## Dispatcher.TaskGroupController.join_chat
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.join_chat"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat`
+
+*This endpoint adds a Dispatcher to a chat group*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.join_chat-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task Group ID|
+
+
+## Dispatcher.TaskGroupController.accepted
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.accepted"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accepted \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accepted`
+
+*This endpoint retrieves a Worker's list of accepted TaskGroups*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.accepted-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|worker_id|query|integer|false|Worker ID|
+
+
+## Dispatcher.TaskGroupController.assign_worker
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assign_worker"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker`
+
+*This endpoint assigns a TaskGroup to a Worker*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assign_worker-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task group ID|
+|worker_id|query|integer|false|Worker ID|
+
+
+## Dispatcher.TaskGroupController.regroup
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.regroup"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/regroup \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/regroup`
+
+*This endpoint groups unassigned Tasks into TaskGroups*
+
+<h3 id="apiweb.v3.dispatcher.taskgroupcontroller.regroup-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|order|query|boolean|false|Group by Order|
+|pickup|query|boolean|false|Group by Pickup|
+|dropoff|query|boolean|false|Group by Dropoff|
+
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-Task">[Dispatcher] Task</h1>
+
+Dispatcher APIs for Task Management
+
+## Dispatcher.TaskController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id}`
+
+*This endpoint updates a Task's details*
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Task ID|
+|task_group_id|path|integer|true|Task group ID|
+
+
+## Dispatcher.TaskController.delete_task_exception
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskController.delete_task_exception"></a>
+
+> Code samples
+
+```shell
+
+curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception`
+
+*This endpoint deletes a TaskException associated with a Task*
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.delete_task_exception-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|task_group_id|path|integer|true|Task Group Id|
+|id|path|integer|true|Task Exception Id|
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.delete_task_exception-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+## Dispatcher.TaskController.mark_as_failed
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskController.mark_as_failed"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed`
+
+*This endpoint marks a Task as failed by creating an associated TaskException*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.mark_as_failed-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|task_group_id|path|integer|true|Task Group Id|
+|id|path|integer|true|Task Id|
+|body|body|string|true|Task Exception descriptions|
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.mark_as_failed-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ok|None|
+
+
+## Dispatcher.TaskController.complete
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskController.complete"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete`
+
+*This endpoint marks a Task as completed by a Dispatcher*
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.complete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|task_group_id|path|integer|true|Task Group Id|
+|id|path|integer|true|Task ID|
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.complete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ok|None|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-TaskExceptionReason">[Dispatcher] TaskExceptionReason</h1>
+
+Dispatcher APIs for TaskExceptionReason Management
+
+## Dispatcher.TaskExceptionReasonController.delete
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.delete"></a>
+
+> Code samples
+
+```shell
+
+curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons/{id}`
+
+*This endpoint deletes a TaskExceptionReason*
+
+<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.delete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|TaskExceptionReason Id|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonResponse](#schemataskexceptionreasonresponse)|
+
+
+## Dispatcher.TaskExceptionReasonController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons`
+
+*This endpoint creates a new TaskExceptionReason*
+
+> Body parameter
+
+```json
+{
+  "description": "Sender not available",
+  "company_id": 1
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[TaskExceptionReasonRequest](#schemataskexceptionreasonrequest)|false|TaskExceptionReason|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonResponse](#schemataskexceptionreasonresponse)|
+
+
+## Dispatcher.TaskExceptionReasonController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons`
+
+*This endpoint retrieves all TaskExceptionReasons for a Company*
+
+<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.taskexceptionreasoncontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonsResponse](#schemataskexceptionreasonsresponse)|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-SubTask">[Dispatcher] SubTask</h1>
+
+Dispatcher APIs for SubTask Management
+
+## Dispatcher.SubTaskController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.SubTaskController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks`
+
+*This endpoint retrieves a list of SubTasks for an OrderItem*
+
+<h3 id="apiweb.v3.dispatcher.subtaskcontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|order_item_id|path|integer|true|Order Item ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.subtaskcontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSubTasksResponse](#schemadispatchersubtasksresponse)|
+
+
+## Dispatcher.SubTaskController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.SubTaskController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id}`
+
+*This endpoint retrieves information about a SubTask*
+
+<h3 id="apiweb.v3.dispatcher.subtaskcontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Sub Task ID|
+|order_item_id|path|integer|true|Order Item ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.subtaskcontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got sub task|[DispatcherRuleResponse](#schemadispatcherruleresponse)|
+
+
+<h1 id="Yojee-APIs-[Dispatcher]-SubTaskRule">[Dispatcher] SubTaskRule</h1>
+
+Dispatcher APIs for SubTaskRule Management
+
+## Dispatcher.SubTaskRuleController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+
+*This endpoint updates a SubTaskRule*
+
+> Body parameter
+
+```json
+{
+  "meta": {
+    "photo_type": "signature",
+    "photo_title": "Signature of client"
+  },
+  "event": "pickup_completed",
+  "company_id": 1,
+  "action": "upload_photo"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Sub Task Rule ID|
+|body|body|[DispatcherUpdateRuleRequest](#schemadispatcherupdaterulerequest)|false|Sub Task Rule information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
+
+
+## Dispatcher.SubTaskRuleController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+
+*This endpoint retrieves information about a SubTaskRule*
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Sub Task Rule ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got sub task rule|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
+
+
+## Dispatcher.SubTaskRuleController.delete
+
+<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.delete"></a>
+
+> Code samples
+
+```shell
+
+curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+
+*This endpoint deletes a SubTaskRule*
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.delete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Sub Task Rule ID|
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+
+## Dispatcher.SubTaskRuleController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules`
+
+*This endpoint creates a new SubTaskRule*
+
+> Body parameter
+
+```json
+{
+  "meta": {
+    "photo_type": "signature",
+    "photo_title": "Signature of client"
+  },
+  "event": "pickup_completed",
+  "company_id": 1,
+  "action": "upload_photo"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherCreateRuleRequest](#schemadispatchercreaterulerequest)|false|Sub Task Rule information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created sub task rule|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
+
+
+## Dispatcher.SubTaskRuleController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules`
+
+*This endpoint retrieves a list of SubTaskRules*
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.subtaskrulecontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherRulesResponse](#schemadispatcherrulesresponse)|
 
 
 # Schemas
-
-<h2 id="tocSmapsautocompleteresponse">MapsAutoCompleteResponse</h2>
-
-<a id="schemamapsautocompleteresponse"></a>
-
-```json
-{
-  "data": {
-    "name": "1 Anson Rd",
-    "lng": 103.8462451,
-    "lat": 1.2754876,
-    "address": "1 Anson Rd, Singapore"
-  }
-}
-
-```
-
-*Response schema for address autocomplete*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
 
 <h2 id="tocSdispatcherupdateorderrequest">DispatcherUpdateOrderRequest</h2>
 
@@ -6221,29 +5820,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |data|object|false|none|none|
-
-<h2 id="tocSauthresponse">AuthResponse</h2>
-
-<a id="schemaauthresponse"></a>
-
-```json
-{
-  "phone": "+6598765432",
-  "email": "bob@mail.com",
-  "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
-}
-
-```
-
-*Auth Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|phone|string|false|none|none|
-|email|string|false|none|none|
-|access_token|string|false|none|none|
 
 <h2 id="tocStaskexceptionreasonresponse">TaskExceptionReasonResponse</h2>
 
@@ -6913,32 +6489,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |---|---|---|---|---|
 |data|[any]|false|none|none|
 
-<h2 id="tocSmapsgeocoderesponse">MapsGeoCodeResponse</h2>
-
-<a id="schemamapsgeocoderesponse"></a>
-
-```json
-{
-  "data": {
-    "zipcode": "",
-    "lng": 103.8462451,
-    "lat": 1.2754876,
-    "country": "Singapore",
-    "address": "1 Anson Rd, Singapore"
-  }
-}
-
-```
-
-*Response schema for querying geocode of an address*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
 <h2 id="tocScompanyconfigsresponse">CompanyConfigsResponse</h2>
 
 <a id="schemacompanyconfigsresponse"></a>
@@ -7133,33 +6683,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |---|---|---|---|---|
 |settings|object|true|none|Settings object|
 
-<h2 id="tocSlauncher_request">launcher_request</h2>
-
-<a id="schemalauncher_request"></a>
-
-```json
-{
-  "phone": "+8412345678",
-  "password": "passwd112233",
-  "name": "Mike",
-  "email": "michael@yojee.com",
-  "company_id": 1
-}
-
-```
-
-*POST body for creating new dispatcher*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|user_profile|object|false|none|none|
-|» password|string|true|none|Password|
-|» name|string|true|none|Full name|
-|» email|string|true|none|Email|
-|company_id|integer|true|none|Company ID|
-
 <h2 id="tocSinforesponse">InfoResponse</h2>
 
 <a id="schemainforesponse"></a>
@@ -7332,26 +6855,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSmapsautocompleterequest">MapsAutoCompleteRequest</h2>
-
-<a id="schemamapsautocompleterequest"></a>
-
-```json
-{
-  "query": "1 Anson Rd, Singapore",
-  "country_iso": "sg"
-}
-
-```
-
-*POST body for address autocomplete*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|query|string|true|none|Address|
-|country_iso|string|false|none|Country ISO code|
 
 <h2 id="tocSdispatcherupdaterolerequest">DispatcherUpdateRoleRequest</h2>
 
@@ -7443,40 +6946,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |name|string|false|none|none|
 |modality|string|false|none|none|
 |destination_hub_id|integer|false|none|none|
-
-<h2 id="tocSmapsdirectionresponse">MapsDirectionResponse</h2>
-
-<a id="schemamapsdirectionresponse"></a>
-
-```json
-{
-  "data": {
-    "overview_polyline": "ybxFanyxRkAy@eA_AqAuAMQPST_@Xc@t@iAPJ`Ah@pBz@bAr@lCbC|@t@LHR`@DL@JAVWZiApAk@f@_CsBeBmA",
-    "duration": 222,
-    "distance": 968,
-    "data": [
-      [
-        "ybxFanyxRkAy@eA_A",
-        "kgxF{qyxRe@c@k@q@",
-        "}ixFqtyxRMQPSJQHMDER]t@iA",
-        "sfxFezyxRPJ\\Tb@RRH|Ap@`@T`@\\t@p@vApA`@\\ZVLH",
-        "owwF{nyxRR`@BF@D@D?DAVWZw@`AQNYVQN",
-        "c{wFqgyxRuBiBIIeBmA"
-      ]
-    ]
-  }
-}
-
-```
-
-*Response schema for querying map direction*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
 
 <h2 id="tocSdispatchercreaterulerequest">DispatcherCreateRuleRequest</h2>
 
@@ -7695,26 +7164,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |company_id|integer|false|none|none|
 |action|string|false|none|none|
 
-<h2 id="tocSmapsgeocoderequest">MapsGeoCodeRequest</h2>
-
-<a id="schemamapsgeocoderequest"></a>
-
-```json
-{
-  "query": "1 Anson Rd",
-  "country_code": "SG"
-}
-
-```
-
-*POST body for querying geocode of an address*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|query|string|true|none|Address|
-|country_code|string|false|none|Country code ISO 3166 alpha2|
 
 <h2 id="tocSdispatcherpartnerresponse">DispatcherPartnerResponse</h2>
 
@@ -7791,31 +7240,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |---|---|---|---|---|
 |password|string|false|none|none|
 |email|string|false|none|none|
-
-<h2 id="tocSmapsdirectionrequest">MapsDirectionRequest</h2>
-
-<a id="schemamapsdirectionrequest"></a>
-
-```json
-{
-  "origin": "1 Anson Rd, Singapore",
-  "mode": "driving",
-  "destination": "10 Anson Rd, Singapore",
-  "country_iso": "sg"
-}
-
-```
-
-*POST body for querying map direction*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|origin|string|true|none|Origin|
-|mode|string|true|none|Mode|
-|destination|string|true|none|Destination|
-|country_iso|string|false|none|Country ISO code|
 
 <h2 id="tocSsubtaskresponse">SubTaskResponse</h2>
 
@@ -7900,7 +7324,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
     "description": "Gift",
     "can_edit": true
   },
-  "delivery_trial": [
+  "delivery_trail": [
     {
       "type": "dropoff",
       "task_id": 2,
@@ -7934,7 +7358,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |---|---|---|---|---|
 |progress_session|object|false|none|none|
 |item_session|object|false|none|none|
-|delivery_trial|[any]|false|none|none|
+|delivery_trail|[any]|false|none|none|
 
 <h2 id="tocSdispatcherupdateworkerrequest">DispatcherUpdateWorkerRequest</h2>
 
@@ -7997,31 +7421,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |state|string|false|none|none|
 |price|string|false|none|none|
 |id|integer|false|none|none|
-
-<h2 id="tocSlaunchercreatecompanyresponse">LauncherCreateCompanyResponse</h2>
-
-<a id="schemalaunchercreatecompanyresponse"></a>
-
-```json
-{
-  "message": "Dispatcher account created.",
-  "data": {
-    "organisation_id": 1,
-    "inserted_at": "2018-01-24T08:54:54.204128",
-    "id": 1
-  }
-}
-
-```
-
-*Response schema for creating new company*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
 
 <h2 id="tocSdispatchercreateroleresponse">DispatcherCreateRoleResponse</h2>
 
@@ -8539,28 +7938,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 |location|object|false|none|none|
 |completion_time|string|false|none|none|
 
-<h2 id="tocSlaunchercreatecompanyrequest">LauncherCreateCompanyRequest</h2>
-
-<a id="schemalaunchercreatecompanyrequest"></a>
-
-```json
-{
-  "slug": "yojee",
-  "name": "Yojee",
-  "country": "Singapore"
-}
-
-```
-
-*POST body for creating new company*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|slug|string|false|none|Slug|
-|name|string|true|none|Company name|
-
 <h2 id="tocSdispatcherorderresponse">DispatcherOrderResponse</h2>
 
 <a id="schemadispatcherorderresponse"></a>
@@ -8928,35 +8305,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?q=str
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSlauncher_response">launcher_response</h2>
-
-<a id="schemalauncher_response"></a>
-
-```json
-{
-  "message": "Dispatcher account created.",
-  "data": {
-    "user_profile_id": 60,
-    "phone": "",
-    "name": "Mike",
-    "inserted_at": "2018-01-24T08:54:54.204128",
-    "id": 1,
-    "email": "michael@yojee.com",
-    "access_token": "65Mivav6HcJIvkFbxxrjFYg1mK6TIruz+iAs1fFDNlw="
-  }
-}
-
-```
-
-*Response schema for creating new dispatcher*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
 |data|object|false|none|none|
 
 <h2 id="tocScorporatesendersignuprequest">CorporateSenderSignupRequest</h2>

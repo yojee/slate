@@ -1,5 +1,7 @@
 <h1 id="Yojee-APIs-[Launcher]">[Launcher]</h1>
 
+Launcher APIs
+
 ## ApiWeb.V3.Launcher.DispatcherController.create
 
 <a id="opIdApiWeb.V3.Launcher.DispatcherController.create"></a>
@@ -7,16 +9,16 @@
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers \
+# You can also use wget
+curl -X POST ///api/v3/launcher/dispatchers \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers`
+`POST /api/v3/launcher/dispatchers`
 
-*Create new dispatcher*
+*This endpoint creates a new Dispatcher*
 
 > Body parameter
 
@@ -47,7 +49,6 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|created|[launcher_response](#schemalauncher_response)|
 
 
-
 ## ApiWeb.V3.Launcher.CompanyController.create
 
 <a id="opIdApiWeb.V3.Launcher.CompanyController.create"></a>
@@ -55,16 +56,16 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/launcher/dispatchers \
 > Code samples
 
 ```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/launcher/companies \
+# You can also use wget
+curl -X POST ///api/v3/launcher/companies \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/launcher/companies`
+`POST /api/v3/launcher/companies`
 
-*Create new company*
+*This endpoint creates a new Company*
 
 > Body parameter
 
