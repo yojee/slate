@@ -841,6 +841,34 @@ file: string
 |body|body|[ApiWeb.V3.Dispatcher.BatchController.create](#schemaapiweb.v3.dispatcher.batchcontroller.create)|false|none|
 |» file|body|string(binary)|false|The file to upload|
 
+
+## Sender.BatchController.get_order
+
+<a id="opIdApiWeb.V3.Sender.BatchController.get_order"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-demo.yojee.com/api/v3//v3/sender/batches/get_order \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-demo.yojee.com/api/v3/sender/batches/get_order`
+
+*This endpoint retrieves detailed information about a Batch*
+
+<h3 id="apiweb.v3.sender.batchcontroller.get_order-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|batch_id|query|integer|false|Batch Id|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+
 <h1 id="Yojee-APIs-[Worker]">[Worker]</h1>
 
 Worker APIs
@@ -1638,6 +1666,61 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 > 200 Response
 
 <h3 id="apiweb.v3.worker.subtaskcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SubTaskResponse](#schemasubtaskresponse)|
+
+## Worker.SubTaskController.update
+
+<a id="opIdApiWeb.V3.Worker.SubTaskController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-demo.yojee.com/api/v3//v3/worker/sub_tasks \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUThttps://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
+
+*This endpoint completes a SubTask*
+
+> Body parameter
+
+```json
+{
+  "task_id": 2,
+  "sub_task_rule_id": 3,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "event": "pickup_completed",
+  "completion_time": "2018-03-10T03:37:08",
+  "action": "upload_photo"
+}
+```
+
+<h3 id="apiweb.v3.worker.subtaskcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[SubTaskRequest](#schemasubtaskrequest)|false|SubTask|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.subtaskcontroller.update-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -6027,6 +6110,1466 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |email|string|false|none|none|
 |billing_address|string|false|none|none|
 
+<h2 id="tocSdispatchercreateuserrequest">DispatcherCreateUserRequest</h2>
+
+<a id="schemadispatchercreateuserrequest"></a>
+
+```json
+{
+  "phone": "+987654330",
+  "password": "passwd112233",
+  "name": "Mike Dispatcher",
+  "email": "mike-dispatcher-3@yojee.com"
+}
+
+```
+
+*POST body for creating new dispatcher user*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|phone|string|true|none|Phone number|
+|password|string|true|none|Password|
+|name|string|true|none|Full name|
+|email|string|true|none|Email|
+
+<h2 id="tocSauthresponse">AuthResponse</h2>
+
+<a id="schemaauthresponse"></a>
+
+```json
+{
+  "phone": "+6598765432",
+  "email": "bob@mail.com",
+  "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+}
+
+```
+
+*AuthResponse*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|phone|string|false|none|none|
+|email|string|false|none|none|
+|access_token|string|false|none|none|
+
+<h2 id="tocSdispatchercreateworkerrequest">DispatcherCreateWorkerRequest</h2>
+
+<a id="schemadispatchercreateworkerrequest"></a>
+
+```json
+{
+  "vehicle_type_ids": [
+    1,
+    2
+  ],
+  "tester": false,
+  "phone": "+987654322",
+  "password": "passwd112233",
+  "otp_token": "1122334455",
+  "name": "Mike Driver",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "email": "mike-driver@yojee.com",
+  "current_vehicle_type_id": 1
+}
+
+```
+
+*Worker Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|vehicle_type_ids|[any]|true|none|Worker's vehicle type ids|
+|phone|string|true|none|Phone number|
+|password|string|true|none|Password|
+|name|string|true|none|Full name|
+|email|string|true|none|Email|
+|current_vehicle_type_id|integer|true|none|Default vehicle type id|
+
+<h2 id="tocSregionrequest">RegionRequest</h2>
+
+<a id="schemaregionrequest"></a>
+
+```json
+{
+  "tag": "poly5",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 10,
+        "lat": 35
+      },
+      {
+        "lng": 45,
+        "lat": 45
+      },
+      {
+        "lng": 40,
+        "lat": 15
+      },
+      {
+        "lng": 20,
+        "lat": 10
+      },
+      {
+        "lng": 10,
+        "lat": 35
+      }
+    ],
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "color": "red"
+}
+
+```
+
+*Region Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|tag|string|false|none|none|
+|description|string|false|none|none|
+|coordinates|[any]|false|none|none|
+|color|string|false|none|none|
+
+<h2 id="tocSdispatchercreatecorporatesenderrequest">DispatcherCreateCorporateSenderRequest</h2>
+
+<a id="schemadispatchercreatecorporatesenderrequest"></a>
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "name": "Ralston",
+  "email": "secondary_account@abc.com",
+  "billing_address": "77 Robinson road, Singapore."
+}
+
+```
+
+*Corporate Sender Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|title|string|false|none|none|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocSdispatcherorganisationresponse">DispatcherOrganisationResponse</h2>
+
+<a id="schemadispatcherorganisationresponse"></a>
+
+```json
+{
+  "user_profiles": [
+    {
+      "user_profile_id": 1,
+      "phone": "Sender Phone",
+      "name": "Sender Name",
+      "email": "sender-email@example.com"
+    },
+    {
+      "user_profile_id": 2,
+      "phone": "+6533445566",
+      "name": "Corporate User 2",
+      "email": "corporate-user-2@example.com"
+    }
+  ],
+  "sender": {
+    "user_profile_id": 1,
+    "phone": "Sender Phone",
+    "name": "Sender Name",
+    "email": "sender-email@example.com",
+    "billing_address": "Sender billing address"
+  },
+  "reg_address": "77 Robinson road, Singapore.",
+  "postal_code": "321021",
+  "phone": "+6591240934",
+  "name": "FEDEX",
+  "id": 3,
+  "country": "Singapore",
+  "city": "Singapore"
+}
+
+```
+
+*Organisation Details*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|user_profiles|[any]|false|none|none|
+|sender|object|false|none|none|
+|reg_address|string|false|none|none|
+|postal_code|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|id|integer|false|none|none|
+|extension|object|false|none|none|
+|country|string|false|none|none|
+|city|string|false|none|none|
+
+<h2 id="tocSdispatchersendersresponse">DispatcherSendersResponse</h2>
+
+<a id="schemadispatchersendersresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "sender_user_profile_id": 1,
+      "sender_type": "individual",
+      "phone": "+8412345611",
+      "password": "passwd112233",
+      "name": "Mike Sender",
+      "inserted_at": "2018-06-29 03:22:06.467443Z",
+      "id": 5,
+      "email": "michael@yojee.com",
+      "billing_address": "144 Robinson Road"
+    }
+  ]
+}
+
+```
+
+*Senders Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherorganisationsresponse">DispatcherOrganisationsResponse</h2>
+
+<a id="schemadispatcherorganisationsresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "sender_id": 1,
+      "reg_address": "77 Robinson road, Singapore.",
+      "postal_code": "321021",
+      "phone": "+6591245934",
+      "name": "ABC",
+      "id": 1,
+      "country": "Singapore",
+      "city": "Singapore"
+    }
+  ]
+}
+
+```
+
+*Organisations Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdateorganisationrequest">DispatcherUpdateOrganisationRequest</h2>
+
+<a id="schemadispatcherupdateorganisationrequest"></a>
+
+```json
+{
+  "user_profiles": [
+    {
+      "user_profile_id": 1,
+      "phone": "Sender Phone",
+      "name": "Sender Name",
+      "email": "sender-email@example.com"
+    },
+    {
+      "user_profile_id": 2,
+      "phone": "+6533445566",
+      "name": "Corporate User 2",
+      "email": "corporate-user-2@example.com"
+    }
+  ],
+  "sender": {
+    "user_profile_id": 1,
+    "phone": "Sender Phone",
+    "name": "Sender Name",
+    "email": "sender-email@example.com",
+    "billing_address": "Sender billing address"
+  },
+  "reg_address": "77 Robinson road, Singapore.",
+  "postal_code": "321021",
+  "phone": "+6591240934",
+  "name": "FEDEX",
+  "id": 3,
+  "country": "Singapore",
+  "city": "Singapore"
+}
+
+```
+
+*Organisation Details*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|user_profiles|[any]|false|none|none|
+|sender|object|false|none|none|
+|reg_address|string|false|none|none|
+|postal_code|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|id|integer|false|none|none|
+|extension|object|false|none|none|
+|country|string|false|none|none|
+|city|string|false|none|none|
+
+<h2 id="tocSdispatcherorderresponse">DispatcherOrderResponse</h2>
+
+<a id="schemadispatcherorderresponse"></a>
+
+```json
+{
+  "data": {
+    "tracking_number": "O-M1RHTJHJZGKX",
+    "status": "created",
+    "sender_type": "organisation",
+    "sender_id": 1,
+    "price_currency": "SGD",
+    "price_amount": 0,
+    "order_items": [
+      {
+        "status": "assigned",
+        "service_type": "next_day",
+        "item": {
+          "width": 53,
+          "weight": 4,
+          "volumetric_weight": 595508,
+          "tracking_number": "Y-CTBVPQ",
+          "payload_type": "package",
+          "length": 53,
+          "height": 53,
+          "description": ""
+        },
+        "inserted_at": "2018-03-08T08:45:38.632070"
+      }
+    ],
+    "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
+    "inserted_at": "2018-06-29 03:22:06.461388Z",
+    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+  }
+}
+
+```
+
+*Order Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdateuserrequest">DispatcherUpdateUserRequest</h2>
+
+<a id="schemadispatcherupdateuserrequest"></a>
+
+```json
+{
+  "phone": "+987654330",
+  "password": "passwd112233",
+  "name": "Mike Dispatcher"
+}
+
+```
+
+*POST body for updating dispatcher user*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|phone|string|true|none|Phone number|
+|password|string|false|none|Password|
+|name|string|true|none|Full name|
+
+<h2 id="tocSdispatcherpartnershipinfoupdate">DispatcherPartnershipInfoUpdate</h2>
+
+<a id="schemadispatcherpartnershipinfoupdate"></a>
+
+```json
+{
+  "contact_phone": "+6591245934",
+  "contact_name": "Ralston",
+  "contact_email": "ralston@xyz.com"
+}
+
+```
+
+*Partnership Info Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|contact_phone|string|false|none|none|
+|contact_name|string|false|none|none|
+|contact_email|string|false|none|none|
+
+<h2 id="tocStaskgroupresponse">TaskGroupResponse</h2>
+
+<a id="schemataskgroupresponse"></a>
+
+```json
+{
+  "state": "created",
+  "price": "SGD 10",
+  "id": 1
+}
+
+```
+
+*TaskGroup Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|state|string|false|none|none|
+|price|string|false|none|none|
+|id|integer|false|none|none|
+
+<h2 id="tocSgetpricesresponse">GetPricesResponse</h2>
+
+<a id="schemagetpricesresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "type": "express",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 20,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 18
+      }
+    },
+    {
+      "type": "same_day",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 12,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 10
+      }
+    },
+    {
+      "type": "next_day",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 9,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 7
+      }
+    }
+  ]
+}
+
+```
+
+*Get price response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdateorderrequest">DispatcherUpdateOrderRequest</h2>
+
+<a id="schemadispatcherupdateorderrequest"></a>
+
+```json
+{
+  "price_currency": "string",
+  "price_amount": 0,
+  "external_id": "string"
+}
+
+```
+
+*Dispathcer update order request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|price_currency|string|false|none|ISO 4217 code currency, e.g: USD|
+|price_amount|number|false|none|Price amount of order, e.g: for 10.12 USD, amount should be 10.|
+|external_id|string|false|none|External Order Reference Number|
+
+<h2 id="tocSdispatchercreatesenderrequest">DispatcherCreateSenderRequest</h2>
+
+<a id="schemadispatchercreatesenderrequest"></a>
+
+```json
+{
+  "sender_type": "individual",
+  "phone": "+8412345611",
+  "password": "passwd112233",
+  "name": "Mike Sender",
+  "email": "michael@yojee.com",
+  "billing_address": "144 Robinson Road"
+}
+
+```
+
+*Sender Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|password|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocStaskexceptionreasonrequest">TaskExceptionReasonRequest</h2>
+
+<a id="schemataskexceptionreasonrequest"></a>
+
+```json
+{
+  "description": "Sender not available",
+  "company_id": 1
+}
+
+```
+
+*Task Exception Reason Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|description|string|false|none|none|
+|company_id|integer|false|none|none|
+
+<h2 id="tocSdispatchercreaterolerequest">DispatcherCreateRoleRequest</h2>
+
+<a id="schemadispatchercreaterolerequest"></a>
+
+```json
+{
+  "name": "role_1",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+    }
+  }
+}
+
+```
+
+*POST body for creating new role*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|Role name|
+|company_id|integer|false|none|Company ID|
+|access_map|object|false|none|Access Map|
+
+<h2 id="tocScompanyvehicletypesresponse">CompanyVehicleTypesResponse</h2>
+
+<a id="schemacompanyvehicletypesresponse"></a>
+
+```json
+{
+  "message": "Got vehicle types",
+  "data": [
+    {
+      "name": "Pedestrian",
+      "id": 1
+    },
+    {
+      "name": "Bicycle",
+      "id": 2
+    }
+  ]
+}
+
+```
+
+*Vehicle types info Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|[any]|false|none|none|
+
+<h2 id="tocSversionresponse">VersionResponse</h2>
+
+<a id="schemaversionresponse"></a>
+
+```json
+{
+  "data": {
+    "message": "App version Response",
+    "data": {
+      "update_required": true,
+      "minimum_installed_version": 500,
+      "current_installed_version": 499
+    }
+  }
+}
+
+```
+
+*Check if app update is required*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocScreateorderrequest">CreateOrderRequest</h2>
+
+<a id="schemacreateorderrequest"></a>
+
+```json
+{
+  "vehicle_type_id": 0,
+  "sender_id": 0,
+  "price_currency": "string",
+  "price_amount": 0,
+  "placed_by_user_profile_id": 0,
+  "jobs": [
+    null
+  ],
+  "items": [
+    null
+  ]
+}
+
+```
+
+*POST body for sender create an order*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|vehicle_type_id|integer|false|none|Id of vehicle type|
+|sender_id|integer|false|none|Sender ID|
+|price_currency|string|false|none|Order currency|
+|price_amount|number|false|none|Order price|
+|placed_by_user_profile_id|integer|false|none|user profile id that places the order|
+|jobs|[any]|false|none|List of jobs need to be done|
+|items|[any]|false|none|List of items to be sent|
+
+<h2 id="tocSsubtaskrequest">SubTaskRequest</h2>
+
+<a id="schemasubtaskrequest"></a>
+
+```json
+{
+  "task_id": 2,
+  "sub_task_rule_id": 3,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "event": "pickup_completed",
+  "completion_time": "2018-03-10T03:37:08",
+  "action": "upload_photo"
+}
+
+```
+
+*SubTask Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|task_id|integer|false|none|none|
+|sub_task_rule_id|integer|false|none|none|
+|photo|string|false|none|none|
+|meta|object|false|none|none|
+|event|string|false|none|none|
+|completion_time|string|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocSdispatchercreateworkerresponse">DispatcherCreateWorkerResponse</h2>
+
+<a id="schemadispatchercreateworkerresponse"></a>
+
+```json
+{
+  "data": {
+    "vehicle_type_registers": [
+      {
+        "name": "Bike",
+        "id": 1
+      },
+      {
+        "name": "Car",
+        "id": 2
+      }
+    ],
+    "vehicle_type_ids": [
+      1
+    ],
+    "user_profile_id": 1,
+    "tester": false,
+    "phone": "+987654322",
+    "password": "passwd112233",
+    "otp_token": "1122334455",
+    "name": "Mike Driver",
+    "location": {
+      "lng": 122.6428429677108,
+      "lat": 65.67691234535297
+    },
+    "inserted_at": "2018-06-29 03:22:06.465579Z",
+    "email": "mike-driver@yojee.com",
+    "distance_away": 1100,
+    "current_vehicle_type_id": 1,
+    "company_id": 1,
+    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+  }
+}
+
+```
+
+*Worker Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocScompanyupdatesettingsrequest">CompanyUpdateSettingsRequest</h2>
+
+<a id="schemacompanyupdatesettingsrequest"></a>
+
+```json
+{
+  "settings": {
+    "delivery_options": {
+      "time_window": {
+        "pickup": {
+          "to": 18,
+          "from": 10
+        },
+        "dropoff": {
+          "to": 22,
+          "from": 14
+        }
+      },
+      "pickup_allowance": 2,
+      "max_weight": 50,
+      "advance_bookings": 14
+    }
+  }
+}
+
+```
+
+*PUT body for updating company settings*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|settings|object|true|none|Settings object|
+
+<h2 id="tocScompaniesresponse">CompaniesResponse</h2>
+
+<a id="schemacompaniesresponse"></a>
+
+```json
+{
+  "message": "Got list of worker's companies",
+  "data": {
+    "companies": [
+      {
+        "title": "yojee",
+        "theme": "yojee",
+        "show_service_type": 1,
+        "default_lang": "en",
+        "company_slug": "yojee"
+      }
+    ]
+  }
+}
+
+```
+
+*Driver's companies Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocShubrequest">HubRequest</h2>
+
+<a id="schemahubrequest"></a>
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  }
+}
+
+```
+
+*Hub Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|regions|[any]|false|none|none|
+|properties|object|false|none|none|
+|name|string|false|none|none|
+|location|object|false|none|none|
+
+<h2 id="tocSdispatcherordersresponse">DispatcherOrdersResponse</h2>
+
+<a id="schemadispatcherordersresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "tracking_number": "O-M1RHTJHJZGKX",
+      "status": "created",
+      "sender_type": "organisation",
+      "sender_id": 1,
+      "price_currency": "SGD",
+      "price_amount": 0,
+      "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
+      "inserted_at": "2018-06-29 03:22:06.461235Z",
+      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+    }
+  ]
+}
+
+```
+
+*Orders Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatcherupdaterulerequest">DispatcherUpdateRuleRequest</h2>
+
+<a id="schemadispatcherupdaterulerequest"></a>
+
+```json
+{
+  "meta": {
+    "photo_type": "signature",
+    "photo_title": "Signature of client"
+  },
+  "event": "pickup_completed",
+  "company_id": 1,
+  "action": "upload_photo"
+}
+
+```
+
+*Sub Task Rule Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|meta|object|false|none|none|
+|event|string|false|none|none|
+|deleted_at|object|false|none|none|
+|company_id|integer|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocScompanyuploadassetsresponse">CompanyUploadAssetsResponse</h2>
+
+<a id="schemacompanyuploadassetsresponse"></a>
+
+```json
+{
+  "data": "https://s3.us-east-1.amazonaws.com/test/uploads/companies/334/334_logo.png"
+}
+
+```
+
+*Company Assets Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocShubresponse">HubResponse</h2>
+
+<a id="schemahubresponse"></a>
+
+```json
+{
+  "data": {
+    "regions": [
+      "poly5"
+    ],
+    "properties": {
+      "description": "Sample description",
+      "address": "Singapore"
+    },
+    "name": "Sample Hub",
+    "location": {
+      "lng": 122.6428429677108,
+      "lat": 65.67691234535297
+    },
+    "inserted_at": "2018-06-29 03:22:06.478995Z",
+    "company_id": 1
+  }
+}
+
+```
+
+*Hub Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdatecorporatesenderresponse">DispatcherUpdateCorporateSenderResponse</h2>
+
+<a id="schemadispatcherupdatecorporatesenderresponse"></a>
+
+```json
+{
+  "data": {
+    "user_profile_id": 123,
+    "phone": "+6598765432",
+    "name": "Bob",
+    "email": "bob@mail.com"
+  }
+}
+
+```
+
+*Corporate Sender Updated Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSgetpricesrequest">GetPricesRequest</h2>
+
+<a id="schemagetpricesrequest"></a>
+
+```json
+{
+  "to_address": {
+    "zipcode": "189703",
+    "location": "1.2976764,103.85701760000006",
+    "lng": "103.85701760000006",
+    "lat": "1.2976764",
+    "country": "Singpore"
+  },
+  "slug": "yojee",
+  "item": {
+    "weight": 4
+  },
+  "from_address": {
+    "zipcode": "068896",
+    "location": "1.2777689,103.84839149999993",
+    "lng": "103.84839149999993",
+    "lat": "1.2777689",
+    "country": "Singpore"
+  }
+}
+
+```
+
+*Get the price estimate*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|to_address|[OrderAddress](#schemaorderaddress)|false|none|none|
+|slug|string|false|none|yojee|
+|item|[OrderItem](#schemaorderitem)|false|none|none|
+|from_address|[OrderAddress](#schemaorderaddress)|false|none|none|
+
+<h2 id="tocStaskgroupsresponse">TaskGroupsResponse</h2>
+
+<a id="schemataskgroupsresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "state": "created",
+      "price": "SGD 10",
+      "id": 1
+    }
+  ]
+}
+
+```
+
+*TaskGroup Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|List of task group|
+
+<h2 id="tocScompanyconfigsresponse">CompanyConfigsResponse</h2>
+
+<a id="schemacompanyconfigsresponse"></a>
+
+```json
+{
+  "data": {
+    "rules": {
+      "pickup": [
+        {
+          "title": "Upload image of client",
+          "id": 1478,
+          "action": "upload_photo"
+        }
+      ],
+      "dropoff": [
+        {
+          "title": "Upload image of client",
+          "id": 1479,
+          "action": "upload_photo"
+        }
+      ]
+    },
+    "reasons": [
+      {
+        "reason": "Address is wrong",
+        "id": 2
+      }
+    ],
+    "currency": "SGD",
+    "company_slug": "yojee"
+  }
+}
+
+```
+
+*Config Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherinforesponse">DispatcherInfoResponse</h2>
+
+<a id="schemadispatcherinforesponse"></a>
+
+```json
+{
+  "socket_token": "ISO32ADFSANFSKSL",
+  "role": "Admin",
+  "phone": "+849039233232",
+  "name": "John Doe",
+  "id": 1,
+  "email": "dispatcher@yojee.com",
+  "device_token": "AJKS13JD322OAFS",
+  "company": {}
+}
+
+```
+
+*Sub Task Rule Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|socket_token|string|false|none|none|
+|role|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|id|integer|false|none|none|
+|email|string|false|none|none|
+|device_token|string|false|none|none|
+|company|object|false|none|none|
+
+<h2 id="tocScompletionlocation">CompletionLocation</h2>
+
+<a id="schemacompletionlocation"></a>
+
+```json
+{
+  "location": {
+    "lng": 122.64,
+    "lat": 65.676
+  }
+}
+
+```
+
+*Task Completion Location Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|location|object|false|none|none|
+
+<h2 id="tocSregionsresponse">RegionsResponse</h2>
+
+<a id="schemaregionsresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "tag": "poly5",
+      "inserted_at": "2018-06-29 03:22:06.478158Z",
+      "description": "Sample Region",
+      "coordinates": [
+        [
+          {
+            "lng": 10,
+            "lat": 35
+          },
+          {
+            "lng": 45,
+            "lat": 45
+          },
+          {
+            "lng": 40,
+            "lat": 15
+          },
+          {
+            "lng": 20,
+            "lat": 10
+          },
+          {
+            "lng": 10,
+            "lat": 35
+          }
+        ],
+        [
+          {
+            "lng": 30,
+            "lat": 20
+          },
+          {
+            "lng": 35,
+            "lat": 35
+          },
+          {
+            "lng": 20,
+            "lat": 30
+          },
+          {
+            "lng": 30,
+            "lat": 20
+          }
+        ]
+      ],
+      "company_id": 1,
+      "color": "red"
+    }
+  ]
+}
+
+```
+
+*Regions Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSinforesponse">InfoResponse</h2>
+
+<a id="schemainforesponse"></a>
+
+```json
+{
+  "message": "Got driver's info.",
+  "data": {
+    "vehicles": [
+      {
+        "name": "Truck",
+        "id": 1
+      },
+      {
+        "name": "Boat",
+        "id": 2
+      }
+    ],
+    "status": "on_duty",
+    "phone": "+849032230423",
+    "name": "John Doe",
+    "id": 1,
+    "email": "john@gmail.com",
+    "device_token": "AI73LASYS93SDKD",
+    "current_vehicle_type_id": 2,
+    "avatar": "https://s3-ap-southeast-1.amazonaws.com/avatar.jpg"
+  }
+}
+
+```
+
+*Driver's info Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocSbulktaskcompletionrequest">BulkTaskCompletionRequest</h2>
+
+<a id="schemabulktaskcompletionrequest"></a>
+
+```json
+{
+  "type": "pickup",
+  "tracking_numbers": [
+    "YOJ-YXFCYNNRPT0",
+    "YOJ-YXFCYNNRPT8",
+    "YOJ-YXFCYNNRPT0"
+  ],
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "completion_time": "2018-03-10T03:37:08Z"
+}
+
+```
+
+*Task Completion Bulk Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|type|string|false|none|none|
+|tracking_numbers|[any]|false|none|none|
+|location|object|false|none|none|
+|completion_time|string|false|none|none|
+
+<h2 id="tocSdispatcherruleresponse">DispatcherRuleResponse</h2>
+
+<a id="schemadispatcherruleresponse"></a>
+
+```json
+{
+  "task_id": 103,
+  "sub_task_rule_id": 21,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "id": 21,
+  "event": "pickup_completed",
+  "completion_time": "2018-03-10T03:37:08",
+  "company_id": 136,
+  "action": "upload_photo"
+}
+
+```
+
+*Sub Task Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|task_id|integer|false|none|none|
+|sub_task_rule_id|integer|false|none|none|
+|photo|string|false|none|none|
+|meta|object|false|none|none|
+|id|integer|false|none|none|
+|event|string|false|none|none|
+|completion_time|string|false|none|none|
+|company_id|integer|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocSorderaddress">OrderAddress</h2>
+
+<a id="schemaorderaddress"></a>
+
+```json
+{
+  "zipcode": "string",
+  "location": "string",
+  "lng": "string",
+  "lat": "string",
+  "country": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|zipcode|string|false|none|none|
+|location|string|false|none|none|
+|lng|string|false|none|none|
+|lat|string|false|none|none|
+|country|string|false|none|none|
+
+<h2 id="tocSdispatcherupdateworkerrequest">DispatcherUpdateWorkerRequest</h2>
+
+<a id="schemadispatcherupdateworkerrequest"></a>
+
+```json
+{
+  "vehicle_type_ids": [
+    1,
+    2
+  ],
+  "tester": true,
+  "phone": "+987654322",
+  "otp_token": "TNUSTU2YF7BCDOYR",
+  "name": "Mike Driver",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "email": "mike-driver@yojee.com",
+  "current_vehicle_type_id": 1
+}
+
+```
+
+*Worker Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|vehicle_type_ids|[any]|false|none|none|
+|tester|object|false|none|none|
+|phone|string|false|none|none|
+|otp_token|string|false|none|none|
+|name|string|false|none|none|
+|location|object|false|none|none|
+|email|string|false|none|none|
+|current_vehicle_type_id|integer|false|none|none|
 
 <h2 id="tocSdispatcherindexuserresponse">DispatcherIndexUserResponse</h2>
 
@@ -6039,7 +7582,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
       "user_profile": 1,
       "phone": "+987654330",
       "name": "Mike Dispatcher",
-      "inserted_at": "2018-06-06 02:12:37.330683Z",
+      "inserted_at": "2018-06-29 03:22:06.464176Z",
       "email": "mike-dispatcher-3@yojee.com",
       "company_id": 1
     }
@@ -6056,74 +7599,1065 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |---|---|---|---|---|
 |data|[any]|false|none|none|
 
-<h2 id="tocSdispatchersenderadminsrequest">DispatcherSenderAdminsRequest</h2>
+<h2 id="tocSdispatcherpartnertransfercreate">DispatcherPartnerTransferCreate</h2>
 
-<a id="schemadispatchersenderadminsrequest"></a>
+<a id="schemadispatcherpartnertransfercreate"></a>
 
 ```json
 {
-  "pagination": {
-    "total_pages": 1,
-    "total_count": 2,
-    "limit_value": 10,
-    "current_page": 1
-  },
+  "tracking_numbers": [
+    "YOJ-NHLZA0V3PT0"
+  ],
+  "price_currency": "USD",
+  "price_amount": "1.00",
+  "partner_cip": "CIP-RTNKAUJLQ3LWRGRA"
+}
+
+```
+
+*Partner Transfer Order Create Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|state|string|true|none|State|
+|postal_code|number|true|none|Postal code|
+|partnership_type|string|true|none|Partnership type|
+|contact_phone|string|true|none|Phone number|
+|contact_name|string|true|none|Contact name|
+|contact_email|string|true|none|Email|
+|company_name|string|true|none|Company name|
+|address|string|true|none|Registration address|
+
+<h2 id="tocSbulkcompletionstatus">BulkCompletionStatus</h2>
+
+<a id="schemabulkcompletionstatus"></a>
+
+```json
+{
+  "data": {
+    "total": 100,
+    "status": "completed",
+    "processed": 100,
+    "logs": []
+  }
+}
+
+```
+
+*Bulk Completion Status*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|type|string|false|none|none|
+|tracking_numbers|[any]|false|none|none|
+|location|object|false|none|none|
+|completion_time|string|false|none|none|
+
+<h2 id="tocStaskexceptionreasonsresponse">TaskExceptionReasonsResponse</h2>
+
+<a id="schemataskexceptionreasonsresponse"></a>
+
+```json
+{
+  "message": "Got company task exception reasons",
   "data": [
     {
-      "title": "Software Engineer",
-      "organisations": [
-        {
-          "slug": "yojee",
-          "reg_address": "144 Robinson Road",
-          "postal_code": "068908",
-          "phone": "+6591245934",
-          "name": "Organisation 1",
-          "id": 1,
-          "country": "Singapore",
-          "city": "Singapore"
-        },
-        {
-          "slug": "yojee",
-          "postal_code": "068908",
-          "phone": "+6591245936",
-          "name": "Organisation 2",
-          "id": 2,
-          "country": "Singapore",
-          "city": "Singapore"
-        }
-      ],
-      "name": "Ralston",
-      "id": 1
-    },
-    {
-      "title": "Account Manager",
-      "organisations": [
-        {
-          "slug": "yojee",
-          "reg_address": "St George's Rd",
-          "postal_code": "068908",
-          "phone": "+6591245736",
-          "name": "Organisation 3",
-          "id": 2,
-          "country": "Singapore",
-          "city": "Singapore"
-        }
-      ],
-      "name": "Sam",
-      "id": 16
+      "description": "Sender not available",
+      "company_id": 1
     }
   ]
 }
 
 ```
 
-*Sender Admins Response*
+*Task Exception Reasons Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatchercreatecorporatesenderresponse">DispatcherCreateCorporateSenderResponse</h2>
+
+<a id="schemadispatchercreatecorporatesenderresponse"></a>
+
+```json
+{
+  "data": {
+    "phone": "+6598765432",
+    "email": "bob@mail.com",
+    "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+  }
+}
+
+```
+
+*Corporate Sender Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |data|object|false|none|none|
+
+<h2 id="tocSsignuprequest">SignupRequest</h2>
+
+<a id="schemasignuprequest"></a>
+
+```json
+{
+  "sender_type": "individual",
+  "phone": "+6598765432",
+  "password": "abc123$%^",
+  "name": "Alex",
+  "email": "long@yojee.com",
+  "billing_address": "77 Robinson road, Singapore.",
+  "account_type": "sender"
+}
+
+```
+
+*SignupRequest*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|password|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+|account_type|string|false|none|none|
+
+<h2 id="tocSspokeresponse">SpokeResponse</h2>
+
+<a id="schemaspokeresponse"></a>
+
+```json
+{
+  "data": {
+    "properties": {},
+    "pessimistic_estimated_duration": 40,
+    "origin_hub_id": 1,
+    "optimistic_estimated_duration": 40,
+    "name": "spoker",
+    "modality": "road",
+    "inserted_at": "2018-06-29 03:22:06.481222Z",
+    "destination_hub_id": 2,
+    "company_id": 1
+  }
+}
+
+```
+
+*Spoke Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSsigninrequest">SigninRequest</h2>
+
+<a id="schemasigninrequest"></a>
+
+```json
+{
+  "password": "abc123$%^",
+  "email": "long@yojee.com"
+}
+
+```
+
+*SigninRequest*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|password|string|false|none|none|
+|email|string|false|none|none|
+
+<h2 id="tocSdispatcherpartnershipinfo">DispatcherPartnershipInfo</h2>
+
+<a id="schemadispatcherpartnershipinfo"></a>
+
+```json
+{
+  "discovery_mode": false,
+  "contact_phone": "+6591245934",
+  "contact_name": "Ralston",
+  "contact_email": "ralston@xyz.com",
+  "cip": "CIP-JSUUWH907EOOE"
+}
+
+```
+
+*Partnership Info*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|discovery_mode|object|false|none|none|
+|contact_phone|string|false|none|none|
+|contact_name|string|false|none|none|
+|contact_email|string|false|none|none|
+|cip|string|false|none|none|
+
+<h2 id="tocSgetotpresponse">GetOtpResponse</h2>
+
+<a id="schemagetotpresponse"></a>
+
+```json
+{
+  "data": {
+    "otp_code": "123456"
+  }
+}
+
+```
+
+*Response schema for querying OTP*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocScompanyinforesponse">CompanyInfoResponse</h2>
+
+<a id="schemacompanyinforesponse"></a>
+
+```json
+{
+  "data": {
+    "slug": "yojee",
+    "settings": {
+      "delivery_options": {
+        "time_window": {
+          "pickup": {
+            "to": 18,
+            "from": 10
+          },
+          "dropoff": {
+            "to": 22,
+            "from": 14
+          }
+        },
+        "pickup_allowance": 2,
+        "max_weight": 50,
+        "advance_bookings": 14
+      }
+    },
+    "organisation_id": 1,
+    "name": "Yojee",
+    "id": 1,
+    "extension_schema": {
+      "orders": {
+        "required": [],
+        "properties": {
+          "load_type": {
+            "type": "string",
+            "title": "Load Type"
+          }
+        }
+      }
+    },
+    "events": [
+      "pickup_completed",
+      "dropoff_completed"
+    ],
+    "actions": [
+      "upload_photo",
+      "upload_signature"
+    ]
+  }
+}
+
+```
+
+*Company Settings Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocStaskexceptionreasonresponse">TaskExceptionReasonResponse</h2>
+
+<a id="schemataskexceptionreasonresponse"></a>
+
+```json
+{
+  "message": "ok",
+  "data": {
+    "description": "Sender not available",
+    "company_id": 1
+  }
+}
+
+```
+
+*Task Exception Reason Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherpartnercreate">DispatcherPartnerCreate</h2>
+
+<a id="schemadispatcherpartnercreate"></a>
+
+```json
+{
+  "postal_code": "321021",
+  "partnership_type": "downstream",
+  "country": "Singapore",
+  "contact_phone": "+6591245934",
+  "contact_name": "Ralston",
+  "contact_email": "ralston@xyz.com",
+  "company_name": "XYZ",
+  "city": "Singapore",
+  "address": "77 Robinson road, Singapore."
+}
+
+```
+
+*Partner Create Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|state|string|true|none|State|
+|postal_code|number|true|none|Postal code|
+|partnership_type|string|true|none|Partnership type|
+|contact_phone|string|true|none|Phone number|
+|contact_name|string|true|none|Contact name|
+|contact_email|string|true|none|Email|
+|company_name|string|true|none|Company name|
+|address|string|true|none|Registration address|
+
+<h2 id="tocScreatepaymentrequest">CreatePaymentRequest</h2>
+
+<a id="schemacreatepaymentrequest"></a>
+
+```json
+{
+  "payment_method": "stripe",
+  "order_id": 1,
+  "description": "This is a test description",
+  "currency": "SGD",
+  "credit_card": {
+    "year": 22,
+    "number": 4242424242424242,
+    "name": "Jane Doe",
+    "month": 11,
+    "cvc": 111
+  },
+  "amount": 500
+}
+
+```
+
+*POST body for making payment*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|payment_method|string|false|none|Payment method|
+|order_id|integer|false|none|Order ID|
+|description|string|false|none|Description|
+|currency|string|false|none|Currency|
+|credit_card|object|false|none|none|
+|» year|integer|false|none|Year|
+|» number|string|false|none|Credit card number|
+|» name|string|false|none|Full name|
+|» month|integer|false|none|Month|
+|» cvc|integer|false|none|CVC Number|
+|amount|number|false|none|Amount in cents|
+
+<h2 id="tocSbroadcastrequest">BroadcastRequest</h2>
+
+<a id="schemabroadcastrequest"></a>
+
+```json
+{
+  "timeout_in_minutes": 20,
+  "task_group_ids": [
+    1,
+    2
+  ],
+  "price_currency": "SGD",
+  "price_amount": 500
+}
+
+```
+
+*Broadcast Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|timeout_in_minutes|integer|false|none|none|
+|task_group_ids|[any]|false|none|none|
+|price_currency|string|false|none|none|
+|price_amount|integer|false|none|none|
+
+<h2 id="tocSdispatcherworkersresponse">DispatcherWorkersResponse</h2>
+
+<a id="schemadispatcherworkersresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "vehicle_type_registers": [
+        {
+          "name": "Bike",
+          "id": 1
+        },
+        {
+          "name": "Car",
+          "id": 2
+        }
+      ],
+      "vehicle_type_ids": [
+        1
+      ],
+      "user_profile_id": 1,
+      "tester": false,
+      "phone": "+987654322",
+      "password": "passwd112233",
+      "otp_token": "1122334455",
+      "name": "Mike Driver",
+      "location": {
+        "lng": 122.6428429677108,
+        "lat": 65.67691234535297
+      },
+      "inserted_at": "2018-06-29 03:22:06.466272Z",
+      "email": "mike-driver@yojee.com",
+      "distance_away": 1100,
+      "current_vehicle_type_id": 1,
+      "company_id": 1,
+      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+    }
+  ]
+}
+
+```
+
+*Workers Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSspokesresponse">SpokesResponse</h2>
+
+<a id="schemaspokesresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "properties": {},
+      "pessimistic_estimated_duration": 40,
+      "origin_hub_id": 1,
+      "optimistic_estimated_duration": 40,
+      "name": "spoker",
+      "modality": "road",
+      "inserted_at": "2018-06-29 03:22:06.481584Z",
+      "destination_hub_id": 2,
+      "company_id": 1
+    }
+  ]
+}
+
+```
+
+*Spokes Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocShubsresponse">HubsResponse</h2>
+
+<a id="schemahubsresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "regions": [
+        "poly5"
+      ],
+      "properties": {
+        "description": "Sample description",
+        "address": "Singapore"
+      },
+      "name": "Sample Hub",
+      "location": {
+        "lng": 122.6428429677108,
+        "lat": 65.67691234535297
+      },
+      "inserted_at": "2018-06-29 03:22:06.479407Z",
+      "company_id": 1
+    }
+  ]
+}
+
+```
+
+*Hubs Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSspokerequest">SpokeRequest</h2>
+
+<a id="schemaspokerequest"></a>
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "destination_hub_id": 2
+}
+
+```
+
+*Spoke Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|properties|object|false|none|none|
+|pessimistic_estimated_duration|integer|false|none|none|
+|origin_hub_id|integer|false|none|none|
+|optimistic_estimated_duration|integer|false|none|none|
+|name|string|false|none|none|
+|modality|string|false|none|none|
+|destination_hub_id|integer|false|none|none|
+
+<h2 id="tocSbroadcastresponse">BroadcastResponse</h2>
+
+<a id="schemabroadcastresponse"></a>
+
+```json
+{
+  "timeout_in_minutes": 20,
+  "task_group_id": 2,
+  "status": "sent",
+  "price": "SGD 500",
+  "id": 1,
+  "expires_at": "2018-05-28T08:45:38.632070"
+}
+
+```
+
+*Broadcast Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|timeout_in_minutes|integer|false|none|none|
+|task_group_id|integer|false|none|none|
+|status|string|false|none|none|
+|price|string|false|none|none|
+|id|integer|false|none|none|
+|expires_at|string|false|none|none|
+|accepted_at|object|false|none|none|
+
+<h2 id="tocScorporatesendersignuprequest">CorporateSenderSignupRequest</h2>
+
+<a id="schemacorporatesendersignuprequest"></a>
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "payment_option": "monthly_billing",
+  "password": "abc123$%^",
+  "organisation": {
+    "reg_address": "77 Robinson road, Singapore.",
+    "postal_code": "321021",
+    "phone": "+6591245934",
+    "name": "ABC",
+    "country": "Singapore",
+    "city": "Singapore"
+  },
+  "name": "Ralston",
+  "gst_no": "2AS9890",
+  "email": "primary@abc.com",
+  "business_reg_no": "ABC1235M",
+  "billing_address": "77 Robinson road, Singapore."
+}
+
+```
+
+*CorporateSenderSignupRequest*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|title|string|false|none|none|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|payment_option|string|false|none|none|
+|password|string|false|none|none|
+|organisation|object|false|none|none|
+|name|string|false|none|none|
+|gst_no|string|false|none|none|
+|email|string|false|none|none|
+|business_reg_no|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocSorderitem">OrderItem</h2>
+
+<a id="schemaorderitem"></a>
+
+```json
+{
+  "weight": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|weight|integer|false|none|none|
+
+<h2 id="tocSdispatcherpartnerresponse">DispatcherPartnerResponse</h2>
+
+<a id="schemadispatcherpartnerresponse"></a>
+
+```json
+{
+  "data": {
+    "state": "pending",
+    "requested_at": "2018-05-22T14:33:57.131041Z",
+    "postal_code": "321021",
+    "partnership_type": "downstream",
+    "country": "Singapore",
+    "contact_phone": "+6591245934",
+    "contact_name": "Ralston",
+    "contact_email": "ralston@xyz.com",
+    "company_name": "XYZ",
+    "city": "Singapore",
+    "cip": "CIP-XJSI232KGTDYTDT",
+    "address": "77 Robinson road, Singapore."
+  }
+}
+
+```
+
+*Partner Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherrulesresponse">DispatcherRulesResponse</h2>
+
+<a id="schemadispatcherrulesresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 1,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "meta": {
+        "photo_type": "signature",
+        "photo_title": "Signature of client"
+      },
+      "event": "pickup_completed",
+      "company_id": 1,
+      "action": "upload_photo"
+    }
+  ]
+}
+
+```
+
+*Sub Task Rules Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSverifyotpresponse">VerifyOtpResponse</h2>
+
+<a id="schemaverifyotpresponse"></a>
+
+```json
+{
+  "data": {
+    "user_profile_id": 1,
+    "phone": "+84936362488",
+    "id": 1,
+    "email": "bob@mail.com",
+    "access_token": "T5P2rQrC6KbkPnLE9ebyjskMUTju3vKFBzlAr+bCUpc="
+  }
+}
+
+```
+
+*Response schema for Verify OTP*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSorderitemsupdaterequest">OrderItemsUpdateRequest</h2>
+
+<a id="schemaorderitemsupdaterequest"></a>
+
+```json
+{
+  "payload_type": "Updated document",
+  "external_customer_id": "changed_external_customer_id",
+  "description": "Updated Gift"
+}
+
+```
+
+*Order Item Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|payload_type|string|false|none|none|
+|external_customer_id|string|false|none|none|
+|description|string|false|none|none|
+
+<h2 id="tocScompanytransportationcompaniesresponse">CompanyTransportationCompaniesResponse</h2>
+
+<a id="schemacompanytransportationcompaniesresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "id": 13,
+      "external_id": "20600078098",
+      "contact_name": "Katie Solis",
+      "contact_email": "Ksolis@smk.com.pe",
+      "company_id": 2
+    }
+  ]
+}
+
+```
+
+*Transportation Companies Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatchercreaterulerequest">DispatcherCreateRuleRequest</h2>
+
+<a id="schemadispatchercreaterulerequest"></a>
+
+```json
+{
+  "meta": {
+    "photo_type": "signature",
+    "photo_title": "Signature of client"
+  },
+  "event": "pickup_completed",
+  "company_id": 1,
+  "action": "upload_photo"
+}
+
+```
+
+*Sub Task Rule Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|meta|object|false|none|none|
+|event|string|false|none|none|
+|deleted_at|object|false|none|none|
+|company_id|integer|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocSdispatchercorporatesendersresponse">DispatcherCorporateSendersResponse</h2>
+
+<a id="schemadispatchercorporatesendersresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "user_profile_id": 1,
+      "name": "ABC"
+    }
+  ]
+}
+
+```
+
+*Corporate Senders Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSorderitemsindexresponse">OrderItemsIndexResponse</h2>
+
+<a id="schemaorderitemsindexresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "weight": 20,
+      "volume": 300,
+      "tracking_number": "yoyoyoyo",
+      "to_address": "Airport Blvd, Changi Airport Singapore (SIN), Singapore",
+      "status": "assigned",
+      "service_type": "same_day",
+      "sender_phone": "+6590050680",
+      "sender_name": "champ",
+      "receipient_phone": "+6598765432",
+      "receipient_name": "test2",
+      "order_number": "order_number",
+      "order_id": 1,
+      "item_number": 2,
+      "id": 7,
+      "from_address": "144 Robinson Road, Level 15, Singapore 068908",
+      "description": "Gifts",
+      "created_at": "2018-03-08T14:58:24.280533"
+    }
+  ]
+}
+
+```
+
+*OrderItem index Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocScreateorderresponse">CreateOrderResponse</h2>
+
+<a id="schemacreateorderresponse"></a>
+
+```json
+{
+  "data": {
+    "tracking_number": "O-SKGVN25LNEDR",
+    "sender_id": 3,
+    "price": "SGD 10",
+    "placed_by_user_profile_id": 1,
+    "number": "TEd1UHI1ekRsa3JaKzRYUGFkMUhXQT09",
+    "inserted_at": "2018-02-07T09:38:38.233073",
+    "id": 17
+  }
+}
+
+```
+
+*Create order response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatchercreateroleresponse">DispatcherCreateRoleResponse</h2>
+
+<a id="schemadispatchercreateroleresponse"></a>
+
+```json
+{
+  "data": {
+    "name": "role_1",
+    "inserted_at": "2018-06-29 03:22:06.475896Z",
+    "company_id": 123,
+    "access_map": {
+      "sender": {
+        "add": true
+      }
+    }
+  }
+}
+
+```
+
+*Role Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatchersubtasksresponse">DispatcherSubTasksResponse</h2>
+
+<a id="schemadispatchersubtasksresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 1,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "task_id": 103,
+      "sub_task_rule_id": 21,
+      "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+      "meta": {
+        "photo_type": "Proof",
+        "photo_title": "Signature"
+      },
+      "id": 21,
+      "event": "pickup_completed",
+      "completion_time": "2018-03-10T03:37:08",
+      "company_id": 136,
+      "action": "upload_photo"
+    }
+  ]
+}
+
+```
+
+*Sub Tasks Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSworkerlocationupdaterequest">WorkerLocationUpdateRequest</h2>
+
+<a id="schemaworkerlocationupdaterequest"></a>
+
+```json
+{
+  "lng": 122.6428429677108,
+  "lat": 65.67691234535297
+}
+
+```
+
+*Location Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|lng|object|false|none|none|
+|lat|object|false|none|none|
+
+<h2 id="tocSdispatcherupdaterolerequest">DispatcherUpdateRoleRequest</h2>
+
+<a id="schemadispatcherupdaterolerequest"></a>
+
+```json
+{
+  "updated_at": "2018-06-29 03:22:06.476552Z",
+  "name": "role_1",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+    }
+  }
+}
+
+```
+
+*POST body for updating roles*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|Role name|
+|company_id|integer|false|none|Company ID|
+|access_map|object|false|none|Access Map|
 
 <h2 id="tocSorderitemsshowresponse">OrderItemsShowResponse</h2>
 
@@ -6210,726 +8744,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |item_session|object|false|none|none|
 |delivery_trail|[any]|false|none|none|
 
-<h2 id="tocSdispatchercreaterolerequest">DispatcherCreateRoleRequest</h2>
-
-<a id="schemadispatchercreaterolerequest"></a>
-
-```json
-{
-  "name": "role_1",
-  "company_id": 123,
-  "access_map": {
-    "sender": {
-      "add": true
-    }
-  }
-}
-
-```
-
-*POST body for creating new role*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|name|string|false|none|Role name|
-|company_id|integer|false|none|Company ID|
-|access_map|object|false|none|Access Map|
-
-<h2 id="tocSdispatcherpartnershipinfoupdate">DispatcherPartnershipInfoUpdate</h2>
-
-<a id="schemadispatcherpartnershipinfoupdate"></a>
-
-```json
-{
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com"
-}
-
-```
-
-*Partnership Info Update Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|contact_phone|string|false|none|none|
-|contact_name|string|false|none|none|
-|contact_email|string|false|none|none|
-
-<h2 id="tocScompletionlocation">CompletionLocation</h2>
-
-<a id="schemacompletionlocation"></a>
-
-```json
-{
-  "location": {
-    "lng": 122.64,
-    "lat": 65.676
-  }
-}
-
-```
-
-*Task Completion Location Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|location|object|false|none|none|
-
-<h2 id="tocScreateorderrequest">CreateOrderRequest</h2>
-
-<a id="schemacreateorderrequest"></a>
-
-```json
-{
-  "vehicle_type_id": 0,
-  "sender_id": 0,
-  "price_currency": "string",
-  "price_amount": 0,
-  "placed_by_user_profile_id": 0,
-  "jobs": [
-    null
-  ],
-  "items": [
-    null
-  ]
-}
-
-```
-
-*POST body for sender create an order*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|vehicle_type_id|integer|false|none|Id of vehicle type|
-|sender_id|integer|false|none|Sender ID|
-|price_currency|string|false|none|Order currency|
-|price_amount|number|false|none|Order price|
-|placed_by_user_profile_id|integer|false|none|user profile id that places the order|
-|jobs|[any]|false|none|List of jobs need to be done|
-|items|[any]|false|none|List of items to be sent|
-
-<h2 id="tocSinforesponse">InfoResponse</h2>
-
-<a id="schemainforesponse"></a>
-
-```json
-{
-  "message": "Got driver's info.",
-  "data": {
-    "vehicles": [
-      {
-        "name": "Truck",
-        "id": 1
-      },
-      {
-        "name": "Boat",
-        "id": 2
-      }
-    ],
-    "status": "on_duty",
-    "phone": "+849032230423",
-    "name": "John Doe",
-    "id": 1,
-    "email": "john@gmail.com",
-    "device_token": "AI73LASYS93SDKD",
-    "current_vehicle_type_id": 2,
-    "avatar": "https://s3-ap-southeast-1.amazonaws.com/avatar.jpg"
-  }
-}
-
-```
-
-*Driver's info Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSversionresponse">VersionResponse</h2>
-
-<a id="schemaversionresponse"></a>
-
-```json
-{
-  "data": {
-    "message": "App version Response",
-    "data": {
-      "update_required": true,
-      "minimum_installed_version": 500,
-      "current_installed_version": 499
-    }
-  }
-}
-
-```
-
-*Check if app update is required*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatchercreatesenderrequest">DispatcherCreateSenderRequest</h2>
-
-<a id="schemadispatchercreatesenderrequest"></a>
-
-```json
-{
-  "sender_type": "individual",
-  "phone": "+8412345611",
-  "password": "passwd112233",
-  "name": "Mike Sender",
-  "email": "michael@yojee.com",
-  "billing_address": "144 Robinson Road"
-}
-
-```
-
-*Sender Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|password|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSorderitem">OrderItem</h2>
-
-<a id="schemaorderitem"></a>
-
-```json
-{
-  "weight": 0
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|weight|integer|false|none|none|
-
-<h2 id="tocStaskexceptionreasonsresponse">TaskExceptionReasonsResponse</h2>
-
-<a id="schemataskexceptionreasonsresponse"></a>
-
-```json
-{
-  "message": "Got company task exception reasons",
-  "data": [
-    {
-      "description": "Sender not available",
-      "company_id": 1
-    }
-  ]
-}
-
-```
-
-*Task Exception Reasons Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|[any]|false|none|none|
-
-<h2 id="tocSbroadcastresponse">BroadcastResponse</h2>
-
-<a id="schemabroadcastresponse"></a>
-
-```json
-{
-  "timeout_in_minutes": 20,
-  "task_group_id": 2,
-  "status": "sent",
-  "price": "SGD 500",
-  "id": 1,
-  "expires_at": "2018-05-28T08:45:38.632070"
-}
-
-```
-
-*Broadcast Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|timeout_in_minutes|integer|false|none|none|
-|task_group_id|integer|false|none|none|
-|status|string|false|none|none|
-|price|string|false|none|none|
-|id|integer|false|none|none|
-|expires_at|string|false|none|none|
-|accepted_at|object|false|none|none|
-
-<h2 id="tocSdispatchercreateworkerresponse">DispatcherCreateWorkerResponse</h2>
-
-<a id="schemadispatchercreateworkerresponse"></a>
-
-```json
-{
-  "data": {
-    "vehicle_type_registers": [
-      {
-        "name": "Bike",
-        "id": 1
-      },
-      {
-        "name": "Car",
-        "id": 2
-      }
-    ],
-    "vehicle_type_ids": [
-      1
-    ],
-    "user_profile_id": 1,
-    "tester": false,
-    "phone": "+987654322",
-    "password": "passwd112233",
-    "otp_token": "1122334455",
-    "name": "Mike Driver",
-    "location": {
-      "lng": 122.6428429677108,
-      "lat": 65.67691234535297
-    },
-    "inserted_at": "2018-06-06 02:12:37.331988Z",
-    "email": "mike-driver@yojee.com",
-    "distance_away": 1100,
-    "current_vehicle_type_id": 1,
-    "company_id": 1,
-    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
-  }
-}
-
-```
-
-*Worker Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocStaskexceptionreasonrequest">TaskExceptionReasonRequest</h2>
-
-<a id="schemataskexceptionreasonrequest"></a>
-
-```json
-{
-  "description": "Sender not available",
-  "company_id": 1
-}
-
-```
-
-*Task Exception Reason Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|description|string|false|none|none|
-|company_id|integer|false|none|none|
-
-<h2 id="tocScreateorderresponse">CreateOrderResponse</h2>
-
-<a id="schemacreateorderresponse"></a>
-
-```json
-{
-  "data": {
-    "tracking_number": "O-SKGVN25LNEDR",
-    "sender_id": 3,
-    "price": "SGD 10",
-    "placed_by_user_profile_id": 1,
-    "number": "TEd1UHI1ekRsa3JaKzRYUGFkMUhXQT09",
-    "inserted_at": "2018-02-07T09:38:38.233073",
-    "id": 17
-  }
-}
-
-```
-
-*Create order response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherinforesponse">DispatcherInfoResponse</h2>
-
-<a id="schemadispatcherinforesponse"></a>
-
-```json
-{
-  "socket_token": "ISO32ADFSANFSKSL",
-  "role": "Admin",
-  "phone": "(+84)9039233232",
-  "name": "John Doe",
-  "id": 1,
-  "email": "dispatcher@yojee.com",
-  "device_token": "AJKS13JD322OAFS",
-  "company": {}
-}
-
-```
-
-*Sub Task Rule Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|socket_token|string|false|none|none|
-|role|string|false|none|none|
-|phone|string|false|none|none|
-|name|string|false|none|none|
-|id|integer|false|none|none|
-|email|string|false|none|none|
-|device_token|string|false|none|none|
-|company|object|false|none|none|
-
-<h2 id="tocSdispatchercreateorganisationrequest">DispatcherCreateOrganisationRequest</h2>
-
-<a id="schemadispatchercreateorganisationrequest"></a>
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "payment_option": "monthly_billing",
-  "organisation": {
-    "reg_address": "77 Robinson road, Singapore.",
-    "postal_code": "321021",
-    "phone": "+6591245934",
-    "name": "ABC",
-    "country": "Singapore",
-    "city": "Singapore"
-  },
-  "name": "Ralston",
-  "gst_no": "2AS9890",
-  "email": "primary_account@abc.com",
-  "business_reg_no": "ABC1235M",
-  "billing_address": "77 Robinson road, Singapore."
-}
-
-```
-
-*Organisation Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|payment_option|string|false|none|none|
-|organisation|object|false|none|none|
-|name|string|false|none|none|
-|gst_no|string|false|none|none|
-|email|string|false|none|none|
-|business_reg_no|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSdispatchercreateroleresponse">DispatcherCreateRoleResponse</h2>
-
-<a id="schemadispatchercreateroleresponse"></a>
-
-```json
-{
-  "data": {
-    "name": "role_1",
-    "inserted_at": "2018-06-06 02:12:37.339994Z",
-    "company_id": 123,
-    "access_map": {
-      "sender": {
-        "add": true
-      }
-    }
-  }
-}
-
-```
-
-*Role Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatchercorporatesendersresponse">DispatcherCorporateSendersResponse</h2>
-
-<a id="schemadispatchercorporatesendersresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "user_profile_id": 1,
-      "name": "ABC"
-    }
-  ]
-}
-
-```
-
-*Corporate Senders Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherruleresponse">DispatcherRuleResponse</h2>
-
-<a id="schemadispatcherruleresponse"></a>
-
-```json
-{
-  "task_id": 103,
-  "sub_task_rule_id": 21,
-  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-  "meta": {
-    "photo_type": "Proof",
-    "photo_title": "Signature"
-  },
-  "id": 21,
-  "event": "pickup_completed",
-  "completion_time": "2018-03-10T03:37:08",
-  "company_id": 136,
-  "action": "upload_photo"
-}
-
-```
-
-*Sub Task Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|task_id|integer|false|none|none|
-|sub_task_rule_id|integer|false|none|none|
-|photo|string|false|none|none|
-|meta|object|false|none|none|
-|id|integer|false|none|none|
-|event|string|false|none|none|
-|completion_time|string|false|none|none|
-|company_id|integer|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSbulktaskcompletionrequest">BulkTaskCompletionRequest</h2>
-
-<a id="schemabulktaskcompletionrequest"></a>
-
-```json
-{
-  "type": "pickup",
-  "tracking_numbers": [
-    "YOJ-YXFCYNNRPT0",
-    "YOJ-YXFCYNNRPT8",
-    "YOJ-YXFCYNNRPT0"
-  ],
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  },
-  "completion_time": "2018-03-10T03:37:08Z"
-}
-
-```
-
-*Task Completion Bulk Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|type|string|false|none|none|
-|tracking_numbers|[any]|false|none|none|
-|location|object|false|none|none|
-|completion_time|string|false|none|none|
-
-<h2 id="tocScompanyupdatesettingsrequest">CompanyUpdateSettingsRequest</h2>
-
-<a id="schemacompanyupdatesettingsrequest"></a>
-
-```json
-{
-  "settings": {
-    "delivery_options": {
-      "time_window": {
-        "pickup": {
-          "to": 18,
-          "from": 10
-        },
-        "dropoff": {
-          "to": 22,
-          "from": 14
-        }
-      },
-      "pickup_allowance": 2,
-      "max_weight": 50,
-      "advance_bookings": 14
-    }
-  }
-}
-
-```
-
-*PUT body for updating company settings*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|settings|object|true|none|Settings object|
-
-<h2 id="tocStaskgroupsresponse">TaskGroupsResponse</h2>
-
-<a id="schemataskgroupsresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "state": "created",
-      "price": "SGD 10",
-      "id": 1
-    }
-  ]
-}
-
-```
-
-*TaskGroup Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|List of task group|
-
-<h2 id="tocSorderitemsupdaterequest">OrderItemsUpdateRequest</h2>
-
-<a id="schemaorderitemsupdaterequest"></a>
-
-```json
-{
-  "payload_type": "Updated document",
-  "external_customer_id": "changed_external_customer_id",
-  "description": "Updated Gift"
-}
-
-```
-
-*Order Item Update Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|payload_type|string|false|none|none|
-|external_customer_id|string|false|none|none|
-|description|string|false|none|none|
-
-<h2 id="tocSdispatcherupdaterolerequest">DispatcherUpdateRoleRequest</h2>
-
-<a id="schemadispatcherupdaterolerequest"></a>
-
-```json
-{
-  "updated_at": "2018-06-06 02:12:37.340473Z",
-  "name": "role_1",
-  "company_id": 123,
-  "access_map": {
-    "sender": {
-      "add": true
-    }
-  }
-}
-
-```
-
-*POST body for updating roles*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|name|string|false|none|Role name|
-|company_id|integer|false|none|Company ID|
-|access_map|object|false|none|Access Map|
-
-<h2 id="tocSspokerequest">SpokeRequest</h2>
-
-<a id="schemaspokerequest"></a>
-
-```json
-{
-  "properties": {},
-  "pessimistic_estimated_duration": 40,
-  "origin_hub_id": 1,
-  "optimistic_estimated_duration": 40,
-  "name": "spoker",
-  "modality": "road",
-  "destination_hub_id": 2
-}
-
-```
-
-*Spoke Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|properties|object|false|none|none|
-|pessimistic_estimated_duration|integer|false|none|none|
-|origin_hub_id|integer|false|none|none|
-|optimistic_estimated_duration|integer|false|none|none|
-|name|string|false|none|none|
-|modality|string|false|none|none|
-|destination_hub_id|integer|false|none|none|
-
 <h2 id="tocSdispatchercreateruleresponse">DispatcherCreateRuleResponse</h2>
 
 <a id="schemadispatchercreateruleresponse"></a>
@@ -6959,9 +8773,9 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |company_id|integer|false|none|none|
 |action|string|false|none|none|
 
-<h2 id="tocSdispatchercreatecorporatesenderresponse">DispatcherCreateCorporateSenderResponse</h2>
+<h2 id="tocSdispatchercreateorganisationresponse">DispatcherCreateOrganisationResponse</h2>
 
-<a id="schemadispatchercreatecorporatesenderresponse"></a>
+<a id="schemadispatchercreateorganisationresponse"></a>
 
 ```json
 {
@@ -6974,7 +8788,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 
 ```
 
-*Corporate Sender Response*
+*Organisation Response*
 
 ### Properties
 
@@ -6982,364 +8796,87 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSgetotpresponse">GetOtpResponse</h2>
+<h2 id="tocSversionrequest">VersionRequest</h2>
 
-<a id="schemagetotpresponse"></a>
+<a id="schemaversionrequest"></a>
 
 ```json
 {
-  "data": {
-    "otp_code": "123456"
-  }
+  "current_installed_version": 500
 }
 
 ```
 
-*Response schema for querying OTP*
+*Check if app update is required*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|data|object|false|none|none|
+|current_installed_version|integer|false|none|none|
 
-<h2 id="tocSdispatchercreateworkerrequest">DispatcherCreateWorkerRequest</h2>
+<h2 id="tocSdispatchersenderadminsrequest">DispatcherSenderAdminsRequest</h2>
 
-<a id="schemadispatchercreateworkerrequest"></a>
-
-```json
-{
-  "vehicle_type_ids": [
-    1,
-    2
-  ],
-  "tester": false,
-  "phone": "+987654322",
-  "password": "passwd112233",
-  "otp_token": "1122334455",
-  "name": "Mike Driver",
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  },
-  "email": "mike-driver@yojee.com",
-  "current_vehicle_type_id": 1
-}
-
-```
-
-*Worker Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|vehicle_type_ids|[any]|true|none|Worker's vehicle type ids|
-|phone|string|true|none|Phone number|
-|password|string|true|none|Password|
-|name|string|true|none|Full name|
-|email|string|true|none|Email|
-|current_vehicle_type_id|integer|true|none|Default vehicle type id|
-
-<h2 id="tocShubrequest">HubRequest</h2>
-
-<a id="schemahubrequest"></a>
-
-```json
-{
-  "regions": [
-    "poly5"
-  ],
-  "properties": {
-    "description": "Sample description",
-    "address": "Singapore"
-  },
-  "name": "Sample Hub",
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  }
-}
-
-```
-
-*Hub Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|regions|[any]|false|none|none|
-|properties|object|false|none|none|
-|name|string|false|none|none|
-|location|object|false|none|none|
-
-<h2 id="tocSdispatcherpartnershipinfo">DispatcherPartnershipInfo</h2>
-
-<a id="schemadispatcherpartnershipinfo"></a>
-
-```json
-{
-  "discovery_mode": false,
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com",
-  "cip": "CIP-JSUUWH907EOOE"
-}
-
-```
-
-*Partnership Info*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|discovery_mode|object|false|none|none|
-|contact_phone|string|false|none|none|
-|contact_name|string|false|none|none|
-|contact_email|string|false|none|none|
-|cip|string|false|none|none|
-
-<h2 id="tocSspokesresponse">SpokesResponse</h2>
-
-<a id="schemaspokesresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "properties": {},
-      "pessimistic_estimated_duration": 40,
-      "origin_hub_id": 1,
-      "optimistic_estimated_duration": 40,
-      "name": "spoker",
-      "modality": "road",
-      "inserted_at": "2018-06-06 02:12:37.342651Z",
-      "destination_hub_id": 2,
-      "company_id": 1
-    }
-  ]
-}
-
-```
-
-*Spokes Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSstatisticsresponse">StatisticsResponse</h2>
-
-<a id="schemastatisticsresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "tasks": {
-        "failed": 0,
-        "completed": 1,
-        "assigned": 0,
-        "accepted": 1
-      },
-      "income": "10.00",
-      "date": "2018-03-31"
-    }
-  ]
-}
-
-```
-
-*Statistics Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSorderaddress">OrderAddress</h2>
-
-<a id="schemaorderaddress"></a>
-
-```json
-{
-  "zipcode": "string",
-  "location": "string",
-  "lng": "string",
-  "lat": "string",
-  "country": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|zipcode|string|false|none|none|
-|location|string|false|none|none|
-|lng|string|false|none|none|
-|lat|string|false|none|none|
-|country|string|false|none|none|
-
-<h2 id="tocSdispatcherrulesresponse">DispatcherRulesResponse</h2>
-
-<a id="schemadispatcherrulesresponse"></a>
+<a id="schemadispatchersenderadminsrequest"></a>
 
 ```json
 {
   "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 1,
+    "total_pages": 1,
+    "total_count": 2,
+    "limit_value": 10,
     "current_page": 1
   },
   "data": [
     {
-      "meta": {
-        "photo_type": "signature",
-        "photo_title": "Signature of client"
-      },
-      "event": "pickup_completed",
-      "company_id": 1,
-      "action": "upload_photo"
+      "title": "Software Engineer",
+      "organisations": [
+        {
+          "slug": "yojee",
+          "reg_address": "144 Robinson Road",
+          "postal_code": "068908",
+          "phone": "+6591245934",
+          "name": "Organisation 1",
+          "id": 1,
+          "country": "Singapore",
+          "city": "Singapore"
+        },
+        {
+          "slug": "yojee",
+          "postal_code": "068908",
+          "phone": "+6591245936",
+          "name": "Organisation 2",
+          "id": 2,
+          "country": "Singapore",
+          "city": "Singapore"
+        }
+      ],
+      "name": "Ralston",
+      "id": 1
+    },
+    {
+      "title": "Account Manager",
+      "organisations": [
+        {
+          "slug": "yojee",
+          "reg_address": "St George's Rd",
+          "postal_code": "068908",
+          "phone": "+6591245736",
+          "name": "Organisation 3",
+          "id": 2,
+          "country": "Singapore",
+          "city": "Singapore"
+        }
+      ],
+      "name": "Sam",
+      "id": 16
     }
   ]
 }
 
 ```
 
-*Sub Task Rules Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSsigninrequest">SigninRequest</h2>
-
-<a id="schemasigninrequest"></a>
-
-```json
-{
-  "password": "abc123$%^",
-  "email": "long@yojee.com"
-}
-
-```
-
-*SigninRequest*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|password|string|false|none|none|
-|email|string|false|none|none|
-
-<h2 id="tocScompanyinforesponse">CompanyInfoResponse</h2>
-
-<a id="schemacompanyinforesponse"></a>
-
-```json
-{
-  "data": {
-    "slug": "yojee",
-    "settings": {
-      "delivery_options": {
-        "time_window": {
-          "pickup": {
-            "to": 18,
-            "from": 10
-          },
-          "dropoff": {
-            "to": 22,
-            "from": 14
-          }
-        },
-        "pickup_allowance": 2,
-        "max_weight": 50,
-        "advance_bookings": 14
-      }
-    },
-    "organisation_id": 1,
-    "name": "Yojee",
-    "id": 1,
-    "extension_schema": {
-      "orders": {
-        "required": [],
-        "properties": {
-          "load_type": {
-            "type": "string",
-            "title": "Load Type"
-          }
-        }
-      }
-    },
-    "events": [
-      "pickup_completed",
-      "dropoff_completed"
-    ],
-    "actions": [
-      "upload_photo",
-      "upload_signature"
-    ]
-  }
-}
-
-```
-
-*Company Settings Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocScompanyconfigsresponse">CompanyConfigsResponse</h2>
-
-<a id="schemacompanyconfigsresponse"></a>
-
-```json
-{
-  "data": {
-    "rules": {
-      "pickup": [
-        {
-          "title": "Upload image of client",
-          "id": 1478,
-          "action": "upload_photo"
-        }
-      ],
-      "dropoff": [
-        {
-          "title": "Upload image of client",
-          "id": 1479,
-          "action": "upload_photo"
-        }
-      ]
-    },
-    "reasons": [
-      {
-        "reason": "Address is wrong",
-        "id": 2
-      }
-    ],
-    "currency": "SGD",
-    "company_slug": "yojee"
-  }
-}
-
-```
-
-*Config Response*
+*Sender Admins Response*
 
 ### Properties
 
@@ -7381,146 +8918,103 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |completion_time|string|false|none|none|
 |action|string|false|none|none|
 
-<h2 id="tocSdispatchercreateuserrequest">DispatcherCreateUserRequest</h2>
+<h2 id="tocSdispatcherupdatecorporatesenderrequest">DispatcherUpdateCorporateSenderRequest</h2>
 
-<a id="schemadispatchercreateuserrequest"></a>
+<a id="schemadispatcherupdatecorporatesenderrequest"></a>
 
 ```json
 {
-  "phone": "+987654330",
-  "password": "passwd112233",
-  "name": "Mike Dispatcher",
-  "email": "mike-dispatcher-3@yojee.com"
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "name": "Ralston",
+  "email": "secondary_account@abc.com",
+  "billing_address": "77 Robinson road, Singapore."
 }
 
 ```
 
-*POST body for creating new dispatcher user*
+*Corporate Sender Request*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|phone|string|true|none|Phone number|
-|password|string|true|none|Password|
-|name|string|true|none|Full name|
-|email|string|true|none|Email|
+|title|string|false|none|none|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
 
-<h2 id="tocSbulkcompletionstatus">BulkCompletionStatus</h2>
+<h2 id="tocSdispatcherpartners">DispatcherPartners</h2>
 
-<a id="schemabulkcompletionstatus"></a>
+<a id="schemadispatcherpartners"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "state": "pending",
+      "requested_at": "2018-05-22T14:33:57.131041Z",
+      "postal_code": "321021",
+      "partnership_type": "downstream",
+      "country": "Singapore",
+      "contact_phone": "+6591245934",
+      "contact_name": "Ralston",
+      "contact_email": "ralston@xyz.com",
+      "company_name": "XYZ",
+      "city": "Singapore",
+      "cip": "CIP-XJSI232KGTDYTDT",
+      "address": "77 Robinson road, Singapore."
+    }
+  ]
+}
+
+```
+
+*Partners Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatchercreatesenderresponse">DispatcherCreateSenderResponse</h2>
+
+<a id="schemadispatchercreatesenderresponse"></a>
 
 ```json
 {
   "data": {
-    "total": 100,
-    "status": "completed",
-    "processed": 100,
-    "logs": []
+    "sender_user_profile_id": 1,
+    "sender_type": "individual",
+    "phone": "+8412345611",
+    "password": "passwd112233",
+    "name": "Mike Sender",
+    "inserted_at": "2018-06-29 03:22:06.467010Z",
+    "id": 5,
+    "email": "michael@yojee.com",
+    "billing_address": "144 Robinson Road"
   }
 }
 
 ```
 
-*Bulk Completion Status*
+*Sender Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|type|string|false|none|none|
-|tracking_numbers|[any]|false|none|none|
-|location|object|false|none|none|
-|completion_time|string|false|none|none|
-
-<h2 id="tocSdispatcherupdateuserrequest">DispatcherUpdateUserRequest</h2>
-
-<a id="schemadispatcherupdateuserrequest"></a>
-
-```json
-{
-  "phone": "+987654330",
-  "password": "passwd112233",
-  "name": "Mike Dispatcher"
-}
-
-```
-
-*POST body for updating dispatcher user*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|phone|string|true|none|Phone number|
-|password|string|false|none|Password|
-|name|string|true|none|Full name|
-
-<h2 id="tocSregionrequest">RegionRequest</h2>
-
-<a id="schemaregionrequest"></a>
-
-```json
-{
-  "tag": "poly5",
-  "description": "Sample Region",
-  "coordinates": [
-    [
-      {
-        "lng": 10,
-        "lat": 35
-      },
-      {
-        "lng": 45,
-        "lat": 45
-      },
-      {
-        "lng": 40,
-        "lat": 15
-      },
-      {
-        "lng": 20,
-        "lat": 10
-      },
-      {
-        "lng": 10,
-        "lat": 35
-      }
-    ],
-    [
-      {
-        "lng": 30,
-        "lat": 20
-      },
-      {
-        "lng": 35,
-        "lat": 35
-      },
-      {
-        "lng": 20,
-        "lat": 30
-      },
-      {
-        "lng": 30,
-        "lat": 20
-      }
-    ]
-  ],
-  "color": "red"
-}
-
-```
-
-*Region Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|tag|string|false|none|none|
-|description|string|false|none|none|
-|coordinates|[any]|false|none|none|
-|color|string|false|none|none|
+|data|object|false|none|none|
 
 <h2 id="tocSdispatchercreateuserresponse">DispatcherCreateUserResponse</h2>
 
@@ -7532,7 +9026,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
     "user_profile": 1,
     "phone": "+987654330",
     "name": "Mike Dispatcher",
-    "inserted_at": "2018-06-06 02:12:37.330821Z",
+    "inserted_at": "2018-06-29 03:22:06.464315Z",
     "email": "mike-dispatcher-3@yojee.com",
     "company_id": 1
   }
@@ -7548,485 +9042,29 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocScompanyvehicletypesresponse">CompanyVehicleTypesResponse</h2>
+<h2 id="tocSdispatcherindexroleresponse">DispatcherIndexRoleResponse</h2>
 
-<a id="schemacompanyvehicletypesresponse"></a>
-
-```json
-{
-  "message": "Got vehicle types",
-  "data": [
-    {
-      "name": "Pedestrian",
-      "id": 1
-    },
-    {
-      "name": "Bicycle",
-      "id": 2
-    }
-  ]
-}
-
-```
-
-*Vehicle types info Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatchersendersresponse">DispatcherSendersResponse</h2>
-
-<a id="schemadispatchersendersresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "sender_user_profile_id": 1,
-      "sender_type": "individual",
-      "phone": "+8412345611",
-      "password": "passwd112233",
-      "name": "Mike Sender",
-      "inserted_at": "2018-06-06 02:12:37.333677Z",
-      "id": 5,
-      "email": "michael@yojee.com",
-      "billing_address": "144 Robinson Road"
-    }
-  ]
-}
-
-```
-
-*Senders Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherupdateorganisationrequest">DispatcherUpdateOrganisationRequest</h2>
-
-<a id="schemadispatcherupdateorganisationrequest"></a>
-
-```json
-{
-  "user_profiles": [
-    {
-      "user_profile_id": 1,
-      "phone": "Sender Phone",
-      "name": "Sender Name",
-      "email": "sender-email@example.com"
-    },
-    {
-      "user_profile_id": 2,
-      "phone": "+6533445566",
-      "name": "Corporate User 2",
-      "email": "corporate-user-2@example.com"
-    }
-  ],
-  "sender": {
-    "user_profile_id": 1,
-    "phone": "Sender Phone",
-    "name": "Sender Name",
-    "email": "sender-email@example.com",
-    "billing_address": "Sender billing address"
-  },
-  "reg_address": "77 Robinson road, Singapore.",
-  "postal_code": "321021",
-  "phone": "+6591240934",
-  "name": "FEDEX",
-  "id": 3,
-  "country": "Singapore",
-  "city": "Singapore"
-}
-
-```
-
-*Organisation Details*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|user_profiles|[any]|false|none|none|
-|sender|object|false|none|none|
-|reg_address|string|false|none|none|
-|postal_code|string|false|none|none|
-|phone|string|false|none|none|
-|name|string|false|none|none|
-|id|integer|false|none|none|
-|extension|object|false|none|none|
-|country|string|false|none|none|
-|city|string|false|none|none|
-
-<h2 id="tocSverifyotpresponse">VerifyOtpResponse</h2>
-
-<a id="schemaverifyotpresponse"></a>
-
-```json
-{
-  "data": {
-    "user_profile_id": 1,
-    "phone": "+84936362488",
-    "id": 1,
-    "email": "bob@mail.com",
-    "access_token": "T5P2rQrC6KbkPnLE9ebyjskMUTju3vKFBzlAr+bCUpc="
-  }
-}
-
-```
-
-*Response schema for Verify OTP*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSorderitemsindexresponse">OrderItemsIndexResponse</h2>
-
-<a id="schemaorderitemsindexresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "weight": 20,
-      "volume": 300,
-      "tracking_number": "yoyoyoyo",
-      "to_address": "Airport Blvd, Changi Airport Singapore (SIN), Singapore",
-      "status": "assigned",
-      "service_type": "same_day",
-      "sender_phone": "+6590050680",
-      "sender_name": "champ",
-      "receipient_phone": "+6598765432",
-      "receipient_name": "test2",
-      "order_number": "order_number",
-      "order_id": 1,
-      "item_number": 2,
-      "id": 7,
-      "from_address": "144 Robinson Road, Level 15, Singapore 068908",
-      "description": "Gifts",
-      "created_at": "2018-03-08T14:58:24.280533"
-    }
-  ]
-}
-
-```
-
-*OrderItem index Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSworkerresponse">WorkerResponse</h2>
-
-<a id="schemaworkerresponse"></a>
-
-```json
-{
-  "status": "on_duty",
-  "id": 1,
-  "avatar": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg"
-}
-
-```
-
-*Worker Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|status|string|false|none|none|
-|id|integer|false|none|none|
-|avatar|string|false|none|none|
-
-<h2 id="tocSversionrequest">VersionRequest</h2>
-
-<a id="schemaversionrequest"></a>
-
-```json
-{
-  "current_installed_version": 500
-}
-
-```
-
-*Check if app update is required*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|current_installed_version|integer|false|none|none|
-
-<h2 id="tocScompanyuploadassetsresponse">CompanyUploadAssetsResponse</h2>
-
-<a id="schemacompanyuploadassetsresponse"></a>
-
-```json
-{
-  "data": "https://s3.us-east-1.amazonaws.com/test/uploads/companies/334/334_logo.png"
-}
-
-```
-
-*Company Assets Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocStaskgroupresponse">TaskGroupResponse</h2>
-
-<a id="schemataskgroupresponse"></a>
-
-```json
-{
-  "state": "created",
-  "price": "SGD 10",
-  "id": 1
-}
-
-```
-
-*TaskGroup Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|state|string|false|none|none|
-|price|string|false|none|none|
-|id|integer|false|none|none|
-
-<h2 id="tocSsubtaskrequest">SubTaskRequest</h2>
-
-<a id="schemasubtaskrequest"></a>
-
-```json
-{
-  "task_id": 2,
-  "sub_task_rule_id": 3,
-  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-  "meta": {
-    "photo_type": "Proof",
-    "photo_title": "Signature"
-  },
-  "event": "pickup_completed",
-  "completion_time": "2018-03-10T03:37:08",
-  "action": "upload_photo"
-}
-
-```
-
-*SubTask Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|task_id|integer|false|none|none|
-|sub_task_rule_id|integer|false|none|none|
-|photo|string|false|none|none|
-|meta|object|false|none|none|
-|event|string|false|none|none|
-|completion_time|string|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSdispatcherorderresponse">DispatcherOrderResponse</h2>
-
-<a id="schemadispatcherorderresponse"></a>
-
-```json
-{
-  "data": {
-    "tracking_number": "O-M1RHTJHJZGKX",
-    "status": "created",
-    "sender_type": "organisation",
-    "sender_id": 1,
-    "price_currency": "SGD",
-    "price_amount": 0,
-    "order_items": [
-      {
-        "status": "assigned",
-        "service_type": "next_day",
-        "item": {
-          "width": 53,
-          "weight": 4,
-          "volumetric_weight": 595508,
-          "tracking_number": "Y-CTBVPQ",
-          "payload_type": "package",
-          "length": 53,
-          "height": 53,
-          "description": ""
-        },
-        "inserted_at": "2018-03-08T08:45:38.632070"
-      }
-    ],
-    "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
-    "inserted_at": "2018-06-06 02:12:37.327930Z",
-    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
-  }
-}
-
-```
-
-*Order Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocScompanytransportationcompaniesresponse">CompanyTransportationCompaniesResponse</h2>
-
-<a id="schemacompanytransportationcompaniesresponse"></a>
+<a id="schemadispatcherindexroleresponse"></a>
 
 ```json
 {
   "data": [
     {
-      "id": 13,
-      "external_id": "20600078098",
-      "contact_name": "Katie Solis",
-      "contact_email": "Ksolis@smk.com.pe",
-      "company_id": 2
-    }
-  ]
-}
-
-```
-
-*Transportation Companies Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocScorporatesendersignuprequest">CorporateSenderSignupRequest</h2>
-
-<a id="schemacorporatesendersignuprequest"></a>
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "payment_option": "monthly_billing",
-  "password": "abc123$%^",
-  "organisation": {
-    "reg_address": "77 Robinson road, Singapore.",
-    "postal_code": "321021",
-    "phone": "+6591245934",
-    "name": "ABC",
-    "country": "Singapore",
-    "city": "Singapore"
-  },
-  "name": "Ralston",
-  "gst_no": "2AS9890",
-  "email": "primary@abc.com",
-  "business_reg_no": "ABC1235M",
-  "billing_address": "77 Robinson road, Singapore."
-}
-
-```
-
-*CorporateSenderSignupRequest*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|payment_option|string|false|none|none|
-|password|string|false|none|none|
-|organisation|object|false|none|none|
-|name|string|false|none|none|
-|gst_no|string|false|none|none|
-|email|string|false|none|none|
-|business_reg_no|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSdispatcherworkersresponse">DispatcherWorkersResponse</h2>
-
-<a id="schemadispatcherworkersresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "vehicle_type_registers": [
-        {
-          "name": "Bike",
-          "id": 1
-        },
-        {
-          "name": "Car",
-          "id": 2
+      "name": "role_1",
+      "inserted_at": "2018-06-29 03:22:06.475673Z",
+      "company_id": 123,
+      "access_map": {
+        "sender": {
+          "add": true
         }
-      ],
-      "vehicle_type_ids": [
-        1
-      ],
-      "user_profile_id": 1,
-      "tester": false,
-      "phone": "+987654322",
-      "password": "passwd112233",
-      "otp_token": "1122334455",
-      "name": "Mike Driver",
-      "location": {
-        "lng": 122.6428429677108,
-        "lat": 65.67691234535297
-      },
-      "inserted_at": "2018-06-06 02:12:37.332673Z",
-      "email": "mike-driver@yojee.com",
-      "distance_away": 1100,
-      "current_vehicle_type_id": 1,
-      "company_id": 1,
-      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+      }
     }
   ]
 }
 
 ```
 
-*Workers Response*
+*Role Response*
 
 ### Properties
 
@@ -8034,110 +9072,35 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |---|---|---|---|---|
 |data|[any]|false|none|none|
 
-<h2 id="tocSdispatcherordersresponse">DispatcherOrdersResponse</h2>
+<h2 id="tocSstatisticsresponse">StatisticsResponse</h2>
 
-<a id="schemadispatcherordersresponse"></a>
+<a id="schemastatisticsresponse"></a>
 
 ```json
 {
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
   "data": [
     {
-      "tracking_number": "O-M1RHTJHJZGKX",
-      "status": "created",
-      "sender_type": "organisation",
-      "sender_id": 1,
-      "price_currency": "SGD",
-      "price_amount": 0,
-      "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
-      "inserted_at": "2018-06-06 02:12:37.327774Z",
-      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+      "tasks": {
+        "failed": 0,
+        "completed": 1,
+        "assigned": 0,
+        "accepted": 1
+      },
+      "income": "10.00",
+      "date": "2018-03-31"
     }
   ]
 }
 
 ```
 
-*Orders Response*
+*Statistics Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |data|[any]|false|none|none|
-
-<h2 id="tocSdispatcherupdateorderrequest">DispatcherUpdateOrderRequest</h2>
-
-<a id="schemadispatcherupdateorderrequest"></a>
-
-```json
-{
-  "price_currency": "string",
-  "price_amount": 0,
-  "external_id": "string"
-}
-
-```
-
-*Dispathcer update order request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|price_currency|string|false|none|ISO 4217 code currency, e.g: USD|
-|price_amount|number|false|none|Price amount of order, e.g: for 10.12 USD, amount should be 10.|
-|external_id|string|false|none|External Order Reference Number|
-
-<h2 id="tocStrackorderresponse">TrackOrderResponse</h2>
-
-<a id="schematrackorderresponse"></a>
-
-```json
-{
-  "data": {
-    "tracking_number": "O-SK1LAUPOQXJF",
-    "status": "created",
-    "price_currency": "SGD",
-    "price_amount": 10,
-    "order_items": [
-      {
-        "status": "scheduled_for_fulfilment",
-        "service_type": "sameday",
-        "order_item_logs": [
-          {
-            "inserted_at": "2018-03-20T15:18:38.770110",
-            "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
-          },
-          {
-            "inserted_at": "2018-03-20T15:18:38.772850",
-            "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
-          }
-        ],
-        "item_id": 2673
-      }
-    ],
-    "number": "bmFvQTA1c3dybS9sNWdnOUVSdEZlZz09",
-    "inserted_at": "2018-03-20T15:18:38.613719",
-    "description": "Gift",
-    "currency": "SGD"
-  }
-}
-
-```
-
-*Response schema for tracking an order*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
 
 <h2 id="tocSregionresponse">RegionResponse</h2>
 
@@ -8147,7 +9110,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 {
   "data": {
     "tag": "poly5",
-    "inserted_at": "2018-06-06 02:12:37.341151Z",
+    "inserted_at": "2018-06-29 03:22:06.477650Z",
     "description": "Sample Region",
     "coordinates": [
       [
@@ -8206,239 +9169,34 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSdispatchersubtasksresponse">DispatcherSubTasksResponse</h2>
+<h2 id="tocSdispatchercreateorganisationrequest">DispatcherCreateOrganisationRequest</h2>
 
-<a id="schemadispatchersubtasksresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 1,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "task_id": 103,
-      "sub_task_rule_id": 21,
-      "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-      "meta": {
-        "photo_type": "Proof",
-        "photo_title": "Signature"
-      },
-      "id": 21,
-      "event": "pickup_completed",
-      "completion_time": "2018-03-10T03:37:08",
-      "company_id": 136,
-      "action": "upload_photo"
-    }
-  ]
-}
-
-```
-
-*Sub Tasks Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSspokeresponse">SpokeResponse</h2>
-
-<a id="schemaspokeresponse"></a>
-
-```json
-{
-  "data": {
-    "properties": {},
-    "pessimistic_estimated_duration": 40,
-    "origin_hub_id": 1,
-    "optimistic_estimated_duration": 40,
-    "name": "spoker",
-    "modality": "road",
-    "inserted_at": "2018-06-06 02:12:37.342508Z",
-    "destination_hub_id": 2,
-    "company_id": 1
-  }
-}
-
-```
-
-*Spoke Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherpartnercreate">DispatcherPartnerCreate</h2>
-
-<a id="schemadispatcherpartnercreate"></a>
-
-```json
-{
-  "postal_code": "321021",
-  "partnership_type": "downstream",
-  "country": "Singapore",
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com",
-  "company_name": "XYZ",
-  "city": "Singapore",
-  "address": "77 Robinson road, Singapore."
-}
-
-```
-
-*Partner Create Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|state|string|true|none|State|
-|postal_code|number|true|none|Postal code|
-|partnership_type|string|true|none|Partnership type|
-|contact_phone|string|true|none|Phone number|
-|contact_name|string|true|none|Contact name|
-|contact_email|string|true|none|Email|
-|company_name|string|true|none|Company name|
-|address|string|true|none|Registration address|
-
-<h2 id="tocSgetpricesresponse">GetPricesResponse</h2>
-
-<a id="schemagetpricesresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "type": "express",
-      "success": true,
-      "msg": {
-        "surcharges": {
-          "CBD": 2
-        },
-        "price": 20,
-        "pickup_zip": "068896",
-        "dropoff_zip": "189703",
-        "base_price": 18
-      }
-    },
-    {
-      "type": "same_day",
-      "success": true,
-      "msg": {
-        "surcharges": {
-          "CBD": 2
-        },
-        "price": 12,
-        "pickup_zip": "068896",
-        "dropoff_zip": "189703",
-        "base_price": 10
-      }
-    },
-    {
-      "type": "next_day",
-      "success": true,
-      "msg": {
-        "surcharges": {
-          "CBD": 2
-        },
-        "price": 9,
-        "pickup_zip": "068896",
-        "dropoff_zip": "189703",
-        "base_price": 7
-      }
-    }
-  ]
-}
-
-```
-
-*Get price response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherpartnertransfercreate">DispatcherPartnerTransferCreate</h2>
-
-<a id="schemadispatcherpartnertransfercreate"></a>
-
-```json
-{
-  "tracking_numbers": [
-    "YOJ-NHLZA0V3PT0"
-  ],
-  "price_currency": "USD",
-  "price_amount": "1.00",
-  "partner_cip": "CIP-RTNKAUJLQ3LWRGRA"
-}
-
-```
-
-*Partner Transfer Order Create Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|state|string|true|none|State|
-|postal_code|number|true|none|Postal code|
-|partnership_type|string|true|none|Partnership type|
-|contact_phone|string|true|none|Phone number|
-|contact_name|string|true|none|Contact name|
-|contact_email|string|true|none|Email|
-|company_name|string|true|none|Company name|
-|address|string|true|none|Registration address|
-
-<h2 id="tocSdispatchercreateorganisationresponse">DispatcherCreateOrganisationResponse</h2>
-
-<a id="schemadispatchercreateorganisationresponse"></a>
-
-```json
-{
-  "data": {
-    "phone": "+6598765432",
-    "email": "bob@mail.com",
-    "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
-  }
-}
-
-```
-
-*Organisation Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherupdatecorporatesenderrequest">DispatcherUpdateCorporateSenderRequest</h2>
-
-<a id="schemadispatcherupdatecorporatesenderrequest"></a>
+<a id="schemadispatchercreateorganisationrequest"></a>
 
 ```json
 {
   "title": "Engineer",
   "sender_type": "organisation",
   "phone": "+6598765432",
+  "payment_option": "monthly_billing",
+  "organisation": {
+    "reg_address": "77 Robinson road, Singapore.",
+    "postal_code": "321021",
+    "phone": "+6591245934",
+    "name": "ABC",
+    "country": "Singapore",
+    "city": "Singapore"
+  },
   "name": "Ralston",
-  "email": "secondary_account@abc.com",
+  "gst_no": "2AS9890",
+  "email": "primary_account@abc.com",
+  "business_reg_no": "ABC1235M",
   "billing_address": "77 Robinson road, Singapore."
 }
 
 ```
 
-*Corporate Sender Request*
+*Organisation Request*
 
 ### Properties
 
@@ -8447,733 +9205,79 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |title|string|false|none|none|
 |sender_type|string|false|none|none|
 |phone|string|false|none|none|
+|payment_option|string|false|none|none|
+|organisation|object|false|none|none|
 |name|string|false|none|none|
+|gst_no|string|false|none|none|
 |email|string|false|none|none|
+|business_reg_no|string|false|none|none|
 |billing_address|string|false|none|none|
 
-<h2 id="tocSdispatcherupdateworkerrequest">DispatcherUpdateWorkerRequest</h2>
+<h2 id="tocSworkerresponse">WorkerResponse</h2>
 
-<a id="schemadispatcherupdateworkerrequest"></a>
+<a id="schemaworkerresponse"></a>
 
 ```json
 {
-  "vehicle_type_ids": [
-    1,
-    2
-  ],
-  "tester": true,
-  "phone": "+987654322",
-  "otp_token": "TNUSTU2YF7BCDOYR",
-  "name": "Mike Driver",
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  },
-  "email": "mike-driver@yojee.com",
-  "current_vehicle_type_id": 1
+  "status": "on_duty",
+  "id": 1,
+  "avatar": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg"
 }
 
 ```
 
-*Worker Update Request*
+*Worker Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|vehicle_type_ids|[any]|false|none|none|
-|tester|object|false|none|none|
-|phone|string|false|none|none|
-|otp_token|string|false|none|none|
-|name|string|false|none|none|
-|location|object|false|none|none|
-|email|string|false|none|none|
-|current_vehicle_type_id|integer|false|none|none|
-
-<h2 id="tocSgetpricesrequest">GetPricesRequest</h2>
-
-<a id="schemagetpricesrequest"></a>
-
-```json
-{
-  "to_address": {
-    "zipcode": "189703",
-    "location": "1.2976764,103.85701760000006",
-    "lng": "103.85701760000006",
-    "lat": "1.2976764",
-    "country": "Singpore"
-  },
-  "slug": "yojee",
-  "item": {
-    "weight": 4
-  },
-  "from_address": {
-    "zipcode": "068896",
-    "location": "1.2777689,103.84839149999993",
-    "lng": "103.84839149999993",
-    "lat": "1.2777689",
-    "country": "Singpore"
-  }
-}
-
-```
-
-*Get the price estimate*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|to_address|[OrderAddress](#schemaorderaddress)|false|none|none|
-|slug|string|false|none|yojee|
-|item|[OrderItem](#schemaorderitem)|false|none|none|
-|from_address|[OrderAddress](#schemaorderaddress)|false|none|none|
-
-<h2 id="tocShubsresponse">HubsResponse</h2>
-
-<a id="schemahubsresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "regions": [
-        "poly5"
-      ],
-      "properties": {
-        "description": "Sample description",
-        "address": "Singapore"
-      },
-      "name": "Sample Hub",
-      "location": {
-        "lng": 122.6428429677108,
-        "lat": 65.67691234535297
-      },
-      "inserted_at": "2018-06-06 02:12:37.341886Z",
-      "company_id": 1
-    }
-  ]
-}
-
-```
-
-*Hubs Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocShubresponse">HubResponse</h2>
-
-<a id="schemahubresponse"></a>
-
-```json
-{
-  "data": {
-    "regions": [
-      "poly5"
-    ],
-    "properties": {
-      "description": "Sample description",
-      "address": "Singapore"
-    },
-    "name": "Sample Hub",
-    "location": {
-      "lng": 122.6428429677108,
-      "lat": 65.67691234535297
-    },
-    "inserted_at": "2018-06-06 02:12:37.341754Z",
-    "company_id": 1
-  }
-}
-
-```
-
-*Hub Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatchercreaterulerequest">DispatcherCreateRuleRequest</h2>
-
-<a id="schemadispatchercreaterulerequest"></a>
-
-```json
-{
-  "meta": {
-    "photo_type": "signature",
-    "photo_title": "Signature of client"
-  },
-  "event": "pickup_completed",
-  "company_id": 1,
-  "action": "upload_photo"
-}
-
-```
-
-*Sub Task Rule Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|meta|object|false|none|none|
-|event|string|false|none|none|
-|deleted_at|object|false|none|none|
-|company_id|integer|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSdispatcherorganisationresponse">DispatcherOrganisationResponse</h2>
-
-<a id="schemadispatcherorganisationresponse"></a>
-
-```json
-{
-  "user_profiles": [
-    {
-      "user_profile_id": 1,
-      "phone": "Sender Phone",
-      "name": "Sender Name",
-      "email": "sender-email@example.com"
-    },
-    {
-      "user_profile_id": 2,
-      "phone": "+6533445566",
-      "name": "Corporate User 2",
-      "email": "corporate-user-2@example.com"
-    }
-  ],
-  "sender": {
-    "user_profile_id": 1,
-    "phone": "Sender Phone",
-    "name": "Sender Name",
-    "email": "sender-email@example.com",
-    "billing_address": "Sender billing address"
-  },
-  "reg_address": "77 Robinson road, Singapore.",
-  "postal_code": "321021",
-  "phone": "+6591240934",
-  "name": "FEDEX",
-  "id": 3,
-  "country": "Singapore",
-  "city": "Singapore"
-}
-
-```
-
-*Organisation Details*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|user_profiles|[any]|false|none|none|
-|sender|object|false|none|none|
-|reg_address|string|false|none|none|
-|postal_code|string|false|none|none|
-|phone|string|false|none|none|
-|name|string|false|none|none|
+|status|string|false|none|none|
 |id|integer|false|none|none|
-|extension|object|false|none|none|
-|country|string|false|none|none|
-|city|string|false|none|none|
+|avatar|string|false|none|none|
 
-<h2 id="tocSdispatcherupdatecorporatesenderresponse">DispatcherUpdateCorporateSenderResponse</h2>
+<h2 id="tocStrackorderresponse">TrackOrderResponse</h2>
 
-<a id="schemadispatcherupdatecorporatesenderresponse"></a>
+<a id="schematrackorderresponse"></a>
 
 ```json
 {
   "data": {
-    "user_profile_id": 123,
-    "phone": "+6598765432",
-    "name": "Bob",
-    "email": "bob@mail.com"
-  }
-}
-
-```
-
-*Corporate Sender Updated Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocScreatepaymentrequest">CreatePaymentRequest</h2>
-
-<a id="schemacreatepaymentrequest"></a>
-
-```json
-{
-  "payment_method": "stripe",
-  "order_id": 1,
-  "description": "This is a test description",
-  "currency": "SGD",
-  "credit_card": {
-    "year": 22,
-    "number": 4242424242424242,
-    "name": "Jane Doe",
-    "month": 11,
-    "cvc": 111
-  },
-  "amount": 500
-}
-
-```
-
-*POST body for making payment*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|payment_method|string|false|none|Payment method|
-|order_id|integer|false|none|Order ID|
-|description|string|false|none|Description|
-|currency|string|false|none|Currency|
-|credit_card|object|false|none|none|
-|» year|integer|false|none|Year|
-|» number|string|false|none|Credit card number|
-|» name|string|false|none|Full name|
-|» month|integer|false|none|Month|
-|» cvc|integer|false|none|CVC Number|
-|amount|number|false|none|Amount in cents|
-
-<h2 id="tocSregionsresponse">RegionsResponse</h2>
-
-<a id="schemaregionsresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "tag": "poly5",
-      "inserted_at": "2018-06-06 02:12:37.341295Z",
-      "description": "Sample Region",
-      "coordinates": [
-        [
+    "tracking_number": "O-SK1LAUPOQXJF",
+    "status": "created",
+    "price_currency": "SGD",
+    "price_amount": 10,
+    "order_items": [
+      {
+        "status": "scheduled_for_fulfilment",
+        "service_type": "sameday",
+        "order_item_logs": [
           {
-            "lng": 10,
-            "lat": 35
+            "inserted_at": "2018-03-20T15:18:38.770110",
+            "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
           },
           {
-            "lng": 45,
-            "lat": 45
-          },
-          {
-            "lng": 40,
-            "lat": 15
-          },
-          {
-            "lng": 20,
-            "lat": 10
-          },
-          {
-            "lng": 10,
-            "lat": 35
+            "inserted_at": "2018-03-20T15:18:38.772850",
+            "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
           }
         ],
-        [
-          {
-            "lng": 30,
-            "lat": 20
-          },
-          {
-            "lng": 35,
-            "lat": 35
-          },
-          {
-            "lng": 20,
-            "lat": 30
-          },
-          {
-            "lng": 30,
-            "lat": 20
-          }
-        ]
-      ],
-      "company_id": 1,
-      "color": "red"
-    }
-  ]
-}
-
-```
-
-*Regions Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatchercreatesenderresponse">DispatcherCreateSenderResponse</h2>
-
-<a id="schemadispatchercreatesenderresponse"></a>
-
-```json
-{
-  "data": {
-    "sender_user_profile_id": 1,
-    "sender_type": "individual",
-    "phone": "+8412345611",
-    "password": "passwd112233",
-    "name": "Mike Sender",
-    "inserted_at": "2018-06-06 02:12:37.333232Z",
-    "id": 5,
-    "email": "michael@yojee.com",
-    "billing_address": "144 Robinson Road"
-  }
-}
-
-```
-
-*Sender Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocStaskexceptionreasonresponse">TaskExceptionReasonResponse</h2>
-
-<a id="schemataskexceptionreasonresponse"></a>
-
-```json
-{
-  "message": "ok",
-  "data": {
-    "description": "Sender not available",
-    "company_id": 1
-  }
-}
-
-```
-
-*Task Exception Reason Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherpartners">DispatcherPartners</h2>
-
-<a id="schemadispatcherpartners"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "state": "pending",
-      "requested_at": "2018-05-22T14:33:57.131041Z",
-      "postal_code": "321021",
-      "partnership_type": "downstream",
-      "country": "Singapore",
-      "contact_phone": "+6591245934",
-      "contact_name": "Ralston",
-      "contact_email": "ralston@xyz.com",
-      "company_name": "XYZ",
-      "city": "Singapore",
-      "cip": "CIP-XJSI232KGTDYTDT",
-      "address": "77 Robinson road, Singapore."
-    }
-  ]
-}
-
-```
-
-*Partners Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatcherupdaterulerequest">DispatcherUpdateRuleRequest</h2>
-
-<a id="schemadispatcherupdaterulerequest"></a>
-
-```json
-{
-  "meta": {
-    "photo_type": "signature",
-    "photo_title": "Signature of client"
-  },
-  "event": "pickup_completed",
-  "company_id": 1,
-  "action": "upload_photo"
-}
-
-```
-
-*Sub Task Rule Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|meta|object|false|none|none|
-|event|string|false|none|none|
-|deleted_at|object|false|none|none|
-|company_id|integer|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSdispatcherorganisationsresponse">DispatcherOrganisationsResponse</h2>
-
-<a id="schemadispatcherorganisationsresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "sender_id": 1,
-      "reg_address": "77 Robinson road, Singapore.",
-      "postal_code": "321021",
-      "phone": "+6591245934",
-      "name": "ABC",
-      "id": 1,
-      "country": "Singapore",
-      "city": "Singapore"
-    }
-  ]
-}
-
-```
-
-*Organisations Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherindexroleresponse">DispatcherIndexRoleResponse</h2>
-
-<a id="schemadispatcherindexroleresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "name": "role_1",
-      "inserted_at": "2018-06-06 02:12:37.339851Z",
-      "company_id": 123,
-      "access_map": {
-        "sender": {
-          "add": true
-        }
+        "item_id": 2673
       }
-    }
-  ]
-}
-
-```
-
-*Role Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatcherpartnerresponse">DispatcherPartnerResponse</h2>
-
-<a id="schemadispatcherpartnerresponse"></a>
-
-```json
-{
-  "data": {
-    "state": "pending",
-    "requested_at": "2018-05-22T14:33:57.131041Z",
-    "postal_code": "321021",
-    "partnership_type": "downstream",
-    "country": "Singapore",
-    "contact_phone": "+6591245934",
-    "contact_name": "Ralston",
-    "contact_email": "ralston@xyz.com",
-    "company_name": "XYZ",
-    "city": "Singapore",
-    "cip": "CIP-XJSI232KGTDYTDT",
-    "address": "77 Robinson road, Singapore."
+    ],
+    "number": "bmFvQTA1c3dybS9sNWdnOUVSdEZlZz09",
+    "inserted_at": "2018-03-20T15:18:38.613719",
+    "description": "Gift",
+    "currency": "SGD"
   }
 }
 
 ```
 
-*Partner Response*
+*Response schema for tracking an order*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |data|object|false|none|none|
-
-<h2 id="tocSdispatchercreatecorporatesenderrequest">DispatcherCreateCorporateSenderRequest</h2>
-
-<a id="schemadispatchercreatecorporatesenderrequest"></a>
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "name": "Ralston",
-  "email": "secondary_account@abc.com",
-  "billing_address": "77 Robinson road, Singapore."
-}
-
-```
-
-*Corporate Sender Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSsignuprequest">SignupRequest</h2>
-
-<a id="schemasignuprequest"></a>
-
-```json
-{
-  "sender_type": "individual",
-  "phone": "+6598765432",
-  "password": "abc123$%^",
-  "name": "Alex",
-  "email": "long@yojee.com",
-  "billing_address": "77 Robinson road, Singapore.",
-  "account_type": "sender"
-}
-
-```
-
-*SignupRequest*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|password|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-|account_type|string|false|none|none|
-
-<h2 id="tocSbroadcastrequest">BroadcastRequest</h2>
-
-<a id="schemabroadcastrequest"></a>
-
-```json
-{
-  "timeout_in_minutes": 20,
-  "task_group_ids": [
-    1,
-    2
-  ],
-  "price_currency": "SGD",
-  "price_amount": 500
-}
-
-```
-
-*Broadcast Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|timeout_in_minutes|integer|false|none|none|
-|task_group_ids|[any]|false|none|none|
-|price_currency|string|false|none|none|
-|price_amount|integer|false|none|none|
-
-<h2 id="tocScompaniesresponse">CompaniesResponse</h2>
-
-<a id="schemacompaniesresponse"></a>
-
-```json
-{
-  "message": "Got list of worker's companies",
-  "data": {
-    "companies": [
-      {
-        "title": "yojee",
-        "theme": "yojee",
-        "show_service_type": 1,
-        "default_lang": "en",
-        "company_slug": "yojee"
-      }
-    ]
-  }
-}
-
-```
-
-*Driver's companies Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSworkerlocationupdaterequest">WorkerLocationUpdateRequest</h2>
-
-<a id="schemaworkerlocationupdaterequest"></a>
-
-```json
-{
-  "lng": 122.6428429677108,
-  "lat": 65.67691234535297
-}
-
-```
-
-*Location Update Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|lng|object|false|none|none|
-|lat|object|false|none|none|
-
 
