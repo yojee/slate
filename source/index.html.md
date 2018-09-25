@@ -23,7 +23,7 @@ Make sure to replace {{ACCESS_TOKEN}} with your API key
 
 Public APIs
 
-## ApiWeb.V3.UserController.info
+## UserController.info
 
 <a id="opIdApiWeb.V3.UserController.info"></a>
 
@@ -47,7 +47,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slu
 
 <h3 id="apiweb.v3.usercontroller.info-responses">Responses</h3>
 
-## ApiWeb.V3.ApiController.verify_otp
+## ApiController.verify_otp
 
 <a id="opIdApiWeb.V3.ApiController.verify_otp"></a>
 
@@ -81,7 +81,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OTP Verified|[VerifyOtpResponse](#schemaverifyotpresponse)|
 
-## ApiWeb.V3.ApiController.get_otp
+## ApiController.get_otp
 
 <a id="opIdApiWeb.V3.ApiController.get_otp"></a>
 
@@ -118,7 +118,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
 
 Public APIs for Order Tracking
 
-## ApiWeb.V3.ApiController.track_item
+## ApiController.track_item
 
 <a id="opIdApiWeb.V3.ApiController.track_item"></a>
 
@@ -151,7 +151,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track_item/{number} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderItemResponse](#schematrackorderitemresponse)|
 
-## ApiWeb.V3.Public.OrdersController.get_prices
+## Public.OrdersController.get_prices
 
 <a id="opIdApiWeb.V3.Public.OrdersController.get_prices"></a>
 
@@ -257,7 +257,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Get Prices Response|[GetPricesResponse](#schemagetpricesresponse)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
 
-## ApiWeb.V3.ApiController.track_order
+## ApiController.track_order
 
 <a id="opIdApiWeb.V3.ApiController.track_order"></a>
 
@@ -290,7 +290,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderResponse](#schematrackorderresponse)|
 
-## ApiWeb.V3.Public.OrdersController.download_sample
+## Public.OrdersController.download_sample
 
 <a id="opIdApiWeb.V3.Public.OrdersController.download_sample"></a>
 
@@ -318,7 +318,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/orders/download_sample
 
 Public APIs for Waybills, Invoices, EPODs and other Documentation
 
-## ApiWeb.V3.Public.InvoiceController.generate
+## Public.InvoiceController.generate
 
 <a id="opIdApiWeb.V3.Public.InvoiceController.generate"></a>
 
@@ -355,7 +355,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create invoice binary for download|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-## ApiWeb.V3.Public.LabelController.generate_from_tracking_number
+## Public.LabelController.generate_from_tracking_number
 
 <a id="opIdApiWeb.V3.Public.LabelController.generate_from_tracking_number"></a>
 
@@ -392,7 +392,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_numbe
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Label to be downloaded.|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-## ApiWeb.V3.Public.PodController.generate_from_order_number
+## Public.PodController.generate_from_order_number
 
 <a id="opIdApiWeb.V3.Public.PodController.generate_from_order_number"></a>
 
@@ -429,7 +429,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/pods/order/{order_numb
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Pod to be downloaded.|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-## ApiWeb.V3.Public.PodController.generate_from_tracking_number
+## Public.PodController.generate_from_tracking_number
 
 <a id="opIdApiWeb.V3.Public.PodController.generate_from_tracking_number"></a>
 
@@ -466,7 +466,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/pods/order_item/{track
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Pod to be downloaded.|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-## ApiWeb.V3.Public.LabelController.generate_from_order_number
+## Public.LabelController.generate_from_order_number
 
 <a id="opIdApiWeb.V3.Public.LabelController.generate_from_order_number"></a>
 
@@ -509,7 +509,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_nu
 
 Authentication APIs
 
-## ApiWeb.V3.AuthController.signin
+## AuthController.signin
 
 <a id="opIdApiWeb.V3.AuthController.signin"></a>
 
@@ -556,7 +556,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signin \
 
 Sender APIs
 
-## ApiWeb.V3.Sender.InfoController.me
+## Sender.InfoController.me
 
 <a id="opIdApiWeb.V3.Sender.InfoController.me"></a>
 
@@ -587,7 +587,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
 
 Sender Order APIs
 
-## ApiWeb.V3.Sender.OrderController.cancel
+## Sender.OrderController.cancel
 
 <a id="opIdApiWeb.V3.Sender.OrderController.cancel"></a>
 
@@ -619,7 +619,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Sender.OrderController.completed
+## Sender.OrderController.completed
 
 <a id="opIdApiWeb.V3.Sender.OrderController.completed"></a>
 
@@ -652,7 +652,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed?page=
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Sender.PaymentsController.create
+## Sender.PaymentsController.create
 
 <a id="opIdApiWeb.V3.Sender.PaymentsController.create"></a>
 
@@ -706,7 +706,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payme
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Payment successful|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Payment failed!|None|
 
-## ApiWeb.V3.Sender.OrderController.create
+## Sender.OrderController.create
 
 <a id="opIdApiWeb.V3.Sender.OrderController.create"></a>
 
@@ -803,7 +803,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-## ApiWeb.V3.Sender.OrderController.show
+## Sender.OrderController.show
 
 <a id="opIdApiWeb.V3.Sender.OrderController.show"></a>
 
@@ -836,7 +836,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|none|None|
 
-## ApiWeb.V3.Sender.OrderController.ongoing
+## Sender.OrderController.ongoing
 
 <a id="opIdApiWeb.V3.Sender.OrderController.ongoing"></a>
 
@@ -873,7 +873,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing?page=1&
 
 Sender Batch APIs
 
-## ApiWeb.V3.Sender.BatchController.check_status
+## Sender.BatchController.check_status
 
 <a id="opIdApiWeb.V3.Sender.BatchController.check_status"></a>
 
@@ -901,7 +901,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
 
 <h3 id="apiweb.v3.sender.batchcontroller.check_status-responses">Responses</h3>
 
-## ApiWeb.V3.Sender.BatchController.create
+## Sender.BatchController.create
 
 <a id="opIdApiWeb.V3.Sender.BatchController.create"></a>
 
@@ -938,7 +938,7 @@ file: string
 
 <h3 id="apiweb.v3.sender.batchcontroller.create-responses">Responses</h3>
 
-## ApiWeb.V3.Sender.BatchController.get_order
+## Sender.BatchController.get_order
 
 <a id="opIdApiWeb.V3.Sender.BatchController.get_order"></a>
 
@@ -970,7 +970,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/get_order \
 
 Worker APIs
 
-## ApiWeb.V3.Worker.InfoController.get_companies_theme
+## Worker.InfoController.get_companies_theme
 
 <a id="opIdApiWeb.V3.Worker.InfoController.get_companies_theme"></a>
 
@@ -1004,7 +1004,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/get_companies_theme \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompaniesThemeResponse](#schemacompaniesthemeresponse)|
 
-## ApiWeb.V3.Worker.InfoController.check_for_updates
+## Worker.InfoController.check_for_updates
 
 <a id="opIdApiWeb.V3.Worker.InfoController.check_for_updates"></a>
 
@@ -1042,7 +1042,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/check_for_updates \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[VersionResponse](#schemaversionresponse)|
 
-## ApiWeb.V3.Worker.UserController.store_device_token
+## Worker.UserController.store_device_token
 
 <a id="opIdApiWeb.V3.Worker.UserController.store_device_token"></a>
 
@@ -1081,7 +1081,7 @@ null
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Stored device token successfully|None|
 
-## ApiWeb.V3.Worker.UserController.update
+## Worker.UserController.update
 
 <a id="opIdApiWeb.V3.Worker.UserController.update"></a>
 
@@ -1125,7 +1125,7 @@ null
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerResponse](#schemaworkerresponse)|
 
-## ApiWeb.V3.Worker.InfoController.companies
+## Worker.InfoController.companies
 
 <a id="opIdApiWeb.V3.Worker.InfoController.companies"></a>
 
@@ -1159,7 +1159,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompaniesResponse](#schemacompaniesresponse)|
 
-## ApiWeb.V3.Worker.VehicleController.select
+## Worker.VehicleController.select
 
 <a id="opIdApiWeb.V3.Worker.VehicleController.select"></a>
 
@@ -1191,7 +1191,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Worker.CompanyController.config
+## Worker.CompanyController.config
 
 <a id="opIdApiWeb.V3.Worker.CompanyController.config"></a>
 
@@ -1227,7 +1227,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyConfigsResponse](#schemacompanyconfigsresponse)|
 
-## ApiWeb.V3.Worker.InfoController.me
+## Worker.InfoController.me
 
 <a id="opIdApiWeb.V3.Worker.InfoController.me"></a>
 
@@ -1263,7 +1263,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[InfoResponse](#schemainforesponse)|
 
-## ApiWeb.V3.Worker.InfoController.statistics
+## Worker.InfoController.statistics
 
 <a id="opIdApiWeb.V3.Worker.InfoController.statistics"></a>
 
@@ -1308,7 +1308,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/statistics \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[StatisticsResponse](#schemastatisticsresponse)|
 
-## ApiWeb.V3.Worker.UserController.location
+## Worker.UserController.location
 
 <a id="opIdApiWeb.V3.Worker.UserController.location"></a>
 
@@ -1350,7 +1350,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/location \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker location updated|None|
 
-## ApiWeb.V3.Worker.WorkerSequenceController.show
+## Worker.WorkerSequenceController.show
 
 <a id="opIdApiWeb.V3.Worker.WorkerSequenceController.show"></a>
 
@@ -1385,7 +1385,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/worker_sequence \
 
 Worker TaskGroup APIs
 
-## ApiWeb.V3.Worker.TaskGroupController.index
+## Worker.TaskGroupController.index
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.index"></a>
 
@@ -1422,7 +1422,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Filter task group by statuses|[TaskGroupResponse](#schemataskgroupresponse)|
 
-## ApiWeb.V3.Worker.TaskGroupController.reject
+## Worker.TaskGroupController.reject
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.reject"></a>
 
@@ -1454,7 +1454,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/rejec
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Reject a task group successfully|None|
 
-## ApiWeb.V3.Worker.TaskGroupController.show
+## Worker.TaskGroupController.show
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.show"></a>
 
@@ -1491,7 +1491,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Show a task group successfully|[TaskGroupResponse](#schemataskgroupresponse)|
 
-## ApiWeb.V3.Worker.TaskGroupController.accept
+## Worker.TaskGroupController.accept
 
 <a id="opIdApiWeb.V3.Worker.TaskGroupController.accept"></a>
 
@@ -1533,7 +1533,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accep
 
 Worker Task APIs
 
-## ApiWeb.V3.Worker.TaskController.batch_complete_status
+## Worker.TaskController.batch_complete_status
 
 <a id="opIdApiWeb.V3.Worker.TaskController.batch_complete_status"></a>
 
@@ -1570,7 +1570,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/sta
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[BulkCompletionStatus](#schemabulkcompletionstatus)|
 
-## ApiWeb.V3.Worker.TaskController.mark_as_failed
+## Worker.TaskController.mark_as_failed
 
 <a id="opIdApiWeb.V3.Worker.TaskController.mark_as_failed"></a>
 
@@ -1610,7 +1610,7 @@ null
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Worker.TaskController.bulk_complete
+## Worker.TaskController.bulk_complete
 
 <a id="opIdApiWeb.V3.Worker.TaskController.bulk_complete"></a>
 
@@ -1657,7 +1657,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
 
 <h3 id="apiweb.v3.worker.taskcontroller.bulk_complete-responses">Responses</h3>
 
-## ApiWeb.V3.Worker.TaskController.ongoing
+## Worker.TaskController.ongoing
 
 <a id="opIdApiWeb.V3.Worker.TaskController.ongoing"></a>
 
@@ -1695,7 +1695,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&p
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TasksResponse](#schematasksresponse)|
 
-## ApiWeb.V3.Worker.TaskController.completed
+## Worker.TaskController.completed
 
 <a id="opIdApiWeb.V3.Worker.TaskController.completed"></a>
 
@@ -1733,7 +1733,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1
 
 <h3 id="apiweb.v3.worker.taskcontroller.completed-responses">Responses</h3>
 
-## ApiWeb.V3.Worker.TaskController.complete
+## Worker.TaskController.complete
 
 <a id="opIdApiWeb.V3.Worker.TaskController.complete"></a>
 
@@ -1769,7 +1769,7 @@ null
 
 <h3 id="apiweb.v3.worker.taskcontroller.complete-responses">Responses</h3>
 
-## ApiWeb.V3.Worker.TaskController.history
+## Worker.TaskController.history
 
 <a id="opIdApiWeb.V3.Worker.TaskController.history"></a>
 
@@ -1820,7 +1820,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&p
 
 Worker SubTask APIs
 
-## ApiWeb.V3.Worker.SubTaskController.update
+## Worker.SubTaskController.update
 
 <a id="opIdApiWeb.V3.Worker.SubTaskController.update"></a>
 
@@ -1872,7 +1872,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SubTaskResponse](#schemasubtaskresponse)|
 
-## ApiWeb.V3.Worker.SubTaskController.create
+## Worker.SubTaskController.create
 
 <a id="opIdApiWeb.V3.Worker.SubTaskController.create"></a>
 
@@ -1926,7 +1926,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 
 <h1 id="Yojee-APIs-[Worker]-Chat">[Worker] Chat</h1>
 
-## ApiWeb.V3.Worker.ChatController.update
+## Worker.ChatController.update
 
 <a id="opIdApiWeb.V3.Worker.ChatController.update"></a>
 
@@ -1961,7 +1961,7 @@ null
 
 <h3 id="apiweb.v3.worker.chatcontroller.update-responses">Responses</h3>
 
-## ApiWeb.V3.Worker.ChatController.channel
+## Worker.ChatController.channel
 
 <a id="opIdApiWeb.V3.Worker.ChatController.channel"></a>
 
@@ -1989,7 +1989,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/chat/channel \
 
 <h3 id="apiweb.v3.worker.chatcontroller.channel-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.ChatController.worker_channel
+## Dispatcher.ChatController.worker_channel
 
 <a id="opIdApiWeb.V3.Dispatcher.ChatController.worker_channel"></a>
 
@@ -2017,7 +2017,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/worker_channe
 
 <h3 id="apiweb.v3.dispatcher.chatcontroller.worker_channel-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.ChatController.send_message
+## Dispatcher.ChatController.send_message
 
 <a id="opIdApiWeb.V3.Dispatcher.ChatController.send_message"></a>
 
@@ -2052,7 +2052,7 @@ null
 
 <h3 id="apiweb.v3.dispatcher.chatcontroller.send_message-responses">Responses</h3>
 
-## ApiWeb.V3.Worker.ChatController.send_message
+## Worker.ChatController.send_message
 
 <a id="opIdApiWeb.V3.Worker.ChatController.send_message"></a>
 
@@ -2087,7 +2087,7 @@ null
 
 <h3 id="apiweb.v3.worker.chatcontroller.send_message-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.ChatController.update
+## Dispatcher.ChatController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.ChatController.update"></a>
 
@@ -2126,7 +2126,7 @@ null
 
 Dispatcher APIs
 
-## ApiWeb.V3.Dispatcher.InfoController.me
+## Dispatcher.InfoController.me
 
 <a id="opIdApiWeb.V3.Dispatcher.InfoController.me"></a>
 
@@ -2166,7 +2166,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/info \
 
 Dispatcher APIs for Search
 
-## ApiWeb.V3.Dispatcher.SearchController.sender
+## Dispatcher.SearchController.sender
 
 <a id="opIdApiWeb.V3.Dispatcher.SearchController.sender"></a>
 
@@ -2196,7 +2196,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender?page
 
 <h3 id="apiweb.v3.dispatcher.searchcontroller.sender-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.SearchController.worker
+## Dispatcher.SearchController.worker
 
 <a id="opIdApiWeb.V3.Dispatcher.SearchController.worker"></a>
 
@@ -2226,7 +2226,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker?page
 
 <h3 id="apiweb.v3.dispatcher.searchcontroller.worker-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.SearchController.index
+## Dispatcher.SearchController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.SearchController.index"></a>
 
@@ -2256,7 +2256,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search?page=1&page
 
 <h3 id="apiweb.v3.dispatcher.searchcontroller.index-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.SearchController.dispatcher
+## Dispatcher.SearchController.dispatcher
 
 <a id="opIdApiWeb.V3.Dispatcher.SearchController.dispatcher"></a>
 
@@ -2286,7 +2286,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/dispatcher?
 
 <h3 id="apiweb.v3.dispatcher.searchcontroller.dispatcher-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.SearchController.order
+## Dispatcher.SearchController.order
 
 <a id="opIdApiWeb.V3.Dispatcher.SearchController.order"></a>
 
@@ -2316,7 +2316,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?page=
 
 <h3 id="apiweb.v3.dispatcher.searchcontroller.order-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.SearchController.order_item
+## Dispatcher.SearchController.order_item
 
 <a id="opIdApiWeb.V3.Dispatcher.SearchController.order_item"></a>
 
@@ -2346,7 +2346,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item?
 
 <h3 id="apiweb.v3.dispatcher.searchcontroller.order_item-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.SearchController.task
+## Dispatcher.SearchController.task
 
 <a id="opIdApiWeb.V3.Dispatcher.SearchController.task"></a>
 
@@ -2381,7 +2381,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task?page=1
 
 Dispatcher APIs for User Management
 
-## ApiWeb.V3.Dispatcher.UserController.create
+## Dispatcher.UserController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.UserController.create"></a>
 
@@ -2430,7 +2430,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created the company user|[DispatcherCreateUserResponse](#schemadispatchercreateuserresponse)|
 
-## ApiWeb.V3.Dispatcher.UserController.index
+## Dispatcher.UserController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.UserController.index"></a>
 
@@ -2466,7 +2466,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company users|[DispatcherIndexUserResponse](#schemadispatcherindexuserresponse)|
 
-## ApiWeb.V3.Dispatcher.UserController.update
+## Dispatcher.UserController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.UserController.update"></a>
 
@@ -2519,7 +2519,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id} \
 
 Dispatcher APIs for Company Management
 
-## ApiWeb.V3.Dispatcher.CompanyController.transportation_companies
+## Dispatcher.CompanyController.transportation_companies
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.transportation_companies"></a>
 
@@ -2555,7 +2555,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/transportation_com
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyTransportationCompaniesResponse](#schemacompanytransportationcompaniesresponse)|
 
-## ApiWeb.V3.Dispatcher.CompanyController.upload_assets
+## Dispatcher.CompanyController.upload_assets
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.upload_assets"></a>
 
@@ -2609,7 +2609,7 @@ file_type: string
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Uploaded the company asset|[CompanyUploadAssetsResponse](#schemacompanyuploadassetsresponse)|
 
-## ApiWeb.V3.Dispatcher.CompanyController.update_settings
+## Dispatcher.CompanyController.update_settings
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.update_settings"></a>
 
@@ -2671,7 +2671,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company setting|[CompanyInfoResponse](#schemacompanyinforesponse)|
 
-## ApiWeb.V3.Dispatcher.CompanyController.vehicle_types
+## Dispatcher.CompanyController.vehicle_types
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.vehicle_types"></a>
 
@@ -2707,7 +2707,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/vehicle_types \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyVehicleTypesResponse](#schemacompanyvehicletypesresponse)|
 
-## ApiWeb.V3.Dispatcher.CompanyController.show
+## Dispatcher.CompanyController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.CompanyController.show"></a>
 
@@ -2744,7 +2744,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/company \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got the company info|[CompanyInfoResponse](#schemacompanyinforesponse)|
 
 
-## ApiWeb.V3.Dispatcher.RoleController.index
+## Dispatcher.RoleController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.RoleController.index"></a>
 
@@ -2780,7 +2780,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of roles|[DispatcherIndexRoleResponse](#schemadispatcherindexroleresponse)|
 
-## ApiWeb.V3.Dispatcher.RoleController.update
+## Dispatcher.RoleController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.RoleController.update"></a>
 
@@ -2832,7 +2832,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id} \
 
 Dispatcher APIs for Partner Management
 
-## ApiWeb.V3.Dispatcher.PartnerController.reject_invite
+## Dispatcher.PartnerController.reject_invite
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.reject_invite"></a>
 
@@ -2864,7 +2864,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/rej
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite declined successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerController.sent_invites
+## Dispatcher.PartnerController.sent_invites
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.sent_invites"></a>
 
@@ -2903,7 +2903,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/s
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartners](#schemadispatcherpartners)|
 
-## ApiWeb.V3.Dispatcher.PartnerController.cancel_invite
+## Dispatcher.PartnerController.cancel_invite
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.cancel_invite"></a>
 
@@ -2935,7 +2935,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/can
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite canceled successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerController.update_partnership_info
+## Dispatcher.PartnerController.update_partnership_info
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.update_partnership_info"></a>
 
@@ -2983,7 +2983,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnershipInfo](#schemadispatcherpartnershipinfo)|
 
-## ApiWeb.V3.Dispatcher.PartnerController.partnership_info
+## Dispatcher.PartnerController.partnership_info
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.partnership_info"></a>
 
@@ -3019,7 +3019,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnershipInfo](#schemadispatcherpartnershipinfo)|
 
-## ApiWeb.V3.Dispatcher.PartnerController.send_invite
+## Dispatcher.PartnerController.send_invite
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.send_invite"></a>
 
@@ -3051,7 +3051,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/sen
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite sent successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerController.received_invites
+## Dispatcher.PartnerController.received_invites
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.received_invites"></a>
 
@@ -3090,7 +3090,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/r
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartners](#schemadispatcherpartners)|
 
-## ApiWeb.V3.Dispatcher.PartnerController.accept_invite
+## Dispatcher.PartnerController.accept_invite
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.accept_invite"></a>
 
@@ -3122,7 +3122,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/acc
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite accepted successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerController.show
+## Dispatcher.PartnerController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.show"></a>
 
@@ -3159,7 +3159,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnerResponse](#schemadispatcherpartnerresponse)|
 
-## ApiWeb.V3.Dispatcher.PartnerController.index
+## Dispatcher.PartnerController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.index"></a>
 
@@ -3203,7 +3203,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners?page=1&pa
 
 Dispatcher APIs for Network Management
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.create
+## Dispatcher.Network.SpokeController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.create"></a>
 
@@ -3255,7 +3255,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.index
+## Dispatcher.Network.SpokeController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.index"></a>
 
@@ -3291,7 +3291,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokesResponse](#schemaspokesresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.HubController.update
+## Dispatcher.Network.HubController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.HubController.update"></a>
 
@@ -3349,7 +3349,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.HubController.show
+## Dispatcher.Network.HubController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.HubController.show"></a>
 
@@ -3386,7 +3386,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} 
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.HubController.delete
+## Dispatcher.Network.HubController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.HubController.delete"></a>
 
@@ -3423,7 +3423,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{i
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.HubController.create
+## Dispatcher.Network.HubController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.HubController.create"></a>
 
@@ -3480,7 +3480,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubResponse](#schemahubresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.HubController.index
+## Dispatcher.Network.HubController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.HubController.index"></a>
 
@@ -3516,7 +3516,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[HubsResponse](#schemahubsresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.RegionController.create
+## Dispatcher.Network.RegionController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.create"></a>
 
@@ -3606,7 +3606,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionResponse](#schemaregionresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.RegionController.index
+## Dispatcher.Network.RegionController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.index"></a>
 
@@ -3642,7 +3642,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionsResponse](#schemaregionsresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.update
+## Dispatcher.Network.SpokeController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.update"></a>
 
@@ -3695,7 +3695,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.show
+## Dispatcher.Network.SpokeController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.show"></a>
 
@@ -3732,7 +3732,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.SpokeController.delete
+## Dispatcher.Network.SpokeController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.SpokeController.delete"></a>
 
@@ -3769,7 +3769,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SpokeResponse](#schemaspokeresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.RegionController.update
+## Dispatcher.Network.RegionController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.update"></a>
 
@@ -3860,7 +3860,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionResponse](#schemaregionresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.RegionController.show
+## Dispatcher.Network.RegionController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.show"></a>
 
@@ -3897,7 +3897,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{i
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RegionResponse](#schemaregionresponse)|
 
-## ApiWeb.V3.Dispatcher.Network.RegionController.delete
+## Dispatcher.Network.RegionController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.Network.RegionController.delete"></a>
 
@@ -3938,7 +3938,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions
 
 Dispatcher APIs for Sender Management
 
-## ApiWeb.V3.Dispatcher.SenderController.create
+## Dispatcher.SenderController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.SenderController.create"></a>
 
@@ -3989,7 +3989,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
 
-## ApiWeb.V3.Dispatcher.SenderController.index
+## Dispatcher.SenderController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.SenderController.index"></a>
 
@@ -4029,7 +4029,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders?page=1&pag
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSendersResponse](#schemadispatchersendersresponse)|
 
-## ApiWeb.V3.Dispatcher.SenderController.update
+## Dispatcher.SenderController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.SenderController.update"></a>
 
@@ -4079,7 +4079,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
 
-## ApiWeb.V3.Dispatcher.SenderController.show
+## Dispatcher.SenderController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.SenderController.show"></a>
 
@@ -4116,7 +4116,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateSenderResponse](#schemadispatchercreatesenderresponse)|
 
-## ApiWeb.V3.Dispatcher.SenderController.delete
+## Dispatcher.SenderController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.SenderController.delete"></a>
 
@@ -4152,7 +4152,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
 
 Dispatcher APIs for Corporate Sender Management
 
-## ApiWeb.V3.Dispatcher.OrganisationController.update_corporate_sender
+## Dispatcher.OrganisationController.update_corporate_sender
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.update_corporate_sender"></a>
 
@@ -4210,7 +4210,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{org
 
 Dispatcher APIs for Worker Management
 
-## ApiWeb.V3.Dispatcher.WorkerController.location_history
+## Dispatcher.WorkerController.location_history
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.location_history"></a>
 
@@ -4249,7 +4249,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/locat
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got worker|[DispatcherWorkersPathResponse](#schemadispatcherworkerspathresponse)|
 
-## ApiWeb.V3.Dispatcher.WorkerController.failed
+## Dispatcher.WorkerController.failed
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.failed"></a>
 
@@ -4279,7 +4279,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 <h3 id="apiweb.v3.dispatcher.workercontroller.failed-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.WorkerController.create
+## Dispatcher.WorkerController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.create"></a>
 
@@ -4341,7 +4341,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created worker|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
 
-## ApiWeb.V3.Dispatcher.WorkerController.index
+## Dispatcher.WorkerController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.index"></a>
 
@@ -4387,7 +4387,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers?page=1&pag
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherWorkersResponse](#schemadispatcherworkersresponse)|
 
-## ApiWeb.V3.Dispatcher.WorkerController.assigned
+## Dispatcher.WorkerController.assigned
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.assigned"></a>
 
@@ -4417,7 +4417,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 <h3 id="apiweb.v3.dispatcher.workercontroller.assigned-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.WorkerController.update
+## Dispatcher.WorkerController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.update"></a>
 
@@ -4479,7 +4479,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
 
-## ApiWeb.V3.Dispatcher.WorkerController.show
+## Dispatcher.WorkerController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.show"></a>
 
@@ -4516,7 +4516,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got worker|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
 
-## ApiWeb.V3.Dispatcher.WorkerController.delete
+## Dispatcher.WorkerController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.delete"></a>
 
@@ -4548,7 +4548,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Dispatcher.WorkerController.approve
+## Dispatcher.WorkerController.approve
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.approve"></a>
 
@@ -4585,7 +4585,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/appro
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateWorkerResponse](#schemadispatchercreateworkerresponse)|
 
-## ApiWeb.V3.Dispatcher.WorkerController.completed
+## Dispatcher.WorkerController.completed
 
 <a id="opIdApiWeb.V3.Dispatcher.WorkerController.completed"></a>
 
@@ -4617,7 +4617,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 <h1 id="Yojee-APIs-[Dispatcher]-Docs">[Dispatcher] Docs</h1>
 
-## ApiWeb.V3.Dispatcher.ManifestController.generate_worker_manifest
+## Dispatcher.ManifestController.generate_worker_manifest
 
 <a id="opIdApiWeb.V3.Dispatcher.ManifestController.generate_worker_manifest"></a>
 
@@ -4650,7 +4650,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/manifests/worker/{
 
 Dispatcher APIs for Order Management
 
-## ApiWeb.V3.Dispatcher.OrderController.cancel
+## Dispatcher.OrderController.cancel
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderController.cancel"></a>
 
@@ -4682,7 +4682,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/ca
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Dispatcher.OrderController.update
+## Dispatcher.OrderController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderController.update"></a>
 
@@ -4731,7 +4731,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
 
-## ApiWeb.V3.Dispatcher.OrderController.show
+## Dispatcher.OrderController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderController.show"></a>
 
@@ -4768,7 +4768,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrderResponse](#schemadispatcherorderresponse)|
 
-## ApiWeb.V3.Dispatcher.OrderController.create
+## Dispatcher.OrderController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderController.create"></a>
 
@@ -4825,7 +4825,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders \
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Create order response success|[CreateOrderResponse](#schemacreateorderresponse)|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-## ApiWeb.V3.Dispatcher.OrderController.index
+## Dispatcher.OrderController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderController.index"></a>
 
@@ -4873,7 +4873,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders?page=1&page
 
 Dispatcher APIs for OrderItem Management
 
-## ApiWeb.V3.Dispatcher.OrderItemController.logs
+## Dispatcher.OrderItemController.logs
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderItemController.logs"></a>
 
@@ -4910,7 +4910,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{numbe
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsLogsResponse](#schemaorderitemslogsresponse)|
 
-## ApiWeb.V3.Dispatcher.OrderItemController.cancel_multiple
+## Dispatcher.OrderItemController.cancel_multiple
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderItemController.cancel_multiple"></a>
 
@@ -4942,7 +4942,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/cancel
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Dispatcher.OrderItemController.update
+## Dispatcher.OrderItemController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderItemController.update"></a>
 
@@ -5014,7 +5014,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsShowResponse](#schemaorderitemsshowresponse)|
 
-## ApiWeb.V3.Dispatcher.OrderItemController.show
+## Dispatcher.OrderItemController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderItemController.show"></a>
 
@@ -5052,7 +5052,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[OrderItemsShowResponse](#schemaorderitemsshowresponse)|
 
-## ApiWeb.V3.Dispatcher.OrderItemController.index
+## Dispatcher.OrderItemController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.OrderItemController.index"></a>
 
@@ -5099,7 +5099,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items?page=1
 
 Dispatcher APIs for Batch Management
 
-## ApiWeb.V3.Dispatcher.BatchController.download_sample
+## Dispatcher.BatchController.download_sample
 
 <a id="opIdApiWeb.V3.Dispatcher.BatchController.download_sample"></a>
 
@@ -5128,7 +5128,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/download_s
 
 <h3 id="apiweb.v3.dispatcher.batchcontroller.download_sample-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.BatchController.create
+## Dispatcher.BatchController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.BatchController.create"></a>
 
@@ -5168,7 +5168,7 @@ file: string
 
 <h3 id="apiweb.v3.dispatcher.batchcontroller.create-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.BatchController.check_status
+## Dispatcher.BatchController.check_status
 
 <a id="opIdApiWeb.V3.Dispatcher.BatchController.check_status"></a>
 
@@ -5196,7 +5196,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_stat
 
 <h3 id="apiweb.v3.dispatcher.batchcontroller.check_status-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.BatchController.get_order
+## Dispatcher.BatchController.get_order
 
 <a id="opIdApiWeb.V3.Dispatcher.BatchController.get_order"></a>
 
@@ -5228,7 +5228,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order 
 
 Dispatcher APIs for TaskGroup Management
 
-## ApiWeb.V3.Dispatcher.TaskController.index
+## Dispatcher.TaskController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskController.index"></a>
 
@@ -5305,7 +5305,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks?page=1&page_
 
 <h3 id="apiweb.v3.dispatcher.taskcontroller.index-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.show
+## Dispatcher.TaskGroupController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.show"></a>
 
@@ -5333,7 +5333,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id} \
 
 <h3 id="apiweb.v3.dispatcher.taskgroupcontroller.show-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.unassigned
+## Dispatcher.TaskGroupController.unassigned
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.unassigned"></a>
 
@@ -5374,7 +5374,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassi
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[UnassignedTaskGroupsIndexResponse](#schemaunassignedtaskgroupsindexresponse)|
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.assign_multiple
+## Dispatcher.TaskGroupController.assign_multiple
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assign_multiple"></a>
 
@@ -5405,7 +5405,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign
 
 <h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assign_multiple-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.step_items
+## Dispatcher.TaskGroupController.step_items
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.step_items"></a>
 
@@ -5435,7 +5435,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/s
 
 <h3 id="apiweb.v3.dispatcher.taskgroupcontroller.step_items-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.assigned
+## Dispatcher.TaskGroupController.assigned
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assigned"></a>
 
@@ -5479,7 +5479,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[AssignedTaskGroupsIndexResponse](#schemaassignedtaskgroupsindexresponse)|
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.unassign_worker
+## Dispatcher.TaskGroupController.unassign_worker
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.unassign_worker"></a>
 
@@ -5507,7 +5507,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/u
 
 <h3 id="apiweb.v3.dispatcher.taskgroupcontroller.unassign_worker-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.join_chat
+## Dispatcher.TaskGroupController.join_chat
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.join_chat"></a>
 
@@ -5535,7 +5535,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/j
 
 <h3 id="apiweb.v3.dispatcher.taskgroupcontroller.join_chat-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.accepted
+## Dispatcher.TaskGroupController.accepted
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.accepted"></a>
 
@@ -5563,7 +5563,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accept
 
 <h3 id="apiweb.v3.dispatcher.taskgroupcontroller.accepted-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskGroupController.assign_worker
+## Dispatcher.TaskGroupController.assign_worker
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskGroupController.assign_worker"></a>
 
@@ -5598,7 +5598,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/a
 
 Dispatcher APIs for Task Management
 
-## ApiWeb.V3.Dispatcher.TaskController.update
+## Dispatcher.TaskController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskController.update"></a>
 
@@ -5627,7 +5627,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_
 
 <h3 id="apiweb.v3.dispatcher.taskcontroller.update-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.AllocationController.allocate
+## Dispatcher.AllocationController.allocate
 
 <a id="opIdApiWeb.V3.Dispatcher.AllocationController.allocate"></a>
 
@@ -5745,7 +5745,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks/allocate \
 
 <h3 id="apiweb.v3.dispatcher.allocationcontroller.allocate-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.TaskController.delete_task_exception
+## Dispatcher.TaskController.delete_task_exception
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskController.delete_task_exception"></a>
 
@@ -5778,7 +5778,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{ta
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Dispatcher.TaskController.mark_as_failed
+## Dispatcher.TaskController.mark_as_failed
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskController.mark_as_failed"></a>
 
@@ -5819,7 +5819,7 @@ null
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ok|None|
 
-## ApiWeb.V3.Dispatcher.TaskController.complete
+## Dispatcher.TaskController.complete
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskController.complete"></a>
 
@@ -5856,7 +5856,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task
 
 Dispatcher APIs for TaskExceptionReason Management
 
-## ApiWeb.V3.Dispatcher.TaskExceptionReasonController.delete
+## Dispatcher.TaskExceptionReasonController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.delete"></a>
 
@@ -5893,7 +5893,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonResponse](#schemataskexceptionreasonresponse)|
 
-## ApiWeb.V3.Dispatcher.TaskExceptionReasonController.create
+## Dispatcher.TaskExceptionReasonController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.create"></a>
 
@@ -5940,7 +5940,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_re
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonResponse](#schemataskexceptionreasonresponse)|
 
-## ApiWeb.V3.Dispatcher.TaskExceptionReasonController.index
+## Dispatcher.TaskExceptionReasonController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskExceptionReasonController.index"></a>
 
@@ -5981,7 +5981,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_rea
 
 Dispatcher APIs for SubTask Management
 
-## ApiWeb.V3.Dispatcher.SubTaskController.index
+## Dispatcher.SubTaskController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.SubTaskController.index"></a>
 
@@ -6018,7 +6018,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSubTasksResponse](#schemadispatchersubtasksresponse)|
 
-## ApiWeb.V3.Dispatcher.SubTaskController.show
+## Dispatcher.SubTaskController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.SubTaskController.show"></a>
 
@@ -6061,7 +6061,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 
 Dispatcher APIs for SubTaskRule Management
 
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.update
+## Dispatcher.SubTaskRuleController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.update"></a>
 
@@ -6114,7 +6114,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
 
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.show
+## Dispatcher.SubTaskRuleController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.show"></a>
 
@@ -6151,7 +6151,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got sub task rule|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
 
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.delete
+## Dispatcher.SubTaskRuleController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.delete"></a>
 
@@ -6183,7 +6183,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.create
+## Dispatcher.SubTaskRuleController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.create"></a>
 
@@ -6235,7 +6235,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created sub task rule|[DispatcherCreateRuleResponse](#schemadispatchercreateruleresponse)|
 
-## ApiWeb.V3.Dispatcher.SubTaskRuleController.index
+## Dispatcher.SubTaskRuleController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.SubTaskRuleController.index"></a>
 
@@ -6275,7 +6275,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules?pag
 
 <h1 id="Yojee-APIs-[Dispatcher]-Planner-Setting">[Dispatcher] Planner Setting</h1>
 
-## ApiWeb.V3.Dispatcher.PlanSettingsController.show
+## Dispatcher.PlanSettingsController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanSettingsController.show"></a>
 
@@ -6312,7 +6312,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/:id \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company settings|[DispatcherSettingResponse](#schemadispatchersettingresponse)|
 
-## ApiWeb.V3.Dispatcher.PlanSettingsController.delete
+## Dispatcher.PlanSettingsController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanSettingsController.delete"></a>
 
@@ -6344,7 +6344,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/plan_settings/{
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
 
-## ApiWeb.V3.Dispatcher.PlanSettingsController.update
+## Dispatcher.PlanSettingsController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanSettingsController.update"></a>
 
@@ -6394,7 +6394,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company setting|[DispatcherSettingResponse](#schemadispatchersettingresponse)|
 
-## ApiWeb.V3.Dispatcher.PlanSettingsController.create
+## Dispatcher.PlanSettingsController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanSettingsController.create"></a>
 
@@ -6443,7 +6443,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/settings \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created the company setting|[DispatcherSettingResponse](#schemadispatchersettingresponse)|
 
-## ApiWeb.V3.Dispatcher.PlanSettingsController.index
+## Dispatcher.PlanSettingsController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanSettingsController.index"></a>
 
@@ -6481,7 +6481,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings \
 
 <h1 id="Yojee-APIs-[Dispatcher]-Partner-Transfer-Order">[Dispatcher] Partner Transfer Order</h1>
 
-## ApiWeb.V3.Dispatcher.PartnerTransferController.cancel_transfer
+## Dispatcher.PartnerTransferController.cancel_transfer
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.cancel_transfer"></a>
 
@@ -6513,7 +6513,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/s
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order canceled successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerTransferController.reject_transfer
+## Dispatcher.PartnerTransferController.reject_transfer
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.reject_transfer"></a>
 
@@ -6545,7 +6545,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/d
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order rejected successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerTransferController.create_transfer
+## Dispatcher.PartnerTransferController.create_transfer
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.create_transfer"></a>
 
@@ -6591,7 +6591,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order created successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerTransferController.accept_transfer
+## Dispatcher.PartnerTransferController.accept_transfer
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.accept_transfer"></a>
 
@@ -6623,7 +6623,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/d
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order accepted successfully|None|
 
-## ApiWeb.V3.Dispatcher.PartnerTransferController.order_items
+## Dispatcher.PartnerTransferController.order_items
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.order_items"></a>
 
@@ -6681,7 +6681,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/s
 
 Broadcast management
 
-## ApiWeb.V3.Dispatcher.BroadcastController.create
+## Dispatcher.BroadcastController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.BroadcastController.create"></a>
 
@@ -6733,7 +6733,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/broadcasts \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[BroadcastResponse](#schemabroadcastresponse)|
 
-## ApiWeb.V3.Dispatcher.DispatcherController.sender_admins
+## Dispatcher.DispatcherController.sender_admins
 
 <a id="opIdApiWeb.V3.Dispatcher.DispatcherController.sender_admins"></a>
 
@@ -6771,7 +6771,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/dispatchers/sender
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSenderAdminsRequest](#schemadispatchersenderadminsrequest)|
 
-## ApiWeb.V3.Dispatcher.OrganisationController.organisation_senders
+## Dispatcher.OrganisationController.organisation_senders
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.organisation_senders"></a>
 
@@ -6809,7 +6809,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisation_sende
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
 
-## ApiWeb.V3.Dispatcher.OrganisationController.create_corporate_sender
+## Dispatcher.OrganisationController.create_corporate_sender
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create_corporate_sender"></a>
 
@@ -6861,7 +6861,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateCorporateSenderResponse](#schemadispatchercreatecorporatesenderresponse)|
 
-## ApiWeb.V3.Dispatcher.OrganisationController.corporate_senders
+## Dispatcher.OrganisationController.corporate_senders
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.corporate_senders"></a>
 
@@ -6900,7 +6900,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
 
-## ApiWeb.V3.Dispatcher.OrganisationController.create
+## Dispatcher.OrganisationController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create"></a>
 
@@ -6962,7 +6962,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateOrganisationResponse](#schemadispatchercreateorganisationresponse)|
 
-## ApiWeb.V3.Dispatcher.OrganisationController.index
+## Dispatcher.OrganisationController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.index"></a>
 
@@ -7002,7 +7002,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations?page
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationsResponse](#schemadispatcherorganisationsresponse)|
 
-## ApiWeb.V3.Dispatcher.OrganisationController.update
+## Dispatcher.OrganisationController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.update"></a>
 
@@ -7076,7 +7076,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationResponse](#schemadispatcherorganisationresponse)|
 
-## ApiWeb.V3.Dispatcher.OrganisationController.show
+## Dispatcher.OrganisationController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.OrganisationController.show"></a>
 
@@ -7117,7 +7117,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}
 
 Dispatcher APIs for Role Management
 
-## ApiWeb.V3.Dispatcher.RoleController.create
+## Dispatcher.RoleController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.RoleController.create"></a>
 
@@ -7166,7 +7166,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
 
 <h1 id="Yojee-APIs-[Dispatcher]-Chat">[Dispatcher] Chat</h1>
 
-## ApiWeb.V3.Dispatcher.ChatController.channel
+## Dispatcher.ChatController.channel
 
 <a id="opIdApiWeb.V3.Dispatcher.ChatController.channel"></a>
 
@@ -7195,7 +7195,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channel/{chan
 
 <h3 id="apiweb.v3.dispatcher.chatcontroller.channel-responses">Responses</h3>
 
-## ApiWeb.V3.Dispatcher.ChatController.channels
+## Dispatcher.ChatController.channels
 
 <a id="opIdApiWeb.V3.Dispatcher.ChatController.channels"></a>
 
@@ -7224,7 +7224,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channels \
 
 <h1 id="Yojee-APIs-[Dispatcher]-Plan">[Dispatcher] Plan</h1>
 
-## ApiWeb.V3.Dispatcher.PlanController.show
+## Dispatcher.PlanController.show
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanController.show"></a>
 
@@ -7261,7 +7261,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/:id \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company plans|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
 
-## ApiWeb.V3.Dispatcher.PlanController.create
+## Dispatcher.PlanController.create
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanController.create"></a>
 
@@ -7316,7 +7316,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/plans \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created the company plan|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
 
-## ApiWeb.V3.Dispatcher.PlanController.index
+## Dispatcher.PlanController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanController.index"></a>
 
@@ -7353,7 +7353,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/plans \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company plans|[DispatcherIndexPlanResponse](#schemadispatcherindexplanresponse)|
 
-## ApiWeb.V3.Dispatcher.PlanController.update
+## Dispatcher.PlanController.update
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanController.update"></a>
 
@@ -7409,7 +7409,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company plan|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
 
-## ApiWeb.V3.Dispatcher.PlanController.delete
+## Dispatcher.PlanController.delete
 
 <a id="opIdApiWeb.V3.Dispatcher.PlanController.delete"></a>
 
@@ -7443,7 +7443,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/{id} \
 
 <h1 id="Yojee-APIs-[Dispatcher]-Jwt">[Dispatcher] Jwt</h1>
 
-## ApiWeb.V3.Dispatcher.JwtController.issue_token
+## Dispatcher.JwtController.issue_token
 
 <a id="opIdApiWeb.V3.Dispatcher.JwtController.issue_token"></a>
 
