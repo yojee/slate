@@ -8,16 +8,16 @@ search: true
 home: true
 
 ---
+ <h1 id="Yojee-APIs">Yojee APIs</h1>
+ 	 
+ Yojee provides more than hundreds of APIs for you to access Yojee API endpoints. You may find all of our API resources on this page.	
+ 	 
+ <aside class="notice">	
+ Make sure to replace {{ACCESS_TOKEN}} with your API key 
+ </aside>	
 
-<h1 id="Yojee-APIs">Yojee APIs</h1>
-
-Yojee provides more than hundreds of APIs for you to access Yojee API endpoints. You may find all of our API resources on this page.
-
-<aside class="notice">
-Make sure to replace {{ACCESS_TOKEN}} with your API key
-</aside>
-
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+ > Scroll down for code samples, example requests and responses.
+ 	 
 
 <h1 id="Yojee-APIs-[Public]">[Public]</h1>
 
@@ -31,11 +31,11 @@ Public APIs
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slug=string
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/users/info?company_slug=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/users/info`
+`GET https://umbrella-beta.yojee.com/api/v3/public/users/info`
 
 *This endpoint retrieves infomation about a Company*
 
@@ -55,12 +55,12 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/users/info?company_slu
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/verify_otp/ \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/`
+`GET https://umbrella-beta.yojee.com/api/v3/public/verify_otp/`
 
 *This endpoint verifies the entered OTP code*
 
@@ -89,12 +89,12 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/verify_otp/ \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/otp/ \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/otp/ \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/otp/`
+`GET https://umbrella-beta.yojee.com/api/v3/public/otp/`
 
 *This endpoint requests an OTP code for logging in*
 
@@ -126,12 +126,12 @@ Public APIs for Order Tracking
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track_item/{number} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/track_item/{number} \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/track_item/{number}`
+`GET https://umbrella-beta.yojee.com/api/v3/public/track_item/{number}`
 
 *This endpoint retrieves tracking information for an Order Item*
 
@@ -159,13 +159,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track_item/{number} \
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/public/orders/price \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/public/orders/price`
+`POST https://umbrella-beta.yojee.com/api/v3/public/orders/price`
 
 *This endpoint obtains a price quote for an Order*
 
@@ -265,12 +265,12 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/public/orders/price \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/track/{number} \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/track/{number}`
+`GET https://umbrella-beta.yojee.com/api/v3/public/track/{number}`
 
 *This endpoint retrieves tracking information for an Order*
 
@@ -298,11 +298,11 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/track/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/orders/download_sample?company_slug=string
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/orders/download_sample?company_slug=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/orders/download_sample`
+`GET https://umbrella-beta.yojee.com/api/v3/public/orders/download_sample`
 
 *This endpoint downloads all sample batch files of a company*
 
@@ -313,6 +313,98 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/orders/download_sample
 |company_slug|query|string|true|Company Slug|
 
 <h3 id="apiweb.v3.public.orderscontroller.download_sample-responses">Responses</h3>
+
+<h1 id="Yojee-APIs-[Public]-Password">[Public] Password</h1>
+
+## Public.PasswordController.edit
+
+<a id="opIdApiWeb.V3.Public.PasswordController.edit"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/password/edit
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/public/password/edit`
+
+*Validate if reset password token is still valid*
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|reset_password_token|query|string|false|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.edit-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+## Public.PasswordController.update
+
+<a id="opIdApiWeb.V3.Public.PasswordController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PATCH https://umbrella-beta.yojee.com/api/v3/public/password
+
+```
+
+`PATCH https://umbrella-beta.yojee.com/api/v3/public/password`
+
+*Validate if reset password token is still valid*
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|password|query|string|false|New password|
+|reset_password_token|query|string|false|Reset password token|
+
+<h3 id="apiweb.v3.public.passwordcontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+## Public.PasswordController.create
+
+<a id="opIdApiWeb.V3.Public.PasswordController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-beta.yojee.com/api/v3/public/password?email=string
+
+```
+
+`POST https://umbrella-beta.yojee.com/api/v3/public/password`
+
+*Create reset password token and send email*
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|email|query|string|true|Email of the account to reset password|
+|company_slug|query|string|false|Company slug, default is yojee|
+|portal|query|string|false|Portal, admin or order, default is admin|
+
+<h3 id="apiweb.v3.public.passwordcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
 <h1 id="Yojee-APIs-[Public]-Docs">[Public] Docs</h1>
 
@@ -326,11 +418,11 @@ Public APIs for Waybills, Invoices, EPODs and other Documentation
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}?order_number=string
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/invoices/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number}`
+`GET https://umbrella-beta.yojee.com/api/v3/public/invoices/{order_number}`
 
 *This endpoint generates an Invoice from an Order number*
 
@@ -363,11 +455,11 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/invoices/{order_number
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}?tracking_number=string
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/labels/{tracking_number}?tracking_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_number}`
+`GET https://umbrella-beta.yojee.com/api/v3/public/labels/{tracking_number}`
 
 *This endpoint generates a Label from a tracking number*
 
@@ -400,11 +492,11 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/{tracking_numbe
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/pods/order/{order_number}?order_number=string
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/pods/order/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/pods/order/{order_number}`
+`GET https://umbrella-beta.yojee.com/api/v3/public/pods/order/{order_number}`
 
 *This endpoint generates a Pod from an Order number*
 
@@ -437,11 +529,11 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/pods/order/{order_numb
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/pods/order_item/{tracking_number}?tracking_number=string
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/pods/order_item/{tracking_number}?tracking_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/pods/order_item/{tracking_number}`
+`GET https://umbrella-beta.yojee.com/api/v3/public/pods/order_item/{tracking_number}`
 
 *This endpoint generates a Pod from a tracking number*
 
@@ -474,11 +566,11 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/pods/order_item/{track
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}?order_number=string
+curl -X GET https://umbrella-beta.yojee.com/api/v3/public/labels/order/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_number}`
+`GET https://umbrella-beta.yojee.com/api/v3/public/labels/order/{order_number}`
 
 *This endpoint generates a Label from an Order number*
 
@@ -503,8 +595,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/public/labels/order/{order_nu
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Label to be downloaded.|None|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
 
-
-
 <h1 id="Yojee-APIs-[Auth]">[Auth]</h1>
 
 Authentication APIs
@@ -517,13 +607,13 @@ Authentication APIs
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/auth/signin \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/auth/signin \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/auth/signin`
+`POST https://umbrella-beta.yojee.com/api/v3/auth/signin`
 
 *This endpoint allows a registered user to log in*
 
@@ -564,13 +654,13 @@ Sender APIs
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/info \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/info \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/info`
+`GET https://umbrella-beta.yojee.com/api/v3/sender/info`
 
 *This endpoint retrieves a Sender's infomation*
 
@@ -595,13 +685,13 @@ Sender Order APIs
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/cancel \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel`
+`PUT https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/cancel`
 
 *This endpoint cancels an Order*
 
@@ -627,13 +717,13 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/cancel
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed`
+`GET https://umbrella-beta.yojee.com/api/v3/sender/orders/completed`
 
 *This endpoint retrieves all completed Orders of a Sender*
 
@@ -660,14 +750,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/completed?page=
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/payments \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payments`
+`POST https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/payments`
 
 *This endpoint creates a payment request*
 
@@ -714,7 +804,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}/payme
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/orders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -722,7 +812,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/sender/orders`
+`POST https://umbrella-beta.yojee.com/api/v3/sender/orders`
 
 *This endpoint creates an Order*
 
@@ -730,57 +820,19 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 
 ```json
 {
-  "items": [
-    {
-      "description": "Gift",
-      "height": 1,
-      "length": 1,
-      "payload_type": "Package",
-      "volumetric_weight": 10,
-      "weight": 1,
-      "width": 1,
-      "external_customer_id": "external_customer_id_test",
-      "service_type": "sameday"
-    }
-  ],
   "steps": [
-    {
-      "address": "Arcoris Plaza, Jalan Kiara, Mont Kiara",
-      "address2": "Level 1",
-      "postal_code": "50480",
-      "state": "Malaysia",
-      "country": "Malaysia",
-      "contact_name": "ACE",
-      "contact_phone": "+60121234567",
-      "contact_company": "Adidas",
-      "from_time": "2019-08-28T15:49:43.096036",
-      "to_time": "2019-08-28T15:49:43.096036",
-      "lat": 1.4630478,
-      "lng": 103.7647132
-    },
-    {
-      "address": "15, Plaza Damansara, Jalan Medan Setia 1, Bukit Damansara, 50490 Kuala Lumpur",
-      "address2": "1-01",
-      "postal_code": "50490",
-      "state": "Malaysia",
-      "country": "Malaysia",
-      "contact_name": "ABC",
-      "contact_phone": "+60121234567",
-      "contact_company": "Nike",
-      "from_time": "2019-08-28T15:49:43.096036",
-      "to_time": "2019-08-28T15:49:43.096036",
-      "lat": 1.4630478,
-      "lng": 103.7647132
-    }
+    null
+  ],
+  "sender_type": "string",
+  "sender_id": 0,
+  "price_currency": "string",
+  "price_amount": 0,
+  "items": [
+    null
   ],
   "item_steps": [
-    {"order_step_id": 0, "type": "pickup", "item_id": 0},
-    {"order_step_id": 1, "type": "dropoff", "item_id": 0}
-  ],
-  "sender_id": 471,
-  "sender_type": "organisation",
-  "price_amount": 10,
-  "price_currency": "MYR"
+    null
+  ]
 }
 ```
 
@@ -811,13 +863,13 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/orders \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/{number} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number}`
+`GET https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}`
 
 *This endpoint retrieves information about an Order*
 
@@ -844,13 +896,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/ongoing?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/orders/ongoing`
+`GET https://umbrella-beta.yojee.com/api/v3/sender/orders/ongoing`
 
 *This endpoint retrieves all ongoing Orders of a Sender*
 
@@ -881,13 +933,13 @@ Sender Batch APIs
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/batches/check_status \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status`
+`GET https://umbrella-beta.yojee.com/api/v3/sender/batches/check_status`
 
 *This endpoint checks the status of a Batch*
 
@@ -909,14 +961,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/check_status \
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/sender/batches \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/batches \
   -H 'Content-Type: multipart/form-data' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/sender/batches`
+`POST https://umbrella-beta.yojee.com/api/v3/sender/batches`
 
 *This endpoint is used by a Sender to upload a batch file*
 
@@ -946,13 +998,13 @@ file: string
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/get_order \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/batches/get_order \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/sender/batches/get_order`
+`GET https://umbrella-beta.yojee.com/api/v3/sender/batches/get_order`
 
 *This endpoint retrieves detailed information about a Batch*
 
@@ -966,6 +1018,226 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/sender/batches/get_order \
 
 <h3 id="apiweb.v3.sender.batchcontroller.get_order-responses">Responses</h3>
 
+<h1 id="Yojee-APIs-[Sender]-Company">[Sender] Company</h1>
+
+## Sender.CompanyController.service_types
+
+<a id="opIdApiWeb.V3.Sender.CompanyController.service_types"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/Sender/company/service_types \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/Sender/company/service_types`
+
+*This endpoint retrieves service types of a Company*
+
+<h3 id="apiweb.v3.sender.companycontroller.service_types-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.sender.companycontroller.service_types-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got a complete list of the company's service types|[CompanyServiceTypesResponse](#schemacompanyservicetypesresponse)|
+
+<h1 id="Yojee-APIs-[Dispatcher]-Docs">[Dispatcher] Docs</h1>
+
+## Dispatcher.ManifestController.generate_worker_manifest
+
+<a id="opIdApiWeb.V3.Dispatcher.ManifestController.generate_worker_manifest"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}`
+
+*This endpoint generates a Manifest for a Worker*
+
+<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|worker_id|query|integer|false|Worker ID|
+
+<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker manifest to be downloaded.|None|
+|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
+
+<h1 id="Yojee-APIs-[Sender]-Addressbook">[Sender] Addressbook</h1>
+
+## Sender.AddressbookController.search
+
+<a id="opIdApiWeb.V3.Sender.AddressbookController.search"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/addressbook/search?query=string&page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/sender/addressbook/search`
+
+*This endpoint search address item of a company*
+
+<h3 id="apiweb.v3.sender.addressbookcontroller.search-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|query|query|string|true|external_id/contact/address text query|
+|category|query|string|false|category of address item|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+<h3 id="apiweb.v3.sender.addressbookcontroller.search-responses">Responses</h3>
+
+<h1 id="Yojee-APIs-[Sender]-Track-Order-Item">[Sender] Track Order Item</h1>
+
+## Sender.TrackController.track_item
+
+<a id="opIdApiWeb.V3.Sender.TrackController.track_item"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/track_item/{number} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/sender/track_item/{number}`
+
+*This endpoint retrieves tracking information for an Order Item*
+
+<h3 id="apiweb.v3.sender.trackcontroller.track_item-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Tracking number|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.sender.trackcontroller.track_item-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderItemResponse](#schematrackorderitemresponse)|
+
+<h1 id="Yojee-APIs-[Sender]-Track-Order">[Sender] Track Order</h1>
+
+## Sender.TrackController.track_order
+
+<a id="opIdApiWeb.V3.Sender.TrackController.track_order"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/track/{number} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/sender/track/{number}`
+
+*This endpoint retrieves tracking information for an Order*
+
+<h3 id="apiweb.v3.sender.trackcontroller.track_order-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Tracking number|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.sender.trackcontroller.track_order-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderResponse](#schematrackorderresponse)|
+
+<h1 id="Yojee-APIs-[Dispatcher]-Track-Order-Item">[Dispatcher] Track Order Item</h1>
+
+## Dispatcher.TrackController.track_item
+
+<a id="opIdApiWeb.V3.Dispatcher.TrackController.track_item"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track_item/{number} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track_item/{number}`
+
+*This endpoint retrieves tracking information for an Order Item*
+
+<h3 id="apiweb.v3.dispatcher.trackcontroller.track_item-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Tracking number|
+|sender_id|query|integer|false|sender id|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.trackcontroller.track_item-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderItemResponse](#schematrackorderitemresponse)|
+
 <h1 id="Yojee-APIs-[Worker]">[Worker]</h1>
 
 Worker APIs
@@ -978,13 +1250,13 @@ Worker APIs
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/get_companies_theme \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/get_companies_theme \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/get_companies_theme`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/get_companies_theme`
 
 *This endpoint retrieves a list of all companies along with their theme info*
 
@@ -1012,14 +1284,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/get_companies_theme \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/check_for_updates \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/check_for_updates \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/check_for_updates`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/check_for_updates`
 
 *This endpoint checks if current installed app needs to be updated*
 
@@ -1050,14 +1322,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/check_for_updates \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/store_device_token \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/store_device_token`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/store_device_token`
 
 *This endpoint stores a Worker's device token*
 
@@ -1089,7 +1361,7 @@ null
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/update \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/update \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -1097,7 +1369,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/update \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/update`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/update`
 
 *This endpoint updates a Worker's information*
 
@@ -1133,13 +1405,13 @@ null
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/companies \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/companies`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/companies`
 
 *This endpoint retrieves a list of Companies that a phone number is registered as a Worker in*
 
@@ -1167,13 +1439,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/vehicles/{id}/select \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/vehicles/{id}/select`
 
 *This endpoint is used by a Worker to select a Vehicle*
 
@@ -1199,14 +1471,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/vehicles/{id}/select \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/companies/config \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/companies/config`
 
 *This endpoint retrieves configuration information about a Worker's Company*
 
@@ -1235,14 +1507,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/companies/config \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/info \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/info`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/info`
 
 *This endpoint retrieves a Worker's infomation*
 
@@ -1271,14 +1543,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/info \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/statistics \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/statistics \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/statistics`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/statistics`
 
 *This endpoint retrieves a Worker's Task statistics*
 
@@ -1316,14 +1588,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/statistics \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/location \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/location \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/location`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/location`
 
 *This endpoint updates a Worker's location*
 
@@ -1358,13 +1630,13 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/location \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/worker_sequence \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/worker_sequence \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/worker_sequence`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/worker_sequence`
 
 *This endpoint is used by a Worker fetch worker sequence detail*
 
@@ -1393,14 +1665,14 @@ Worker TaskGroup APIs
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups`
 
 *This endpoint retrieves a list of a Worker's TaskGroups*
 
@@ -1430,13 +1702,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/reject \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/reject`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/reject`
 
 *This endpoint is used by a Worker to reject an assigned TaskGroup*
 
@@ -1462,14 +1734,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/rejec
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}`
 
 *This endpoint retrieves information about a TaskGroup*
 
@@ -1499,14 +1771,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id} \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/accept \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accept`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/accept`
 
 *This endpoint is used by a Worker to accept an assigned TaskGroup*
 
@@ -1528,7 +1800,6 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/task_groups/{id}/accep
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Accept a task group successfully|[TaskGroupsResponse](#schemataskgroupsresponse)|
 
-
 <h1 id="Yojee-APIs-[Worker]-Task">[Worker] Task</h1>
 
 Worker Task APIs
@@ -1541,14 +1812,14 @@ Worker Task APIs
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/batches/{id}/status \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/status`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/batches/{id}/status`
 
 *This endpoint checks the status of all Tasks in a Batch*
 
@@ -1578,14 +1849,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/batches/{id}/sta
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/task/{id}/mark_as_failed \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
+`POST https://umbrella-beta.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
 
 *This endpoint marks a Task as failed by creating an associated TaskException*
 
@@ -1618,14 +1889,14 @@ null
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/bulk_complete \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/bulk_complete`
 
 *This endpoint is used by a Worker to complete multiple Tasks*
 
@@ -1665,14 +1936,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/bulk_complete \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/ongoing`
 
 *This endpoint retrieves a list of a Worker's ongoing Tasks*
 
@@ -1703,13 +1974,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/ongoing?page=1&p
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/completed`
 
 *This endpoint retrieves a list of a Worker's completed Tasks*
 
@@ -1741,14 +2012,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/completed?page=1
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/{id}/complete \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/tasks/{id}/complete`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/{id}/complete`
 
 *This endpoint is used by a Worker to complete a Task*
 
@@ -1777,14 +2048,14 @@ null
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/tasks/history`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/history`
 
 *This endpoint retrieves a Worker's Task history*
 
@@ -1828,7 +2099,7 @@ Worker SubTask APIs
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -1836,7 +2107,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks`
 
 *This endpoint completes a SubTask*
 
@@ -1880,7 +2151,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -1888,7 +2159,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks`
+`POST https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks`
 
 *This endpoint completes a SubTask*
 
@@ -1924,6 +2195,86 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[SubTaskResponse](#schemasubtaskresponse)|
 
+<h1 id="Yojee-APIs-[Worker]-Stop">[Worker] Stop</h1>
+
+## Worker.StopController.stops
+
+<a id="opIdApiWeb.V3.Worker.StopController.stops"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/stops?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/worker/stops`
+
+*This endpoint retrieves a list of a Worker's ongoing Stops*
+
+<h3 id="apiweb.v3.worker.stopcontroller.stops-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.stopcontroller.stops-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[StopsResponse](#schemastopsresponse)|
+
+## Worker.StopController.show
+
+<a id="opIdApiWeb.V3.Worker.StopController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/stops/{id}?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/worker/stops/{id}`
+
+*This endpoint retrieves a list of a Worker's ongoing Tasks by Stop*
+
+<h3 id="apiweb.v3.worker.stopcontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Stop ID|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.worker.stopcontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TasksResponse](#schematasksresponse)|
+
+
 <h1 id="Yojee-APIs-[Worker]-Chat">[Worker] Chat</h1>
 
 ## Worker.ChatController.update
@@ -1934,14 +2285,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/sub_tasks \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/worker/chat/channel \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/chat/channel \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/worker/chat/channel`
+`PUT https://umbrella-beta.yojee.com/api/v3/worker/chat/channel`
 
 *This endpoint returns update worker channel data*
 
@@ -1957,7 +2308,7 @@ null
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|body|body|[ApiWeb.V3.Worker.ChatController.updateLastReadAt](#schemaapiweb.v3.worker.chatcontroller.updatelastreadat)|false|Last read on date in ISO8601 format|
+|body|body|any|false|Last read on date in ISO8601 format|
 
 <h3 id="apiweb.v3.worker.chatcontroller.update-responses">Responses</h3>
 
@@ -1969,13 +2320,14 @@ null
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/chat/channel \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/chat/channel \
+  -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/worker/chat/channel`
+`GET https://umbrella-beta.yojee.com/api/v3/worker/chat/channel`
 
 *This endpoint returns list of worker channels*
 
@@ -1987,70 +2339,15 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/worker/chat/channel \
 |COMPANY_SLUG|header|string|true|company slug|
 |last_message_date|query|string|false|Last Message date|
 
+> Example responses
+
+> 200 Response
+
 <h3 id="apiweb.v3.worker.chatcontroller.channel-responses">Responses</h3>
 
-## Dispatcher.ChatController.worker_channel
-
-<a id="opIdApiWeb.V3.Dispatcher.ChatController.worker_channel"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id}`
-
-*This endpoint returns list of worker channels*
-
-<h3 id="apiweb.v3.dispatcher.chatcontroller.worker_channel-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|worker_id|path|integer|true|Worker ID|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-<h3 id="apiweb.v3.dispatcher.chatcontroller.worker_channel-responses">Responses</h3>
-
-## Dispatcher.ChatController.send_message
-
-<a id="opIdApiWeb.V3.Dispatcher.ChatController.send_message"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/send_message \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/send_message`
-
-*This endpoint returns update worker channel data*
-
-> Body parameter
-
-```json
-null
-```
-
-<h3 id="apiweb.v3.dispatcher.chatcontroller.send_message-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[ApiWeb.V3.Dispatcher.ChatController.send_messageMessage](#schemaapiweb.v3.dispatcher.chatcontroller.send_messagemessage)|false|Last read on date in ISO8601 format|
-
-<h3 id="apiweb.v3.dispatcher.chatcontroller.send_message-responses">Responses</h3>
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerChatMessagesResponse](#schemaworkerchatmessagesresponse)|
 
 ## Worker.ChatController.send_message
 
@@ -2060,14 +2357,15 @@ null
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/worker/chat/send_message \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/chat/send_message \
   -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/worker/chat/send_message`
+`POST https://umbrella-beta.yojee.com/api/v3/worker/chat/send_message`
 
 *This endpoint returns update worker channel data*
 
@@ -2083,44 +2381,17 @@ null
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|body|body|[ApiWeb.V3.Worker.ChatController.updateLastReadAt](#schemaapiweb.v3.worker.chatcontroller.updatelastreadat)|false|Last read on date in ISO8601 format|
+|body|body|[ApiWeb.V3.Dispatcher.ChatController.send_messageMessage](#schemaapiweb.v3.dispatcher.chatcontroller.send_messagemessage)|false|Text Message|
+
+> Example responses
+
+> 200 Response
 
 <h3 id="apiweb.v3.worker.chatcontroller.send_message-responses">Responses</h3>
 
-## Dispatcher.ChatController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.ChatController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channel \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channel`
-
-*This endpoint returns update worker channel data*
-
-> Body parameter
-
-```json
-null
-```
-
-<h3 id="apiweb.v3.dispatcher.chatcontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[ApiWeb.V3.Dispatcher.ChatController.send_messageMessage](#schemaapiweb.v3.dispatcher.chatcontroller.send_messagemessage)|false|Last read on date in ISO8601 format|
-
-<h3 id="apiweb.v3.dispatcher.chatcontroller.update-responses">Responses</h3>
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[WorkerChatMessageResponse](#schemaworkerchatmessageresponse)|
 
 <h1 id="Yojee-APIs-[Dispatcher]">[Dispatcher]</h1>
 
@@ -2134,14 +2405,14 @@ Dispatcher APIs
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/info \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/info \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/info`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/info`
 
 *This endpoint retrieves a Dispatcher's infomation*
 
@@ -2162,6 +2433,225 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/info \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherInfoResponse](#schemadispatcherinforesponse)|
 
+<h1 id="Yojee-APIs-[Dispatcher]-Plan">[Dispatcher] Plan</h1>
+
+## Dispatcher.PlanController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.PlanController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/:id \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/:id`
+
+*This endpoint retrieves a plan belonging to a Company*
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Plan UUID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company plans|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
+
+## Dispatcher.PlanController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.PlanController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/plans \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/plans`
+
+*This endpoint creates a new plan*
+
+> Body parameter
+
+```json
+{
+  "uuid": "123456789",
+  "settings": {
+    "sample settings": "sample value"
+  },
+  "output": {
+    "sample output": "sample value"
+  },
+  "input": {
+    "sample input": "sample value"
+  }
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherCreatePlanRequest](#schemadispatchercreateplanrequest)|false|Company plan information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created the company plan|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
+
+## Dispatcher.PlanController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.PlanController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans`
+
+*This endpoint retrieves a list of plans belonging to a Company*
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|date|path|string|true|Filter date|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company plans|[DispatcherIndexPlanResponse](#schemadispatcherindexplanresponse)|
+
+## Dispatcher.PlanController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.PlanController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id}`
+
+*This endpoint updates a plan*
+
+> Body parameter
+
+```json
+{
+  "uuid": "123456789",
+  "settings": {
+    "sample settings": "sample value"
+  },
+  "output": {
+    "sample output": "sample value"
+  },
+  "input": {
+    "sample input": "sample value"
+  }
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Plan UUID|
+|body|body|[DispatcherUpdatePlanRequest](#schemadispatcherupdateplanrequest)|false|Company plan information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company plan|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
+
+## Dispatcher.PlanController.delete
+
+<a id="opIdApiWeb.V3.Dispatcher.PlanController.delete"></a>
+
+> Code samples
+
+```shell
+
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id}`
+
+*This endpoint deletes a plan*
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.delete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|integer|true|Plan UUID|
+
+<h3 id="apiweb.v3.dispatcher.plancontroller.delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
 <h1 id="Yojee-APIs-[Dispatcher]-Search">[Dispatcher] Search</h1>
 
 Dispatcher APIs for Search
@@ -2174,13 +2664,13 @@ Dispatcher APIs for Search
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender?page=1&page_size=25&q=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/sender?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/sender`
 
 *This endpoint is used to search for a Sender*
 
@@ -2204,13 +2694,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/sender?page
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker?page=1&page_size=25&q=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/worker?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/worker`
 
 *This endpoint is used to search for a Worker*
 
@@ -2234,13 +2724,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/worker?page
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search?page=1&page_size=25&q=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search`
 
 *This endpoint is used for global search*
 
@@ -2264,13 +2754,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search?page=1&page
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/dispatcher?page=1&page_size=25&q=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/dispatcher?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/dispatcher`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/dispatcher`
 
 *This endpoint is used to search for a Sender Admins*
 
@@ -2294,13 +2784,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/dispatcher?
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?page=1&page_size=25&q=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order`
 
 *This endpoint is used to search for an Order*
 
@@ -2324,13 +2814,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order?page=
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item?page=1&page_size=25&q=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order_item?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order_item`
 
 *This endpoint is used to search for an OrderItem*
 
@@ -2354,13 +2844,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/order_item?
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task?page=1&page_size=25&q=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/task?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/search/task`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/task`
 
 *This endpoint is used to search for a Task*
 
@@ -2389,7 +2879,7 @@ Dispatcher APIs for User Management
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/users \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2397,7 +2887,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/users`
 
 *This endpoint creates a new Dispatcher*
 
@@ -2438,14 +2928,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/users \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/users`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/users`
 
 *This endpoint retrieves a list of Dispatchers belonging to a Company*
 
@@ -2474,7 +2964,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/users \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id} \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/users/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2482,7 +2972,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id} \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id}`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/users/{id}`
 
 *This endpoint updates a Dispatcher's information*
 
@@ -2519,26 +3009,26 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/users/{id} \
 
 Dispatcher APIs for Company Management
 
-## Dispatcher.CompanyController.transportation_companies
+## Dispatcher.CompanyController.service_types
 
-<a id="opIdApiWeb.V3.Dispatcher.CompanyController.transportation_companies"></a>
+<a id="opIdApiWeb.V3.Dispatcher.CompanyController.service_types"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/transportation_companies \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company/service_types \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/transportation_companies`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company/service_types`
 
-*This endpoint retrieves a list of TransportationCompanies which work for a Company*
+*This endpoint retrieves service types of a Company*
 
-<h3 id="apiweb.v3.dispatcher.companycontroller.transportation_companies-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.companycontroller.service_types-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2549,11 +3039,83 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/transportation_com
 
 > 200 Response
 
-<h3 id="apiweb.v3.dispatcher.companycontroller.transportation_companies-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.companycontroller.service_types-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyTransportationCompaniesResponse](#schemacompanytransportationcompaniesresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got a complete list of the company's service types|[CompanyServiceTypesResponse](#schemacompanyservicetypesresponse)|
+
+## Dispatcher.CompanyController.vehicle_types
+
+<a id="opIdApiWeb.V3.Dispatcher.CompanyController.vehicle_types"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/vehicle_types \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/vehicle_types`
+
+*This endpoint retrieves a list of VehicleTypes belonging to a Company*
+
+<h3 id="apiweb.v3.dispatcher.companycontroller.vehicle_types-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.companycontroller.vehicle_types-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyVehicleTypesResponse](#schemacompanyvehicletypesresponse)|
+
+## Dispatcher.CompanyController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.CompanyController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company`
+
+*This endpoint retrieves infomation about a Company*
+
+<h3 id="apiweb.v3.dispatcher.companycontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.companycontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got the company info|[CompanyInfoResponse](#schemacompanyinforesponse)|
 
 ## Dispatcher.CompanyController.upload_assets
 
@@ -2563,7 +3125,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/transportation_com
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/company/assets \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/company/assets \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -H 'ACCESS_TOKEN: string' \
@@ -2571,7 +3133,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/company/assets \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/company/assets`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/company/assets`
 
 *This endpoint is used to upload branding assets for a Company*
 
@@ -2617,7 +3179,7 @@ file_type: string
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/company/settings \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2625,7 +3187,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/company/settings`
 
 *This endpoint updates a Company's settings*
 
@@ -2671,78 +3233,56 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/company/settings \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company setting|[CompanyInfoResponse](#schemacompanyinforesponse)|
 
-## Dispatcher.CompanyController.vehicle_types
+<h1 id="Yojee-APIs-[Dispatcher]-Role">[Dispatcher] Role</h1>
 
-<a id="opIdApiWeb.V3.Dispatcher.CompanyController.vehicle_types"></a>
+Dispatcher APIs for Role Management
 
-> Code samples
+## Dispatcher.RoleController.create
 
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/vehicle_types \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/vehicle_types`
-
-*This endpoint retrieves a list of VehicleTypes belonging to a Company*
-
-<h3 id="apiweb.v3.dispatcher.companycontroller.vehicle_types-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.companycontroller.vehicle_types-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[CompanyVehicleTypesResponse](#schemacompanyvehicletypesresponse)|
-
-## Dispatcher.CompanyController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.CompanyController.show"></a>
+<a id="opIdApiWeb.V3.Dispatcher.RoleController.create"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/company \
-  -H 'Accept: */*' \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/roles \
+  -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/company`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/roles`
 
-*This endpoint retrieves infomation about a Company*
+*This endpoint creates a new Role*
 
-<h3 id="apiweb.v3.dispatcher.companycontroller.show-parameters">Parameters</h3>
+> Body parameter
+
+```json
+{
+  "name": "role_1",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+    }
+  }
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.rolecontroller.create-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherCreateRoleRequest](#schemadispatchercreaterolerequest)|false|Role information|
 
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.companycontroller.show-responses">Responses</h3>
+<h3 id="apiweb.v3.dispatcher.rolecontroller.create-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got the company info|[CompanyInfoResponse](#schemacompanyinforesponse)|
-
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
 
 ## Dispatcher.RoleController.index
 
@@ -2752,14 +3292,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/company \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/roles \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/roles`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/roles`
 
 *This endpoint retrieves a list of Roles*
 
@@ -2788,14 +3328,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id} \
+curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/roles/{id} \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id}`
+`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/roles/{id}`
 
 *This endpoint updates a Role*
 
@@ -2803,7 +3343,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id} \
 
 ```json
 {
-  "updated_at": "2018-09-25 06:19:45.821028Z",
+  "updated_at": "2018-12-11 08:56:23.843283Z",
   "name": "role_1",
   "company_id": 123,
   "access_map": {
@@ -2828,6 +3368,150 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/roles/{id} \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
 
+<h1 id="Yojee-APIs-[Dispatcher]-Partner-Transfer-Order">[Dispatcher] Partner Transfer Order</h1>
+
+## Dispatcher.PartnerTransferController.cancel_transfer
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.cancel_transfer"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number}`
+
+*This endpoint is used to cancel a Transfer Order*
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.cancel_transfer-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|order_number|path|string|true|Order number|
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.cancel_transfer-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order canceled successfully|None|
+
+## Dispatcher.PartnerTransferController.reject_transfer
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.reject_transfer"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number}`
+
+*This endpoint is used to reject a Transfer Order*
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.reject_transfer-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|order_number|path|string|true|Order number|
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.reject_transfer-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order rejected successfully|None|
+
+## Dispatcher.PartnerTransferController.create_transfer
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.create_transfer"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order`
+
+*This endpoint is used to create a Transfer Order*
+
+> Body parameter
+
+```json
+{
+  "tracking_numbers": [
+    "YOJ-NHLZA0V3PT0"
+  ],
+  "price_currency": "USD",
+  "price_amount": "1.00",
+  "partner_cip": "CIP-RTNKAUJLQ3LWRGRA"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.create_transfer-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherPartnerTransferCreate](#schemadispatcherpartnertransfercreate)|false|Transfer Order Information|
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.create_transfer-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order created successfully|None|
+
+## Dispatcher.PartnerTransferController.accept_transfer
+
+<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.accept_transfer"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number} \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number}`
+
+*This endpoint is used to accept a Transfer Order*
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.accept_transfer-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|order_number|path|string|true|Order number|
+
+<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.accept_transfer-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order accepted successfully|None|
+
 <h1 id="Yojee-APIs-[Dispatcher]-Partner">[Dispatcher] Partner</h1>
 
 Dispatcher APIs for Partner Management
@@ -2840,13 +3524,13 @@ Dispatcher APIs for Partner Management
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite`
 
 *This endpoint is used to decline a Partner invite*
 
@@ -2872,14 +3556,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/rej
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/sent?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/sent?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/sent`
+`GEThttps://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/sent`
 
 *This endpoint retrieves a list of sent partnership requests*
 
@@ -2911,13 +3595,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/s
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite`
+`PUThttps://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite`
 
 *This endpoint is used to cancel a sent Partner invite*
 
@@ -2943,7 +3627,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/can
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2951,7 +3635,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info`
 
 *This endpoint updates a Company's partnership information*
 
@@ -2991,14 +3675,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info`
 
 *This endpoint retrieves a Company's partnership information*
 
@@ -3027,13 +3711,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partnership_info \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite`
 
 *This endpoint is used to send a Partner invite*
 
@@ -3059,14 +3743,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/sen
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/received?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/received?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/received`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/received`
 
 *This endpoint retrieves a list of received partnership requests*
 
@@ -3098,13 +3782,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/invites/r
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite`
 
 *This endpoint is used to accept a Partner invite*
 
@@ -3122,43 +3806,6 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}/acc
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Partnership invite accepted successfully|None|
 
-## Dispatcher.PartnerController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip}`
-
-*This endpoint retrieves information about a Partner*
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|cip|path|string|true|Partner CIP|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.partnercontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherPartnerResponse](#schemadispatcherpartnerresponse)|
-
 ## Dispatcher.PartnerController.index
 
 <a id="opIdApiWeb.V3.Dispatcher.PartnerController.index"></a>
@@ -3167,14 +3814,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners/{cip} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partners`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners`
 
 *This endpoint retrieves a list of Partners belonging to a Company*
 
@@ -3211,7 +3858,7 @@ Dispatcher APIs for Network Management
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3219,7 +3866,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes`
 
 *This endpoint creates a new Spoke*
 
@@ -3263,14 +3910,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes`
 
 *This endpoint retrieves a list of Spokes belonging to a Company*
 
@@ -3299,7 +3946,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes \
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3307,7 +3954,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id}`
 
 *This endpoint updates a Hub*
 
@@ -3357,14 +4004,14 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id}`
 
 *This endpoint retrieves information about a Hub*
 
@@ -3394,14 +4041,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} 
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id}`
 
 *This endpoint deletes a Hub*
 
@@ -3431,7 +4078,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs/{i
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3439,7 +4086,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs`
 
 *This endpoint creates a new Hub*
 
@@ -3488,14 +4135,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs`
 
 *This endpoint retrieves a list of Hubs belonging to a Company*
 
@@ -3524,7 +4171,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/hubs \
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3532,7 +4179,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions`
 
 *This endpoint creates a new Region*
 
@@ -3614,14 +4261,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions`
 
 *This endpoint retrieves a list of Regions belonging to a Company*
 
@@ -3650,7 +4297,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions \
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3658,7 +4305,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id}`
 
 *This endpoint updates a Spoke*
 
@@ -3703,14 +4350,14 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id}`
 
 *This endpoint retrieves information about a Spoke*
 
@@ -3740,14 +4387,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id}`
 
 *This endpoint deletes a Spoke*
 
@@ -3777,7 +4424,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/spokes/
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id} \
+curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3785,7 +4432,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
+`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
 *This endpoint updates a Region*
 
@@ -3868,14 +4515,14 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
 *This endpoint retrieves information about a Region*
 
@@ -3905,14 +4552,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{i
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/network/regions/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
 *This endpoint deletes a Region*
 
@@ -3946,7 +4593,7 @@ Dispatcher APIs for Sender Management
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/senders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3954,7 +4601,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/senders`
 
 *This endpoint creates a new Sender*
 
@@ -3997,14 +4644,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/senders \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders`
 
 *This endpoint retrieves a list of Senders*
 
@@ -4037,7 +4684,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders?page=1&pag
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
+curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4045,7 +4692,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
+`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id}`
 
 *This endpoint updates a Sender's information*
 
@@ -4087,14 +4734,14 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id}`
 
 *This endpoint retrieves information about a Sender*
 
@@ -4124,13 +4771,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/senders/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id}`
 
 *This endpoint deletes a Sender*
 
@@ -4160,7 +4807,7 @@ Dispatcher APIs for Corporate Sender Management
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id} \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4168,7 +4815,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{org
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id}`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id}`
 
 *This endpoint updates a Corporate User*
 
@@ -4205,6 +4852,425 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{org
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the corporate user|[DispatcherUpdateCorporateSenderResponse](#schemadispatcherupdatecorporatesenderresponse)|
 
+## Dispatcher.DispatcherController.sender_admins
+
+<a id="opIdApiWeb.V3.Dispatcher.DispatcherController.sender_admins"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/dispatchers/senders?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/dispatchers/senders`
+
+*This endpoint retrieves a list of Sender Admins and the Organisations they manage*
+
+<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSenderAdminsRequest](#schemadispatchersenderadminsrequest)|
+
+## Dispatcher.OrganisationController.organisation_senders
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.organisation_senders"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisation_senders?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisation_senders`
+
+*This endpoint retrieves a list of Organisation Senders*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
+
+## Dispatcher.OrganisationController.create_corporate_sender
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create_corporate_sender"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
+
+*This endpoint creates a new Corporate User*
+
+> Body parameter
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "name": "Ralston",
+  "email": "secondary_account@abc.com",
+  "billing_address": "77 Robinson road, Singapore."
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Organisation ID|
+|body|body|[DispatcherCreateCorporateSenderRequest](#schemadispatchercreatecorporatesenderrequest)|false|Corporate Sender information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateCorporateSenderResponse](#schemadispatchercreatecorporatesenderresponse)|
+
+## Dispatcher.OrganisationController.corporate_senders
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.corporate_senders"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
+
+*This endpoint retrieves a list of Corporate Users*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Organisation ID|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
+
+## Dispatcher.OrganisationController.create
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations`
+
+*This endpoint creates a new corporate*
+
+> Body parameter
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "payment_option": "monthly_billing",
+  "organisation": {
+    "reg_address": "77 Robinson road, Singapore.",
+    "postal_code": "321021",
+    "phone": "+6591245934",
+    "name": "ABC",
+    "country": "Singapore",
+    "city": "Singapore"
+  },
+  "name": "Ralston",
+  "gst_no": "2AS9890",
+  "email": "primary_account@abc.com",
+  "business_reg_no": "ABC1235M",
+  "billing_address": "77 Robinson road, Singapore."
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[DispatcherCreateOrganisationRequest](#schemadispatchercreateorganisationrequest)|false|Organisation information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateOrganisationResponse](#schemadispatchercreateorganisationresponse)|
+
+## Dispatcher.OrganisationController.index
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.index"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations?page=1&page_size=10 \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations`
+
+*This endpoint retrieves a list of Corporates (aka Organisations) managed by a Dispatcher*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+|q|query|string|false|search by name|
+|with_users|query|boolean|false|include users or not|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationsResponse](#schemadispatcherorganisationsresponse)|
+
+## Dispatcher.OrganisationController.update
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.update"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}`
+
+*This endpoint updates a Corporate*
+
+> Body parameter
+
+```json
+{
+  "user_profiles": [
+    {
+      "user_profile_id": 1,
+      "phone": "Sender Phone",
+      "name": "Sender Name",
+      "email": "sender-email@example.com"
+    },
+    {
+      "user_profile_id": 2,
+      "phone": "+6533445566",
+      "name": "Corporate User 2",
+      "email": "corporate-user-2@example.com"
+    }
+  ],
+  "sender": {
+    "user_profile_id": 1,
+    "phone": "Sender Phone",
+    "name": "Sender Name",
+    "email": "sender-email@example.com",
+    "billing_address": "Sender billing address"
+  },
+  "reg_address": "77 Robinson road, Singapore.",
+  "postal_code": "321021",
+  "phone": "+6591240934",
+  "name": "FEDEX",
+  "id": 3,
+  "country": "Singapore",
+  "city": "Singapore"
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.update-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Organisation ID|
+|body|body|[DispatcherUpdateOrganisationRequest](#schemadispatcherupdateorganisationrequest)|false|Organisation information|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.update-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationResponse](#schemadispatcherorganisationresponse)|
+
+## Dispatcher.OrganisationController.show
+
+<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.show"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}`
+
+*This endpoint retrieves information about an Corporate (aka Organisation)*
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Organisation ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationResponse](#schemadispatcherorganisationresponse)|
+
+<h1 id="Yojee-APIs-[Dispatcher]-Track-Order">[Dispatcher] Track Order</h1>
+
+## Dispatcher.TrackController.track_order
+
+<a id="opIdApiWeb.V3.Dispatcher.TrackController.track_order"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track/{number} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track/{number}`
+
+*This endpoint retrieves tracking information for an Order*
+
+<h3 id="apiweb.v3.dispatcher.trackcontroller.track_order-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|number|path|string|true|Tracking number|
+|sender_id|query|integer|false|sender id|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.trackcontroller.track_order-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got tracking data|[TrackOrderResponse](#schematrackorderresponse)|
 
 <h1 id="Yojee-APIs-[Dispatcher]-Worker">[Dispatcher] Worker</h1>
 
@@ -4218,14 +5284,14 @@ Dispatcher APIs for Worker Management
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/location_history \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/location_history \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/location_history`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/location_history`
 
 *This endpoint retrieves locations of the worker according to a time window*
 
@@ -4257,13 +5323,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/locat
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed`
 
 *This endpoint retrieves a list of a Worker's failed Tasks*
 
@@ -4287,7 +5353,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/workers \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4295,7 +5361,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/workers`
 
 *This endpoint creates a new Worker*
 
@@ -4349,14 +5415,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/workers \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers`
 
 *This endpoint retrieves a list of Workers*
 
@@ -4395,13 +5461,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers?page=1&pag
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned`
 
 *This endpoint retrieves a list of a Worker's assigned Tasks*
 
@@ -4425,7 +5491,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4433,7 +5499,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}`
 
 *This endpoint updates a Worker's information*
 
@@ -4487,14 +5553,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}`
 
 *This endpoint retrieves information about a Worker*
 
@@ -4524,13 +5590,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}`
 
 *This endpoint deletes a Worker*
 
@@ -4556,14 +5622,14 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/approve \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/approve \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/approve`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/approve`
 
 *This endpoint is used by a Dispatcher to approve a Worker*
 
@@ -4593,13 +5659,13 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/appro
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed`
 
 *This endpoint retrieves a list of a Worker's completed Tasks*
 
@@ -4615,37 +5681,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 <h3 id="apiweb.v3.dispatcher.workercontroller.completed-responses">Responses</h3>
 
-<h1 id="Yojee-APIs-[Dispatcher]-Docs">[Dispatcher] Docs</h1>
-
-## Dispatcher.ManifestController.generate_worker_manifest
-
-<a id="opIdApiWeb.V3.Dispatcher.ManifestController.generate_worker_manifest"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}`
-
-*This endpoint generates a Manifest for a Worker*
-
-<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|worker_id|query|integer|false|Worker ID|
-
-<h3 id="apiweb.v3.dispatcher.manifestcontroller.generate_worker_manifest-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Worker manifest to be downloaded.|None|
-|422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|none|None|
-
 <h1 id="Yojee-APIs-[Dispatcher]-Order">[Dispatcher] Order</h1>
 
 Dispatcher APIs for Order Management
@@ -4658,13 +5693,13 @@ Dispatcher APIs for Order Management
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/cancel \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}/cancel \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/cancel`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}/cancel`
 
 *This endpoint cancels an Order*
 
@@ -4690,7 +5725,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}/ca
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4698,7 +5733,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}`
 
 *This endpoint is used by a Dispatcher to update an Order*
 
@@ -4739,14 +5774,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}`
 
 *This endpoint retrieves information about an Order*
 
@@ -4776,7 +5811,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders/{number} \
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/orders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4784,7 +5819,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/orders`
 
 *This endpoint creates an Order*
 
@@ -4792,15 +5827,17 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders \
 
 ```json
 {
-  "vehicle_type_id": 0,
+  "steps": [
+    null
+  ],
+  "sender_type": "string",
   "sender_id": 0,
   "price_currency": "string",
   "price_amount": 0,
-  "placed_by_user_profile_id": 0,
-  "jobs": [
+  "items": [
     null
   ],
-  "items": [
+  "item_steps": [
     null
   ]
 }
@@ -4833,14 +5870,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/orders \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/orders`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders`
 
 *This endpoint retrieves a list of Orders*
 
@@ -4881,14 +5918,14 @@ Dispatcher APIs for OrderItem Management
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{number}/logs \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{number}/logs \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{number}/logs`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{number}/logs`
 
 *this endpoint is used by a Dispatcher to view the logs for a single order_item*
 
@@ -4918,13 +5955,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{numbe
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/cancel_multiple \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/cancel_multiple \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/cancel_multiple`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/cancel_multiple`
 
 *This endpoint is used by a Dispatcher to cancel one or many OrderItems*
 
@@ -4950,7 +5987,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/cancel
 
 ```shell
 
-curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
+curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4958,7 +5995,7 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}
 
 ```
 
-`PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}`
+`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id}`
 
 *This endpoint is used by a Dispatcher to update an OrderItem*
 
@@ -4977,19 +6014,19 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}
   "external_customer_id2": "changed_external_customer_id2",
   "external_customer_id": "changed_external_customer_id",
   "dropoff": {
-    "to_time": "2018-09-26T06:19:45.806650",
+    "to_time": "2018-12-12T08:56:23.831230",
     "state": "Singapore",
     "postal_code": "332211",
-    "lng": 103.7647132,
-    "lat": 1.4630478,
-    "from_time": "2018-09-25T22:19:45.806650",
+    "lng": 103.8469761,
+    "lat": 1.2880209,
+    "from_time": "2018-12-12T00:56:23.831230",
     "country": "Singapore",
     "contact_phone": "+6581551123",
     "contact_name": "vivek",
     "contact_email": "recipient@example.com",
     "contact_company": "Nike",
-    "address2": "50 Boon Keng Rd",
-    "address": "Boon Keng Rd"
+    "address2": "#04-01",
+    "address": "59 New Bridge Road"
   },
   "description": "Updated Gift"
 }
@@ -5022,14 +6059,14 @@ curl -X PATCH https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id}`
 
 *This endpoint retrieves information about an OrderItem*
 
@@ -5060,14 +6097,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items`
 
 *This endpoint retrieves a list of OrderItems*
 
@@ -5107,13 +6144,13 @@ Dispatcher APIs for Batch Management
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/download_sample?company_id=0&format=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/download_sample?company_id=0&format=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/download_sample`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/download_sample`
 
 *This endpoint downloads a sample batch file of a company*
 
@@ -5136,14 +6173,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/download_s
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/batches \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/batches \
   -H 'Content-Type: multipart/form-data' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/batches`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/batches`
 
 *This endpoint is used by a Dispatcher to upload a batch file*
 
@@ -5176,13 +6213,13 @@ file: string
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_status \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/check_status \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_status`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/check_status`
 
 *This endpoint checks the status of a Batch*
 
@@ -5196,6 +6233,55 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_stat
 
 <h3 id="apiweb.v3.dispatcher.batchcontroller.check_status-responses">Responses</h3>
 
+## Dispatcher.BatchController.continue
+
+<a id="opIdApiWeb.V3.Dispatcher.BatchController.continue"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/continue \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/continue`
+
+*This endpoint continues submiting a Batch regardless of being given missing info*
+
+> Body parameter
+
+```yaml
+file: string
+
+```
+
+<h3 id="apiweb.v3.dispatcher.batchcontroller.continue-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|query|integer|false|Batch Id|
+|external_id|query|integer|false|[optional] External id|
+|container_no|query|integer|false|[optional] Container no|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|object|false|none|
+|» file|body|string(binary)|false|The file to upload|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.batchcontroller.continue-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Batch in progress|[BatchContinueResponse](#schemabatchcontinueresponse)|
+
 ## Dispatcher.BatchController.get_order
 
 <a id="opIdApiWeb.V3.Dispatcher.BatchController.get_order"></a>
@@ -5204,13 +6290,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/check_stat
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/get_order \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/get_order`
 
 *This endpoint retrieves detailed information about a Batch*
 
@@ -5224,6 +6310,43 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/batches/get_order 
 
 <h3 id="apiweb.v3.dispatcher.batchcontroller.get_order-responses">Responses</h3>
 
+## Dispatcher.BatchController.cancel
+
+<a id="opIdApiWeb.V3.Dispatcher.BatchController.cancel"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/cancel \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/cancel`
+
+*This endpoint cancel a Batch*
+
+<h3 id="apiweb.v3.dispatcher.batchcontroller.cancel-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|query|integer|false|Batch Id|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.batchcontroller.cancel-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Batch cancelled|[BatchCancelledResponse](#schemabatchcancelledresponse)|
+
 <h1 id="Yojee-APIs-[Dispatcher]-TaskGroup">[Dispatcher] TaskGroup</h1>
 
 Dispatcher APIs for TaskGroup Management
@@ -5236,13 +6359,13 @@ Dispatcher APIs for TaskGroup Management
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks`
 
 *This endpoint list tasks of a company*
 
@@ -5259,9 +6382,15 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks?page=1&page_
 |task_states[]|query|array[any]|false|task states|
 |task_types[]|query|array[any]|false|task types|
 |show_reported_tasks|query|boolean|false|show reported task - absence means ignore `reported` trait|
+|cancelled|query|boolean|false|show cancelled task|
+|broadcasted|query|boolean|false|show broadcasted tasks|
+|accepted|query|boolean|false|show accepted tasks|
 |show_incomplete_info_order_step|query|boolean|false|show incomplete info order_step - absence means ignore `incomplete info` trait|
 |order_item_states[]|query|array[any]|false|order_item states|
 |order_number|query|string|false|order number|
+|order_item_tracking_number|query|string|false|order item tracking number|
+|us_partner_company_ids[]|query|array[integer]|false|array of upstream partner company ids|
+|ds_partner_company_ids[]|query|array[integer]|false|array of downstream partner company ids|
 |task_group_ids[]|query|array[integer]|false|array of task_group ids|
 |order_item_ids[]|query|array[integer]|false|array of order_item ids|
 |worker_ids[]|query|array[integer]|false|array of worker ids|
@@ -5270,6 +6399,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks?page=1&page_
 |geo_circle|query|string|false|geo_circle defined by lat,lon,radius in float|
 |region_ids[]|query|array[integer]|false|array of region ids|
 |sort_by|query|string|false|Sorting By|
+|service_type_keys[]|query|string|false|array of service types|
 |page|query|integer|true|Page number|
 |page_size|query|integer|true|Page size|
 
@@ -5278,9 +6408,7 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks?page=1&page_
 |Parameter|Value|
 |---|---|
 |task_group_states[]|unassigned|
-|task_group_states[]|broadcasted|
 |task_group_states[]|assigned|
-|task_group_states[]|accepted|
 |task_group_states[]|completed|
 |task_group_states[]|cancelled|
 |task_states[]|created|
@@ -5288,20 +6416,20 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks?page=1&page_
 |task_states[]|failed|
 |task_types[]|pickup|
 |task_types[]|dropoff|
-|order_item_states[]|not_yet_scheduled|
-|order_item_states[]|pending_transfer|
-|order_item_states[]|transferred|
-|order_item_states[]|scheduled_for_fulfilment|
-|order_item_states[]|in_transit|
-|order_item_states[]|out_for_delivery|
-|order_item_states[]|delivered|
-|order_item_states[]|dropped_from_schedule|
+|order_item_states[]|created|
+|order_item_states[]|processing|
+|order_item_states[]|completed|
+|order_item_states[]|cancelled|
 |sort_by|from_time|
 |sort_by|to_time|
 |sort_by|completion_time|
 |sort_by|task_group|
 |sort_by|order_item_inserted_at|
 |sort_by|sequence|
+|service_type_keys[]|same_day|
+|service_type_keys[]|next_day|
+|service_type_keys[]|express|
+|service_type_keys[]|custom|
 
 <h3 id="apiweb.v3.dispatcher.taskcontroller.index-responses">Responses</h3>
 
@@ -5313,13 +6441,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks?page=1&page_
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}`
 
 *This endpoint retrieves information about a TaskGroup*
 
@@ -5341,14 +6469,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassigned?page=1&page_size=25 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/unassigned?page=1&page_size=25 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassigned`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/unassigned`
 
 *This endpoint retrieves a list of unassigned TaskGroups*
 
@@ -5382,13 +6510,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/unassi
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign_multiple \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assign_multiple \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign_multiple`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assign_multiple`
 
 *This endpoint assigns multiple TaskGroups to a Worker*
 
@@ -5413,13 +6541,13 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}?type=string \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}?type=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}`
 
 *This endpoint retrieves detailed information for Items in a TaskGroup*
 
@@ -5443,14 +6571,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/s
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assigned?page=1&page_size=25 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assigned?page=1&page_size=25 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assigned`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assigned`
 
 *This endpoint retrieves a list of assigned TaskGroups*
 
@@ -5487,13 +6615,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/assign
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker`
 
 *This endpoint unassigns a TaskGroup from a Worker*
 
@@ -5515,13 +6643,13 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/u
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat`
 
 *This endpoint adds a Dispatcher to a chat group*
 
@@ -5543,13 +6671,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/j
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accepted \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/accepted \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accepted`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/accepted`
 
 *This endpoint retrieves a Worker's list of accepted TaskGroups*
 
@@ -5571,13 +6699,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/accept
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker`
 
 *This endpoint assigns a TaskGroup to a Worker*
 
@@ -5594,6 +6722,39 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{id}/a
 
 <h3 id="apiweb.v3.dispatcher.taskgroupcontroller.assign_worker-responses">Responses</h3>
 
+<h1 id="Yojee-APIs-[Dispatcher]-Addressbook">[Dispatcher] Addressbook</h1>
+
+## Dispatcher.AddressbookController.search
+
+<a id="opIdApiWeb.V3.Dispatcher.AddressbookController.search"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/addressbook/search?query=string&page=1&page_size=10 \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/addressbook/search`
+
+*This endpoint search address item of a company*
+
+<h3 id="apiweb.v3.dispatcher.addressbookcontroller.search-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|query|query|string|true|external_id/contact/address text query|
+|category|query|string|false|category of address item|
+|page|query|integer|true|Page number|
+|page_size|query|integer|true|Page size|
+
+<h3 id="apiweb.v3.dispatcher.addressbookcontroller.search-responses">Responses</h3>
+
 <h1 id="Yojee-APIs-[Dispatcher]-Task">[Dispatcher] Task</h1>
 
 Dispatcher APIs for Task Management
@@ -5606,13 +6767,13 @@ Dispatcher APIs for Task Management
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id} \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id}`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id}`
 
 *This endpoint updates a Task's details*
 
@@ -5627,6 +6788,47 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_
 
 <h3 id="apiweb.v3.dispatcher.taskcontroller.update-responses">Responses</h3>
 
+## Dispatcher.TaskController.bulk_complete
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskController.bulk_complete"></a>
+
+> Code samples
+
+```shell
+
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/bulk_complete \
+  -H 'Content-Type: application/json' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/bulk_complete`
+
+*this endpoint is used by a dispatcher to complete multiple tasks*
+
+> Body parameter
+
+```json
+{
+  "task_ids": [
+    1,
+    2,
+    3
+  ]
+}
+```
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.bulk_complete-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[BulkTaskCompletionRequestByDispatcher](#schemabulktaskcompletionrequestbydispatcher)|false|Task Completion information|
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.bulk_complete-responses">Responses</h3>
+
 ## Dispatcher.AllocationController.allocate
 
 <a id="opIdApiWeb.V3.Dispatcher.AllocationController.allocate"></a>
@@ -5635,14 +6837,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks/allocate \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/allocate \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks/allocate`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/allocate`
 
 *This endpoint assigns a tasks from planner to a recommended worker*
 
@@ -5745,6 +6947,43 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks/allocate \
 
 <h3 id="apiweb.v3.dispatcher.allocationcontroller.allocate-responses">Responses</h3>
 
+## Dispatcher.TaskController.batch_complete_status
+
+<a id="opIdApiWeb.V3.Dispatcher.TaskController.batch_complete_status"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/batches/{id}/status \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/batches/{id}/status`
+
+*This endpoint checks the status of all Tasks in a Batch*
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.batch_complete_status-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|id|path|string|true|Batch ID|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.taskcontroller.batch_complete_status-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[BulkCompletionStatus](#schemabulkcompletionstatus)|
+
 ## Dispatcher.TaskController.delete_task_exception
 
 <a id="opIdApiWeb.V3.Dispatcher.TaskController.delete_task_exception"></a>
@@ -5753,13 +6992,13 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/tasks/allocate \
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception`
 
 *This endpoint deletes a TaskException associated with a Task*
 
@@ -5786,14 +7025,14 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{ta
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed`
 
 *This endpoint marks a Task as failed by creating an associated TaskException*
 
@@ -5827,13 +7066,13 @@ null
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete`
 
 *This endpoint marks a Task as completed by a Dispatcher*
 
@@ -5864,14 +7103,14 @@ Dispatcher APIs for TaskExceptionReason Management
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons/{id}`
 
 *This endpoint deletes a TaskExceptionReason*
 
@@ -5901,7 +7140,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5909,7 +7148,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_re
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons`
 
 *This endpoint creates a new TaskExceptionReason*
 
@@ -5948,14 +7187,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_re
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_reasons`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons`
 
 *This endpoint retrieves all TaskExceptionReasons for a Company*
 
@@ -5976,7 +7215,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/task_exception_rea
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[TaskExceptionReasonsResponse](#schemataskexceptionreasonsresponse)|
 
-
 <h1 id="Yojee-APIs-[Dispatcher]-SubTask">[Dispatcher] SubTask</h1>
 
 Dispatcher APIs for SubTask Management
@@ -5989,14 +7227,14 @@ Dispatcher APIs for SubTask Management
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks`
 
 *This endpoint retrieves a list of SubTasks for an OrderItem*
 
@@ -6026,14 +7264,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id}`
 
 *This endpoint retrieves information about a SubTask*
 
@@ -6056,7 +7294,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/order_items/{order
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got sub task|[DispatcherRuleResponse](#schemadispatcherruleresponse)|
 
-
 <h1 id="Yojee-APIs-[Dispatcher]-SubTaskRule">[Dispatcher] SubTaskRule</h1>
 
 Dispatcher APIs for SubTaskRule Management
@@ -6069,7 +7306,7 @@ Dispatcher APIs for SubTaskRule Management
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -6077,7 +7314,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
 
 *This endpoint updates a SubTaskRule*
 
@@ -6122,14 +7359,14 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
 
 *This endpoint retrieves information about a SubTaskRule*
 
@@ -6159,13 +7396,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
 
 *This endpoint marks a SubTaskRule as invalidated*
 
@@ -6191,7 +7428,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules/
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -6199,7 +7436,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules`
 
 *This endpoint creates a new SubTaskRule*
 
@@ -6243,14 +7480,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules?page=1&page_size=10 \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules`
 
 *This endpoint retrieves a list of SubTaskRules*
 
@@ -6283,14 +7520,14 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/sub_task_rules?pag
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/:id \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/:id \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/:id`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/:id`
 
 *This endpoint retrieves a setting belonging to a Company*
 
@@ -6320,13 +7557,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/:id \
 
 ```shell
 
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/plan_settings/{id} \
+curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plan_settings/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/plan_settings/{id}`
+`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plan_settings/{id}`
 
 *This endpoint deletes a setting*
 
@@ -6352,7 +7589,7 @@ curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/plan_settings/{
 
 ```shell
 
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/{id} \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -6360,7 +7597,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/{id} \
 
 ```
 
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/{id}`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/{id}`
 
 *This endpoint updates a Dispatcher's information*
 
@@ -6402,7 +7639,7 @@ curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/settings/{id} \
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/settings \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/settings \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -6410,7 +7647,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/settings \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/settings`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/settings`
 
 *This endpoint creates a new Dispatcher*
 
@@ -6451,14 +7688,14 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/settings \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings`
 
 *This endpoint retrieves a list of settings belonging to a Company*
 
@@ -6479,204 +7716,6 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/settings \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company settings|[DispatcherIndexSettingResponse](#schemadispatcherindexsettingresponse)|
 
-<h1 id="Yojee-APIs-[Dispatcher]-Partner-Transfer-Order">[Dispatcher] Partner Transfer Order</h1>
-
-## Dispatcher.PartnerTransferController.cancel_transfer
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.cancel_transfer"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number}`
-
-*This endpoint is used to cancel a Transfer Order*
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.cancel_transfer-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|order_number|path|string|true|Order number|
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.cancel_transfer-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order canceled successfully|None|
-
-## Dispatcher.PartnerTransferController.reject_transfer
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.reject_transfer"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number}`
-
-*This endpoint is used to reject a Transfer Order*
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.reject_transfer-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|order_number|path|string|true|Order number|
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.reject_transfer-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order rejected successfully|None|
-
-## Dispatcher.PartnerTransferController.create_transfer
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.create_transfer"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order`
-
-*This endpoint is used to create a Transfer Order*
-
-> Body parameter
-
-```json
-{
-  "tracking_numbers": [
-    "YOJ-NHLZA0V3PT0"
-  ],
-  "price_currency": "USD",
-  "price_amount": "1.00",
-  "partner_cip": "CIP-RTNKAUJLQ3LWRGRA"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.create_transfer-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherPartnerTransferCreate](#schemadispatcherpartnertransfercreate)|false|Transfer Order Information|
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.create_transfer-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order created successfully|None|
-
-## Dispatcher.PartnerTransferController.accept_transfer
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.accept_transfer"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number}`
-
-*This endpoint is used to accept a Transfer Order*
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.accept_transfer-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|order_number|path|string|true|Order number|
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.accept_transfer-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transfer Order accepted successfully|None|
-
-## Dispatcher.PartnerTransferController.order_items
-
-<a id="opIdApiWeb.V3.Dispatcher.PartnerTransferController.order_items"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/sender/order_items?from=string&to=string&page=1&page_size=10 \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/partner_transfer/sender/order_items`
-
-*This endpoint list transfer order_items of a company*
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.order_items-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|from|query|string|true|from datetime in ISO8601 format|
-|to|query|string|true|to datetime in ISO8601 format|
-|order_item_states[]|query|array[any]|false|order_item states|
-|order_item_ids[]|query|array[integer]|false|array of order_item ids|
-|partner_company_ids[]|query|array[integer]|false|array of partner company_ids|
-|geo_circle|query|string|false|geo_circle defined by lat,lon,radius in float|
-|sort_by|query|string|false|Sorting By|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|order_item_states[]|not_yet_scheduled|
-|order_item_states[]|pending_transfer|
-|order_item_states[]|transferred|
-|order_item_states[]|scheduled_for_fulfilment|
-|order_item_states[]|in_transit|
-|order_item_states[]|out_for_delivery|
-|order_item_states[]|delivered|
-|order_item_states[]|dropped_from_schedule|
-|sort_by|from_time|
-|sort_by|to_time|
-|sort_by|task_group|
-|sort_by|order_item_inserted_at|
-|sort_by|partner|
-
-<h3 id="apiweb.v3.dispatcher.partnertransfercontroller.order_items-responses">Responses</h3>
-
 <h1 id="Yojee-APIs-[Dispatcher]-Broadcast">[Dispatcher] Broadcast</h1>
 
 Broadcast management
@@ -6689,7 +7728,7 @@ Broadcast management
 
 ```shell
 
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/broadcasts \
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/broadcasts \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -6697,7 +7736,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/broadcasts \
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/broadcasts`
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/broadcasts`
 
 *This endpoint creates a Broadcast for a TaskGroup*
 
@@ -6733,438 +7772,88 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/broadcasts \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[BroadcastResponse](#schemabroadcastresponse)|
 
-## Dispatcher.DispatcherController.sender_admins
-
-<a id="opIdApiWeb.V3.Dispatcher.DispatcherController.sender_admins"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/dispatchers/senders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/dispatchers/senders`
-
-*This endpoint retrieves a list of Sender Admins and the Organisations they manage*
-
-<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.dispatchercontroller.sender_admins-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherSenderAdminsRequest](#schemadispatchersenderadminsrequest)|
-
-## Dispatcher.OrganisationController.organisation_senders
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.organisation_senders"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisation_senders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisation_senders`
-
-*This endpoint retrieves a list of Organisation Senders*
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.organisation_senders-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
-
-## Dispatcher.OrganisationController.create_corporate_sender
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create_corporate_sender"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
-
-*This endpoint creates a new Corporate User*
-
-> Body parameter
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "name": "Ralston",
-  "email": "secondary_account@abc.com",
-  "billing_address": "77 Robinson road, Singapore."
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Organisation ID|
-|body|body|[DispatcherCreateCorporateSenderRequest](#schemadispatchercreatecorporatesenderrequest)|false|Corporate Sender information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create_corporate_sender-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateCorporateSenderResponse](#schemadispatchercreatecorporatesenderresponse)|
-
-## Dispatcher.OrganisationController.corporate_senders
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.corporate_senders"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
-
-*This endpoint retrieves a list of Corporate Users*
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Organisation ID|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.corporate_senders-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCorporateSendersResponse](#schemadispatchercorporatesendersresponse)|
-
-## Dispatcher.OrganisationController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations`
-
-*This endpoint creates a new corporate*
-
-> Body parameter
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "payment_option": "monthly_billing",
-  "organisation": {
-    "reg_address": "77 Robinson road, Singapore.",
-    "postal_code": "321021",
-    "phone": "+6591245934",
-    "name": "ABC",
-    "country": "Singapore",
-    "city": "Singapore"
-  },
-  "name": "Ralston",
-  "gst_no": "2AS9890",
-  "email": "primary_account@abc.com",
-  "business_reg_no": "ABC1235M",
-  "billing_address": "77 Robinson road, Singapore."
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCreateOrganisationRequest](#schemadispatchercreateorganisationrequest)|false|Organisation information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherCreateOrganisationResponse](#schemadispatchercreateorganisationresponse)|
-
-## Dispatcher.OrganisationController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations?page=1&page_size=10 \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations`
-
-*This endpoint retrieves a list of Corporates (aka Organisations) managed by a Dispatcher*
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|page|query|integer|true|Page number|
-|page_size|query|integer|true|Page size|
-|q|query|string|false|search by name|
-|with_users|query|boolean|false|include users or not|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationsResponse](#schemadispatcherorganisationsresponse)|
-
-## Dispatcher.OrganisationController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}`
-
-*This endpoint updates a Corporate*
-
-> Body parameter
-
-```json
-{
-  "user_profiles": [
-    {
-      "user_profile_id": 1,
-      "phone": "Sender Phone",
-      "name": "Sender Name",
-      "email": "sender-email@example.com"
-    },
-    {
-      "user_profile_id": 2,
-      "phone": "+6533445566",
-      "name": "Corporate User 2",
-      "email": "corporate-user-2@example.com"
-    }
-  ],
-  "sender": {
-    "user_profile_id": 1,
-    "phone": "Sender Phone",
-    "name": "Sender Name",
-    "email": "sender-email@example.com",
-    "billing_address": "Sender billing address"
-  },
-  "reg_address": "77 Robinson road, Singapore.",
-  "postal_code": "321021",
-  "phone": "+6591240934",
-  "name": "FEDEX",
-  "id": 3,
-  "country": "Singapore",
-  "city": "Singapore"
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Organisation ID|
-|body|body|[DispatcherUpdateOrganisationRequest](#schemadispatcherupdateorganisationrequest)|false|Organisation information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationResponse](#schemadispatcherorganisationresponse)|
-
-## Dispatcher.OrganisationController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.OrganisationController.show"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id} \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/organisations/{id}`
-
-*This endpoint retrieves information about an Corporate (aka Organisation)*
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Organisation ID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.organisationcontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherOrganisationResponse](#schemadispatcherorganisationresponse)|
-
-<h1 id="Yojee-APIs-[Dispatcher]-Role">[Dispatcher] Role</h1>
-
-Dispatcher APIs for Role Management
-
-## Dispatcher.RoleController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.RoleController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
-  -H 'Content-Type: application/json' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/roles`
-
-*This endpoint creates a new Role*
-
-> Body parameter
-
-```json
-{
-  "name": "role_1",
-  "company_id": 123,
-  "access_map": {
-    "sender": {
-      "add": true
-    }
-  }
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.rolecontroller.create-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCreateRoleRequest](#schemadispatchercreaterolerequest)|false|Role information|
-
-<h3 id="apiweb.v3.dispatcher.rolecontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-
 <h1 id="Yojee-APIs-[Dispatcher]-Chat">[Dispatcher] Chat</h1>
+
+## Dispatcher.ChatController.worker_channel
+
+<a id="opIdApiWeb.V3.Dispatcher.ChatController.worker_channel"></a>
+
+> Code samples
+
+```shell
+
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id} \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id}`
+
+*This endpoint returns list of worker channels*
+
+<h3 id="apiweb.v3.dispatcher.chatcontroller.worker_channel-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|worker_id|path|integer|true|Worker ID|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.chatcontroller.worker_channel-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherChatMessagesResponse](#schemadispatcherchatmessagesresponse)|
+
+## Dispatcher.ChatController.send_message
+
+<a id="opIdApiWeb.V3.Dispatcher.ChatController.send_message"></a>
+
+> Code samples
+
+```shell
+
+curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/send_message \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'ACCESS_TOKEN: string' \
+  -H 'COMPANY_SLUG: string'
+
+```
+
+`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/send_message`
+
+*Dispatcher sends message*
+
+> Body parameter
+
+```json
+null
+```
+
+<h3 id="apiweb.v3.dispatcher.chatcontroller.send_message-parameters">Parameters</h3>
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|ACCESS_TOKEN|header|string|true|access token|
+|COMPANY_SLUG|header|string|true|company slug|
+|body|body|[ApiWeb.V3.Dispatcher.ChatController.send_messageMessage](#schemaapiweb.v3.dispatcher.chatcontroller.send_messagemessage)|false|Text Message|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="apiweb.v3.dispatcher.chatcontroller.send_message-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[DispatcherChatMessageResponse](#schemadispatcherchatmessageresponse)|
 
 ## Dispatcher.ChatController.channel
 
@@ -7174,13 +7863,13 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/roles \
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channel/{channel_id} \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel/{channel_id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channel/{channel_id}`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel/{channel_id}`
 
 *This endpoint return channel information*
 
@@ -7203,13 +7892,13 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channel/{chan
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channels \
+curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channels \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channels`
+`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channels`
 
 *This endpoint returns list of dispatcher channels*
 
@@ -7222,292 +7911,130 @@ curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/chat/channels \
 
 <h3 id="apiweb.v3.dispatcher.chatcontroller.channels-responses">Responses</h3>
 
-<h1 id="Yojee-APIs-[Dispatcher]-Plan">[Dispatcher] Plan</h1>
+## Dispatcher.ChatController.update
 
-## Dispatcher.PlanController.show
-
-<a id="opIdApiWeb.V3.Dispatcher.PlanController.show"></a>
+<a id="opIdApiWeb.V3.Dispatcher.ChatController.update"></a>
 
 > Code samples
 
 ```shell
 
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/:id \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/:id`
-
-*This endpoint retrieves a plan belonging to a Company*
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.show-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|string|true|Plan UUID|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.show-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company plans|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
-
-## Dispatcher.PlanController.create
-
-<a id="opIdApiWeb.V3.Dispatcher.PlanController.create"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/plans \
+curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel \
   -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/plans`
+`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel`
 
-*This endpoint creates a new plan*
+*This endpoint returns update worker channel data*
 
 > Body parameter
 
 ```json
-{
-  "uuid": "123456789",
-  "settings": {
-    "sample settings": "sample value"
-  },
-  "output": {
-    "sample output": "sample value"
-  },
-  "input": {
-    "sample input": "sample value"
-  }
-}
+null
 ```
 
-<h3 id="apiweb.v3.dispatcher.plancontroller.create-parameters">Parameters</h3>
+<h3 id="apiweb.v3.dispatcher.chatcontroller.update-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |ACCESS_TOKEN|header|string|true|access token|
 |COMPANY_SLUG|header|string|true|company slug|
-|body|body|[DispatcherCreatePlanRequest](#schemadispatchercreateplanrequest)|false|Company plan information|
+|body|body|any|false|Last read on date in ISO8601 format|
 
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Created the company plan|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
-
-## Dispatcher.PlanController.index
-
-<a id="opIdApiWeb.V3.Dispatcher.PlanController.index"></a>
-
-> Code samples
-
-```shell
-
-curl -X GET https://umbrella-demo.yojee.com/api/v3/dispatcher/plans \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`GET https://umbrella-demo.yojee.com/api/v3/dispatcher/plans`
-
-*This endpoint retrieves a list of plans belonging to a Company*
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.index-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|date|path|string|true|Filter date|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.index-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Got list of company plans|[DispatcherIndexPlanResponse](#schemadispatcherindexplanresponse)|
-
-## Dispatcher.PlanController.update
-
-<a id="opIdApiWeb.V3.Dispatcher.PlanController.update"></a>
-
-> Code samples
-
-```shell
-
-curl -X PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`PUT https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/{id}`
-
-*This endpoint updates a plan*
-
-> Body parameter
-
-```json
-{
-  "uuid": "123456789",
-  "settings": {
-    "sample settings": "sample value"
-  },
-  "output": {
-    "sample output": "sample value"
-  },
-  "input": {
-    "sample input": "sample value"
-  }
-}
-```
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.update-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Plan UUID|
-|body|body|[DispatcherUpdatePlanRequest](#schemadispatcherupdateplanrequest)|false|Company plan information|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.update-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Updated the company plan|[DispatcherPlanResponse](#schemadispatcherplanresponse)|
-
-## Dispatcher.PlanController.delete
-
-<a id="opIdApiWeb.V3.Dispatcher.PlanController.delete"></a>
-
-> Code samples
-
-```shell
-
-curl -X DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/{id} \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`DELETE https://umbrella-demo.yojee.com/api/v3/dispatcher/plans/{id}`
-
-*This endpoint deletes a plan*
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.delete-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-|id|path|integer|true|Plan UUID|
-
-<h3 id="apiweb.v3.dispatcher.plancontroller.delete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-
-<h1 id="Yojee-APIs-[Dispatcher]-Jwt">[Dispatcher] Jwt</h1>
-
-## Dispatcher.JwtController.issue_token
-
-<a id="opIdApiWeb.V3.Dispatcher.JwtController.issue_token"></a>
-
-> Code samples
-
-```shell
-
-curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
-  -H 'Accept: */*' \
-  -H 'ACCESS_TOKEN: string' \
-  -H 'COMPANY_SLUG: string'
-
-```
-
-`POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt`
-
-*this endpoint issues a jwt token that expires in two hours*
-
-<h3 id="apiweb.v3.dispatcher.jwtcontroller.issue_token-parameters">Parameters</h3>
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|ACCESS_TOKEN|header|string|true|access token|
-|COMPANY_SLUG|header|string|true|company slug|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="apiweb.v3.dispatcher.jwtcontroller.issue_token-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|returns generated JWT based on current dispatcher|[JwtIssueResponse](#schemajwtissueresponse)|
+<h3 id="apiweb.v3.dispatcher.chatcontroller.update-responses">Responses</h3>
 
 # Schemas
 
-<h2 id="tocSbroadcastrequest">BroadcastRequest</h2>
+<h2 id="tocSworkerresponse">WorkerResponse</h2>
 
-<a id="schemabroadcastrequest"></a>
+<a id="schemaworkerresponse"></a>
 
 ```json
 {
-  "timeout_in_minutes": 20,
-  "task_group_ids": [
-    1,
-    2
-  ],
-  "price_currency": "SGD",
-  "price_amount": 500
+  "status": "on_duty",
+  "id": 1,
+  "avatar": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg"
 }
 
 ```
 
-*Broadcast Request*
+*Worker Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|timeout_in_minutes|integer|false|none|none|
-|task_group_ids|[any]|false|none|none|
-|price_currency|string|false|none|none|
-|price_amount|integer|false|none|none|
+|status|string|false|none|none|
+|id|integer|false|none|none|
+|avatar|string|false|none|none|
+
+<h2 id="tocSworkerchatmessagesresponse">WorkerChatMessagesResponse</h2>
+
+<a id="schemaworkerchatmessagesresponse"></a>
+
+```json
+{
+  "data": {
+    "messages": [
+      {
+        "user_profile": {
+          "user_profile_id": 299,
+          "name": "Demond Terry"
+        },
+        "inserted_at": "2018-10-23T07:57:27.538169Z",
+        "incoming": false,
+        "id": 133,
+        "created_at": "2018-10-23T07:56:00.0Z",
+        "content": {
+          "type": "image",
+          "text": "it has value if it is not attachment and it's type is 'text'",
+          "attachment": {
+            "thumbnail": "https://s3-ap-southeast-1.amazonaws.com/thumbnail_signature.png",
+            "original": "https://s3-ap-southeast-1.amazonaws.com/original_signature.png"
+          }
+        }
+      }
+    ],
+    "channel": {
+      "members": [],
+      "id": 154
+    }
+  }
+}
+
+```
+
+*Chat Messages Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSmapsautocompleterequest">MapsAutoCompleteRequest</h2>
+
+<a id="schemamapsautocompleterequest"></a>
+
+```json
+{
+  "query": "1 Anson Rd, Singapore",
+  "country_iso": "sg"
+}
+
+```
+
+*POST body for address autocomplete*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|query|string|true|none|Address|
+|country_iso|string|false|none|Country ISO code|
 
 <h2 id="tocSdispatcherrulesresponse">DispatcherRulesResponse</h2>
 
@@ -7544,190 +8071,34 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|[any]|false|none|none|
 
-<h2 id="tocSversionrequest">VersionRequest</h2>
+<h2 id="tocSmapsautocompleteresponse">MapsAutoCompleteResponse</h2>
 
-<a id="schemaversionrequest"></a>
-
-```json
-{
-  "current_installed_version": 500
-}
-
-```
-
-*Check if app update is required*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|current_installed_version|integer|false|none|none|
-
-<h2 id="tocSdispatchercreatecorporatesenderresponse">DispatcherCreateCorporateSenderResponse</h2>
-
-<a id="schemadispatchercreatecorporatesenderresponse"></a>
+<a id="schemamapsautocompleteresponse"></a>
 
 ```json
 {
   "data": {
-    "phone": "+6598765432",
-    "email": "bob@mail.com",
-    "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+    "name": "1 Anson Rd",
+    "lng": 103.8462451,
+    "lat": 1.2754876,
+    "address": "1 Anson Rd, Singapore"
   }
 }
 
 ```
 
-*Corporate Sender Response*
+*Response schema for address autocomplete*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|message|string|false|none|none|
 |data|object|false|none|none|
 
-<h2 id="tocSdispatcherupdatecorporatesenderrequest">DispatcherUpdateCorporateSenderRequest</h2>
+<h2 id="tocStasksresponse">TasksResponse</h2>
 
-<a id="schemadispatcherupdatecorporatesenderrequest"></a>
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "name": "Ralston",
-  "email": "secondary_account@abc.com",
-  "billing_address": "77 Robinson road, Singapore."
-}
-
-```
-
-*Corporate Sender Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSdispatcherupdatesenderrequest">DispatcherUpdateSenderRequest</h2>
-
-<a id="schemadispatcherupdatesenderrequest"></a>
-
-```json
-{
-  "phone": "+8412345611",
-  "name": "Mike Sender",
-  "email": "michael@yojee.com",
-  "billing_address": "144 Robinson Road"
-}
-
-```
-
-*Sender Update Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|phone|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSdispatchercorporatesendersresponse">DispatcherCorporateSendersResponse</h2>
-
-<a id="schemadispatchercorporatesendersresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "user_profile_id": 1,
-      "name": "ABC"
-    }
-  ]
-}
-
-```
-
-*Corporate Senders Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSorderitemsupdaterequest">OrderItemsUpdateRequest</h2>
-
-<a id="schemaorderitemsupdaterequest"></a>
-
-```json
-{
-  "width": 2,
-  "weight": 2,
-  "service_type": "same_day",
-  "payload_type": "Updated document",
-  "length": 2,
-  "info": "info_test",
-  "height": 2,
-  "external_customer_id3": "changed_external_customer_id3",
-  "external_customer_id2": "changed_external_customer_id2",
-  "external_customer_id": "changed_external_customer_id",
-  "dropoff": {
-    "to_time": "2018-09-26T06:19:45.806650",
-    "state": "Singapore",
-    "postal_code": "332211",
-    "lng": 103.7647132,
-    "lat": 1.4630478,
-    "from_time": "2018-09-25T22:19:45.806650",
-    "country": "Singapore",
-    "contact_phone": "+6581551123",
-    "contact_name": "vivek",
-    "contact_email": "recipient@example.com",
-    "contact_company": "Nike",
-    "address2": "50 Boon Keng Rd",
-    "address": "Boon Keng Rd"
-  },
-  "description": "Updated Gift"
-}
-
-```
-
-*Order Item Update Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|width|integer|false|none|none|
-|weight|integer|false|none|none|
-|service_type|string|false|none|none|
-|payload_type|string|false|none|none|
-|length|integer|false|none|none|
-|info|string|false|none|none|
-|height|integer|false|none|none|
-|external_customer_id3|string|false|none|none|
-|external_customer_id2|string|false|none|none|
-|external_customer_id|string|false|none|none|
-|dropoff|object|false|none|none|
-|description|string|false|none|none|
-
-<h2 id="tocSdispatchersenderadminsrequest">DispatcherSenderAdminsRequest</h2>
-
-<a id="schemadispatchersenderadminsrequest"></a>
+<a id="schematasksresponse"></a>
 
 ```json
 {
@@ -7739,492 +8110,101 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
   },
   "data": [
     {
-      "title": "Software Engineer",
-      "organisations": [
-        {
-          "slug": "yojee",
-          "reg_address": "144 Robinson Road",
-          "postal_code": "068908",
-          "phone": "+6591245934",
-          "name": "Organisation 1",
-          "id": 1,
-          "country": "Singapore",
-          "city": "Singapore"
-        },
-        {
-          "slug": "yojee",
-          "postal_code": "068908",
-          "phone": "+6591245936",
-          "name": "Organisation 2",
-          "id": 2,
-          "country": "Singapore",
-          "city": "Singapore"
-        }
-      ],
-      "name": "Ralston",
-      "id": 1
-    },
-    {
-      "title": "Account Manager",
-      "organisations": [
-        {
-          "slug": "yojee",
-          "reg_address": "St George's Rd",
-          "postal_code": "068908",
-          "phone": "+6591245736",
-          "name": "Organisation 3",
-          "id": 2,
-          "country": "Singapore",
-          "city": "Singapore"
-        }
-      ],
-      "name": "Sam",
-      "id": 16
-    }
-  ]
-}
-
-```
-
-*Sender Admins Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSstatisticsresponse">StatisticsResponse</h2>
-
-<a id="schemastatisticsresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "tasks": {
-        "failed": 0,
-        "completed": 1,
-        "assigned": 0,
-        "accepted": 1
+      "type": "pickup",
+      "to": "2018-03-22T16:14:06.000000Z",
+      "task_group_id": 2353,
+      "sub_tasks": {},
+      "state": "failed",
+      "start_time": "2018-03-22T16:14:06.000000Z",
+      "service_type": "sameday",
+      "postal_code": "12345",
+      "position": 0,
+      "order_item_tracking_number": "YOJ-UUXOUKPNPT0",
+      "order_item_id": 303,
+      "lng": 106.6913373,
+      "lat": 10.785092,
+      "item": {
+        "width": 1,
+        "weight": 1,
+        "volumetric_weight": 10,
+        "volume": 200,
+        "length": 1,
+        "height": 1,
+        "global_tracking_number": "YOJ-UUXOUKPNPT0"
       },
-      "income": "10.00",
-      "date": "2018-03-31"
+      "id": 551,
+      "from": "2018-03-22T15:14:06.000000Z",
+      "external_id": "12345",
+      "external_customer_id3": "10644",
+      "external_customer_id2": "5854977",
+      "external_customer_id": "415454",
+      "description": "Gift",
+      "country": "Singapore",
+      "container_no": "123",
+      "contact": {
+        "phone": "+6581551123",
+        "name": "jens"
+      },
+      "completion_time": "2018-03-22T16:14:06.000000Z",
+      "address_state": "State",
+      "address2": "Address 2",
+      "address": "40 Pham Ngoc Thach P6, Q3, HCM 1",
+      "additional_info": "info"
     }
   ]
 }
 
 ```
 
-*Statistics Response*
+*Tasks response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|pagination|object|false|none|none|
 |data|[any]|false|none|none|
 
-<h2 id="tocSgetpricesrequest">GetPricesRequest</h2>
+<h2 id="tocSdispatcherorderresponse">DispatcherOrderResponse</h2>
 
-<a id="schemagetpricesrequest"></a>
-
-```json
-{
-  "to_address": {
-    "zipcode": "189703",
-    "location": "1.2976764,103.85701760000006",
-    "lng": "103.85701760000006",
-    "lat": "1.2976764",
-    "country": "Singpore"
-  },
-  "slug": "yojee",
-  "item": {
-    "weight": 4
-  },
-  "from_address": {
-    "zipcode": "068896",
-    "location": "1.2777689,103.84839149999993",
-    "lng": "103.84839149999993",
-    "lat": "1.2777689",
-    "country": "Singpore"
-  }
-}
-
-```
-
-*Get the price estimate*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|to_address|[OrderAddress](#schemaorderaddress)|false|none|none|
-|slug|string|false|none|yojee|
-|item|[OrderItem](#schemaorderitem)|false|none|none|
-|from_address|[OrderAddress](#schemaorderaddress)|false|none|none|
-
-<h2 id="tocSdispatcherpartnercreate">DispatcherPartnerCreate</h2>
-
-<a id="schemadispatcherpartnercreate"></a>
-
-```json
-{
-  "postal_code": "321021",
-  "partnership_type": "downstream",
-  "country": "Singapore",
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com",
-  "company_name": "XYZ",
-  "city": "Singapore",
-  "address": "77 Robinson road, Singapore."
-}
-
-```
-
-*Partner Create Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|state|string|true|none|State|
-|postal_code|number|true|none|Postal code|
-|partnership_type|string|true|none|Partnership type|
-|contact_phone|string|true|none|Phone number|
-|contact_name|string|true|none|Contact name|
-|contact_email|string|true|none|Email|
-|company_name|string|true|none|Company name|
-|address|string|true|none|Registration address|
-
-<h2 id="tocSdispatchercreateroleresponse">DispatcherCreateRoleResponse</h2>
-
-<a id="schemadispatchercreateroleresponse"></a>
+<a id="schemadispatcherorderresponse"></a>
 
 ```json
 {
   "data": {
-    "name": "role_1",
-    "inserted_at": "2018-09-25 06:19:45.820643Z",
-    "company_id": 123,
-    "access_map": {
-      "sender": {
-        "add": true
-      }
-    }
-  }
-}
-
-```
-
-*Role Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSorderitemsindexresponse">OrderItemsIndexResponse</h2>
-
-<a id="schemaorderitemsindexresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "weight": 20,
-      "volume": 300,
-      "tracking_number": "yoyoyoyo",
-      "to_address": "Airport Blvd, Changi Airport Singapore (SIN), Singapore",
-      "status": "assigned",
-      "service_type": "same_day",
-      "sender_phone": "+6590050680",
-      "sender_name": "champ",
-      "receipient_phone": "+6598765432",
-      "receipient_name": "test2",
-      "order_number": "order_number",
-      "order_id": 1,
-      "item_number": 2,
-      "id": 7,
-      "from_address": "144 Robinson Road, Level 15, Singapore 068908",
-      "description": "Gifts",
-      "created_at": "2018-03-08T14:58:24.280533"
-    }
-  ]
-}
-
-```
-
-*OrderItem index Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocScompletionlocation">CompletionLocation</h2>
-
-<a id="schemacompletionlocation"></a>
-
-```json
-{
-  "location": {
-    "lng": 122.64,
-    "lat": 65.676
-  }
-}
-
-```
-
-*Task Completion Location Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|location|object|false|none|none|
-
-<h2 id="tocSdispatcherpartnertransfercreate">DispatcherPartnerTransferCreate</h2>
-
-<a id="schemadispatcherpartnertransfercreate"></a>
-
-```json
-{
-  "tracking_numbers": [
-    "YOJ-NHLZA0V3PT0"
-  ],
-  "price_currency": "USD",
-  "price_amount": "1.00",
-  "partner_cip": "CIP-RTNKAUJLQ3LWRGRA"
-}
-
-```
-
-*Partner Transfer Order Create Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|state|string|true|none|State|
-|postal_code|number|true|none|Postal code|
-|partnership_type|string|true|none|Partnership type|
-|contact_phone|string|true|none|Phone number|
-|contact_name|string|true|none|Contact name|
-|contact_email|string|true|none|Email|
-|company_name|string|true|none|Company name|
-|address|string|true|none|Registration address|
-
-<h2 id="tocSdispatchercreatecorporatesenderrequest">DispatcherCreateCorporateSenderRequest</h2>
-
-<a id="schemadispatchercreatecorporatesenderrequest"></a>
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "name": "Ralston",
-  "email": "secondary_account@abc.com",
-  "billing_address": "77 Robinson road, Singapore."
-}
-
-```
-
-*Corporate Sender Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSbulktaskcompletionrequest">BulkTaskCompletionRequest</h2>
-
-<a id="schemabulktaskcompletionrequest"></a>
-
-```json
-{
-  "type": "pickup",
-  "tracking_numbers": [
-    "YOJ-YXFCYNNRPT0",
-    "YOJ-YXFCYNNRPT8",
-    "YOJ-YXFCYNNRPT0"
-  ],
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  },
-  "completion_time": "2018-03-10T03:37:08Z"
-}
-
-```
-
-*Task Completion Bulk Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|type|string|false|none|none|
-|tracking_numbers|[any]|false|none|none|
-|location|object|false|none|none|
-|completion_time|string|false|none|none|
-
-<h2 id="tocStaskexceptionreasonsresponse">TaskExceptionReasonsResponse</h2>
-
-<a id="schemataskexceptionreasonsresponse"></a>
-
-```json
-{
-  "message": "Got company task exception reasons",
-  "data": [
-    {
-      "description": "Sender not available",
-      "company_id": 1
-    }
-  ]
-}
-
-```
-
-*Task Exception Reasons Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatchercreaterolerequest">DispatcherCreateRoleRequest</h2>
-
-<a id="schemadispatchercreaterolerequest"></a>
-
-```json
-{
-  "name": "role_1",
-  "company_id": 123,
-  "access_map": {
-    "sender": {
-      "add": true
-    }
-  }
-}
-
-```
-
-*POST body for creating new role*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|name|string|false|none|Role name|
-|company_id|integer|false|none|Company ID|
-|access_map|object|false|none|Access Map|
-
-<h2 id="tocSregionrequest">RegionRequest</h2>
-
-<a id="schemaregionrequest"></a>
-
-```json
-{
-  "tag": "poly5",
-  "description": "Sample Region",
-  "coordinates": [
-    [
+    "tracking_number": "O-M1RHTJHJZGKX",
+    "status": "created",
+    "sender_type": "organisation",
+    "sender_id": 1,
+    "price_currency": "SGD",
+    "price_amount": 0,
+    "order_items": [
       {
-        "lng": 10,
-        "lat": 35
-      },
-      {
-        "lng": 45,
-        "lat": 45
-      },
-      {
-        "lng": 40,
-        "lat": 15
-      },
-      {
-        "lng": 20,
-        "lat": 10
-      },
-      {
-        "lng": 10,
-        "lat": 35
+        "status": "assigned",
+        "service_type": "next_day",
+        "item": {
+          "width": 53,
+          "weight": 4,
+          "volumetric_weight": 595508,
+          "volume": 200,
+          "tracking_number": "Y-CTBVPQ",
+          "payload_type": "package",
+          "length": 53,
+          "height": 53,
+          "description": ""
+        },
+        "inserted_at": "2018-03-08T08:45:38.632070"
       }
     ],
-    [
-      {
-        "lng": 30,
-        "lat": 20
-      },
-      {
-        "lng": 35,
-        "lat": 35
-      },
-      {
-        "lng": 20,
-        "lat": 30
-      },
-      {
-        "lng": 30,
-        "lat": 20
-      }
-    ]
-  ],
-  "color": "red"
-}
-
-```
-
-*Region Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|tag|string|false|none|none|
-|description|string|false|none|none|
-|coordinates|[any]|false|none|none|
-|color|string|false|none|none|
-
-<h2 id="tocSdispatchercreatesenderresponse">DispatcherCreateSenderResponse</h2>
-
-<a id="schemadispatchercreatesenderresponse"></a>
-
-```json
-{
-  "data": {
-    "sender_user_profile_id": 1,
-    "sender_type": "individual",
-    "phone": "+8412345611",
-    "password": "passwd112233",
-    "name": "Mike Sender",
-    "inserted_at": "2018-09-25 06:19:45.810882Z",
-    "id": 5,
-    "email": "michael@yojee.com",
-    "billing_address": "144 Robinson Road"
+    "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
+    "inserted_at": "2018-12-11 08:56:23.829530Z",
+    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
   }
 }
 
 ```
 
-*Sender Response*
+*Order Response*
 
 ### Properties
 
@@ -8232,9 +8212,9 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSdispatcherupdateworkerrequest">DispatcherUpdateWorkerRequest</h2>
+<h2 id="tocSdispatchercreateworkerrequest">DispatcherCreateWorkerRequest</h2>
 
-<a id="schemadispatcherupdateworkerrequest"></a>
+<a id="schemadispatchercreateworkerrequest"></a>
 
 ```json
 {
@@ -8242,9 +8222,10 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
     1,
     2
   ],
-  "tester": true,
+  "tester": false,
   "phone": "+987654322",
-  "otp_token": "TNUSTU2YF7BCDOYR",
+  "password": "passwd112233",
+  "otp_token": "1122334455",
   "national_id": "11335577",
   "name": "Mike Driver",
   "location": {
@@ -8258,372 +8239,72 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 
 ```
 
-*Worker Update Request*
+*Worker Request*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|vehicle_type_ids|[any]|false|none|none|
-|tester|object|false|none|none|
-|phone|string|false|none|none|
-|otp_token|string|false|none|none|
-|national_id_photo_front|object|false|none|none|
-|national_id_photo_back|object|false|none|none|
-|national_id|string|false|none|none|
-|name|string|false|none|none|
-|location|object|false|none|none|
-|email|string|false|none|none|
-|driver_license_photo_front|object|false|none|none|
-|driver_license|string|false|none|none|
-|current_vehicle_type_id|integer|false|none|none|
-
-<h2 id="tocSsubtaskresponse">SubTaskResponse</h2>
-
-<a id="schemasubtaskresponse"></a>
-
-```json
-{
-  "task_id": 2,
-  "sub_task_rule_id": 3,
-  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-  "meta": {
-    "photo_type": "Proof",
-    "photo_title": "Signature"
-  },
-  "event": "pickup_completed",
-  "completion_data": {
-    "recipient_name": "recipient",
-    "arrival_time": "2018-03-10T03:37:08"
-  },
-  "action": "upload_photo"
-}
-
-```
-
-*SubTask Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|task_id|integer|false|none|none|
-|sub_task_rule_id|integer|false|none|none|
-|photo|string|false|none|none|
-|meta|object|false|none|none|
-|event|string|false|none|none|
-|completion_data|object|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSdispatcherindexroleresponse">DispatcherIndexRoleResponse</h2>
-
-<a id="schemadispatcherindexroleresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "name": "role_1",
-      "inserted_at": "2018-09-25 06:19:45.820526Z",
-      "company_id": 123,
-      "access_map": {
-        "sender": {
-          "add": true
-        }
-      }
-    }
-  ]
-}
-
-```
-
-*Role Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSmapsgeocoderequest">MapsGeoCodeRequest</h2>
-
-<a id="schemamapsgeocoderequest"></a>
-
-```json
-{
-  "query": "1 Anson Rd",
-  "country_code": "SG"
-}
-
-```
-
-*POST body for querying geocode of an address*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|query|string|true|none|Address|
-|country_code|string|false|none|Country code ISO 3166 alpha2|
-
-<h2 id="tocSdispatcherupdateuserrequest">DispatcherUpdateUserRequest</h2>
-
-<a id="schemadispatcherupdateuserrequest"></a>
-
-```json
-{
-  "phone": "+987654330",
-  "password": "passwd112233",
-  "name": "Mike Dispatcher"
-}
-
-```
-
-*POST body for updating dispatcher user*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
+|vehicle_type_ids|[any]|true|none|Worker's vehicle type ids|
 |phone|string|true|none|Phone number|
-|password|string|false|none|Password|
+|password|string|true|none|Password|
 |name|string|true|none|Full name|
+|email|string|true|none|Email|
+|current_vehicle_type_id|integer|true|none|Default vehicle type id|
 
-<h2 id="tocSregionresponse">RegionResponse</h2>
+<h2 id="tocSbatchcontinueresponse">BatchContinueResponse</h2>
 
-<a id="schemaregionresponse"></a>
+<a id="schemabatchcontinueresponse"></a>
+
+```json
+{
+  "message": "Batch upload processing.",
+  "data": {
+    "id": 1
+  }
+}
+
+```
+
+*Batch Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocSversionresponse">VersionResponse</h2>
+
+<a id="schemaversionresponse"></a>
 
 ```json
 {
   "data": {
-    "tag": "poly5",
-    "inserted_at": "2018-09-25 06:19:45.821550Z",
-    "description": "Sample Region",
-    "coordinates": [
-      [
-        {
-          "lng": 10,
-          "lat": 35
-        },
-        {
-          "lng": 45,
-          "lat": 45
-        },
-        {
-          "lng": 40,
-          "lat": 15
-        },
-        {
-          "lng": 20,
-          "lat": 10
-        },
-        {
-          "lng": 10,
-          "lat": 35
-        }
-      ],
-      [
-        {
-          "lng": 30,
-          "lat": 20
-        },
-        {
-          "lng": 35,
-          "lat": 35
-        },
-        {
-          "lng": 20,
-          "lat": 30
-        },
-        {
-          "lng": 30,
-          "lat": 20
-        }
-      ]
-    ],
-    "company_id": 1,
-    "color": "red"
+    "message": "App version Response",
+    "data": {
+      "update_required": true,
+      "minimum_installed_version": 500,
+      "current_installed_version": 499
+    }
   }
 }
 
 ```
 
-*Region Response*
+*Check if app update is required*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|message|string|false|none|none|
 |data|object|false|none|none|
 
-<h2 id="tocSspokesresponse">SpokesResponse</h2>
+<h2 id="tocSdispatcherupdateorganisationrequest">DispatcherUpdateOrganisationRequest</h2>
 
-<a id="schemaspokesresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "properties": {},
-      "pessimistic_estimated_duration": 40,
-      "origin_hub_id": 1,
-      "optimistic_estimated_duration": 40,
-      "name": "spoker",
-      "modality": "road",
-      "inserted_at": "2018-09-25 06:19:45.822673Z",
-      "destination_hub_id": 2,
-      "company_id": 1
-    }
-  ]
-}
-
-```
-
-*Spokes Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatcherindexuserresponse">DispatcherIndexUserResponse</h2>
-
-<a id="schemadispatcherindexuserresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "user_profile": 1,
-      "phone": "+987654330",
-      "name": "Mike Dispatcher",
-      "inserted_at": "2018-09-25 06:19:45.808186Z",
-      "email": "mike-dispatcher-3@yojee.com",
-      "company_id": 1
-    }
-  ]
-}
-
-```
-
-*Users Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocScreatepaymentrequest">CreatePaymentRequest</h2>
-
-<a id="schemacreatepaymentrequest"></a>
-
-```json
-{
-  "payment_method": "stripe",
-  "order_id": 1,
-  "description": "This is a test description",
-  "currency": "SGD",
-  "credit_card": {
-    "year": 22,
-    "number": 4242424242424242,
-    "name": "Jane Doe",
-    "month": 11,
-    "cvc": 111
-  },
-  "amount": 500
-}
-
-```
-
-*POST body for making payment*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|payment_method|string|false|none|Payment method|
-|order_id|integer|false|none|Order ID|
-|description|string|false|none|Description|
-|currency|string|false|none|Currency|
-|credit_card|object|false|none|none|
-|» year|integer|false|none|Year|
-|» number|string|false|none|Credit card number|
-|» name|string|false|none|Full name|
-|» month|integer|false|none|Month|
-|» cvc|integer|false|none|CVC Number|
-|amount|number|false|none|Amount in cents|
-
-<h2 id="tocSdispatcherupdaterolerequest">DispatcherUpdateRoleRequest</h2>
-
-<a id="schemadispatcherupdaterolerequest"></a>
-
-```json
-{
-  "updated_at": "2018-09-25 06:19:45.821028Z",
-  "name": "role_1",
-  "company_id": 123,
-  "access_map": {
-    "sender": {
-      "add": true
-    }
-  }
-}
-
-```
-
-*POST body for updating roles*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|name|string|false|none|Role name|
-|company_id|integer|false|none|Company ID|
-|access_map|object|false|none|Access Map|
-
-<h2 id="tocSdispatcherruleresponse">DispatcherRuleResponse</h2>
-
-<a id="schemadispatcherruleresponse"></a>
-
-```json
-{
-  "task_id": 103,
-  "sub_task_rule_id": 21,
-  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-  "meta": {
-    "photo_type": "Proof",
-    "photo_title": "Signature"
-  },
-  "id": 21,
-  "event": "pickup_completed",
-  "completion_time": "2018-03-10T03:37:08",
-  "company_id": 136,
-  "action": "upload_photo"
-}
-
-```
-
-*Sub Task Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|task_id|integer|false|none|none|
-|sub_task_rule_id|integer|false|none|none|
-|photo|string|false|none|none|
-|meta|object|false|none|none|
-|id|integer|false|none|none|
-|event|string|false|none|none|
-|completion_time|string|false|none|none|
-|company_id|integer|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSdispatcherorganisationresponse">DispatcherOrganisationResponse</h2>
-
-<a id="schemadispatcherorganisationresponse"></a>
+<a id="schemadispatcherupdateorganisationrequest"></a>
 
 ```json
 {
@@ -8676,28 +8357,50 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |country|string|false|none|none|
 |city|string|false|none|none|
 
-<h2 id="tocScompanyvehicletypesresponse">CompanyVehicleTypesResponse</h2>
+<h2 id="tocScompaniesthemeresponse">CompaniesThemeResponse</h2>
 
-<a id="schemacompanyvehicletypesresponse"></a>
+<a id="schemacompaniesthemeresponse"></a>
 
 ```json
 {
-  "message": "Got vehicle types",
+  "message": "Got list of companies theme",
   "data": [
     {
-      "name": "Pedestrian",
-      "id": 1
+      "logo": "https://yojee-uploads-dev.s3.amazonaws.com/uploads/companies/467/logo/467_original_scharff.png?v=63689286187",
+      "company_slug": "scharff",
+      "brand_color": "#FF7177"
     },
     {
-      "name": "Bicycle",
-      "id": 2
+      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_logo.jpg",
+      "company_slug": "testcorp-r1",
+      "brand_color": "#80c939"
+    },
+    {
+      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_logo.jpg",
+      "company_slug": "ups",
+      "brand_color": "#301506"
+    },
+    {
+      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_logo.jpg",
+      "company_slug": "yojee",
+      "brand_color": "#80c939"
+    },
+    {
+      "logo": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/companies/4/logo/4_original_TASMAN%20LOGO_330x60px.png?v=63692636534",
+      "company_slug": "tasman",
+      "brand_color": "#054875"
+    },
+    {
+      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/sila_logo.png",
+      "company_slug": "sila",
+      "brand_color": "#d2232a"
     }
   ]
 }
 
 ```
 
-*Vehicle types info Response*
+*Driver's companies Response*
 
 ### Properties
 
@@ -8706,742 +8409,66 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |message|string|false|none|none|
 |data|[any]|false|none|none|
 
-<h2 id="tocSsignuprequest">SignupRequest</h2>
+<h2 id="tocStaskgroupsresponse">TaskGroupsResponse</h2>
 
-<a id="schemasignuprequest"></a>
-
-```json
-{
-  "sender_type": "individual",
-  "phone": "+6598765432",
-  "password": "abc123$%^",
-  "name": "Alex",
-  "email": "long@yojee.com",
-  "billing_address": "77 Robinson road, Singapore.",
-  "account_type": "sender"
-}
-
-```
-
-*SignupRequest*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|password|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-|account_type|string|false|none|none|
-
-<h2 id="tocSunassignedtaskgroupsindexresponse">UnassignedTaskGroupsIndexResponse</h2>
-
-<a id="schemaunassignedtaskgroupsindexresponse"></a>
+<a id="schemataskgroupsresponse"></a>
 
 ```json
 {
-  "pagination": {
-    "total_pages": 1,
-    "total_count": 2,
-    "limit_value": 25,
-    "current_page": 1
-  },
   "data": [
-    {
-      "task_group_logs": [],
-      "state": "unassigned",
-      "order_steps": [
-        {
-          "type": "pickup",
-          "to_time": "2018-07-18T17:57:06.698170Z",
-          "sequence": 1,
-          "lng": 103.7647132,
-          "lat": 1.4630478,
-          "item_count": 1,
-          "id": 65254,
-          "from_time": "2018-07-18T09:57:06.698170Z",
-          "first_item": {
-            "width": 1,
-            "tracking_number": "YOJ-C3JHBZLRPT0",
-            "order_item_id": 36310,
-            "length": 1,
-            "height": 1,
-            "external_id": "External test #1",
-            "external_customer_id3": "external_customer_id3_test",
-            "external_customer_id2": "external_customer_id2_test",
-            "external_customer_id": "external_customer_id_test",
-            "description": "Gift",
-            "container_no": "Container test #1"
-          },
-          "contact": {
-            "phone": "+6581551123",
-            "name": "vivek",
-            "email": "sender@example.com"
-          },
-          "address_details": {
-            "state": "Singapore",
-            "postal_code": "112233",
-            "country": "Singapore",
-            "address2": "160 Robinson Road",
-            "address": "144 Robinson Road"
-          },
-          "address": "144 Robinson Road, 160 Robinson Road, Singapore, 112233, Singapore"
-        },
-        {
-          "type": "dropoff",
-          "to_time": "2018-07-19T01:57:06.698170Z",
-          "sequence": 2,
-          "lng": 103.7647132,
-          "lat": 1.4630478,
-          "item_count": 1,
-          "id": 65255,
-          "from_time": "2018-07-18T17:57:06.698170Z",
-          "first_item": {
-            "width": 1,
-            "tracking_number": "YOJ-C3JHBZLRPT0",
-            "order_item_id": 36310,
-            "length": 1,
-            "height": 1,
-            "external_id": "External test #1",
-            "external_customer_id3": "external_customer_id3_test",
-            "external_customer_id2": "external_customer_id2_test",
-            "external_customer_id": "external_customer_id_test",
-            "description": "Gift",
-            "container_no": "Container test #1"
-          },
-          "contact": {
-            "phone": "+6581551123",
-            "name": "vivek",
-            "email": "recipient@example.com"
-          },
-          "address_details": {
-            "state": "Singapore",
-            "postal_code": "332211",
-            "country": "Singapore",
-            "address2": "50 Boon Keng Rd",
-            "address": "Boon Keng Rd"
-          },
-          "address": "Boon Keng Rd, 50 Boon Keng Rd, Singapore, 332211, Singapore"
-        }
-      ],
-      "id": 43770
-    }
-  ]
-}
-
-```
-
-*Unassigned TaskGroup index Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatcherworkersresponse">DispatcherWorkersResponse</h2>
-
-<a id="schemadispatcherworkersresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "vehicle_type_registers": [
-        {
-          "name": "Bike",
-          "id": 1
-        },
-        {
-          "name": "Car",
-          "id": 2
-        }
-      ],
-      "vehicle_type_ids": [
-        1
-      ],
-      "user_profile_id": 1,
-      "tester": false,
-      "phone": "+987654322",
-      "password": "passwd112233",
-      "otp_token": "1122334455",
-      "national_id_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-front.png",
-      "national_id_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-back.png",
-      "national_id": "11335577",
-      "name": "Mike Driver",
-      "location": {
-        "lng": 122.6428429677108,
-        "lat": 65.67691234535297
-      },
-      "inserted_at": "2018-09-25 06:19:45.810199Z",
-      "email": "mike-driver@yojee.com",
-      "driver_license_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-front.png?v=63701553117",
-      "driver_license_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-back.png?v=63701553117",
-      "driver_license": "22446688",
-      "distance_away": 1100,
-      "current_vehicle_type_id": 1,
-      "company_id": 1,
-      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
-    }
-  ]
-}
-
-```
-
-*Workers Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSorderitemsshowresponse">OrderItemsShowResponse</h2>
-
-<a id="schemaorderitemsshowresponse"></a>
-
-```json
-{
-  "progress_session": [
-    {
-      "type": "assigned",
-      "status": "success"
-    },
     {
       "type": "pickup",
-      "status": "blank"
-    },
-    {
-      "type": "dropoff",
-      "status": "blank"
-    }
-  ],
-  "item_session": {
-    "width": 1,
-    "weight": 1,
-    "status": "scheduled_for_fulfilment",
-    "service_type": "sameday",
-    "price": "SGD 10",
-    "pickup": {
-      "time_to": "2018-07-18T12:04:24.205427Z",
-      "time_from": "2018-07-18T04:04:24.205427Z",
-      "task_id": 65584,
-      "state": "Singapore",
-      "postal_code": "112233",
-      "lng": 103.7647132,
-      "lat": 1.4630478,
+      "to": "2018-03-27T10:00:00.000000Z",
+      "task_group_id": 4213,
+      "state": "created",
+      "start_time": "2018-03-27T10:00:00.000000Z",
+      "service_type": "next_day",
+      "price": "SGD 10",
+      "postal_code": "84184",
+      "order_item_tracking_number": "YOJ-229",
+      "order_item_id": 229,
+      "lng": 103.90331700000002,
+      "lat": 1.329095,
+      "item": {
+        "width": 29,
+        "weight": 5,
+        "volumetric_weight": 121945,
+        "volume": 200,
+        "length": 29,
+        "height": 29,
+        "global_tracking_number": "Y-MEJZPQ"
+      },
+      "id": 1,
+      "from": "2018-03-27T02 =>00 =>00.000000Z",
+      "external_id": "ID-1",
+      "external_customer_id3": "1345564",
+      "external_customer_id2": "545415",
+      "external_customer_id": "54418",
+      "description": "TEST",
       "country": "Singapore",
-      "contact_phone": "+6581551123",
-      "contact_name": "vivek",
-      "contact_email": "sender@example.com",
-      "contact_company": "Adidas",
-      "address2": "160 Robinson Road",
-      "address": "144 Robinson Road"
-    },
-    "payload_type": "Package",
-    "order_reference_number": "O-OEZRQLL1ADLU",
-    "length": 1,
-    "item_id": 33867,
-    "is_from_transfer": false,
-    "info": "info_test",
-    "height": 1,
-    "external_id": "External test #1",
-    "external_customer_id3": "external_customer_id3_test",
-    "external_customer_id2": "external_customer_id2_test",
-    "external_customer_id": "external_customer_id_test",
-    "editable": false,
-    "dropoff": {
-      "time_to": "2018-07-18T20:04:24.205427Z",
-      "time_from": "2018-07-18T12:04:24.205427Z",
-      "task_id": 65585,
-      "state": "Singapore",
-      "postal_code": "332211",
-      "lng": 103.7647132,
-      "lat": 1.4630478,
-      "country": "Singapore",
-      "contact_phone": "+6581551123",
-      "contact_name": "vivek",
-      "contact_email": "recipient@example.com",
-      "contact_company": "Nike",
-      "address2": "50 Boon Keng Rd",
-      "address": "Boon Keng Rd"
-    },
-    "description": "Gift",
-    "allow_transfer": false
-  },
-  "delivery_trail": [
-    {
-      "task_group_id": 42402,
-      "state": "accepted",
-      "log": [
-        {
-          "type": "worker_accepted_task_group",
-          "logs": [
-            {
-              "inserted_at": "2018-07-18T04:04:24.256048Z",
-              "description": "Item accepted by Mrs. Antone Krajcik (07618671299)"
-            }
-          ]
-        }
-      ]
+      "container_no": "13",
+      "contact": {
+        "phone": "+6591234567",
+        "name": "kris sender"
+      },
+      "completion_time": "2018-03-26T09 =>49 =>42.679519Z",
+      "address_state": "State",
+      "address2": "TESTAS",
+      "address": "Singapore 400314",
+      "additional_info": "Info"
     }
   ]
 }
 
 ```
 
-*OrderItem Show Response*
+*TaskGroup Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|progress_session|object|false|none|none|
-|item_session|object|false|none|none|
-|delivery_trail|[any]|false|none|none|
-
-<h2 id="tocSdispatchercreateuserresponse">DispatcherCreateUserResponse</h2>
-
-<a id="schemadispatchercreateuserresponse"></a>
-
-```json
-{
-  "data": {
-    "user_profile": 1,
-    "phone": "+987654330",
-    "name": "Mike Dispatcher",
-    "inserted_at": "2018-09-25 06:19:45.808294Z",
-    "email": "mike-dispatcher-3@yojee.com",
-    "company_id": 1
-  }
-}
-
-```
-
-*User Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatchercreateplanrequest">DispatcherCreatePlanRequest</h2>
-
-<a id="schemadispatchercreateplanrequest"></a>
-
-```json
-{
-  "uuid": "123456789",
-  "settings": {
-    "sample settings": "sample value"
-  },
-  "output": {
-    "sample output": "sample value"
-  },
-  "input": {
-    "sample input": "sample value"
-  }
-}
-
-```
-
-*POST body for creating new plan*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|uuid|string|true|none|Plan uuid|
-|settings|object|true|none|Plan settings|
-|output|object|false|none|Plan output|
-|input|object|true|none|Plan input|
-
-<h2 id="tocSorderitem">OrderItem</h2>
-
-<a id="schemaorderitem"></a>
-
-```json
-{
-  "weight": 0
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|weight|integer|false|none|none|
-
-<h2 id="tocSdispatchercreaterulerequest">DispatcherCreateRuleRequest</h2>
-
-<a id="schemadispatchercreaterulerequest"></a>
-
-```json
-{
-  "meta": {
-    "photo_type": "signature",
-    "photo_title": "Signature of client"
-  },
-  "event": "pickup_completed",
-  "company_id": 1,
-  "action": "upload_photo"
-}
-
-```
-
-*Sub Task Rule Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|meta|object|false|none|none|
-|event|string|false|none|none|
-|deleted_at|object|false|none|none|
-|company_id|integer|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSdispatcherpartnerresponse">DispatcherPartnerResponse</h2>
-
-<a id="schemadispatcherpartnerresponse"></a>
-
-```json
-{
-  "data": {
-    "state": "pending",
-    "requested_at": "2018-05-22T14:33:57.131041Z",
-    "postal_code": "321021",
-    "partnership_type": "downstream",
-    "country": "Singapore",
-    "contact_phone": "+6591245934",
-    "contact_name": "Ralston",
-    "contact_email": "ralston@xyz.com",
-    "company_name": "XYZ",
-    "city": "Singapore",
-    "cip": "CIP-XJSI232KGTDYTDT",
-    "address": "77 Robinson road, Singapore."
-  }
-}
-
-```
-
-*Partner Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherupdatesettingrequest">DispatcherUpdateSettingRequest</h2>
-
-<a id="schemadispatcherupdatesettingrequest"></a>
-
-```json
-{
-  "settings": {
-    "sample settings": "sample value"
-  },
-  "name": "default"
-}
-
-```
-
-*POST body for updating setting*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|settings|object|true|none|Setting settings|
-|name|string|true|none|Setting name|
-
-<h2 id="tocSdispatcherordersresponse">DispatcherOrdersResponse</h2>
-
-<a id="schemadispatcherordersresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "tracking_number": "O-M1RHTJHJZGKX",
-      "status": "created",
-      "sender_type": "organisation",
-      "sender_id": 1,
-      "price_currency": "SGD",
-      "price_amount": 0,
-      "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
-      "inserted_at": "2018-09-25 06:19:45.805279Z",
-      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
-    }
-  ]
-}
-
-```
-
-*Orders Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSorderaddress">OrderAddress</h2>
-
-<a id="schemaorderaddress"></a>
-
-```json
-{
-  "zipcode": "string",
-  "location": "string",
-  "lng": "string",
-  "lat": "string",
-  "country": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|zipcode|string|false|none|none|
-|location|string|false|none|none|
-|lng|string|false|none|none|
-|lat|string|false|none|none|
-|country|string|false|none|none|
-
-<h2 id="tocSdispatcherpartners">DispatcherPartners</h2>
-
-<a id="schemadispatcherpartners"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "state": "pending",
-      "requested_at": "2018-05-22T14:33:57.131041Z",
-      "postal_code": "321021",
-      "partnership_type": "downstream",
-      "country": "Singapore",
-      "contact_phone": "+6591245934",
-      "contact_name": "Ralston",
-      "contact_email": "ralston@xyz.com",
-      "company_name": "XYZ",
-      "city": "Singapore",
-      "cip": "CIP-XJSI232KGTDYTDT",
-      "address": "77 Robinson road, Singapore."
-    }
-  ]
-}
-
-```
-
-*Partners Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatcherinforesponse">DispatcherInfoResponse</h2>
-
-<a id="schemadispatcherinforesponse"></a>
-
-```json
-{
-  "socket_token": "ISO32ADFSANFSKSL",
-  "role": "Admin",
-  "phone": "+849039233232",
-  "name": "John Doe",
-  "id": 1,
-  "email": "dispatcher@yojee.com",
-  "device_token": "AJKS13JD322OAFS",
-  "company": {}
-}
-
-```
-
-*Sub Task Rule Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|socket_token|string|false|none|none|
-|role|string|false|none|none|
-|phone|string|false|none|none|
-|name|string|false|none|none|
-|id|integer|false|none|none|
-|email|string|false|none|none|
-|device_token|string|false|none|none|
-|company|object|false|none|none|
-
-<h2 id="tocSsubtaskrequest">SubTaskRequest</h2>
-
-<a id="schemasubtaskrequest"></a>
-
-```json
-{
-  "task_id": 2,
-  "sub_task_rule_id": 3,
-  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-  "completion_data": {
-    "recipient_name": "recipient",
-    "arrival_time": "2018-03-10T03:37:08"
-  }
-}
-
-```
-
-*SubTask Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|task_id|integer|false|none|none|
-|sub_task_rule_id|integer|false|none|none|
-|photo|string|false|none|none|
-|completion_data|object|false|none|none|
-
-<h2 id="tocSjwtissueresponse">JwtIssueResponse</h2>
-
-<a id="schemajwtissueresponse"></a>
-
-```json
-{
-  "jwt": "dfksdfKJSGD*&*&(*DHKJGDHKJ"
-}
-
-```
-
-*response from a JWT issue request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|jwt|string|true|none|JWT token|
-
-<h2 id="tocScompanyuploadassetsresponse">CompanyUploadAssetsResponse</h2>
-
-<a id="schemacompanyuploadassetsresponse"></a>
-
-```json
-{
-  "data": "https://s3.us-east-1.amazonaws.com/test/uploads/companies/334/334_logo.png"
-}
-
-```
-
-*Company Assets Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSmapsautocompleterequest">MapsAutoCompleteRequest</h2>
-
-<a id="schemamapsautocompleterequest"></a>
-
-```json
-{
-  "query": "1 Anson Rd, Singapore",
-  "country_iso": "sg"
-}
-
-```
-
-*POST body for address autocomplete*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|query|string|true|none|Address|
-|country_iso|string|false|none|Country ISO code|
-
-<h2 id="tocSdispatchercreatesenderrequest">DispatcherCreateSenderRequest</h2>
-
-<a id="schemadispatchercreatesenderrequest"></a>
-
-```json
-{
-  "sender_type": "individual",
-  "phone": "+8412345611",
-  "password": "passwd112233",
-  "name": "Mike Sender",
-  "email": "michael@yojee.com",
-  "billing_address": "144 Robinson Road"
-}
-
-```
-
-*Sender Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|password|string|false|none|none|
-|name|string|false|none|none|
-|email|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSmapsdirectionrequest">MapsDirectionRequest</h2>
-
-<a id="schemamapsdirectionrequest"></a>
-
-```json
-{
-  "origin": "1 Anson Rd, Singapore",
-  "mode": "driving",
-  "destination": "10 Anson Rd, Singapore",
-  "country_iso": "sg"
-}
-
-```
-
-*POST body for querying map direction*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|origin|string|true|none|Origin|
-|mode|string|true|none|Mode|
-|destination|string|true|none|Destination|
-|country_iso|string|false|none|Country ISO code|
+|data|[any]|false|none|List of task group|
 
 <h2 id="tocSorderitemslogsresponse">OrderItemsLogsResponse</h2>
 
@@ -9527,23 +8554,48 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |order_item_log|[any]|false|none|none|
 |item_log|[any]|false|none|none|
 
-<h2 id="tocSdispatcherupdatecorporatesenderresponse">DispatcherUpdateCorporateSenderResponse</h2>
+<h2 id="tocSbulktaskcompletionrequestbydispatcher">BulkTaskCompletionRequestByDispatcher</h2>
 
-<a id="schemadispatcherupdatecorporatesenderresponse"></a>
+<a id="schemabulktaskcompletionrequestbydispatcher"></a>
+
+```json
+{
+  "task_ids": [
+    1,
+    2,
+    3
+  ]
+}
+
+```
+
+*Task Completion Bulk Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|task_ids|[any]|false|none|none|
+
+<h2 id="tocSdispatchersettingresponse">DispatcherSettingResponse</h2>
+
+<a id="schemadispatchersettingresponse"></a>
 
 ```json
 {
   "data": {
-    "user_profile_id": 123,
-    "phone": "+6598765432",
-    "name": "Bob",
-    "email": "bob@mail.com"
+    "settings": {
+      "sample settings": "sample value"
+    },
+    "name": "default",
+    "id": 1,
+    "company_id": 1
   }
 }
 
 ```
 
-*Corporate Sender Updated Response*
+*Setting Response*
 
 ### Properties
 
@@ -9551,9 +8603,402 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSdispatcherupdateorganisationrequest">DispatcherUpdateOrganisationRequest</h2>
+<h2 id="tocSdispatchercreateorganisationresponse">DispatcherCreateOrganisationResponse</h2>
 
-<a id="schemadispatcherupdateorganisationrequest"></a>
+<a id="schemadispatchercreateorganisationresponse"></a>
+
+```json
+{
+  "data": {
+    "phone": "+6598765432",
+    "email": "bob@mail.com",
+    "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+  }
+}
+
+```
+
+*Organisation Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatchercreaterolerequest">DispatcherCreateRoleRequest</h2>
+
+<a id="schemadispatchercreaterolerequest"></a>
+
+```json
+{
+  "name": "role_1",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+    }
+  }
+}
+
+```
+
+*POST body for creating new role*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|Role name|
+|company_id|integer|false|none|Company ID|
+|access_map|object|false|none|Access Map|
+
+<h2 id="tocSgetpricesresponse">GetPricesResponse</h2>
+
+<a id="schemagetpricesresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "type": "express",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 20,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 18
+      }
+    },
+    {
+      "type": "same_day",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 12,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 10
+      }
+    },
+    {
+      "type": "next_day",
+      "success": true,
+      "msg": {
+        "surcharges": {
+          "CBD": 2
+        },
+        "price": 9,
+        "pickup_zip": "068896",
+        "dropoff_zip": "189703",
+        "base_price": 7
+      }
+    }
+  ]
+}
+
+```
+
+*Get price response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSspokerequest">SpokeRequest</h2>
+
+<a id="schemaspokerequest"></a>
+
+```json
+{
+  "properties": {},
+  "pessimistic_estimated_duration": 40,
+  "origin_hub_id": 1,
+  "optimistic_estimated_duration": 40,
+  "name": "spoker",
+  "modality": "road",
+  "destination_hub_id": 2
+}
+
+```
+
+*Spoke Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|properties|object|false|none|none|
+|pessimistic_estimated_duration|integer|false|none|none|
+|origin_hub_id|integer|false|none|none|
+|optimistic_estimated_duration|integer|false|none|none|
+|name|string|false|none|none|
+|modality|string|false|none|none|
+|destination_hub_id|integer|false|none|none|
+
+<h2 id="tocScompanyvehicletypesresponse">CompanyVehicleTypesResponse</h2>
+
+<a id="schemacompanyvehicletypesresponse"></a>
+
+```json
+{
+  "message": "Got vehicle types",
+  "data": [
+    {
+      "name": "Pedestrian",
+      "id": 1
+    },
+    {
+      "name": "Bicycle",
+      "id": 2
+    }
+  ]
+}
+
+```
+
+*Vehicle types info Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|[any]|false|none|none|
+
+<h2 id="tocSgetpricesrequest">GetPricesRequest</h2>
+
+<a id="schemagetpricesrequest"></a>
+
+```json
+{
+  "to_address": {
+    "zipcode": "189703",
+    "location": "1.2976764,103.85701760000006",
+    "lng": "103.85701760000006",
+    "lat": "1.2976764",
+    "country": "Singpore"
+  },
+  "slug": "yojee",
+  "item": {
+    "weight": 4
+  },
+  "from_address": {
+    "zipcode": "068896",
+    "location": "1.2777689,103.84839149999993",
+    "lng": "103.84839149999993",
+    "lat": "1.2777689",
+    "country": "Singpore"
+  }
+}
+
+```
+
+*Get the price estimate*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|to_address|[OrderAddress](#schemaorderaddress)|false|none|none|
+|slug|string|false|none|yojee|
+|item|[OrderItem](#schemaorderitem)|false|none|none|
+|from_address|[OrderAddress](#schemaorderaddress)|false|none|none|
+
+<h2 id="tocSdispatchersendersresponse">DispatcherSendersResponse</h2>
+
+<a id="schemadispatchersendersresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "sender_user_profile_id": 1,
+      "sender_type": "individual",
+      "phone": "+8412345611",
+      "password": "passwd112233",
+      "name": "Mike Sender",
+      "inserted_at": "2018-12-11 08:56:23.836813Z",
+      "id": 5,
+      "email": "michael@yojee.com",
+      "billing_address": "144 Robinson Road"
+    }
+  ]
+}
+
+```
+
+*Senders Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdatecorporatesenderrequest">DispatcherUpdateCorporateSenderRequest</h2>
+
+<a id="schemadispatcherupdatecorporatesenderrequest"></a>
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "name": "Ralston",
+  "email": "secondary_account@abc.com",
+  "billing_address": "77 Robinson road, Singapore."
+}
+
+```
+
+*Corporate Sender Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|title|string|false|none|none|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocStaskshistoryresponse">TasksHistoryResponse</h2>
+
+<a id="schemataskshistoryresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 1,
+    "total_count": 1,
+    "limit_value": 10,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "type": "pickup",
+      "to": "2018-08-10T21:25:29.621707Z",
+      "task_group_id": 55612,
+      "state": "completed",
+      "service_type": "sameday",
+      "order_item_tracking_number": "YOJ-NK5HEMFNPT0",
+      "order_item_id": 46134,
+      "lng": 103.7647132,
+      "lat": 1.4630478,
+      "item": {
+        "width": 1,
+        "weight": 1,
+        "volumetric_weight": 10,
+        "volume": 200,
+        "length": 1,
+        "height": 1,
+        "global_tracking_number": "Y-QVK4PQ"
+      },
+      "id": 85945,
+      "from": "2018-08-10T13:25:29.621707Z",
+      "external_id": "External test #1",
+      "external_customer_id3": "external_customer_id3_test",
+      "external_customer_id2": "external_customer_id2_test",
+      "external_customer_id": "external_customer_id_test",
+      "description": "Gift",
+      "container_no": "Container test #1",
+      "contact": {
+        "phone": "+6581551123",
+        "name": "vivek",
+        "email": "sender@example.com"
+      },
+      "completion_time": "2018-08-10T05:25:30.328366Z",
+      "address": "144 Robinson Road"
+    }
+  ]
+}
+
+```
+
+*Tasks History response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocShubsresponse">HubsResponse</h2>
+
+<a id="schemahubsresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "regions": [
+        "poly5"
+      ],
+      "properties": {
+        "description": "Sample description",
+        "address": "Singapore"
+      },
+      "name": "Sample Hub",
+      "location": {
+        "lng": 122.6428429677108,
+        "lat": 65.67691234535297
+      },
+      "inserted_at": "2018-12-11 08:56:23.844248Z",
+      "company_id": 1
+    }
+  ]
+}
+
+```
+
+*Hubs Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSworkerlocationupdaterequest">WorkerLocationUpdateRequest</h2>
+
+<a id="schemaworkerlocationupdaterequest"></a>
+
+```json
+{
+  "lng": 122.6428429677108,
+  "lat": 65.67691234535297
+}
+
+```
+
+*Location Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|lng|object|false|none|none|
+|lat|object|false|none|none|
+
+<h2 id="tocSdispatcherorganisationresponse">DispatcherOrganisationResponse</h2>
+
+<a id="schemadispatcherorganisationresponse"></a>
 
 ```json
 {
@@ -9606,24 +9051,358 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |country|string|false|none|none|
 |city|string|false|none|none|
 
-<h2 id="tocSmapsgeocoderesponse">MapsGeoCodeResponse</h2>
+<h2 id="tocSdispatchercreateplanrequest">DispatcherCreatePlanRequest</h2>
 
-<a id="schemamapsgeocoderesponse"></a>
+<a id="schemadispatchercreateplanrequest"></a>
 
 ```json
 {
-  "data": {
-    "zipcode": "",
-    "lng": 103.8462451,
-    "lat": 1.2754876,
-    "country": "Singapore",
-    "address": "1 Anson Rd, Singapore"
+  "uuid": "123456789",
+  "settings": {
+    "sample settings": "sample value"
+  },
+  "output": {
+    "sample output": "sample value"
+  },
+  "input": {
+    "sample input": "sample value"
   }
 }
 
 ```
 
-*Response schema for querying geocode of an address*
+*POST body for creating new plan*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|uuid|string|true|none|Plan uuid|
+|settings|object|true|none|Plan settings|
+|output|object|false|none|Plan output|
+|input|object|true|none|Plan input|
+
+<h2 id="tocSdispatchercreateworkerresponse">DispatcherCreateWorkerResponse</h2>
+
+<a id="schemadispatchercreateworkerresponse"></a>
+
+```json
+{
+  "data": {
+    "vehicle_type_registers": [
+      {
+        "name": "Bike",
+        "id": 1
+      },
+      {
+        "name": "Car",
+        "id": 2
+      }
+    ],
+    "vehicle_type_ids": [
+      1
+    ],
+    "user_profile_id": 1,
+    "tester": false,
+    "phone": "+987654322",
+    "password": "passwd112233",
+    "otp_token": "1122334455",
+    "national_id_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-front.png",
+    "national_id_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-back.png",
+    "national_id": "11335577",
+    "name": "Mike Driver",
+    "location": {
+      "lng": 122.6428429677108,
+      "lat": 65.67691234535297
+    },
+    "inserted_at": "2018-12-11 08:56:23.835006Z",
+    "email": "mike-driver@yojee.com",
+    "driver_license_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-front.png?v=63701553117",
+    "driver_license_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-back.png?v=63701553117",
+    "driver_license": "22446688",
+    "distance_away": 1100,
+    "current_vehicle_type_id": 1,
+    "company_id": 1,
+    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+  }
+}
+
+```
+
+*Worker Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherindexuserresponse">DispatcherIndexUserResponse</h2>
+
+<a id="schemadispatcherindexuserresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "user_profile": 1,
+      "phone": "+987654330",
+      "name": "Mike Dispatcher",
+      "inserted_at": "2018-12-11 08:56:23.833973Z",
+      "email": "mike-dispatcher-3@yojee.com",
+      "company_id": 1
+    }
+  ]
+}
+
+```
+
+*Users Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatchercreateuserresponse">DispatcherCreateUserResponse</h2>
+
+<a id="schemadispatchercreateuserresponse"></a>
+
+```json
+{
+  "data": {
+    "user_profile": 1,
+    "phone": "+987654330",
+    "name": "Mike Dispatcher",
+    "inserted_at": "2018-12-11 08:56:23.834124Z",
+    "email": "mike-dispatcher-3@yojee.com",
+    "company_id": 1
+  }
+}
+
+```
+
+*User Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatchercreatecorporatesenderresponse">DispatcherCreateCorporateSenderResponse</h2>
+
+<a id="schemadispatchercreatecorporatesenderresponse"></a>
+
+```json
+{
+  "data": {
+    "phone": "+6598765432",
+    "email": "bob@mail.com",
+    "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+  }
+}
+
+```
+
+*Corporate Sender Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSallocationrequest">AllocationRequest</h2>
+
+<a id="schemaallocationrequest"></a>
+
+```json
+{
+  "_json": [
+    {
+      "worker_id": 2,
+      "tasks": [
+        {
+          "id": "startFromDepot",
+          "eta": "2018-08-20T16:00:00.000Z"
+        },
+        {
+          "polyline": [
+            [
+              103.96689,
+              1.330653
+            ],
+            [
+              103.96689,
+              1.330653
+            ]
+          ],
+          "id": "46",
+          "eta": "2018-08-20T23:45:00.000Z"
+        }
+      ],
+      "polyline": [
+        [
+          103.96689,
+          1.330653
+        ],
+        [
+          103.96689,
+          1.330653
+        ],
+        [
+          103.96689,
+          1.330653
+        ],
+        [
+          103.96689,
+          1.330653
+        ]
+      ],
+      "commission": "23.00"
+    },
+    {
+      "worker_id": 232,
+      "tasks": [
+        {
+          "id": "startFromDepot",
+          "eta": "2018-08-20T16:00:00.000Z"
+        },
+        {
+          "polyline": [
+            [
+              103.96689,
+              1.330653
+            ],
+            [
+              103.96689,
+              1.330653
+            ]
+          ],
+          "id": "1223",
+          "eta": "2018-08-20T23:45:00.000Z"
+        }
+      ],
+      "polyline": [
+        [
+          103.96689,
+          1.330653
+        ],
+        [
+          103.96689,
+          1.330653
+        ],
+        [
+          103.96689,
+          1.330653
+        ]
+      ],
+      "commission": "43.00"
+    }
+  ]
+}
+
+```
+
+*Allocation Request*
+
+### Properties
+
+*None*
+
+<h2 id="tocSdispatcherindexsettingresponse">DispatcherIndexSettingResponse</h2>
+
+<a id="schemadispatcherindexsettingresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "type": "object",
+      "title": "Setting Response",
+      "properties": {
+        "data": {
+          "type": "object"
+        }
+      },
+      "example": {
+        "data": {
+          "settings": {
+            "sample settings": "sample value"
+          },
+          "name": "default",
+          "id": 1,
+          "company_id": 1
+        }
+      }
+    }
+  ]
+}
+
+```
+
+*Settings Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatcherorganisationsresponse">DispatcherOrganisationsResponse</h2>
+
+<a id="schemadispatcherorganisationsresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "sender_id": 1,
+      "reg_address": "77 Robinson road, Singapore.",
+      "postal_code": "321021",
+      "phone": "+6591245934",
+      "name": "ABC",
+      "id": 1,
+      "country": "Singapore",
+      "city": "Singapore"
+    }
+  ]
+}
+
+```
+
+*Organisations Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocStaskexceptionreasonresponse">TaskExceptionReasonResponse</h2>
+
+<a id="schemataskexceptionreasonresponse"></a>
+
+```json
+{
+  "message": "ok",
+  "data": {
+    "description": "Sender not available",
+    "company_id": 1
+  }
+}
+
+```
+
+*Task Exception Reason Response*
 
 ### Properties
 
@@ -9631,6 +9410,135 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |message|string|false|none|none|
 |data|object|false|none|none|
+
+<h2 id="tocSdispatchercreateorganisationrequest">DispatcherCreateOrganisationRequest</h2>
+
+<a id="schemadispatchercreateorganisationrequest"></a>
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "payment_option": "monthly_billing",
+  "organisation": {
+    "reg_address": "77 Robinson road, Singapore.",
+    "postal_code": "321021",
+    "phone": "+6591245934",
+    "name": "ABC",
+    "country": "Singapore",
+    "city": "Singapore"
+  },
+  "name": "Ralston",
+  "gst_no": "2AS9890",
+  "email": "primary_account@abc.com",
+  "business_reg_no": "ABC1235M",
+  "billing_address": "77 Robinson road, Singapore."
+}
+
+```
+
+*Organisation Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|title|string|false|none|none|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|payment_option|string|false|none|none|
+|organisation|object|false|none|none|
+|name|string|false|none|none|
+|gst_no|string|false|none|none|
+|email|string|false|none|none|
+|business_reg_no|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocSworkerchatmessageresponse">WorkerChatMessageResponse</h2>
+
+<a id="schemaworkerchatmessageresponse"></a>
+
+```json
+{
+  "user_profile": {
+    "user_profile_id": 299,
+    "name": "Demond Terry"
+  },
+  "inserted_at": "2018-10-23T07:57:27.538169Z",
+  "incoming": false,
+  "id": 133,
+  "created_at": "2018-10-23T07:56:00.0Z",
+  "content": {
+    "type": "image",
+    "text": "it has value if it is not attachment and it's type is 'text'",
+    "attachment": {
+      "thumbnail": "https://s3-ap-southeast-1.amazonaws.com/thumbnail_signature.png",
+      "original": "https://s3-ap-southeast-1.amazonaws.com/original_signature.png"
+    }
+  }
+}
+
+```
+
+*Chat Message Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|user_profile|object|false|none|none|
+|inserted_at|string|false|none|none|
+|incoming|object|false|none|none|
+|id|integer|false|none|none|
+|created_at|string|false|none|none|
+|content|object|false|none|none|
+
+<h2 id="tocSorderitemsindexresponse">OrderItemsIndexResponse</h2>
+
+<a id="schemaorderitemsindexresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "weight": 20,
+      "volume": 300,
+      "tracking_number": "yoyoyoyo",
+      "to_address": "Airport Blvd, Changi Airport Singapore (SIN), Singapore",
+      "status": "assigned",
+      "service_type_id": 1,
+      "service_type": "same_day",
+      "sender_phone": "+6590050680",
+      "sender_name": "champ",
+      "receipient_phone": "+6598765432",
+      "receipient_name": "test2",
+      "order_number": "order_number",
+      "order_id": 1,
+      "item_number": 2,
+      "id": 7,
+      "from_address": "144 Robinson Road, Level 15, Singapore 068908",
+      "description": "Gifts",
+      "created_at": "2018-03-08T14:58:24.280533"
+    }
+  ]
+}
+
+```
+
+*OrderItem index Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
 
 <h2 id="tocSassignedtaskgroupsindexresponse">AssignedTaskGroupsIndexResponse</h2>
 
@@ -9798,6 +9706,160 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |message|string|false|none|none|
 |data|object|false|none|none|
 
+<h2 id="tocSbulkcompletionstatus">BulkCompletionStatus</h2>
+
+<a id="schemabulkcompletionstatus"></a>
+
+```json
+{
+  "data": {
+    "total": 100,
+    "status": "completed",
+    "processed": 100,
+    "logs": []
+  }
+}
+
+```
+
+*Bulk Completion Status*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|type|string|false|none|none|
+|tracking_numbers|[any]|false|none|none|
+|location|object|false|none|none|
+|completion_time|string|false|none|none|
+
+<h2 id="tocSdispatchersubtasksresponse">DispatcherSubTasksResponse</h2>
+
+<a id="schemadispatchersubtasksresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 1,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "task_id": 103,
+      "sub_task_rule_id": 21,
+      "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+      "meta": {
+        "photo_type": "Proof",
+        "photo_title": "Signature"
+      },
+      "id": 21,
+      "event": "pickup_completed",
+      "completion_time": "2018-03-10T03:37:08",
+      "company_id": 136,
+      "action": "upload_photo"
+    }
+  ]
+}
+
+```
+
+*Sub Tasks Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSsubtaskresponse">SubTaskResponse</h2>
+
+<a id="schemasubtaskresponse"></a>
+
+```json
+{
+  "task_id": 2,
+  "sub_task_rule_id": 3,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "event": "pickup_completed",
+  "completion_data": {
+    "recipient_name": "recipient",
+    "arrival_time": "2018-03-10T03:37:08"
+  },
+  "action": "upload_photo"
+}
+
+```
+
+*SubTask Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|task_id|integer|false|none|none|
+|sub_task_rule_id|integer|false|none|none|
+|photo|string|false|none|none|
+|meta|object|false|none|none|
+|event|string|false|none|none|
+|completion_data|object|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocSjwtissueresponse">JwtIssueResponse</h2>
+
+<a id="schemajwtissueresponse"></a>
+
+```json
+{
+  "jwt": "dfksdfKJSGD*&*&(*DHKJGDHKJ"
+}
+
+```
+
+*response from a JWT issue request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|jwt|string|true|none|JWT token|
+
+<h2 id="tocSspokesresponse">SpokesResponse</h2>
+
+<a id="schemaspokesresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "properties": {},
+      "pessimistic_estimated_duration": 40,
+      "origin_hub_id": 1,
+      "optimistic_estimated_duration": 40,
+      "name": "spoker",
+      "modality": "road",
+      "inserted_at": "2018-12-11 08:56:23.844815Z",
+      "destination_hub_id": 2,
+      "company_id": 1
+    }
+  ]
+}
+
+```
+
+*Spokes Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
 <h2 id="tocScompanyinforesponse">CompanyInfoResponse</h2>
 
 <a id="schemacompanyinforesponse"></a>
@@ -9933,6 +9995,232 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
+<h2 id="tocSdispatcherpartnershipinfoupdate">DispatcherPartnershipInfoUpdate</h2>
+
+<a id="schemadispatcherpartnershipinfoupdate"></a>
+
+```json
+{
+  "contact_phone": "+6591245934",
+  "contact_name": "Ralston",
+  "contact_email": "ralston@xyz.com"
+}
+
+```
+
+*Partnership Info Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|contact_phone|string|false|none|none|
+|contact_name|string|false|none|none|
+|contact_email|string|false|none|none|
+
+<h2 id="tocSdispatcherindexplanresponse">DispatcherIndexPlanResponse</h2>
+
+<a id="schemadispatcherindexplanresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "type": "object",
+      "title": "Plan Response",
+      "properties": {
+        "data": {
+          "type": "object"
+        }
+      },
+      "example": {
+        "data": {
+          "uuid": "123456789",
+          "settings": {
+            "sample settings": "sample value"
+          },
+          "output": {
+            "sample output": "sample value"
+          },
+          "input": {
+            "sample input": "sample value"
+          },
+          "id": 1,
+          "company_id": 1
+        }
+      }
+    }
+  ]
+}
+
+```
+
+*Plans Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatchercreatesenderresponse">DispatcherCreateSenderResponse</h2>
+
+<a id="schemadispatchercreatesenderresponse"></a>
+
+```json
+{
+  "data": {
+    "sender_user_profile_id": 1,
+    "sender_type": "individual",
+    "phone": "+8412345611",
+    "password": "passwd112233",
+    "name": "Mike Sender",
+    "inserted_at": "2018-12-11 08:56:23.836483Z",
+    "id": 5,
+    "email": "michael@yojee.com",
+    "billing_address": "144 Robinson Road"
+  }
+}
+
+```
+
+*Sender Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdatesenderrequest">DispatcherUpdateSenderRequest</h2>
+
+<a id="schemadispatcherupdatesenderrequest"></a>
+
+```json
+{
+  "phone": "+8412345611",
+  "name": "Mike Sender",
+  "email": "michael@yojee.com",
+  "billing_address": "144 Robinson Road"
+}
+
+```
+
+*Sender Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocSmapsgeocoderequest">MapsGeoCodeRequest</h2>
+
+<a id="schemamapsgeocoderequest"></a>
+
+```json
+{
+  "query": "1 Anson Rd",
+  "country_code": "SG"
+}
+
+```
+
+*POST body for querying geocode of an address*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|query|string|true|none|Address|
+|country_code|string|false|none|Country code ISO 3166 alpha2|
+
+<h2 id="tocSdispatchercreateuserrequest">DispatcherCreateUserRequest</h2>
+
+<a id="schemadispatchercreateuserrequest"></a>
+
+```json
+{
+  "phone": "+987654330",
+  "password": "passwd112233",
+  "name": "Mike Dispatcher",
+  "email": "mike-dispatcher-3@yojee.com"
+}
+
+```
+
+*POST body for creating new dispatcher user*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|phone|string|true|none|Phone number|
+|password|string|true|none|Password|
+|name|string|true|none|Full name|
+|email|string|true|none|Email|
+
+<h2 id="tocStaskexceptionreasonsresponse">TaskExceptionReasonsResponse</h2>
+
+<a id="schemataskexceptionreasonsresponse"></a>
+
+```json
+{
+  "message": "Got company task exception reasons",
+  "data": [
+    {
+      "description": "Sender not available",
+      "company_id": 1
+    }
+  ]
+}
+
+```
+
+*Task Exception Reasons Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|[any]|false|none|none|
+
+<h2 id="tocSbulktaskcompletionrequest">BulkTaskCompletionRequest</h2>
+
+<a id="schemabulktaskcompletionrequest"></a>
+
+```json
+{
+  "type": "pickup",
+  "tracking_numbers": [
+    "YOJ-YXFCYNNRPT0",
+    "YOJ-YXFCYNNRPT8",
+    "YOJ-YXFCYNNRPT0"
+  ],
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "completion_time": "2018-03-10T03:37:08Z"
+}
+
+```
+
+*Task Completion Bulk Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|type|string|false|none|none|
+|tracking_numbers|[any]|false|none|none|
+|location|object|false|none|none|
+|completion_time|string|false|none|none|
+
 <h2 id="tocShubresponse">HubResponse</h2>
 
 <a id="schemahubresponse"></a>
@@ -9952,7 +10240,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
       "lng": 122.6428429677108,
       "lat": 65.67691234535297
     },
-    "inserted_at": "2018-09-25 06:19:45.821998Z",
+    "inserted_at": "2018-12-11 08:56:23.844145Z",
     "company_id": 1
   }
 }
@@ -9965,6 +10253,1245 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherpartners">DispatcherPartners</h2>
+
+<a id="schemadispatcherpartners"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "state": "pending",
+      "requested_at": "2018-05-22T14:33:57.131041Z",
+      "postal_code": "321021",
+      "partnership_type": "downstream",
+      "country": "Singapore",
+      "contact_phone": "+6591245934",
+      "contact_name": "Ralston",
+      "contact_email": "ralston@xyz.com",
+      "company_name": "XYZ",
+      "city": "Singapore",
+      "cip": "CIP-XJSI232KGTDYTDT",
+      "address": "77 Robinson road, Singapore."
+    }
+  ]
+}
+
+```
+
+*Partners Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatcherchatmessagesresponse">DispatcherChatMessagesResponse</h2>
+
+<a id="schemadispatcherchatmessagesresponse"></a>
+
+```json
+{
+  "data": {
+    "messages": [
+      {
+        "user_profile": {
+          "user_profile_id": 299,
+          "name": "Demond Terry"
+        },
+        "inserted_at": "2018-10-23T07:57:27.538169Z",
+        "incoming": false,
+        "id": 133,
+        "created_at": "2018-10-23T07:56:00.0Z",
+        "content": {
+          "type": "image",
+          "text": "it has value if it is not attachment and it's type is 'text'",
+          "attachment": {
+            "thumbnail": "https://s3-ap-southeast-1.amazonaws.com/thumbnail_signature.png",
+            "original": "https://s3-ap-southeast-1.amazonaws.com/original_signature.png"
+          }
+        }
+      }
+    ],
+    "channel": {
+      "members": [],
+      "id": 154
+    }
+  }
+}
+
+```
+
+*Chat Messages Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatchercreatesenderrequest">DispatcherCreateSenderRequest</h2>
+
+<a id="schemadispatchercreatesenderrequest"></a>
+
+```json
+{
+  "sender_type": "individual",
+  "phone": "+8412345611",
+  "password": "passwd112233",
+  "name": "Mike Sender",
+  "email": "michael@yojee.com",
+  "billing_address": "144 Robinson Road"
+}
+
+```
+
+*Sender Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|password|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocSdispatcherupdatesettingrequest">DispatcherUpdateSettingRequest</h2>
+
+<a id="schemadispatcherupdatesettingrequest"></a>
+
+```json
+{
+  "settings": {
+    "sample settings": "sample value"
+  },
+  "name": "default"
+}
+
+```
+
+*POST body for updating setting*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|settings|object|true|none|Setting settings|
+|name|string|true|none|Setting name|
+
+<h2 id="tocSbatchcancelledresponse">BatchCancelledResponse</h2>
+
+<a id="schemabatchcancelledresponse"></a>
+
+```json
+{
+  "message": "Batch cancelled.",
+  "data": {
+    "id": 1
+  }
+}
+
+```
+
+*Batch Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocSbroadcastrequest">BroadcastRequest</h2>
+
+<a id="schemabroadcastrequest"></a>
+
+```json
+{
+  "timeout_in_minutes": 20,
+  "task_group_ids": [
+    1,
+    2
+  ],
+  "price_currency": "SGD",
+  "price_amount": 500
+}
+
+```
+
+*Broadcast Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|timeout_in_minutes|integer|false|none|none|
+|task_group_ids|[any]|false|none|none|
+|price_currency|string|false|none|none|
+|price_amount|integer|false|none|none|
+
+<h2 id="tocSregionresponse">RegionResponse</h2>
+
+<a id="schemaregionresponse"></a>
+
+```json
+{
+  "data": {
+    "tag": "poly5",
+    "inserted_at": "2018-12-11 08:56:23.843706Z",
+    "description": "Sample Region",
+    "coordinates": [
+      [
+        {
+          "lng": 10,
+          "lat": 35
+        },
+        {
+          "lng": 45,
+          "lat": 45
+        },
+        {
+          "lng": 40,
+          "lat": 15
+        },
+        {
+          "lng": 20,
+          "lat": 10
+        },
+        {
+          "lng": 10,
+          "lat": 35
+        }
+      ],
+      [
+        {
+          "lng": 30,
+          "lat": 20
+        },
+        {
+          "lng": 35,
+          "lat": 35
+        },
+        {
+          "lng": 20,
+          "lat": 30
+        },
+        {
+          "lng": 30,
+          "lat": 20
+        }
+      ]
+    ],
+    "company_id": 1,
+    "color": "red"
+  }
+}
+
+```
+
+*Region Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdatecorporatesenderresponse">DispatcherUpdateCorporateSenderResponse</h2>
+
+<a id="schemadispatcherupdatecorporatesenderresponse"></a>
+
+```json
+{
+  "data": {
+    "user_profile_id": 123,
+    "phone": "+6598765432",
+    "name": "Bob",
+    "email": "bob@mail.com"
+  }
+}
+
+```
+
+*Corporate Sender Updated Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocScreatepaymentrequest">CreatePaymentRequest</h2>
+
+<a id="schemacreatepaymentrequest"></a>
+
+```json
+{
+  "payment_method": "stripe",
+  "order_id": 1,
+  "description": "This is a test description",
+  "currency": "SGD",
+  "credit_card": {
+    "year": 22,
+    "number": 4242424242424242,
+    "name": "Jane Doe",
+    "month": 11,
+    "cvc": 111
+  },
+  "amount": 500
+}
+
+```
+
+*POST body for making payment*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|payment_method|string|false|none|Payment method|
+|order_id|integer|false|none|Order ID|
+|description|string|false|none|Description|
+|currency|string|false|none|Currency|
+|credit_card|object|false|none|none|
+|» year|integer|false|none|Year|
+|» number|string|false|none|Credit card number|
+|» name|string|false|none|Full name|
+|» month|integer|false|none|Month|
+|» cvc|integer|false|none|CVC Number|
+|amount|number|false|none|Amount in cents|
+
+<h2 id="tocSunassignedtaskgroupsindexresponse">UnassignedTaskGroupsIndexResponse</h2>
+
+<a id="schemaunassignedtaskgroupsindexresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 1,
+    "total_count": 2,
+    "limit_value": 25,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "task_group_logs": [],
+      "state": "unassigned",
+      "order_steps": [
+        {
+          "type": "pickup",
+          "to_time": "2018-07-18T17:57:06.698170Z",
+          "sequence": 1,
+          "lng": 103.7647132,
+          "lat": 1.4630478,
+          "item_count": 1,
+          "id": 65254,
+          "from_time": "2018-07-18T09:57:06.698170Z",
+          "first_item": {
+            "width": 1,
+            "tracking_number": "YOJ-C3JHBZLRPT0",
+            "order_item_id": 36310,
+            "length": 1,
+            "height": 1,
+            "external_id": "External test #1",
+            "external_customer_id3": "external_customer_id3_test",
+            "external_customer_id2": "external_customer_id2_test",
+            "external_customer_id": "external_customer_id_test",
+            "description": "Gift",
+            "container_no": "Container test #1"
+          },
+          "contact": {
+            "phone": "+6581551123",
+            "name": "vivek",
+            "email": "sender@example.com"
+          },
+          "address_details": {
+            "state": "Singapore",
+            "postal_code": "112233",
+            "country": "Singapore",
+            "address2": "160 Robinson Road",
+            "address": "144 Robinson Road"
+          },
+          "address": "144 Robinson Road, 160 Robinson Road, Singapore, 112233, Singapore"
+        },
+        {
+          "type": "dropoff",
+          "to_time": "2018-07-19T01:57:06.698170Z",
+          "sequence": 2,
+          "lng": 103.7647132,
+          "lat": 1.4630478,
+          "item_count": 1,
+          "id": 65255,
+          "from_time": "2018-07-18T17:57:06.698170Z",
+          "first_item": {
+            "width": 1,
+            "tracking_number": "YOJ-C3JHBZLRPT0",
+            "order_item_id": 36310,
+            "length": 1,
+            "height": 1,
+            "external_id": "External test #1",
+            "external_customer_id3": "external_customer_id3_test",
+            "external_customer_id2": "external_customer_id2_test",
+            "external_customer_id": "external_customer_id_test",
+            "description": "Gift",
+            "container_no": "Container test #1"
+          },
+          "contact": {
+            "phone": "+6581551123",
+            "name": "vivek",
+            "email": "recipient@example.com"
+          },
+          "address_details": {
+            "state": "Singapore",
+            "postal_code": "332211",
+            "country": "Singapore",
+            "address2": "50 Boon Keng Rd",
+            "address": "Boon Keng Rd"
+          },
+          "address": "Boon Keng Rd, 50 Boon Keng Rd, Singapore, 332211, Singapore"
+        }
+      ],
+      "id": 43770
+    }
+  ]
+}
+
+```
+
+*Unassigned TaskGroup index Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatchercreaterulerequest">DispatcherCreateRuleRequest</h2>
+
+<a id="schemadispatchercreaterulerequest"></a>
+
+```json
+{
+  "meta": {
+    "photo_type": "signature",
+    "photo_title": "Signature of client"
+  },
+  "event": "pickup_completed",
+  "company_id": 1,
+  "action": "upload_photo"
+}
+
+```
+
+*Sub Task Rule Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|meta|object|false|none|none|
+|event|string|false|none|none|
+|deleted_at|object|false|none|none|
+|company_id|integer|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocSdispatcherinforesponse">DispatcherInfoResponse</h2>
+
+<a id="schemadispatcherinforesponse"></a>
+
+```json
+{
+  "socket_token": "ISO32ADFSANFSKSL",
+  "role": "Admin",
+  "phone": "+849039233232",
+  "name": "John Doe",
+  "id": 1,
+  "email": "dispatcher@yojee.com",
+  "device_token": "AJKS13JD322OAFS",
+  "company": {}
+}
+
+```
+
+*Dispatcher info*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|socket_token|string|false|none|none|
+|role|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|id|integer|false|none|none|
+|email|string|false|none|none|
+|device_token|string|false|none|none|
+|company|object|false|none|none|
+
+<h2 id="tocSdispatcherruleresponse">DispatcherRuleResponse</h2>
+
+<a id="schemadispatcherruleresponse"></a>
+
+```json
+{
+  "task_id": 103,
+  "sub_task_rule_id": 21,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "meta": {
+    "photo_type": "Proof",
+    "photo_title": "Signature"
+  },
+  "id": 21,
+  "event": "pickup_completed",
+  "completion_time": "2018-03-10T03:37:08",
+  "company_id": 136,
+  "action": "upload_photo"
+}
+
+```
+
+*Sub Task Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|task_id|integer|false|none|none|
+|sub_task_rule_id|integer|false|none|none|
+|photo|string|false|none|none|
+|meta|object|false|none|none|
+|id|integer|false|none|none|
+|event|string|false|none|none|
+|completion_time|string|false|none|none|
+|company_id|integer|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocSdispatchersenderadminsrequest">DispatcherSenderAdminsRequest</h2>
+
+<a id="schemadispatchersenderadminsrequest"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 1,
+    "total_count": 2,
+    "limit_value": 10,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "title": "Software Engineer",
+      "organisations": [
+        {
+          "slug": "yojee",
+          "reg_address": "144 Robinson Road",
+          "postal_code": "068908",
+          "phone": "+6591245934",
+          "name": "Organisation 1",
+          "id": 1,
+          "country": "Singapore",
+          "city": "Singapore"
+        },
+        {
+          "slug": "yojee",
+          "postal_code": "068908",
+          "phone": "+6591245936",
+          "name": "Organisation 2",
+          "id": 2,
+          "country": "Singapore",
+          "city": "Singapore"
+        }
+      ],
+      "name": "Ralston",
+      "id": 1
+    },
+    {
+      "title": "Account Manager",
+      "organisations": [
+        {
+          "slug": "yojee",
+          "reg_address": "St George's Rd",
+          "postal_code": "068908",
+          "phone": "+6591245736",
+          "name": "Organisation 3",
+          "id": 2,
+          "country": "Singapore",
+          "city": "Singapore"
+        }
+      ],
+      "name": "Sam",
+      "id": 16
+    }
+  ]
+}
+
+```
+
+*Sender Admins Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSverifyotpresponse">VerifyOtpResponse</h2>
+
+<a id="schemaverifyotpresponse"></a>
+
+```json
+{
+  "data": {
+    "user_profile_id": 1,
+    "phone": "+84936362488",
+    "id": 1,
+    "email": "bob@mail.com",
+    "access_token": "T5P2rQrC6KbkPnLE9ebyjskMUTju3vKFBzlAr+bCUpc="
+  }
+}
+
+```
+
+*Response schema for Verify OTP*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatchercorporatesendersresponse">DispatcherCorporateSendersResponse</h2>
+
+<a id="schemadispatchercorporatesendersresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "user_profile_id": 1,
+      "name": "ABC"
+    }
+  ]
+}
+
+```
+
+*Corporate Senders Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocSlauncher_response">launcher_response</h2>
+
+<a id="schemalauncher_response"></a>
+
+```json
+{
+  "message": "Dispatcher account created.",
+  "data": {
+    "user_profile_id": 60,
+    "phone": "",
+    "name": "Mike",
+    "inserted_at": "2018-01-24T08:54:54.204128",
+    "id": 1,
+    "email": "michael@yojee.com",
+    "access_token": "65Mivav6HcJIvkFbxxrjFYg1mK6TIruz+iAs1fFDNlw="
+  }
+}
+
+```
+
+*Response schema for creating new dispatcher*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdaterulerequest">DispatcherUpdateRuleRequest</h2>
+
+<a id="schemadispatcherupdaterulerequest"></a>
+
+```json
+{
+  "meta": {
+    "photo_type": "signature",
+    "photo_title": "Signature of client"
+  },
+  "event": "pickup_completed",
+  "company_id": 1,
+  "action": "upload_photo"
+}
+
+```
+
+*Sub Task Rule Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|meta|object|false|none|none|
+|event|string|false|none|none|
+|deleted_at|object|false|none|none|
+|company_id|integer|false|none|none|
+|action|string|false|none|none|
+
+<h2 id="tocSgetotpresponse">GetOtpResponse</h2>
+
+<a id="schemagetotpresponse"></a>
+
+```json
+{
+  "data": {
+    "otp_code": "123456"
+  }
+}
+
+```
+
+*Response schema for querying OTP*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocScorporatesendersignuprequest">CorporateSenderSignupRequest</h2>
+
+<a id="schemacorporatesendersignuprequest"></a>
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "payment_option": "monthly_billing",
+  "password": "abc123$%^",
+  "organisation": {
+    "reg_address": "77 Robinson road, Singapore.",
+    "postal_code": "321021",
+    "phone": "+6591245934",
+    "name": "ABC",
+    "country": "Singapore",
+    "city": "Singapore"
+  },
+  "name": "Ralston",
+  "gst_no": "2AS9890",
+  "email": "primary@abc.com",
+  "business_reg_no": "ABC1235M",
+  "billing_address": "77 Robinson road, Singapore."
+}
+
+```
+
+*CorporateSenderSignupRequest*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|title|string|false|none|none|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|payment_option|string|false|none|none|
+|password|string|false|none|none|
+|organisation|object|false|none|none|
+|name|string|false|none|none|
+|gst_no|string|false|none|none|
+|email|string|false|none|none|
+|business_reg_no|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocSmapsgeocoderesponse">MapsGeoCodeResponse</h2>
+
+<a id="schemamapsgeocoderesponse"></a>
+
+```json
+{
+  "data": {
+    "zipcode": "",
+    "lng": 103.8462451,
+    "lat": 1.2754876,
+    "country": "Singapore",
+    "address": "1 Anson Rd, Singapore"
+  }
+}
+
+```
+
+*Response schema for querying geocode of an address*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
+|data|object|false|none|none|
+
+<h2 id="tocSsignuprequest">SignupRequest</h2>
+
+<a id="schemasignuprequest"></a>
+
+```json
+{
+  "sender_type": "individual",
+  "phone": "+6598765432",
+  "password": "abc123$%^",
+  "name": "Alex",
+  "email": "long@yojee.com",
+  "billing_address": "77 Robinson road, Singapore.",
+  "account_type": "sender"
+}
+
+```
+
+*SignupRequest*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|password|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+|account_type|string|false|none|none|
+
+<h2 id="tocSorderitemsshowresponse">OrderItemsShowResponse</h2>
+
+<a id="schemaorderitemsshowresponse"></a>
+
+```json
+{
+  "progress_session": [
+    {
+      "type": "assigned",
+      "status": "success"
+    },
+    {
+      "type": "pickup",
+      "status": "blank"
+    },
+    {
+      "type": "dropoff",
+      "status": "blank"
+    }
+  ],
+  "item_session": {
+    "width": 1,
+    "weight": 1,
+    "status": "scheduled_for_fulfilment",
+    "service_type_id": 1,
+    "service_type": "same_day",
+    "price": "SGD 10",
+    "pickup": {
+      "time_to": "2018-07-18T12:04:24.205427Z",
+      "time_from": "2018-07-18T04:04:24.205427Z",
+      "task_id": 65584,
+      "state": "Singapore",
+      "postal_code": "112233",
+      "lng": 103.8481705,
+      "lat": 1.2782636,
+      "country": "Singapore",
+      "contact_phone": "+6581551123",
+      "contact_name": "vivek",
+      "contact_email": "sender@example.com",
+      "contact_company": "Adidas",
+      "address2": "160 Robinson Road",
+      "address": "144 Robinson Road"
+    },
+    "payload_type": "Package",
+    "order_reference_number": "O-OEZRQLL1ADLU",
+    "length": 1,
+    "item_id": 33867,
+    "is_from_transfer": false,
+    "info": "info_test",
+    "height": 1,
+    "external_id": "External test #1",
+    "external_customer_id3": "external_customer_id3_test",
+    "external_customer_id2": "external_customer_id2_test",
+    "external_customer_id": "external_customer_id_test",
+    "editable": false,
+    "dropoff": {
+      "time_to": "2018-07-18T20:04:24.205427Z",
+      "time_from": "2018-07-18T12:04:24.205427Z",
+      "task_id": 65585,
+      "state": "Singapore",
+      "postal_code": "332211",
+      "lng": 103.8645118,
+      "lat": 1.3153658,
+      "country": "Singapore",
+      "contact_phone": "+6581551123",
+      "contact_name": "vivek",
+      "contact_email": "recipient@example.com",
+      "contact_company": "Nike",
+      "address2": "50 Boon Keng Rd",
+      "address": "Boon Keng Rd"
+    },
+    "description": "Gift",
+    "allow_transfer": false
+  },
+  "delivery_trail": [
+    {
+      "task_group_id": 42402,
+      "state": "accepted",
+      "log": [
+        {
+          "type": "worker_accepted_task_group",
+          "logs": [
+            {
+              "inserted_at": "2018-07-18T04:04:24.256048Z",
+              "description": "Item accepted by Mrs. Antone Krajcik (07618671299)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+*OrderItem Show Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|progress_session|object|false|none|none|
+|item_session|object|false|none|none|
+|delivery_trail|[any]|false|none|none|
+
+<h2 id="tocSsigninrequest">SigninRequest</h2>
+
+<a id="schemasigninrequest"></a>
+
+```json
+{
+  "password": "abc123$%^",
+  "email": "long@yojee.com"
+}
+
+```
+
+*SigninRequest*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|password|string|false|none|none|
+|email|string|false|none|none|
+
+<h2 id="tocSstatisticsresponse">StatisticsResponse</h2>
+
+<a id="schemastatisticsresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "tasks": {
+        "failed": 0,
+        "completed": 1,
+        "assigned": 0,
+        "accepted": 1
+      },
+      "income": "10.00",
+      "date": "2018-03-31"
+    }
+  ]
+}
+
+```
+
+*Statistics Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatcherupdateworkerrequest">DispatcherUpdateWorkerRequest</h2>
+
+<a id="schemadispatcherupdateworkerrequest"></a>
+
+```json
+{
+  "vehicle_type_ids": [
+    1,
+    2
+  ],
+  "tester": true,
+  "phone": "+987654322",
+  "otp_token": "TNUSTU2YF7BCDOYR",
+  "national_id": "11335577",
+  "name": "Mike Driver",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  },
+  "email": "mike-driver@yojee.com",
+  "driver_license": "22446688",
+  "current_vehicle_type_id": 1
+}
+
+```
+
+*Worker Update Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|vehicle_type_ids|[any]|false|none|none|
+|tester|object|false|none|none|
+|phone|string|false|none|none|
+|otp_token|string|false|none|none|
+|national_id_photo_front|object|false|none|none|
+|national_id_photo_back|object|false|none|none|
+|national_id|string|false|none|none|
+|name|string|false|none|none|
+|location|object|false|none|none|
+|email|string|false|none|none|
+|driver_license_photo_front|object|false|none|none|
+|driver_license|string|false|none|none|
+|current_vehicle_type_id|integer|false|none|none|
+
+<h2 id="tocSdispatcherupdaterolerequest">DispatcherUpdateRoleRequest</h2>
+
+<a id="schemadispatcherupdaterolerequest"></a>
+
+```json
+{
+  "updated_at": "2018-12-11 08:56:23.843283Z",
+  "name": "role_1",
+  "company_id": 123,
+  "access_map": {
+    "sender": {
+      "add": true
+    }
+  }
+}
+
+```
+
+*POST body for updating roles*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|false|none|Role name|
+|company_id|integer|false|none|Company ID|
+|access_map|object|false|none|Access Map|
+
+<h2 id="tocSauthresponse">AuthResponse</h2>
+
+<a id="schemaauthresponse"></a>
+
+```json
+{
+  "phone": "+6598765432",
+  "email": "bob@mail.com",
+  "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
+}
+
+```
+
+*AuthResponse*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|phone|string|false|none|none|
+|email|string|false|none|none|
+|access_token|string|false|none|none|
+
+<h2 id="tocScompanyuploadassetsresponse">CompanyUploadAssetsResponse</h2>
+
+<a id="schemacompanyuploadassetsresponse"></a>
+
+```json
+{
+  "data": "https://s3.us-east-1.amazonaws.com/test/uploads/companies/334/334_logo.png"
+}
+
+```
+
+*Company Assets Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocScreateorderrequest">CreateOrderRequest</h2>
+
+<a id="schemacreateorderrequest"></a>
+
+```json
+{
+  "steps": [
+    null
+  ],
+  "sender_type": "string",
+  "sender_id": 0,
+  "price_currency": "string",
+  "price_amount": 0,
+  "items": [
+    null
+  ],
+  "item_steps": [
+    null
+  ]
+}
+
+```
+
+*POST body for dispatcher to create an order*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|steps|[any]|false|none|List of delivery details for pick up and drop off steps|
+|sender_type|string|false|none|Sender Type|
+|sender_id|integer|false|none|Sender ID|
+|price_currency|string|false|none|Order currency|
+|price_amount|number|false|none|Order price|
+|items|[any]|false|none|List of items to be sent|
+|item_steps|[any]|false|none|List of item steps|
+
+<h2 id="tocSdispatchercreatecorporatesenderrequest">DispatcherCreateCorporateSenderRequest</h2>
+
+<a id="schemadispatchercreatecorporatesenderrequest"></a>
+
+```json
+{
+  "title": "Engineer",
+  "sender_type": "organisation",
+  "phone": "+6598765432",
+  "name": "Ralston",
+  "email": "secondary_account@abc.com",
+  "billing_address": "77 Robinson road, Singapore."
+}
+
+```
+
+*Corporate Sender Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|title|string|false|none|none|
+|sender_type|string|false|none|none|
+|phone|string|false|none|none|
+|name|string|false|none|none|
+|email|string|false|none|none|
+|billing_address|string|false|none|none|
+
+<h2 id="tocSorderitem">OrderItem</h2>
+
+<a id="schemaorderitem"></a>
+
+```json
+{
+  "weight": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|weight|integer|false|none|none|
+
+<h2 id="tocSdispatcherindexroleresponse">DispatcherIndexRoleResponse</h2>
+
+<a id="schemadispatcherindexroleresponse"></a>
+
+```json
+{
+  "data": [
+    {
+      "name": "role_1",
+      "inserted_at": "2018-12-11 08:56:23.842887Z",
+      "company_id": 123,
+      "access_map": {
+        "sender": {
+          "add": true
+        }
+      }
+    }
+  ]
+}
+
+```
+
+*Role Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|[any]|false|none|none|
+
+<h2 id="tocSlaunchercreatecompanyresponse">LauncherCreateCompanyResponse</h2>
+
+<a id="schemalaunchercreatecompanyresponse"></a>
+
+```json
+{
+  "message": "Dispatcher account created.",
+  "data": {
+    "organisation_id": 1,
+    "inserted_at": "2018-01-24T08:54:54.204128",
+    "id": 1
+  }
+}
+
+```
+
+*Response schema for creating new company*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|message|string|false|none|none|
 |data|object|false|none|none|
 
 <h2 id="tocSdispatchercreateruleresponse">DispatcherCreateRuleResponse</h2>
@@ -9996,149 +11523,68 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |company_id|integer|false|none|none|
 |action|string|false|none|none|
 
-<h2 id="tocSverifyotpresponse">VerifyOtpResponse</h2>
+<h2 id="tocSregionsresponse">RegionsResponse</h2>
 
-<a id="schemaverifyotpresponse"></a>
-
-```json
-{
-  "data": {
-    "user_profile_id": 1,
-    "phone": "+84936362488",
-    "id": 1,
-    "email": "bob@mail.com",
-    "access_token": "T5P2rQrC6KbkPnLE9ebyjskMUTju3vKFBzlAr+bCUpc="
-  }
-}
-
-```
-
-*Response schema for Verify OTP*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocShubrequest">HubRequest</h2>
-
-<a id="schemahubrequest"></a>
-
-```json
-{
-  "regions": [
-    "poly5"
-  ],
-  "properties": {
-    "description": "Sample description",
-    "address": "Singapore"
-  },
-  "name": "Sample Hub",
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  }
-}
-
-```
-
-*Hub Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|regions|[any]|false|none|none|
-|properties|object|false|none|none|
-|name|string|false|none|none|
-|location|object|false|none|none|
-
-<h2 id="tocSworkerlocationupdaterequest">WorkerLocationUpdateRequest</h2>
-
-<a id="schemaworkerlocationupdaterequest"></a>
-
-```json
-{
-  "lng": 122.6428429677108,
-  "lat": 65.67691234535297
-}
-
-```
-
-*Location Update Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|lng|object|false|none|none|
-|lat|object|false|none|none|
-
-<h2 id="tocScompanyupdatesettingsrequest">CompanyUpdateSettingsRequest</h2>
-
-<a id="schemacompanyupdatesettingsrequest"></a>
-
-```json
-{
-  "settings": {
-    "delivery_options": {
-      "time_window": {
-        "pickup": {
-          "to": 18,
-          "from": 10
-        },
-        "dropoff": {
-          "to": 22,
-          "from": 14
-        }
-      },
-      "pickup_allowance": 2,
-      "max_weight": 50,
-      "advance_bookings": 14
-    }
-  }
-}
-
-```
-
-*PUT body for updating company settings*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|settings|object|true|none|Settings object|
-
-<h2 id="tocShubsresponse">HubsResponse</h2>
-
-<a id="schemahubsresponse"></a>
+<a id="schemaregionsresponse"></a>
 
 ```json
 {
   "data": [
     {
-      "regions": [
-        "poly5"
+      "tag": "poly5",
+      "inserted_at": "2018-12-11 08:56:23.843812Z",
+      "description": "Sample Region",
+      "coordinates": [
+        [
+          {
+            "lng": 10,
+            "lat": 35
+          },
+          {
+            "lng": 45,
+            "lat": 45
+          },
+          {
+            "lng": 40,
+            "lat": 15
+          },
+          {
+            "lng": 20,
+            "lat": 10
+          },
+          {
+            "lng": 10,
+            "lat": 35
+          }
+        ],
+        [
+          {
+            "lng": 30,
+            "lat": 20
+          },
+          {
+            "lng": 35,
+            "lat": 35
+          },
+          {
+            "lng": 20,
+            "lat": 30
+          },
+          {
+            "lng": 30,
+            "lat": 20
+          }
+        ]
       ],
-      "properties": {
-        "description": "Sample description",
-        "address": "Singapore"
-      },
-      "name": "Sample Hub",
-      "location": {
-        "lng": 122.6428429677108,
-        "lat": 65.67691234535297
-      },
-      "inserted_at": "2018-09-25 06:19:45.822102Z",
-      "company_id": 1
+      "company_id": 1,
+      "color": "red"
     }
   ]
 }
 
 ```
 
-*Hubs Response*
+*Regions Response*
 
 ### Properties
 
@@ -10146,124 +11592,272 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|[any]|false|none|none|
 
-<h2 id="tocSdispatcherorganisationsresponse">DispatcherOrganisationsResponse</h2>
+<h2 id="tocSspokeresponse">SpokeResponse</h2>
 
-<a id="schemadispatcherorganisationsresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "sender_id": 1,
-      "reg_address": "77 Robinson road, Singapore.",
-      "postal_code": "321021",
-      "phone": "+6591245934",
-      "name": "ABC",
-      "id": 1,
-      "country": "Singapore",
-      "city": "Singapore"
-    }
-  ]
-}
-
-```
-
-*Organisations Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSgetpricesresponse">GetPricesResponse</h2>
-
-<a id="schemagetpricesresponse"></a>
+<a id="schemaspokeresponse"></a>
 
 ```json
 {
-  "data": [
-    {
-      "type": "express",
-      "success": true,
-      "msg": {
-        "surcharges": {
-          "CBD": 2
-        },
-        "price": 20,
-        "pickup_zip": "068896",
-        "dropoff_zip": "189703",
-        "base_price": 18
-      }
-    },
-    {
-      "type": "same_day",
-      "success": true,
-      "msg": {
-        "surcharges": {
-          "CBD": 2
-        },
-        "price": 12,
-        "pickup_zip": "068896",
-        "dropoff_zip": "189703",
-        "base_price": 10
-      }
-    },
-    {
-      "type": "next_day",
-      "success": true,
-      "msg": {
-        "surcharges": {
-          "CBD": 2
-        },
-        "price": 9,
-        "pickup_zip": "068896",
-        "dropoff_zip": "189703",
-        "base_price": 7
-      }
-    }
-  ]
-}
-
-```
-
-*Get price response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocStaskexceptionreasonresponse">TaskExceptionReasonResponse</h2>
-
-<a id="schemataskexceptionreasonresponse"></a>
-
-```json
-{
-  "message": "ok",
   "data": {
-    "description": "Sender not available",
+    "properties": {},
+    "pessimistic_estimated_duration": 40,
+    "origin_hub_id": 1,
+    "optimistic_estimated_duration": 40,
+    "name": "spoker",
+    "modality": "road",
+    "inserted_at": "2018-12-11 08:56:23.844712Z",
+    "destination_hub_id": 2,
     "company_id": 1
   }
 }
 
 ```
 
-*Task Exception Reason Response*
+*Spoke Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|message|string|false|none|none|
 |data|object|false|none|none|
+
+<h2 id="tocSdispatcherupdateuserrequest">DispatcherUpdateUserRequest</h2>
+
+<a id="schemadispatcherupdateuserrequest"></a>
+
+```json
+{
+  "phone": "+987654330",
+  "password": "passwd112233",
+  "name": "Mike Dispatcher"
+}
+
+```
+
+*POST body for updating dispatcher user*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|phone|string|true|none|Phone number|
+|password|string|false|none|Password|
+|name|string|true|none|Full name|
+
+<h2 id="tocSstopsresponse">StopsResponse</h2>
+
+<a id="schemastopsresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 1,
+    "total_count": 2,
+    "limit_value": 10,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "to": "2018-11-14T06:00:00.000000Z",
+      "postal_code": "068896",
+      "order_number": "O-D3VHSKDORDNM",
+      "lng": 103.8209837,
+      "lat": 1.2942236,
+      "id": 3586,
+      "from": "2018-11-14T02:00:00.000000Z",
+      "country": "Singapore",
+      "contact": {
+        "phone": "+6531591335",
+        "name": "Yojee Ops",
+        "email": "ralston@yojee.com",
+        "company": "yojee"
+      },
+      "address_state": "Singapore",
+      "address2": "#03-01",
+      "address": "59 South Park Road"
+    }
+  ]
+}
+
+```
+
+*Stops response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|pagination|object|false|none|none|
+|data|[any]|false|none|none|
+
+<h2 id="tocSdispatcherpartnertransfercreate">DispatcherPartnerTransferCreate</h2>
+
+<a id="schemadispatcherpartnertransfercreate"></a>
+
+```json
+{
+  "tracking_numbers": [
+    "YOJ-NHLZA0V3PT0"
+  ],
+  "price_currency": "USD",
+  "price_amount": "1.00",
+  "partner_cip": "CIP-RTNKAUJLQ3LWRGRA"
+}
+
+```
+
+*Partner Transfer Order Create Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|state|string|true|none|State|
+|postal_code|number|true|none|Postal code|
+|partnership_type|string|true|none|Partnership type|
+|contact_phone|string|true|none|Phone number|
+|contact_name|string|true|none|Contact name|
+|contact_email|string|true|none|Email|
+|company_name|string|true|none|Company name|
+|address|string|true|none|Registration address|
+
+<h2 id="tocSbroadcastresponse">BroadcastResponse</h2>
+
+<a id="schemabroadcastresponse"></a>
+
+```json
+{
+  "timeout_in_minutes": 20,
+  "task_group_id": 2,
+  "status": "sent",
+  "price": "SGD 500",
+  "id": 1,
+  "expires_at": "2018-05-28T08:45:38.632070"
+}
+
+```
+
+*Broadcast Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|timeout_in_minutes|integer|false|none|none|
+|task_group_id|integer|false|none|none|
+|status|string|false|none|none|
+|price|string|false|none|none|
+|id|integer|false|none|none|
+|expires_at|string|false|none|none|
+|accepted_at|object|false|none|none|
+
+<h2 id="tocSdispatcherchatmessageresponse">DispatcherChatMessageResponse</h2>
+
+<a id="schemadispatcherchatmessageresponse"></a>
+
+```json
+{
+  "user_profile": {
+    "user_profile_id": 299,
+    "name": "Demond Terry"
+  },
+  "inserted_at": "2018-10-23T07:57:27.538169Z",
+  "incoming": false,
+  "id": 133,
+  "created_at": "2018-10-23T07:56:00.0Z",
+  "content": {
+    "type": "image",
+    "text": "it has value if it is not attachment and it's type is 'text'",
+    "attachment": {
+      "thumbnail": "https://s3-ap-southeast-1.amazonaws.com/thumbnail_signature.png",
+      "original": "https://s3-ap-southeast-1.amazonaws.com/original_signature.png"
+    }
+  }
+}
+
+```
+
+*Chat Message Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|user_profile|object|false|none|none|
+|inserted_at|string|false|none|none|
+|incoming|object|false|none|none|
+|id|integer|false|none|none|
+|created_at|string|false|none|none|
+|content|object|false|none|none|
+
+<h2 id="tocSdispatchercreatesettingrequest">DispatcherCreateSettingRequest</h2>
+
+<a id="schemadispatchercreatesettingrequest"></a>
+
+```json
+{
+  "settings": {
+    "sample settings": "sample value"
+  },
+  "name": "default"
+}
+
+```
+
+*POST body for creating new setting*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|settings|object|true|none|Setting settings|
+|name|string|true|none|Setting name|
+
+<h2 id="tocSversionrequest">VersionRequest</h2>
+
+<a id="schemaversionrequest"></a>
+
+```json
+{
+  "current_installed_version": 500
+}
+
+```
+
+*Check if app update is required*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|current_installed_version|integer|false|none|none|
+
+<h2 id="tocSdispatcherpartnershipinfo">DispatcherPartnershipInfo</h2>
+
+<a id="schemadispatcherpartnershipinfo"></a>
+
+```json
+{
+  "discovery_mode": false,
+  "contact_phone": "+6591245934",
+  "contact_name": "Ralston",
+  "contact_email": "ralston@xyz.com",
+  "cip": "CIP-JSUUWH907EOOE"
+}
+
+```
+
+*Partnership Info*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|discovery_mode|object|false|none|none|
+|contact_phone|string|false|none|none|
+|contact_name|string|false|none|none|
+|contact_email|string|false|none|none|
+|cip|string|false|none|none|
 
 <h2 id="tocStaskgroupresponse">TaskGroupResponse</h2>
 
@@ -10287,6 +11881,7 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
     "width": 29,
     "weight": 5,
     "volumetric_weight": 121945,
+    "volume": 200,
     "length": 29,
     "height": 29,
     "global_tracking_number": "Y-MEJZPQ"
@@ -10348,25 +11943,52 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |address|string|false|none|none|
 |additional_info|string|false|none|none|
 
-<h2 id="tocSdispatchersettingresponse">DispatcherSettingResponse</h2>
+<h2 id="tocSdispatcherworkerspathresponse">DispatcherWorkersPathResponse</h2>
 
-<a id="schemadispatchersettingresponse"></a>
+<a id="schemadispatcherworkerspathresponse"></a>
+
+```json
+{
+  "to": "2019-01-27 23:50:07",
+  "ployline_string": "kjlfhsdklfhlksdhf",
+  "id": "2",
+  "from": "2017-01-27 23:50:07"
+}
+
+```
+
+*Worker Path History Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|to|string|false|none|none|
+|polyline_string|string\|null|false|none|none|
+|id|string|false|none|none|
+|from|string|false|none|none|
+
+<h2 id="tocSdispatchercreateroleresponse">DispatcherCreateRoleResponse</h2>
+
+<a id="schemadispatchercreateroleresponse"></a>
 
 ```json
 {
   "data": {
-    "settings": {
-      "sample settings": "sample value"
-    },
-    "name": "default",
-    "id": 1,
-    "company_id": 1
+    "name": "role_1",
+    "inserted_at": "2018-12-11 08:56:23.842993Z",
+    "company_id": 123,
+    "access_map": {
+      "sender": {
+        "add": true
+      }
+    }
   }
 }
 
 ```
 
-*Setting Response*
+*Role Response*
 
 ### Properties
 
@@ -10374,38 +11996,142 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSdispatcherindexsettingresponse">DispatcherIndexSettingResponse</h2>
+<h2 id="tocScompanyservicetypesresponse">CompanyServiceTypesResponse</h2>
 
-<a id="schemadispatcherindexsettingresponse"></a>
+<a id="schemacompanyservicetypesresponse"></a>
 
 ```json
 {
+  "message": "Got company service types",
+  "data": {
+    "name": "Same Day",
+    "key": "same_day",
+    "id": 1024,
+    "company_id": 601
+  }
+}
+
+```
+
+*Company Service Types Response*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|data|object|false|none|none|
+
+<h2 id="tocScompletionlocation">CompletionLocation</h2>
+
+<a id="schemacompletionlocation"></a>
+
+```json
+{
+  "location": {
+    "lng": 122.64,
+    "lat": 65.676
+  }
+}
+
+```
+
+*Task Completion Location Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|location|object|false|none|none|
+
+<h2 id="tocShubrequest">HubRequest</h2>
+
+<a id="schemahubrequest"></a>
+
+```json
+{
+  "regions": [
+    "poly5"
+  ],
+  "properties": {
+    "description": "Sample description",
+    "address": "Singapore"
+  },
+  "name": "Sample Hub",
+  "location": {
+    "lng": 122.6428429677108,
+    "lat": 65.67691234535297
+  }
+}
+
+```
+
+*Hub Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|regions|[any]|false|none|none|
+|properties|object|false|none|none|
+|name|string|false|none|none|
+|location|object|false|none|none|
+
+<h2 id="tocSdispatcherworkersresponse">DispatcherWorkersResponse</h2>
+
+<a id="schemadispatcherworkersresponse"></a>
+
+```json
+{
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
   "data": [
     {
-      "type": "object",
-      "title": "Setting Response",
-      "properties": {
-        "data": {
-          "type": "object"
+      "vehicle_type_registers": [
+        {
+          "name": "Bike",
+          "id": 1
+        },
+        {
+          "name": "Car",
+          "id": 2
         }
+      ],
+      "vehicle_type_ids": [
+        1
+      ],
+      "user_profile_id": 1,
+      "tester": false,
+      "phone": "+987654322",
+      "password": "passwd112233",
+      "otp_token": "1122334455",
+      "national_id_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-front.png",
+      "national_id_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-back.png",
+      "national_id": "11335577",
+      "name": "Mike Driver",
+      "location": {
+        "lng": 122.6428429677108,
+        "lat": 65.67691234535297
       },
-      "example": {
-        "data": {
-          "settings": {
-            "sample settings": "sample value"
-          },
-          "name": "default",
-          "id": 1,
-          "company_id": 1
-        }
-      }
+      "inserted_at": "2018-12-11 08:56:23.835796Z",
+      "email": "mike-driver@yojee.com",
+      "driver_license_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-front.png?v=63701553117",
+      "driver_license_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-back.png?v=63701553117",
+      "driver_license": "22446688",
+      "distance_away": 1100,
+      "current_vehicle_type_id": 1,
+      "company_id": 1,
+      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
     }
   ]
 }
 
 ```
 
-*Settings Response*
+*Workers Response*
 
 ### Properties
 
@@ -10413,54 +12139,94 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|[any]|false|none|none|
 
-<h2 id="tocSdispatchercreateworkerresponse">DispatcherCreateWorkerResponse</h2>
+<h2 id="tocSmapsdirectionrequest">MapsDirectionRequest</h2>
 
-<a id="schemadispatchercreateworkerresponse"></a>
+<a id="schemamapsdirectionrequest"></a>
+
+```json
+{
+  "origin": "1 Anson Rd, Singapore",
+  "mode": "driving",
+  "destination": "10 Anson Rd, Singapore",
+  "country_iso": "sg"
+}
+
+```
+
+*POST body for querying map direction*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|origin|string|true|none|Origin|
+|mode|string|true|none|Mode|
+|destination|string|true|none|Destination|
+|country_iso|string|false|none|Country ISO code|
+
+<h2 id="tocSdispatcherpartnercreate">DispatcherPartnerCreate</h2>
+
+<a id="schemadispatcherpartnercreate"></a>
+
+```json
+{
+  "postal_code": "321021",
+  "partnership_type": "downstream",
+  "country": "Singapore",
+  "contact_phone": "+6591245934",
+  "contact_name": "Ralston",
+  "contact_email": "ralston@xyz.com",
+  "company_name": "XYZ",
+  "city": "Singapore",
+  "address": "77 Robinson road, Singapore."
+}
+
+```
+
+*Partner Create Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|state|string|true|none|State|
+|postal_code|number|true|none|Postal code|
+|partnership_type|string|true|none|Partnership type|
+|contact_phone|string|true|none|Phone number|
+|contact_name|string|true|none|Contact name|
+|contact_email|string|true|none|Email|
+|company_name|string|true|none|Company name|
+|address|string|true|none|Registration address|
+
+<h2 id="tocScreateorderresponse">CreateOrderResponse</h2>
+
+<a id="schemacreateorderresponse"></a>
 
 ```json
 {
   "data": {
-    "vehicle_type_registers": [
-      {
-        "name": "Bike",
-        "id": 1
-      },
-      {
-        "name": "Car",
-        "id": 2
-      }
-    ],
-    "vehicle_type_ids": [
-      1
-    ],
-    "user_profile_id": 1,
-    "tester": false,
-    "phone": "+987654322",
-    "password": "passwd112233",
-    "otp_token": "1122334455",
-    "national_id_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-front.png",
-    "national_id_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/national_id/128817_original_updated-national-id-back.png",
-    "national_id": "11335577",
-    "name": "Mike Driver",
-    "location": {
-      "lng": 122.6428429677108,
-      "lat": 65.67691234535297
+    "status": "created",
+    "sender_id": 471,
+    "price": {
+      "currency": "SGD",
+      "amount": "10"
     },
-    "inserted_at": "2018-09-25 06:19:45.809179Z",
-    "email": "mike-driver@yojee.com",
-    "driver_license_photo_front": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-front.png?v=63701553117",
-    "driver_license_photo_back": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/accounts/128817/driver_license/128817_original_updated-driver-license-back.png?v=63701553117",
-    "driver_license": "22446688",
-    "distance_away": 1100,
-    "current_vehicle_type_id": 1,
-    "company_id": 1,
-    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+    "placed_by_user_profile_id": 1313,
+    "paid": false,
+    "order_items": {
+      "tracking_number": "YOJ-WC9DC3V3PT0",
+      "id": 17258
+    },
+    "number": "O-VWJ1WE5KAW5U",
+    "inserted_at": "2018-09-26T14: 55: 40.781628Z",
+    "id": 3472,
+    "display_price": "SGD 10"
   }
 }
 
 ```
 
-*Worker Response*
+*Create order response*
 
 ### Properties
 
@@ -10468,294 +12234,114 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocStrackorderitemresponse">TrackOrderItemResponse</h2>
+<h2 id="tocSorderitemsupdaterequest">OrderItemsUpdateRequest</h2>
 
-<a id="schematrackorderitemresponse"></a>
-
-```json
-{
-  "data": {
-    "status": "accepted",
-    "order_items": [
-      {
-        "status": "scheduled_for_fulfilment",
-        "service_type": "sameday",
-        "order_item_logs": [
-          {
-            "inserted_at": "2018-03-20T15:18:38.770110",
-            "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
-          },
-          {
-            "inserted_at": "2018-03-20T15:18:38.772850",
-            "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
-          }
-        ],
-        "item_id": 2673
-      }
-    ],
-    "inserted_at": "2018-03-20T15:18:38.613719"
-  }
-}
-
-```
-
-*Response schema for tracking an order item*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSworkerresponse">WorkerResponse</h2>
-
-<a id="schemaworkerresponse"></a>
+<a id="schemaorderitemsupdaterequest"></a>
 
 ```json
 {
-  "status": "on_duty",
-  "id": 1,
-  "avatar": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg"
-}
-
-```
-
-*Worker Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|status|string|false|none|none|
-|id|integer|false|none|none|
-|avatar|string|false|none|none|
-
-<h2 id="tocSallocationrequest">AllocationRequest</h2>
-
-<a id="schemaallocationrequest"></a>
-
-```json
-{
-  "_json": [
-    {
-      "worker_id": 2,
-      "tasks": [
-        {
-          "id": "startFromDepot",
-          "eta": "2018-08-20T16:00:00.000Z"
-        },
-        {
-          "polyline": [
-            [
-              103.96689,
-              1.330653
-            ],
-            [
-              103.96689,
-              1.330653
-            ]
-          ],
-          "id": "46",
-          "eta": "2018-08-20T23:45:00.000Z"
-        }
-      ],
-      "polyline": [
-        [
-          103.96689,
-          1.330653
-        ],
-        [
-          103.96689,
-          1.330653
-        ],
-        [
-          103.96689,
-          1.330653
-        ],
-        [
-          103.96689,
-          1.330653
-        ]
-      ],
-      "commission": "23.00"
-    },
-    {
-      "worker_id": 232,
-      "tasks": [
-        {
-          "id": "startFromDepot",
-          "eta": "2018-08-20T16:00:00.000Z"
-        },
-        {
-          "polyline": [
-            [
-              103.96689,
-              1.330653
-            ],
-            [
-              103.96689,
-              1.330653
-            ]
-          ],
-          "id": "1223",
-          "eta": "2018-08-20T23:45:00.000Z"
-        }
-      ],
-      "polyline": [
-        [
-          103.96689,
-          1.330653
-        ],
-        [
-          103.96689,
-          1.330653
-        ],
-        [
-          103.96689,
-          1.330653
-        ]
-      ],
-      "commission": "43.00"
-    }
-  ]
-}
-
-```
-
-*Allocation Request*
-
-### Properties
-
-*None*
-
-<h2 id="tocSdispatchercreateuserrequest">DispatcherCreateUserRequest</h2>
-
-<a id="schemadispatchercreateuserrequest"></a>
-
-```json
-{
-  "phone": "+987654330",
-  "password": "passwd112233",
-  "name": "Mike Dispatcher",
-  "email": "mike-dispatcher-3@yojee.com"
-}
-
-```
-
-*POST body for creating new dispatcher user*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|phone|string|true|none|Phone number|
-|password|string|true|none|Password|
-|name|string|true|none|Full name|
-|email|string|true|none|Email|
-
-<h2 id="tocScompanytransportationcompaniesresponse">CompanyTransportationCompaniesResponse</h2>
-
-<a id="schemacompanytransportationcompaniesresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "id": 13,
-      "external_id": "20600078098",
-      "contact_name": "Katie Solis",
-      "contact_email": "Ksolis@smk.com.pe",
-      "company_id": 2
-    }
-  ]
-}
-
-```
-
-*Transportation Companies Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocScorporatesendersignuprequest">CorporateSenderSignupRequest</h2>
-
-<a id="schemacorporatesendersignuprequest"></a>
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "payment_option": "monthly_billing",
-  "password": "abc123$%^",
-  "organisation": {
-    "reg_address": "77 Robinson road, Singapore.",
-    "postal_code": "321021",
-    "phone": "+6591245934",
-    "name": "ABC",
+  "width": 2,
+  "weight": 2,
+  "service_type": "same_day",
+  "payload_type": "Updated document",
+  "length": 2,
+  "info": "info_test",
+  "height": 2,
+  "external_customer_id3": "changed_external_customer_id3",
+  "external_customer_id2": "changed_external_customer_id2",
+  "external_customer_id": "changed_external_customer_id",
+  "dropoff": {
+    "to_time": "2018-12-12T08:56:23.831230",
+    "state": "Singapore",
+    "postal_code": "332211",
+    "lng": 103.8469761,
+    "lat": 1.2880209,
+    "from_time": "2018-12-12T00:56:23.831230",
     "country": "Singapore",
-    "city": "Singapore"
+    "contact_phone": "+6581551123",
+    "contact_name": "vivek",
+    "contact_email": "recipient@example.com",
+    "contact_company": "Nike",
+    "address2": "#04-01",
+    "address": "59 New Bridge Road"
   },
-  "name": "Ralston",
-  "gst_no": "2AS9890",
-  "email": "primary@abc.com",
-  "business_reg_no": "ABC1235M",
-  "billing_address": "77 Robinson road, Singapore."
+  "description": "Updated Gift"
 }
 
 ```
 
-*CorporateSenderSignupRequest*
+*Order Item Update Request*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|title|string|false|none|none|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|payment_option|string|false|none|none|
-|password|string|false|none|none|
-|organisation|object|false|none|none|
-|name|string|false|none|none|
-|gst_no|string|false|none|none|
-|email|string|false|none|none|
-|business_reg_no|string|false|none|none|
-|billing_address|string|false|none|none|
+|width|integer|false|none|none|
+|weight|integer|false|none|none|
+|service_type|string|false|none|none|
+|payload_type|string|false|none|none|
+|length|integer|false|none|none|
+|info|string|false|none|none|
+|height|integer|false|none|none|
+|external_customer_id3|string|false|none|none|
+|external_customer_id2|string|false|none|none|
+|external_customer_id|string|false|none|none|
+|dropoff|object|false|none|none|
+|description|string|false|none|none|
 
-<h2 id="tocScompaniesresponse">CompaniesResponse</h2>
+<h2 id="tocSdispatcherpartnerresponse">DispatcherPartnerResponse</h2>
 
-<a id="schemacompaniesresponse"></a>
+<a id="schemadispatcherpartnerresponse"></a>
 
 ```json
 {
-  "message": "Got list of worker's companies",
   "data": {
-    "companies": [
-      {
-        "title": "yojee",
-        "theme": "yojee",
-        "show_service_type": 1,
-        "default_lang": "en",
-        "company_slug": "yojee"
-      }
-    ]
+    "state": "pending",
+    "requested_at": "2018-05-22T14:33:57.131041Z",
+    "postal_code": "321021",
+    "partnership_type": "downstream",
+    "country": "Singapore",
+    "contact_phone": "+6591245934",
+    "contact_name": "Ralston",
+    "contact_email": "ralston@xyz.com",
+    "company_name": "XYZ",
+    "city": "Singapore",
+    "cip": "CIP-XJSI232KGTDYTDT",
+    "address": "77 Robinson road, Singapore."
   }
 }
 
 ```
 
-*Driver's companies Response*
+*Partner Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|message|string|false|none|none|
 |data|object|false|none|none|
+
+<h2 id="tocSlaunchercreatecompanyrequest">LauncherCreateCompanyRequest</h2>
+
+<a id="schemalaunchercreatecompanyrequest"></a>
+
+```json
+{
+  "slug": "yojee",
+  "name": "Yojee",
+  "country": "Singapore"
+}
+
+```
+
+*POST body for creating new company*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|slug|string|false|none|Slug|
+|name|string|true|none|Company name|
 
 <h2 id="tocSdispatcherupdateorderrequest">DispatcherUpdateOrderRequest</h2>
 
@@ -10780,112 +12366,65 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |price_amount|number|false|none|Price amount of order, e.g: for 10.12 USD, amount should be 10.|
 |external_id|string|false|none|External Order Reference Number|
 
-<h2 id="tocSdispatcherplanresponse">DispatcherPlanResponse</h2>
+<h2 id="tocSorderaddress">OrderAddress</h2>
 
-<a id="schemadispatcherplanresponse"></a>
+<a id="schemaorderaddress"></a>
 
 ```json
 {
-  "data": {
-    "uuid": "123456789",
-    "settings": {
-      "sample settings": "sample value"
-    },
-    "output": {
-      "sample output": "sample value"
-    },
-    "input": {
-      "sample input": "sample value"
-    },
-    "id": 1,
-    "company_id": 1
+  "zipcode": "string",
+  "location": "string",
+  "lng": "string",
+  "lat": "string",
+  "country": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|zipcode|string|false|none|none|
+|location|string|false|none|none|
+|lng|string|false|none|none|
+|lat|string|false|none|none|
+|country|string|false|none|none|
+
+<h2 id="tocScompanyupdatesettingsrequest">CompanyUpdateSettingsRequest</h2>
+
+<a id="schemacompanyupdatesettingsrequest"></a>
+
+```json
+{
+  "settings": {
+    "delivery_options": {
+      "time_window": {
+        "pickup": {
+          "to": 18,
+          "from": 10
+        },
+        "dropoff": {
+          "to": 22,
+          "from": 14
+        }
+      },
+      "pickup_allowance": 2,
+      "max_weight": 50,
+      "advance_bookings": 14
+    }
   }
 }
 
 ```
 
-*Plan Response*
+*PUT body for updating company settings*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocScreateorderrequest">CreateOrderRequest</h2>
-
-<a id="schemacreateorderrequest"></a>
-
-```json
-{
-  "items": [
-    {
-      "description": "Gift",
-      "height": 1,
-      "length": 1,
-      "payload_type": "Package",
-      "volumetric_weight": 10,
-      "weight": 1,
-      "width": 1,
-      "external_customer_id": "external_customer_id_test",
-      "service_type": "sameday"
-    }
-  ],
-  "steps": [
-    {
-      "address": "Arcoris Plaza, Jalan Kiara, Mont Kiara",
-      "address2": "Level 1",
-      "postal_code": "50480",
-      "state": "Malaysia",
-      "country": "Malaysia",
-      "contact_name": "ACE",
-      "contact_phone": "+60121234567",
-      "contact_company": "Adidas",
-      "from_time": "2019-08-28T15:49:43.096036",
-      "to_time": "2019-08-28T15:49:43.096036",
-      "lat": 1.4630478,
-      "lng": 103.7647132
-    },
-    {
-      "address": "15, Plaza Damansara, Jalan Medan Setia 1, Bukit Damansara, 50490 Kuala Lumpur",
-      "address2": "1-01",
-      "postal_code": "50490",
-      "state": "Malaysia",
-      "country": "Malaysia",
-      "contact_name": "ABC",
-      "contact_phone": "+60121234567",
-      "contact_company": "Nike",
-      "from_time": "2019-08-28T15:49:43.096036",
-      "to_time": "2019-08-28T15:49:43.096036",
-      "lat": 1.4630478,
-      "lng": 103.7647132
-    }
-  ],
-  "item_steps": [
-    {"order_step_id": 0, "type": "pickup", "item_id": 0},
-    {"order_step_id": 1, "type": "dropoff", "item_id": 0}
-  ],
-  "sender_id": 471,
-  "sender_type": "organisation",
-  "price_amount": 10,
-  "price_currency": "MYR"
-}
-
-```
-
-*POST body for sender create an order*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|items|object|true|none|Items Details|
-|steps|object|true|none|Steps Details|
-|item_steps|object|true|none|Item Steps|
-|sender_id|integer|true|none|Sender ID|
-|sender_type|integer|true|none|Sender Type|
-|price_amount|integer|true|none|Price Amount|
-|price_currency|string|true|none|Price Currency|
+|settings|object|true|none|Settings object|
 
 <h2 id="tocSdispatcherupdateplanrequest">DispatcherUpdatePlanRequest</h2>
 
@@ -10962,142 +12501,32 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSdispatchercreateworkerrequest">DispatcherCreateWorkerRequest</h2>
+<h2 id="tocSlauncher_request">launcher_request</h2>
 
-<a id="schemadispatchercreateworkerrequest"></a>
+<a id="schemalauncher_request"></a>
 
 ```json
 {
-  "vehicle_type_ids": [
-    1,
-    2
-  ],
-  "tester": false,
-  "phone": "+987654322",
+  "phone": "+8412345678",
   "password": "passwd112233",
-  "otp_token": "1122334455",
-  "national_id": "11335577",
-  "name": "Mike Driver",
-  "location": {
-    "lng": 122.6428429677108,
-    "lat": 65.67691234535297
-  },
-  "email": "mike-driver@yojee.com",
-  "driver_license": "22446688",
-  "current_vehicle_type_id": 1
+  "name": "Mike",
+  "email": "michael@yojee.com",
+  "company_id": 1
 }
 
 ```
 
-*Worker Request*
+*POST body for creating new dispatcher*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|vehicle_type_ids|[any]|true|none|Worker's vehicle type ids|
-|phone|string|true|none|Phone number|
-|password|string|true|none|Password|
-|name|string|true|none|Full name|
-|email|string|true|none|Email|
-|current_vehicle_type_id|integer|true|none|Default vehicle type id|
-
-<h2 id="tocSlaunchercreatecompanyrequest">LauncherCreateCompanyRequest</h2>
-
-<a id="schemalaunchercreatecompanyrequest"></a>
-
-```json
-{
-  "slug": "yojee",
-  "name": "Yojee",
-  "country": "Singapore"
-}
-
-```
-
-*POST body for creating new company*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|slug|string|false|none|Slug|
-|name|string|true|none|Company name|
-
-<h2 id="tocScompaniesthemeresponse">CompaniesThemeResponse</h2>
-
-<a id="schemacompaniesthemeresponse"></a>
-
-```json
-{
-  "message": "Got list of companies theme",
-  "data": [
-    {
-      "logo": "https://yojee-uploads-dev.s3.amazonaws.com/uploads/companies/467/logo/467_original_scharff.png?v=63689286187",
-      "company_slug": "scharff",
-      "brand_color": "#FF7177"
-    },
-    {
-      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_logo.jpg",
-      "company_slug": "testcorp-r1",
-      "brand_color": "#80c939"
-    },
-    {
-      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_logo.jpg",
-      "company_slug": "ups",
-      "brand_color": "#301506"
-    },
-    {
-      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/order_logo.jpg",
-      "company_slug": "yojee",
-      "brand_color": "#80c939"
-    },
-    {
-      "logo": "https://yojee-uploads-demo.s3.amazonaws.com/uploads/companies/4/logo/4_original_TASMAN%20LOGO_330x60px.png?v=63692636534",
-      "company_slug": "tasman",
-      "brand_color": "#054875"
-    },
-    {
-      "logo": "https://s3-ap-southeast-1.amazonaws.com/yojee-public/sila_logo.png",
-      "company_slug": "sila",
-      "brand_color": "#d2232a"
-    }
-  ]
-}
-
-```
-
-*Driver's companies Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatchercreatesettingrequest">DispatcherCreateSettingRequest</h2>
-
-<a id="schemadispatchercreatesettingrequest"></a>
-
-```json
-{
-  "settings": {
-    "sample settings": "sample value"
-  },
-  "name": "default"
-}
-
-```
-
-*POST body for creating new setting*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|settings|object|true|none|Setting settings|
-|name|string|true|none|Setting name|
+|user_profile|object|false|none|none|
+|» password|string|true|none|Password|
+|» name|string|true|none|Full name|
+|» email|string|true|none|Email|
+|company_id|integer|true|none|Company ID|
 
 <h2 id="tocSmapsdirectionresponse">MapsDirectionResponse</h2>
 
@@ -11133,283 +12562,46 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |message|string|false|none|none|
 |data|object|false|none|none|
 
-<h2 id="tocSdispatchersubtasksresponse">DispatcherSubTasksResponse</h2>
+<h2 id="tocStrackorderitemresponse">TrackOrderItemResponse</h2>
 
-<a id="schemadispatchersubtasksresponse"></a>
+<a id="schematrackorderitemresponse"></a>
 
 ```json
 {
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 1,
-    "current_page": 1
-  },
   "data": [
     {
-      "task_id": 103,
-      "sub_task_rule_id": 21,
-      "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
-      "meta": {
-        "photo_type": "Proof",
-        "photo_title": "Signature"
-      },
-      "id": 21,
-      "event": "pickup_completed",
-      "completion_time": "2018-03-10T03:37:08",
-      "company_id": 136,
-      "action": "upload_photo"
+      "status": "accepted",
+      "order_items": [
+        {
+          "status": "scheduled_for_fulfilment",
+          "service_type": "sameday",
+          "order_item_logs": [
+            {
+              "inserted_at": "2018-03-20T15:18:38.770110",
+              "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
+            },
+            {
+              "inserted_at": "2018-03-20T15:18:38.772850",
+              "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
+            }
+          ],
+          "item_id": 2673
+        }
+      ],
+      "inserted_at": "2018-03-20T15:18:38.613719"
     }
   ]
 }
 
 ```
 
-*Sub Tasks Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSversionresponse">VersionResponse</h2>
-
-<a id="schemaversionresponse"></a>
-
-```json
-{
-  "data": {
-    "message": "App version Response",
-    "data": {
-      "update_required": true,
-      "minimum_installed_version": 500,
-      "current_installed_version": 499
-    }
-  }
-}
-
-```
-
-*Check if app update is required*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherupdaterulerequest">DispatcherUpdateRuleRequest</h2>
-
-<a id="schemadispatcherupdaterulerequest"></a>
-
-```json
-{
-  "meta": {
-    "photo_type": "signature",
-    "photo_title": "Signature of client"
-  },
-  "event": "pickup_completed",
-  "company_id": 1,
-  "action": "upload_photo"
-}
-
-```
-
-*Sub Task Rule Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|meta|object|false|none|none|
-|event|string|false|none|none|
-|deleted_at|object|false|none|none|
-|company_id|integer|false|none|none|
-|action|string|false|none|none|
-
-<h2 id="tocSlauncher_request">launcher_request</h2>
-
-<a id="schemalauncher_request"></a>
-
-```json
-{
-  "phone": "+8412345678",
-  "password": "passwd112233",
-  "name": "Mike",
-  "email": "michael@yojee.com",
-  "company_id": 1
-}
-
-```
-
-*POST body for creating new dispatcher*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|user_profile|object|false|none|none|
-|» password|string|true|none|Password|
-|» name|string|true|none|Full name|
-|» email|string|true|none|Email|
-|company_id|integer|true|none|Company ID|
-
-<h2 id="tocSgetotpresponse">GetOtpResponse</h2>
-
-<a id="schemagetotpresponse"></a>
-
-```json
-{
-  "data": {
-    "otp_code": "123456"
-  }
-}
-
-```
-
-*Response schema for querying OTP*
+*Response schema for tracking an order item*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |data|object|false|none|none|
-
-<h2 id="tocSdispatcherindexplanresponse">DispatcherIndexPlanResponse</h2>
-
-<a id="schemadispatcherindexplanresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "type": "object",
-      "title": "Plan Response",
-      "properties": {
-        "data": {
-          "type": "object"
-        }
-      },
-      "example": {
-        "data": {
-          "uuid": "123456789",
-          "settings": {
-            "sample settings": "sample value"
-          },
-          "output": {
-            "sample output": "sample value"
-          },
-          "input": {
-            "sample input": "sample value"
-          },
-          "id": 1,
-          "company_id": 1
-        }
-      }
-    }
-  ]
-}
-
-```
-
-*Plans Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocStasksresponse">TasksResponse</h2>
-
-<a id="schematasksresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 1,
-    "total_count": 2,
-    "limit_value": 10,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "type": "pickup",
-      "to": "2018-03-22T16:14:06.000000Z",
-      "task_group_id": 2353,
-      "sub_tasks": {},
-      "state": "failed",
-      "start_time": "2018-03-22T16:14:06.000000Z",
-      "service_type": "sameday",
-      "postal_code": "12345",
-      "position": 0,
-      "order_item_tracking_number": "YOJ-UUXOUKPNPT0",
-      "order_item_id": 303,
-      "lng": 106.6913373,
-      "lat": 10.785092,
-      "item": {
-        "width": 1,
-        "weight": 1,
-        "volumetric_weight": 10,
-        "length": 1,
-        "height": 1,
-        "global_tracking_number": "YOJ-UUXOUKPNPT0"
-      },
-      "id": 551,
-      "from": "2018-03-22T15:14:06.000000Z",
-      "external_id": "12345",
-      "external_customer_id3": "10644",
-      "external_customer_id2": "5854977",
-      "external_customer_id": "415454",
-      "description": "Gift",
-      "country": "Singapore",
-      "container_no": "123",
-      "contact": {
-        "phone": "+6581551123",
-        "name": "jens"
-      },
-      "completion_time": "2018-03-22T16:14:06.000000Z",
-      "address_state": "State",
-      "address2": "Address 2",
-      "address": "40 Pham Ngoc Thach P6, Q3, HCM 1",
-      "additional_info": "info"
-    }
-  ]
-}
-
-```
-
-*Tasks response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|pagination|object|false|none|none|
-|data|[any]|false|none|none|
-
-<h2 id="tocSsigninrequest">SigninRequest</h2>
-
-<a id="schemasigninrequest"></a>
-
-```json
-{
-  "password": "abc123$%^",
-  "email": "long@yojee.com"
-}
-
-```
-
-*SigninRequest*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|password|string|false|none|none|
-|email|string|false|none|none|
 
 <h2 id="tocStaskexceptionreasonrequest">TaskExceptionReasonRequest</h2>
 
@@ -11432,78 +12624,101 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |description|string|false|none|none|
 |company_id|integer|false|none|none|
 
-<h2 id="tocSdispatcherpartnershipinfo">DispatcherPartnershipInfo</h2>
+<h2 id="tocSdispatcherordersresponse">DispatcherOrdersResponse</h2>
 
-<a id="schemadispatcherpartnershipinfo"></a>
+<a id="schemadispatcherordersresponse"></a>
 
 ```json
 {
-  "discovery_mode": false,
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com",
-  "cip": "CIP-JSUUWH907EOOE"
+  "pagination": {
+    "total_pages": 2,
+    "total_count": 1,
+    "limit_value": 2,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "tracking_number": "O-M1RHTJHJZGKX",
+      "status": "created",
+      "sender_type": "organisation",
+      "sender_id": 1,
+      "price_currency": "SGD",
+      "price_amount": 0,
+      "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
+      "inserted_at": "2018-12-11 08:56:23.829311Z",
+      "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+    }
+  ]
 }
 
 ```
 
-*Partnership Info*
+*Orders Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|discovery_mode|object|false|none|none|
-|contact_phone|string|false|none|none|
-|contact_name|string|false|none|none|
-|contact_email|string|false|none|none|
-|cip|string|false|none|none|
+|data|[any]|false|none|none|
 
-<h2 id="tocSdispatcherorderresponse">DispatcherOrderResponse</h2>
+<h2 id="tocScompaniesresponse">CompaniesResponse</h2>
 
-<a id="schemadispatcherorderresponse"></a>
+<a id="schemacompaniesresponse"></a>
 
 ```json
 {
+  "message": "Got list of worker's companies",
   "data": {
-    "tracking_number": "O-M1RHTJHJZGKX",
-    "status": "created",
-    "sender_type": "organisation",
-    "sender_id": 1,
-    "price_currency": "SGD",
-    "price_amount": 0,
-    "order_items": [
+    "companies": [
       {
-        "status": "assigned",
-        "service_type": "next_day",
-        "item": {
-          "width": 53,
-          "weight": 4,
-          "volumetric_weight": 595508,
-          "tracking_number": "Y-CTBVPQ",
-          "payload_type": "package",
-          "length": 53,
-          "height": 53,
-          "description": ""
-        },
-        "inserted_at": "2018-03-08T08:45:38.632070"
+        "title": "yojee",
+        "theme": "yojee",
+        "show_service_type": 1,
+        "default_lang": "en",
+        "company_slug": "yojee"
       }
-    ],
-    "number": "Z1QxNVRKUWwvKzUzc00wUkJEeXZUUT09",
-    "inserted_at": "2018-09-25 06:19:45.805404Z",
-    "access_token": "4h/PrR5vu9uVevso3fNv2RPTLQJech3BJ/pNJhWBnfE="
+    ]
   }
 }
 
 ```
 
-*Order Response*
+*Driver's companies Response*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|message|string|false|none|none|
 |data|object|false|none|none|
+
+<h2 id="tocSsubtaskrequest">SubTaskRequest</h2>
+
+<a id="schemasubtaskrequest"></a>
+
+```json
+{
+  "task_id": 2,
+  "sub_task_rule_id": 3,
+  "photo": "https://s3-ap-southeast-1.amazonaws.com/signature.jpg",
+  "completion_data": {
+    "recipient_name": "recipient",
+    "arrival_time": "2018-03-10T03:37:08"
+  }
+}
+
+```
+
+*SubTask Request*
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|task_id|integer|false|none|none|
+|sub_task_rule_id|integer|false|none|none|
+|photo|string|false|none|none|
+|completion_data|object|false|none|none|
 
 <h2 id="tocStrackorderresponse">TrackOrderResponse</h2>
 
@@ -11511,33 +12726,35 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 
 ```json
 {
-  "data": {
-    "tracking_number": "O-SK1LAUPOQXJF",
-    "status": "created",
-    "price_currency": "SGD",
-    "price_amount": 10,
-    "order_items": [
-      {
-        "status": "scheduled_for_fulfilment",
-        "service_type": "sameday",
-        "order_item_logs": [
-          {
-            "inserted_at": "2018-03-20T15:18:38.770110",
-            "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
-          },
-          {
-            "inserted_at": "2018-03-20T15:18:38.772850",
-            "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
-          }
-        ],
-        "item_id": 2673
-      }
-    ],
-    "number": "bmFvQTA1c3dybS9sNWdnOUVSdEZlZz09",
-    "inserted_at": "2018-03-20T15:18:38.613719",
-    "description": "Gift",
-    "currency": "SGD"
-  }
+  "data": [
+    {
+      "tracking_number": "O-SK1LAUPOQXJF",
+      "status": "created",
+      "price": "SGD 10",
+      "order_items": [
+        {
+          "status": "scheduled_for_fulfilment",
+          "service_type": "sameday",
+          "order_item_logs": [
+            {
+              "inserted_at": "2018-03-20T15:18:38.770110",
+              "description": "(pickup) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
+            },
+            {
+              "inserted_at": "2018-03-20T15:18:38.772850",
+              "description": "(dropoff) Accepted by Miss Joanie Ullrich II ((528) 226-4679)"
+            }
+          ],
+          "item_id": 2673
+        }
+      ],
+      "number": "bmFvQTA1c3dybS9sNWdnOUVSdEZlZz09",
+      "inserted_at": "2018-03-20T15:18:38.613719",
+      "external_id": "EXT-21382093",
+      "description": "Gift",
+      "container_no": "CON-83773878"
+    }
+  ]
 }
 
 ```
@@ -11550,142 +12767,31 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocSmapsautocompleteresponse">MapsAutoCompleteResponse</h2>
+<h2 id="tocSdispatcherplanresponse">DispatcherPlanResponse</h2>
 
-<a id="schemamapsautocompleteresponse"></a>
+<a id="schemadispatcherplanresponse"></a>
 
 ```json
 {
   "data": {
-    "name": "1 Anson Rd",
-    "lng": 103.8462451,
-    "lat": 1.2754876,
-    "address": "1 Anson Rd, Singapore"
-  }
-}
-
-```
-
-*Response schema for address autocomplete*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSdispatcherpartnershipinfoupdate">DispatcherPartnershipInfoUpdate</h2>
-
-<a id="schemadispatcherpartnershipinfoupdate"></a>
-
-```json
-{
-  "contact_phone": "+6591245934",
-  "contact_name": "Ralston",
-  "contact_email": "ralston@xyz.com"
-}
-
-```
-
-*Partnership Info Update Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|contact_phone|string|false|none|none|
-|contact_name|string|false|none|none|
-|contact_email|string|false|none|none|
-
-<h2 id="tocSdispatchersendersresponse">DispatcherSendersResponse</h2>
-
-<a id="schemadispatchersendersresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 2,
-    "total_count": 1,
-    "limit_value": 2,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "sender_user_profile_id": 1,
-      "sender_type": "individual",
-      "phone": "+8412345611",
-      "password": "passwd112233",
-      "name": "Mike Sender",
-      "inserted_at": "2018-09-25 06:19:45.811216Z",
-      "id": 5,
-      "email": "michael@yojee.com",
-      "billing_address": "144 Robinson Road"
-    }
-  ]
-}
-
-```
-
-*Senders Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSlauncher_response">launcher_response</h2>
-
-<a id="schemalauncher_response"></a>
-
-```json
-{
-  "message": "Dispatcher account created.",
-  "data": {
-    "user_profile_id": 60,
-    "phone": "",
-    "name": "Mike",
-    "inserted_at": "2018-01-24T08:54:54.204128",
+    "uuid": "123456789",
+    "settings": {
+      "sample settings": "sample value"
+    },
+    "output": {
+      "sample output": "sample value"
+    },
+    "input": {
+      "sample input": "sample value"
+    },
     "id": 1,
-    "email": "michael@yojee.com",
-    "access_token": "65Mivav6HcJIvkFbxxrjFYg1mK6TIruz+iAs1fFDNlw="
-  }
-}
-
-```
-
-*Response schema for creating new dispatcher*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSspokeresponse">SpokeResponse</h2>
-
-<a id="schemaspokeresponse"></a>
-
-```json
-{
-  "data": {
-    "properties": {},
-    "pessimistic_estimated_duration": 40,
-    "origin_hub_id": 1,
-    "optimistic_estimated_duration": 40,
-    "name": "spoker",
-    "modality": "road",
-    "inserted_at": "2018-09-25 06:19:45.822569Z",
-    "destination_hub_id": 2,
     "company_id": 1
   }
 }
 
 ```
 
-*Spoke Response*
+*Plan Response*
 
 ### Properties
 
@@ -11693,447 +12799,68 @@ curl -X POST https://umbrella-demo.yojee.com/api/v3/dispatcher/jwt \
 |---|---|---|---|---|
 |data|object|false|none|none|
 
-<h2 id="tocStaskgroupsresponse">TaskGroupsResponse</h2>
+<h2 id="tocSregionrequest">RegionRequest</h2>
 
-<a id="schemataskgroupsresponse"></a>
+<a id="schemaregionrequest"></a>
 
 ```json
 {
-  "data": [
-    {
-      "type": "pickup",
-      "to": "2018-03-27T10:00:00.000000Z",
-      "task_group_id": 4213,
-      "state": "created",
-      "start_time": "2018-03-27T10:00:00.000000Z",
-      "service_type": "next_day",
-      "price": "SGD 10",
-      "postal_code": "84184",
-      "order_item_tracking_number": "YOJ-229",
-      "order_item_id": 229,
-      "lng": 103.90331700000002,
-      "lat": 1.329095,
-      "item": {
-        "width": 29,
-        "weight": 5,
-        "volumetric_weight": 121945,
-        "length": 29,
-        "height": 29,
-        "global_tracking_number": "Y-MEJZPQ"
+  "tag": "poly5",
+  "description": "Sample Region",
+  "coordinates": [
+    [
+      {
+        "lng": 10,
+        "lat": 35
       },
-      "id": 1,
-      "from": "2018-03-27T02 =>00 =>00.000000Z",
-      "external_id": "ID-1",
-      "external_customer_id3": "1345564",
-      "external_customer_id2": "545415",
-      "external_customer_id": "54418",
-      "description": "TEST",
-      "country": "Singapore",
-      "container_no": "13",
-      "contact": {
-        "phone": "+6591234567",
-        "name": "kris sender"
+      {
+        "lng": 45,
+        "lat": 45
       },
-      "completion_time": "2018-03-26T09 =>49 =>42.679519Z",
-      "address_state": "State",
-      "address2": "TESTAS",
-      "address": "Singapore 400314",
-      "additional_info": "Info"
-    }
-  ]
-}
-
-```
-
-*TaskGroup Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|List of task group|
-
-<h2 id="tocScreateorderresponse">CreateOrderResponse</h2>
-
-<a id="schemacreateorderresponse"></a>
-
-```json
-{
-  "data": {
-    "tracking_number": "O-SKGVN25LNEDR",
-    "sender_id": 3,
-    "price": "SGD 10",
-    "placed_by_user_profile_id": 1,
-    "number": "TEd1UHI1ekRsa3JaKzRYUGFkMUhXQT09",
-    "inserted_at": "2018-02-07T09:38:38.233073",
-    "id": 17
-  }
-}
-
-```
-
-*Create order response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocSauthresponse">AuthResponse</h2>
-
-<a id="schemaauthresponse"></a>
-
-```json
-{
-  "phone": "+6598765432",
-  "email": "bob@mail.com",
-  "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
-}
-
-```
-
-*AuthResponse*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|phone|string|false|none|none|
-|email|string|false|none|none|
-|access_token|string|false|none|none|
-
-<h2 id="tocSspokerequest">SpokeRequest</h2>
-
-<a id="schemaspokerequest"></a>
-
-```json
-{
-  "properties": {},
-  "pessimistic_estimated_duration": 40,
-  "origin_hub_id": 1,
-  "optimistic_estimated_duration": 40,
-  "name": "spoker",
-  "modality": "road",
-  "destination_hub_id": 2
-}
-
-```
-
-*Spoke Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|properties|object|false|none|none|
-|pessimistic_estimated_duration|integer|false|none|none|
-|origin_hub_id|integer|false|none|none|
-|optimistic_estimated_duration|integer|false|none|none|
-|name|string|false|none|none|
-|modality|string|false|none|none|
-|destination_hub_id|integer|false|none|none|
-
-<h2 id="tocSdispatchercreateorganisationresponse">DispatcherCreateOrganisationResponse</h2>
-
-<a id="schemadispatchercreateorganisationresponse"></a>
-
-```json
-{
-  "data": {
-    "phone": "+6598765432",
-    "email": "bob@mail.com",
-    "access_token": "pCVPeEEUuKnM7geUOcSLY2imA5l6YUdjymkApBDAAGY="
-  }
-}
-
-```
-
-*Organisation Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-
-<h2 id="tocStaskshistoryresponse">TasksHistoryResponse</h2>
-
-<a id="schemataskshistoryresponse"></a>
-
-```json
-{
-  "pagination": {
-    "total_pages": 1,
-    "total_count": 1,
-    "limit_value": 10,
-    "current_page": 1
-  },
-  "data": [
-    {
-      "type": "pickup",
-      "to": "2018-08-10T21:25:29.621707Z",
-      "task_group_id": 55612,
-      "state": "completed",
-      "service_type": "sameday",
-      "order_item_tracking_number": "YOJ-NK5HEMFNPT0",
-      "order_item_id": 46134,
-      "lng": 103.7647132,
-      "lat": 1.4630478,
-      "item": {
-        "width": 1,
-        "weight": 1,
-        "volumetric_weight": 10,
-        "length": 1,
-        "height": 1,
-        "global_tracking_number": "Y-QVK4PQ"
+      {
+        "lng": 40,
+        "lat": 15
       },
-      "id": 85945,
-      "from": "2018-08-10T13:25:29.621707Z",
-      "external_id": "External test #1",
-      "external_customer_id3": "external_customer_id3_test",
-      "external_customer_id2": "external_customer_id2_test",
-      "external_customer_id": "external_customer_id_test",
-      "description": "Gift",
-      "container_no": "Container test #1",
-      "contact": {
-        "phone": "+6581551123",
-        "name": "vivek",
-        "email": "sender@example.com"
+      {
+        "lng": 20,
+        "lat": 10
       },
-      "completion_time": "2018-08-10T05:25:30.328366Z",
-      "address": "144 Robinson Road"
-    }
-  ]
+      {
+        "lng": 10,
+        "lat": 35
+      }
+    ],
+    [
+      {
+        "lng": 30,
+        "lat": 20
+      },
+      {
+        "lng": 35,
+        "lat": 35
+      },
+      {
+        "lng": 20,
+        "lat": 30
+      },
+      {
+        "lng": 30,
+        "lat": 20
+      }
+    ]
+  ],
+  "color": "red"
 }
 
 ```
 
-*Tasks History response*
+*Region Request*
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatchercreateorganisationrequest">DispatcherCreateOrganisationRequest</h2>
-
-<a id="schemadispatchercreateorganisationrequest"></a>
-
-```json
-{
-  "title": "Engineer",
-  "sender_type": "organisation",
-  "phone": "+6598765432",
-  "payment_option": "monthly_billing",
-  "organisation": {
-    "reg_address": "77 Robinson road, Singapore.",
-    "postal_code": "321021",
-    "phone": "+6591245934",
-    "name": "ABC",
-    "country": "Singapore",
-    "city": "Singapore"
-  },
-  "name": "Ralston",
-  "gst_no": "2AS9890",
-  "email": "primary_account@abc.com",
-  "business_reg_no": "ABC1235M",
-  "billing_address": "77 Robinson road, Singapore."
-}
-
-```
-
-*Organisation Request*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|title|string|false|none|none|
-|sender_type|string|false|none|none|
-|phone|string|false|none|none|
-|payment_option|string|false|none|none|
-|organisation|object|false|none|none|
-|name|string|false|none|none|
-|gst_no|string|false|none|none|
-|email|string|false|none|none|
-|business_reg_no|string|false|none|none|
-|billing_address|string|false|none|none|
-
-<h2 id="tocSbroadcastresponse">BroadcastResponse</h2>
-
-<a id="schemabroadcastresponse"></a>
-
-```json
-{
-  "timeout_in_minutes": 20,
-  "task_group_id": 2,
-  "status": "sent",
-  "price": "SGD 500",
-  "id": 1,
-  "expires_at": "2018-05-28T08:45:38.632070"
-}
-
-```
-
-*Broadcast Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|timeout_in_minutes|integer|false|none|none|
-|task_group_id|integer|false|none|none|
-|status|string|false|none|none|
-|price|string|false|none|none|
-|id|integer|false|none|none|
-|expires_at|string|false|none|none|
-|accepted_at|object|false|none|none|
-
-<h2 id="tocSlaunchercreatecompanyresponse">LauncherCreateCompanyResponse</h2>
-
-<a id="schemalaunchercreatecompanyresponse"></a>
-
-```json
-{
-  "message": "Dispatcher account created.",
-  "data": {
-    "organisation_id": 1,
-    "inserted_at": "2018-01-24T08:54:54.204128",
-    "id": 1
-  }
-}
-
-```
-
-*Response schema for creating new company*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|message|string|false|none|none|
-|data|object|false|none|none|
-
-<h2 id="tocSregionsresponse">RegionsResponse</h2>
-
-<a id="schemaregionsresponse"></a>
-
-```json
-{
-  "data": [
-    {
-      "tag": "poly5",
-      "inserted_at": "2018-09-25 06:19:45.821662Z",
-      "description": "Sample Region",
-      "coordinates": [
-        [
-          {
-            "lng": 10,
-            "lat": 35
-          },
-          {
-            "lng": 45,
-            "lat": 45
-          },
-          {
-            "lng": 40,
-            "lat": 15
-          },
-          {
-            "lng": 20,
-            "lat": 10
-          },
-          {
-            "lng": 10,
-            "lat": 35
-          }
-        ],
-        [
-          {
-            "lng": 30,
-            "lat": 20
-          },
-          {
-            "lng": 35,
-            "lat": 35
-          },
-          {
-            "lng": 20,
-            "lat": 30
-          },
-          {
-            "lng": 30,
-            "lat": 20
-          }
-        ]
-      ],
-      "company_id": 1,
-      "color": "red"
-    }
-  ]
-}
-
-```
-
-*Regions Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|[any]|false|none|none|
-
-<h2 id="tocSdispatcherworkerspathresponse">DispatcherWorkersPathResponse</h2>
-
-<a id="schemadispatcherworkerspathresponse"></a>
-
-```json
-{
-  "to": "2019-01-27 23:50:07",
-  "ployline_string": "kjlfhsdklfhlksdhf",
-  "id": "2",
-  "from": "2017-01-27 23:50:07"
-}
-
-```
-
-*Worker Path History Response*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|to|string|false|none|none|
-|polyline_string|string\|null|false|none|none|
-|id|string|false|none|none|
-|from|string|false|none|none|
-
-<h2 id="tocSbulkcompletionstatus">BulkCompletionStatus</h2>
-
-<a id="schemabulkcompletionstatus"></a>
-
-```json
-{
-  "data": {
-    "total": 100,
-    "status": "completed",
-    "processed": 100,
-    "logs": []
-  }
-}
-
-```
-
-*Bulk Completion Status*
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|type|string|false|none|none|
-|tracking_numbers|[any]|false|none|none|
-|location|object|false|none|none|
-|completion_time|string|false|none|none|
-
+|tag|string|false|none|none|
+|description|string|false|none|none|
+|coordinates|[any]|false|none|none|
+|color|string|false|none|none|
