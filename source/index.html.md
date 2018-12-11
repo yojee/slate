@@ -8,17 +8,16 @@ search: true
 home: true
 
 ---
- <h1 id="Yojee-APIs">Yojee APIs</h1>
+
+<h1 id="Yojee-APIs">Yojee APIs</h1>
  	 
- Yojee provides more than hundreds of APIs for you to access Yojee API endpoints. You may find all of our API resources on this page.	
- 	 
+Yojee provides more than hundreds of APIs for you to access Yojee API endpoints. You may find all of our API resources on this page.	
  <aside class="notice">	
- Make sure to replace {{ACCESS_TOKEN}} with your API key 
- </aside>	
+Make sure to replace {{ACCESS_TOKEN}} with your API key	
+</aside>	
 
- > Scroll down for code samples, example requests and responses.
+> Scroll down for code samples, example requests and responses.
  	 
-
 <h1 id="Yojee-APIs-[Public]">[Public]</h1>
 
 Public APIs
