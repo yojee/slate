@@ -10,14 +10,14 @@ home: true
 ---
 
 <h1 id="Yojee-APIs">Yojee APIs</h1>
- 	 
-Yojee provides more than hundreds of APIs for you to access Yojee API endpoints. You may find all of our API resources on this page.	
- <aside class="notice">	
-Make sure to replace {{ACCESS_TOKEN}} with your API key	
-</aside>	
+
+Yojee provides more than hundreds of APIs for you to access Yojee API endpoints. You may find all of our API resources on this page.
+ <aside class="notice">
+Make sure to replace {{ACCESS_TOKEN}} with your API key
+</aside>
 
 > Scroll down for code samples, example requests and responses.
- 	 
+
 <h1 id="Yojee-APIs-[Public]">[Public]</h1>
 
 Public APIs
@@ -30,11 +30,11 @@ Public APIs
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/users/info?company_slug=string
+curl -X GET https://umbrella.yojee.com/api/v3/public/users/info?company_slug=string
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/users/info`
+`GET https://umbrella.yojee.com/api/v3/public/users/info`
 
 *This endpoint retrieves infomation about a Company*
 
@@ -54,12 +54,12 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/users/info?company_slu
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/verify_otp/ \
+curl -X GET https://umbrella.yojee.com/api/v3/public/verify_otp/ \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/verify_otp/`
+`GET https://umbrella.yojee.com/api/v3/public/verify_otp/`
 
 *This endpoint verifies the entered OTP code*
 
@@ -88,12 +88,12 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/verify_otp/ \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/otp/ \
+curl -X GET https://umbrella.yojee.com/api/v3/public/otp/ \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/otp/`
+`GET https://umbrella.yojee.com/api/v3/public/otp/`
 
 *This endpoint requests an OTP code for logging in*
 
@@ -125,12 +125,12 @@ Public APIs for Order Tracking
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/track_item/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/public/track_item/{number} \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/track_item/{number}`
+`GET https://umbrella.yojee.com/api/v3/public/track_item/{number}`
 
 *This endpoint retrieves tracking information for an Order Item*
 
@@ -158,13 +158,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/track_item/{number} \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/public/orders/price \
+curl -X POST https://umbrella.yojee.com/api/v3/public/orders/price \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/public/orders/price`
+`POST https://umbrella.yojee.com/api/v3/public/orders/price`
 
 *This endpoint obtains a price quote for an Order*
 
@@ -264,12 +264,12 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/public/orders/price \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/track/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/public/track/{number} \
   -H 'Accept: */*'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/track/{number}`
+`GET https://umbrella.yojee.com/api/v3/public/track/{number}`
 
 *This endpoint retrieves tracking information for an Order*
 
@@ -297,11 +297,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/track/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/orders/download_sample?company_slug=string
+curl -X GET https://umbrella.yojee.com/api/v3/public/orders/download_sample?company_slug=string
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/orders/download_sample`
+`GET https://umbrella.yojee.com/api/v3/public/orders/download_sample`
 
 *This endpoint downloads all sample batch files of a company*
 
@@ -323,11 +323,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/orders/download_sample
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/password/edit
+curl -X GET https://umbrella.yojee.com/api/v3/public/password/edit
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/password/edit`
+`GET https://umbrella.yojee.com/api/v3/public/password/edit`
 
 *Validate if reset password token is still valid*
 
@@ -352,11 +352,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/password/edit
 
 ```shell
 
-curl -X PATCH https://umbrella-beta.yojee.com/api/v3/public/password
+curl -X PATCH https://umbrella.yojee.com/api/v3/public/password
 
 ```
 
-`PATCH https://umbrella-beta.yojee.com/api/v3/public/password`
+`PATCH https://umbrella.yojee.com/api/v3/public/password`
 
 *Validate if reset password token is still valid*
 
@@ -382,11 +382,11 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/public/password
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/public/password?email=string
+curl -X POST https://umbrella.yojee.com/api/v3/public/password?email=string
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/public/password`
+`POST https://umbrella.yojee.com/api/v3/public/password`
 
 *Create reset password token and send email*
 
@@ -417,11 +417,11 @@ Public APIs for Waybills, Invoices, EPODs and other Documentation
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/invoices/{order_number}?order_number=string
+curl -X GET https://umbrella.yojee.com/api/v3/public/invoices/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/invoices/{order_number}`
+`GET https://umbrella.yojee.com/api/v3/public/invoices/{order_number}`
 
 *This endpoint generates an Invoice from an Order number*
 
@@ -454,11 +454,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/invoices/{order_number
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/labels/{tracking_number}?tracking_number=string
+curl -X GET https://umbrella.yojee.com/api/v3/public/labels/{tracking_number}?tracking_number=string
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/labels/{tracking_number}`
+`GET https://umbrella.yojee.com/api/v3/public/labels/{tracking_number}`
 
 *This endpoint generates a Label from a tracking number*
 
@@ -491,11 +491,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/labels/{tracking_numbe
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/pods/order/{order_number}?order_number=string
+curl -X GET https://umbrella.yojee.com/api/v3/public/pods/order/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/pods/order/{order_number}`
+`GET https://umbrella.yojee.com/api/v3/public/pods/order/{order_number}`
 
 *This endpoint generates a Pod from an Order number*
 
@@ -528,11 +528,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/pods/order/{order_numb
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/pods/order_item/{tracking_number}?tracking_number=string
+curl -X GET https://umbrella.yojee.com/api/v3/public/pods/order_item/{tracking_number}?tracking_number=string
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/pods/order_item/{tracking_number}`
+`GET https://umbrella.yojee.com/api/v3/public/pods/order_item/{tracking_number}`
 
 *This endpoint generates a Pod from a tracking number*
 
@@ -565,11 +565,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/public/pods/order_item/{track
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/public/labels/order/{order_number}?order_number=string
+curl -X GET https://umbrella.yojee.com/api/v3/public/labels/order/{order_number}?order_number=string
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/public/labels/order/{order_number}`
+`GET https://umbrella.yojee.com/api/v3/public/labels/order/{order_number}`
 
 *This endpoint generates a Label from an Order number*
 
@@ -606,13 +606,13 @@ Authentication APIs
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/auth/signin \
+curl -X POST https://umbrella.yojee.com/api/v3/auth/signin \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/auth/signin`
+`POST https://umbrella.yojee.com/api/v3/auth/signin`
 
 *This endpoint allows a registered user to log in*
 
@@ -653,13 +653,13 @@ Sender APIs
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/info \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/info \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/info`
+`GET https://umbrella.yojee.com/api/v3/sender/info`
 
 *This endpoint retrieves a Sender's infomation*
 
@@ -684,13 +684,13 @@ Sender Order APIs
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/cancel \
+curl -X PUT https://umbrella.yojee.com/api/v3/sender/orders/{number}/cancel \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/cancel`
+`PUT https://umbrella.yojee.com/api/v3/sender/orders/{number}/cancel`
 
 *This endpoint cancels an Order*
 
@@ -716,13 +716,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/cancel
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/orders/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/orders/completed`
+`GET https://umbrella.yojee.com/api/v3/sender/orders/completed`
 
 *This endpoint retrieves all completed Orders of a Sender*
 
@@ -749,14 +749,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/completed?page=
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/payments \
+curl -X POST https://umbrella.yojee.com/api/v3/sender/orders/{number}/payments \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/payments`
+`POST https://umbrella.yojee.com/api/v3/sender/orders/{number}/payments`
 
 *This endpoint creates a payment request*
 
@@ -803,7 +803,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}/payme
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/orders \
+curl -X POST https://umbrella.yojee.com/api/v3/sender/orders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -811,7 +811,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/orders \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/sender/orders`
+`POST https://umbrella.yojee.com/api/v3/sender/orders`
 
 *This endpoint creates an Order*
 
@@ -862,13 +862,13 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/orders \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/orders/{number} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/orders/{number}`
+`GET https://umbrella.yojee.com/api/v3/sender/orders/{number}`
 
 *This endpoint retrieves information about an Order*
 
@@ -895,13 +895,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/orders/ongoing?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/orders/ongoing?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/orders/ongoing`
+`GET https://umbrella.yojee.com/api/v3/sender/orders/ongoing`
 
 *This endpoint retrieves all ongoing Orders of a Sender*
 
@@ -932,13 +932,13 @@ Sender Batch APIs
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/batches/check_status \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/batches/check_status \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/batches/check_status`
+`GET https://umbrella.yojee.com/api/v3/sender/batches/check_status`
 
 *This endpoint checks the status of a Batch*
 
@@ -960,14 +960,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/batches/check_status \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/sender/batches \
+curl -X POST https://umbrella.yojee.com/api/v3/sender/batches \
   -H 'Content-Type: multipart/form-data' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/sender/batches`
+`POST https://umbrella.yojee.com/api/v3/sender/batches`
 
 *This endpoint is used by a Sender to upload a batch file*
 
@@ -997,13 +997,13 @@ file: string
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/batches/get_order \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/batches/get_order \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/batches/get_order`
+`GET https://umbrella.yojee.com/api/v3/sender/batches/get_order`
 
 *This endpoint retrieves detailed information about a Batch*
 
@@ -1027,14 +1027,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/batches/get_order \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/Sender/company/service_types \
+curl -X GET https://umbrella.yojee.com/api/v3/Sender/company/service_types \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/Sender/company/service_types`
+`GET https://umbrella.yojee.com/api/v3/Sender/company/service_types`
 
 *This endpoint retrieves service types of a Company*
 
@@ -1065,11 +1065,11 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/Sender/company/service_types 
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/manifests/worker/{worker_id}`
 
 *This endpoint generates a Manifest for a Worker*
 
@@ -1096,13 +1096,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/manifests/worker/{
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/addressbook/search?query=string&page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/addressbook/search?query=string&page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/addressbook/search`
+`GET https://umbrella.yojee.com/api/v3/sender/addressbook/search`
 
 *This endpoint search address item of a company*
 
@@ -1129,14 +1129,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/addressbook/search?que
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/track_item/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/track_item/{number} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/track_item/{number}`
+`GET https://umbrella.yojee.com/api/v3/sender/track_item/{number}`
 
 *This endpoint retrieves tracking information for an Order Item*
 
@@ -1168,14 +1168,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/track_item/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/track/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/sender/track/{number} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/sender/track/{number}`
+`GET https://umbrella.yojee.com/api/v3/sender/track/{number}`
 
 *This endpoint retrieves tracking information for an Order*
 
@@ -1207,14 +1207,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/sender/track/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track_item/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/track_item/{number} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track_item/{number}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/track_item/{number}`
 
 *This endpoint retrieves tracking information for an Order Item*
 
@@ -1249,13 +1249,13 @@ Worker APIs
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/get_companies_theme \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/get_companies_theme \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/get_companies_theme`
+`GET https://umbrella.yojee.com/api/v3/worker/get_companies_theme`
 
 *This endpoint retrieves a list of all companies along with their theme info*
 
@@ -1283,14 +1283,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/get_companies_theme \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/check_for_updates \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/check_for_updates \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/check_for_updates`
+`GET https://umbrella.yojee.com/api/v3/worker/check_for_updates`
 
 *This endpoint checks if current installed app needs to be updated*
 
@@ -1321,14 +1321,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/check_for_updates \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/store_device_token \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/store_device_token \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/store_device_token`
+`PUT https://umbrella.yojee.com/api/v3/worker/store_device_token`
 
 *This endpoint stores a Worker's device token*
 
@@ -1360,7 +1360,7 @@ null
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/update \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/update \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -1368,7 +1368,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/update \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/update`
+`PUT https://umbrella.yojee.com/api/v3/worker/update`
 
 *This endpoint updates a Worker's information*
 
@@ -1404,13 +1404,13 @@ null
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/companies \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/companies \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/companies`
+`GET https://umbrella.yojee.com/api/v3/worker/companies`
 
 *This endpoint retrieves a list of Companies that a phone number is registered as a Worker in*
 
@@ -1438,13 +1438,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/companies \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/vehicles/{id}/select \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/vehicles/{id}/select \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/vehicles/{id}/select`
+`PUT https://umbrella.yojee.com/api/v3/worker/vehicles/{id}/select`
 
 *This endpoint is used by a Worker to select a Vehicle*
 
@@ -1470,14 +1470,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/vehicles/{id}/select \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/companies/config \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/companies/config \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/companies/config`
+`GET https://umbrella.yojee.com/api/v3/worker/companies/config`
 
 *This endpoint retrieves configuration information about a Worker's Company*
 
@@ -1506,14 +1506,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/companies/config \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/info \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/info \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/info`
+`GET https://umbrella.yojee.com/api/v3/worker/info`
 
 *This endpoint retrieves a Worker's infomation*
 
@@ -1542,14 +1542,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/info \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/statistics \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/statistics \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/statistics`
+`GET https://umbrella.yojee.com/api/v3/worker/statistics`
 
 *This endpoint retrieves a Worker's Task statistics*
 
@@ -1587,14 +1587,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/statistics \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/location \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/location \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/location`
+`PUT https://umbrella.yojee.com/api/v3/worker/location`
 
 *This endpoint updates a Worker's location*
 
@@ -1629,13 +1629,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/location \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/worker_sequence \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/worker_sequence \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/worker_sequence`
+`GET https://umbrella.yojee.com/api/v3/worker/worker_sequence`
 
 *This endpoint is used by a Worker fetch worker sequence detail*
 
@@ -1664,14 +1664,14 @@ Worker TaskGroup APIs
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/task_groups \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups`
+`GET https://umbrella.yojee.com/api/v3/worker/task_groups`
 
 *This endpoint retrieves a list of a Worker's TaskGroups*
 
@@ -1701,13 +1701,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/reject \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/task_groups/{id}/reject \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/reject`
+`PUT https://umbrella.yojee.com/api/v3/worker/task_groups/{id}/reject`
 
 *This endpoint is used by a Worker to reject an assigned TaskGroup*
 
@@ -1733,14 +1733,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/rejec
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/task_groups/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}`
+`GET https://umbrella.yojee.com/api/v3/worker/task_groups/{id}`
 
 *This endpoint retrieves information about a TaskGroup*
 
@@ -1770,14 +1770,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id} \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/accept \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/task_groups/{id}/accept \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/task_groups/{id}/accept`
+`PUT https://umbrella.yojee.com/api/v3/worker/task_groups/{id}/accept`
 
 *This endpoint is used by a Worker to accept an assigned TaskGroup*
 
@@ -1811,14 +1811,14 @@ Worker Task APIs
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/batches/{id}/status \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/tasks/batches/{id}/status \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/batches/{id}/status`
+`GET https://umbrella.yojee.com/api/v3/worker/tasks/batches/{id}/status`
 
 *This endpoint checks the status of all Tasks in a Batch*
 
@@ -1848,14 +1848,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/batches/{id}/sta
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/task/{id}/mark_as_failed \
+curl -X POST https://umbrella.yojee.com/api/v3/worker/task/{id}/mark_as_failed \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
+`POST https://umbrella.yojee.com/api/v3/worker/task/{id}/mark_as_failed`
 
 *This endpoint marks a Task as failed by creating an associated TaskException*
 
@@ -1888,14 +1888,14 @@ null
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/bulk_complete \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/tasks/bulk_complete \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/bulk_complete`
+`PUT https://umbrella.yojee.com/api/v3/worker/tasks/bulk_complete`
 
 *This endpoint is used by a Worker to complete multiple Tasks*
 
@@ -1935,14 +1935,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/bulk_complete \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/tasks/ongoing?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/ongoing`
+`GET https://umbrella.yojee.com/api/v3/worker/tasks/ongoing`
 
 *This endpoint retrieves a list of a Worker's ongoing Tasks*
 
@@ -1973,13 +1973,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/ongoing?page=1&p
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/tasks/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/completed`
+`GET https://umbrella.yojee.com/api/v3/worker/tasks/completed`
 
 *This endpoint retrieves a list of a Worker's completed Tasks*
 
@@ -2011,14 +2011,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/completed?page=1
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/{id}/complete \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/tasks/{id}/complete \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/tasks/{id}/complete`
+`PUT https://umbrella.yojee.com/api/v3/worker/tasks/{id}/complete`
 
 *This endpoint is used by a Worker to complete a Task*
 
@@ -2047,14 +2047,14 @@ null
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/tasks/history?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/tasks/history`
+`GET https://umbrella.yojee.com/api/v3/worker/tasks/history`
 
 *This endpoint retrieves a Worker's Task history*
 
@@ -2098,7 +2098,7 @@ Worker SubTask APIs
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/sub_tasks \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2106,7 +2106,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks`
+`PUT https://umbrella.yojee.com/api/v3/worker/sub_tasks`
 
 *This endpoint completes a SubTask*
 
@@ -2150,7 +2150,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
+curl -X POST https://umbrella.yojee.com/api/v3/worker/sub_tasks \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2158,7 +2158,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks`
+`POST https://umbrella.yojee.com/api/v3/worker/sub_tasks`
 
 *This endpoint completes a SubTask*
 
@@ -2204,14 +2204,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/sub_tasks \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/stops?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/stops?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/stops`
+`GET https://umbrella.yojee.com/api/v3/worker/stops`
 
 *This endpoint retrieves a list of a Worker's ongoing Stops*
 
@@ -2242,14 +2242,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/stops?page=1&page_size
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/stops/{id}?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/stops/{id}?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/stops/{id}`
+`GET https://umbrella.yojee.com/api/v3/worker/stops/{id}`
 
 *This endpoint retrieves a list of a Worker's ongoing Tasks by Stop*
 
@@ -2284,14 +2284,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/stops/{id}?page=1&page
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/worker/chat/channel \
+curl -X PUT https://umbrella.yojee.com/api/v3/worker/chat/channel \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/worker/chat/channel`
+`PUT https://umbrella.yojee.com/api/v3/worker/chat/channel`
 
 *This endpoint returns update worker channel data*
 
@@ -2319,14 +2319,14 @@ null
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/chat/channel \
+curl -X GET https://umbrella.yojee.com/api/v3/worker/chat/channel \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/worker/chat/channel`
+`GET https://umbrella.yojee.com/api/v3/worker/chat/channel`
 
 *This endpoint returns list of worker channels*
 
@@ -2356,7 +2356,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/worker/chat/channel \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/chat/send_message \
+curl -X POST https://umbrella.yojee.com/api/v3/worker/chat/send_message \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2364,7 +2364,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/worker/chat/send_message \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/worker/chat/send_message`
+`POST https://umbrella.yojee.com/api/v3/worker/chat/send_message`
 
 *This endpoint returns update worker channel data*
 
@@ -2404,14 +2404,14 @@ Dispatcher APIs
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/info \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/info \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/info`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/info`
 
 *This endpoint retrieves a Dispatcher's infomation*
 
@@ -2442,14 +2442,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/info \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/:id \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/plans/:id \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/:id`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/plans/:id`
 
 *This endpoint retrieves a plan belonging to a Company*
 
@@ -2479,7 +2479,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/:id \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/plans \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/plans \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2487,7 +2487,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/plans \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/plans`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/plans`
 
 *This endpoint creates a new plan*
 
@@ -2534,14 +2534,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/plans \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/plans \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/plans`
 
 *This endpoint retrieves a list of plans belonging to a Company*
 
@@ -2571,7 +2571,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/plans \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/plans/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2579,7 +2579,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id} \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/plans/{id}`
 
 *This endpoint updates a plan*
 
@@ -2627,13 +2627,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id} \
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/plans/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plans/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/plans/{id}`
 
 *This endpoint deletes a plan*
 
@@ -2663,13 +2663,13 @@ Dispatcher APIs for Search
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/sender?page=1&page_size=25&q=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/search/sender?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/sender`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/search/sender`
 
 *This endpoint is used to search for a Sender*
 
@@ -2693,13 +2693,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/sender?page
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/worker?page=1&page_size=25&q=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/search/worker?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/worker`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/search/worker`
 
 *This endpoint is used to search for a Worker*
 
@@ -2723,13 +2723,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/worker?page
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search?page=1&page_size=25&q=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/search?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/search`
 
 *This endpoint is used for global search*
 
@@ -2753,13 +2753,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search?page=1&page
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/dispatcher?page=1&page_size=25&q=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/search/dispatcher?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/dispatcher`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/search/dispatcher`
 
 *This endpoint is used to search for a Sender Admins*
 
@@ -2783,13 +2783,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/dispatcher?
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order?page=1&page_size=25&q=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/search/order?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/search/order`
 
 *This endpoint is used to search for an Order*
 
@@ -2813,13 +2813,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order?page=
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order_item?page=1&page_size=25&q=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/search/order_item?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order_item`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/search/order_item`
 
 *This endpoint is used to search for an OrderItem*
 
@@ -2843,13 +2843,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/order_item?
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/task?page=1&page_size=25&q=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/search/task?page=1&page_size=25&q=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/search/task`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/search/task`
 
 *This endpoint is used to search for a Task*
 
@@ -2878,7 +2878,7 @@ Dispatcher APIs for User Management
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/users \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/users \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2886,7 +2886,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/users \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/users`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/users`
 
 *This endpoint creates a new Dispatcher*
 
@@ -2927,14 +2927,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/users \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/users \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/users \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/users`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/users`
 
 *This endpoint retrieves a list of Dispatchers belonging to a Company*
 
@@ -2963,7 +2963,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/users \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/users/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/users/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -2971,7 +2971,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/users/{id} \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/users/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/users/{id}`
 
 *This endpoint updates a Dispatcher's information*
 
@@ -3016,14 +3016,14 @@ Dispatcher APIs for Company Management
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company/service_types \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/company/service_types \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company/service_types`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/company/service_types`
 
 *This endpoint retrieves service types of a Company*
 
@@ -3052,14 +3052,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company/service_ty
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/vehicle_types \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/vehicle_types \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/vehicle_types`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/vehicle_types`
 
 *This endpoint retrieves a list of VehicleTypes belonging to a Company*
 
@@ -3088,14 +3088,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/vehicle_types \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/company \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/company`
 
 *This endpoint retrieves infomation about a Company*
 
@@ -3124,7 +3124,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/company \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/company/assets \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/company/assets \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -H 'ACCESS_TOKEN: string' \
@@ -3132,7 +3132,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/company/assets \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/company/assets`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/company/assets`
 
 *This endpoint is used to upload branding assets for a Company*
 
@@ -3178,7 +3178,7 @@ file_type: string
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/company/settings \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/company/settings \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3186,7 +3186,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/company/settings \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/company/settings`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/company/settings`
 
 *This endpoint updates a Company's settings*
 
@@ -3244,14 +3244,14 @@ Dispatcher APIs for Role Management
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/roles \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/roles \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/roles`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/roles`
 
 *This endpoint creates a new Role*
 
@@ -3291,14 +3291,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/roles \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/roles \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/roles \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/roles`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/roles`
 
 *This endpoint retrieves a list of Roles*
 
@@ -3327,14 +3327,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/roles \
 
 ```shell
 
-curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/roles/{id} \
+curl -X PATCH https://umbrella.yojee.com/api/v3/dispatcher/roles/{id} \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/roles/{id}`
+`PATCH https://umbrella.yojee.com/api/v3/dispatcher/roles/{id}`
 
 *This endpoint updates a Role*
 
@@ -3377,13 +3377,13 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/roles/{id} \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/sender/cancel_order/{order_number}`
 
 *This endpoint is used to cancel a Transfer Order*
 
@@ -3409,13 +3409,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/s
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/reject_order/{order_number}`
 
 *This endpoint is used to reject a Transfer Order*
 
@@ -3441,14 +3441,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/d
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/sender/create_order`
 
 *This endpoint is used to create a Transfer Order*
 
@@ -3487,13 +3487,13 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/partner_transfer/dispatcher/accept_order/{order_number}`
 
 *This endpoint is used to accept a Transfer Order*
 
@@ -3523,13 +3523,13 @@ Dispatcher APIs for Partner Management
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/partners/{cip}/reject_invite`
 
 *This endpoint is used to decline a Partner invite*
 
@@ -3555,7 +3555,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/rej
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/sent?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/partners/invites/sent?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
@@ -3594,7 +3594,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/s
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partners/{cip}/cancel_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
@@ -3626,7 +3626,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/can
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partnership_info \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3634,7 +3634,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/partnership_info`
 
 *This endpoint updates a Company's partnership information*
 
@@ -3674,14 +3674,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/partnership_info \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/partnership_info`
 
 *This endpoint retrieves a Company's partnership information*
 
@@ -3710,13 +3710,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partnership_info \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/partners/{cip}/send_invite`
 
 *This endpoint is used to send a Partner invite*
 
@@ -3742,14 +3742,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/sen
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/received?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/partners/invites/received?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/received`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/partners/invites/received`
 
 *This endpoint retrieves a list of received partnership requests*
 
@@ -3781,13 +3781,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/invites/r
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/partners/{cip}/accept_invite`
 
 *This endpoint is used to accept a Partner invite*
 
@@ -3813,14 +3813,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/partners/{cip}/acc
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/partners?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/partners`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/partners`
 
 *This endpoint retrieves a list of Partners belonging to a Company*
 
@@ -3857,7 +3857,7 @@ Dispatcher APIs for Network Management
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/network/spokes \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3865,7 +3865,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/network/spokes`
 
 *This endpoint creates a new Spoke*
 
@@ -3909,14 +3909,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/network/spokes \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/network/spokes`
 
 *This endpoint retrieves a list of Spokes belonging to a Company*
 
@@ -3945,7 +3945,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes \
 
 ```shell
 
-curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X PATCH https://umbrella.yojee.com/api/v3/dispatcher/network/hubs/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -3953,7 +3953,7 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id
 
 ```
 
-`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`PATCH https://umbrella.yojee.com/api/v3/dispatcher/network/hubs/{id}`
 
 *This endpoint updates a Hub*
 
@@ -4003,14 +4003,14 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/network/hubs/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/network/hubs/{id}`
 
 *This endpoint retrieves information about a Hub*
 
@@ -4040,14 +4040,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id} 
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/network/hubs/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/network/hubs/{id}`
 
 *This endpoint deletes a Hub*
 
@@ -4077,7 +4077,7 @@ curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs/{i
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/network/hubs \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4085,7 +4085,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/network/hubs`
 
 *This endpoint creates a new Hub*
 
@@ -4134,14 +4134,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/network/hubs \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/network/hubs`
 
 *This endpoint retrieves a list of Hubs belonging to a Company*
 
@@ -4170,7 +4170,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/hubs \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/network/regions \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4178,7 +4178,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/network/regions`
 
 *This endpoint creates a new Region*
 
@@ -4260,14 +4260,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/network/regions \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/network/regions`
 
 *This endpoint retrieves a list of Regions belonging to a Company*
 
@@ -4296,7 +4296,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions \
 
 ```shell
 
-curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X PATCH https://umbrella.yojee.com/api/v3/dispatcher/network/spokes/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4304,7 +4304,7 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{
 
 ```
 
-`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`PATCH https://umbrella.yojee.com/api/v3/dispatcher/network/spokes/{id}`
 
 *This endpoint updates a Spoke*
 
@@ -4349,14 +4349,14 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/network/spokes/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/network/spokes/{id}`
 
 *This endpoint retrieves information about a Spoke*
 
@@ -4386,14 +4386,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/network/spokes/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/network/spokes/{id}`
 
 *This endpoint deletes a Spoke*
 
@@ -4423,7 +4423,7 @@ curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/spokes/
 
 ```shell
 
-curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id} \
+curl -X PATCH https://umbrella.yojee.com/api/v3/dispatcher/network/regions/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4431,7 +4431,7 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/
 
 ```
 
-`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id}`
+`PATCH https://umbrella.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
 *This endpoint updates a Region*
 
@@ -4514,14 +4514,14 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/network/regions/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
 *This endpoint retrieves information about a Region*
 
@@ -4551,14 +4551,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{i
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/network/regions/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/network/regions/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/network/regions/{id}`
 
 *This endpoint deletes a Region*
 
@@ -4592,7 +4592,7 @@ Dispatcher APIs for Sender Management
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/senders \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/senders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4600,7 +4600,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/senders \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/senders`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/senders`
 
 *This endpoint creates a new Sender*
 
@@ -4643,14 +4643,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/senders \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/senders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/senders`
 
 *This endpoint retrieves a list of Senders*
 
@@ -4683,7 +4683,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders?page=1&pag
 
 ```shell
 
-curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
+curl -X PATCH https://umbrella.yojee.com/api/v3/dispatcher/senders/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4691,7 +4691,7 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
 
 ```
 
-`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id}`
+`PATCH https://umbrella.yojee.com/api/v3/dispatcher/senders/{id}`
 
 *This endpoint updates a Sender's information*
 
@@ -4733,14 +4733,14 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/senders/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/senders/{id}`
 
 *This endpoint retrieves information about a Sender*
 
@@ -4770,13 +4770,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/senders/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/senders/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/senders/{id}`
 
 *This endpoint deletes a Sender*
 
@@ -4806,7 +4806,7 @@ Dispatcher APIs for Corporate Sender Management
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4814,7 +4814,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{org
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/organisations/{organisation_id}/senders/{id}`
 
 *This endpoint updates a Corporate User*
 
@@ -4859,14 +4859,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{org
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/dispatchers/senders?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/dispatchers/senders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/dispatchers/senders`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/dispatchers/senders`
 
 *This endpoint retrieves a list of Sender Admins and the Organisations they manage*
 
@@ -4897,14 +4897,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/dispatchers/sender
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisation_senders?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/organisation_senders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisation_senders`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/organisation_senders`
 
 *This endpoint retrieves a list of Organisation Senders*
 
@@ -4935,7 +4935,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisation_sende
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id}/senders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -4943,7 +4943,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
 
 *This endpoint creates a new Corporate User*
 
@@ -4987,14 +4987,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id}/senders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id}/senders`
 
 *This endpoint retrieves a list of Corporate Users*
 
@@ -5026,7 +5026,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/organisations \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5034,7 +5034,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/organisations`
 
 *This endpoint creates a new corporate*
 
@@ -5088,14 +5088,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/organisations?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/organisations`
 
 *This endpoint retrieves a list of Corporates (aka Organisations) managed by a Dispatcher*
 
@@ -5128,7 +5128,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations?page
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5136,7 +5136,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id}`
 
 *This endpoint updates a Corporate*
 
@@ -5202,14 +5202,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/organisations/{id}`
 
 *This endpoint retrieves information about an Corporate (aka Organisation)*
 
@@ -5241,14 +5241,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/organisations/{id}
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/track/{number} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/track/{number}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/track/{number}`
 
 *This endpoint retrieves tracking information for an Order*
 
@@ -5283,14 +5283,14 @@ Dispatcher APIs for Worker Management
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/location_history \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/location_history \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/location_history`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/location_history`
 
 *This endpoint retrieves locations of the worker according to a time window*
 
@@ -5322,13 +5322,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/locat
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/tasks/failed`
 
 *This endpoint retrieves a list of a Worker's failed Tasks*
 
@@ -5352,7 +5352,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/workers \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/workers \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5360,7 +5360,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/workers \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/workers`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/workers`
 
 *This endpoint creates a new Worker*
 
@@ -5414,14 +5414,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/workers \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/workers?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/workers`
 
 *This endpoint retrieves a list of Workers*
 
@@ -5460,13 +5460,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers?page=1&pag
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/tasks/assigned`
 
 *This endpoint retrieves a list of a Worker's assigned Tasks*
 
@@ -5490,7 +5490,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5498,7 +5498,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}`
 
 *This endpoint updates a Worker's information*
 
@@ -5552,14 +5552,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}`
 
 *This endpoint retrieves information about a Worker*
 
@@ -5589,13 +5589,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/workers/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}`
 
 *This endpoint deletes a Worker*
 
@@ -5621,14 +5621,14 @@ curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id} \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/approve \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/approve \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/approve`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/approve`
 
 *This endpoint is used by a Dispatcher to approve a Worker*
 
@@ -5658,13 +5658,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/appro
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/workers/{id}/tasks/completed`
 
 *This endpoint retrieves a list of a Worker's completed Tasks*
 
@@ -5692,13 +5692,13 @@ Dispatcher APIs for Order Management
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}/cancel \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/orders/{number}/cancel \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}/cancel`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/orders/{number}/cancel`
 
 *This endpoint cancels an Order*
 
@@ -5724,7 +5724,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}/ca
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/orders/{number} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5732,7 +5732,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number} \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/orders/{number}`
 
 *This endpoint is used by a Dispatcher to update an Order*
 
@@ -5773,14 +5773,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/orders/{number} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/orders/{number}`
 
 *This endpoint retrieves information about an Order*
 
@@ -5810,7 +5810,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders/{number} \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/orders \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/orders \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5818,7 +5818,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/orders \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/orders`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/orders`
 
 *This endpoint creates an Order*
 
@@ -5869,14 +5869,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/orders \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/orders?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/orders`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/orders`
 
 *This endpoint retrieves a list of Orders*
 
@@ -5917,14 +5917,14 @@ Dispatcher APIs for OrderItem Management
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{number}/logs \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{number}/logs \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{number}/logs`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{number}/logs`
 
 *this endpoint is used by a Dispatcher to view the logs for a single order_item*
 
@@ -5954,13 +5954,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{numbe
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/cancel_multiple \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/order_items/cancel_multiple \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/cancel_multiple`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/order_items/cancel_multiple`
 
 *This endpoint is used by a Dispatcher to cancel one or many OrderItems*
 
@@ -5986,7 +5986,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/cancel
 
 ```shell
 
-curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id} \
+curl -X PATCH https://umbrella.yojee.com/api/v3/dispatcher/order_items/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -5994,7 +5994,7 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id}
 
 ```
 
-`PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id}`
+`PATCH https://umbrella.yojee.com/api/v3/dispatcher/order_items/{id}`
 
 *This endpoint is used by a Dispatcher to update an OrderItem*
 
@@ -6058,14 +6058,14 @@ curl -X PATCH https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id}
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{id}`
 
 *This endpoint retrieves information about an OrderItem*
 
@@ -6096,14 +6096,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/order_items?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/order_items`
 
 *This endpoint retrieves a list of OrderItems*
 
@@ -6143,13 +6143,13 @@ Dispatcher APIs for Batch Management
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/download_sample?company_id=0&format=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/batches/download_sample?company_id=0&format=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/download_sample`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/batches/download_sample`
 
 *This endpoint downloads a sample batch file of a company*
 
@@ -6172,14 +6172,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/download_s
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/batches \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/batches \
   -H 'Content-Type: multipart/form-data' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/batches`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/batches`
 
 *This endpoint is used by a Dispatcher to upload a batch file*
 
@@ -6212,13 +6212,13 @@ file: string
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/check_status \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/batches/check_status \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/check_status`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/batches/check_status`
 
 *This endpoint checks the status of a Batch*
 
@@ -6240,7 +6240,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/check_stat
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/continue \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/batches/{id}/continue \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -6248,7 +6248,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/conti
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/continue`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/batches/{id}/continue`
 
 *This endpoint continues submiting a Batch regardless of being given missing info*
 
@@ -6289,13 +6289,13 @@ file: string
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/get_order \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/batches/get_order \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/get_order`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/batches/get_order`
 
 *This endpoint retrieves detailed information about a Batch*
 
@@ -6317,14 +6317,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/get_order 
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/cancel \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/batches/{id}/cancel \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/batches/{id}/cancel`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/batches/{id}/cancel`
 
 *This endpoint cancel a Batch*
 
@@ -6358,13 +6358,13 @@ Dispatcher APIs for TaskGroup Management
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/tasks?page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/tasks`
 
 *This endpoint list tasks of a company*
 
@@ -6440,13 +6440,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks?page=1&page_
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}`
 
 *This endpoint retrieves information about a TaskGroup*
 
@@ -6468,14 +6468,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id} \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/unassigned?page=1&page_size=25 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/unassigned?page=1&page_size=25 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/unassigned`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/unassigned`
 
 *This endpoint retrieves a list of unassigned TaskGroups*
 
@@ -6509,13 +6509,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/unassi
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assign_multiple \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/assign_multiple \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assign_multiple`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/assign_multiple`
 
 *This endpoint assigns multiple TaskGroups to a Worker*
 
@@ -6540,13 +6540,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assign
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}?type=string \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}?type=string \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/step_items/{step_id}`
 
 *This endpoint retrieves detailed information for Items in a TaskGroup*
 
@@ -6570,14 +6570,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/s
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assigned?page=1&page_size=25 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/assigned?page=1&page_size=25 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assigned`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/assigned`
 
 *This endpoint retrieves a list of assigned TaskGroups*
 
@@ -6614,13 +6614,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/assign
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/unassign_worker`
 
 *This endpoint unassigns a TaskGroup from a Worker*
 
@@ -6642,13 +6642,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/u
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/join_chat`
 
 *This endpoint adds a Dispatcher to a chat group*
 
@@ -6670,13 +6670,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/j
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/accepted \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/accepted \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/accepted`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/task_groups/accepted`
 
 *This endpoint retrieves a Worker's list of accepted TaskGroups*
 
@@ -6698,13 +6698,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/accept
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{id}/assign_worker`
 
 *This endpoint assigns a TaskGroup to a Worker*
 
@@ -6731,13 +6731,13 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{id}/a
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/addressbook/search?query=string&page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/addressbook/search?query=string&page=1&page_size=10 \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/addressbook/search`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/addressbook/search`
 
 *This endpoint search address item of a company*
 
@@ -6766,13 +6766,13 @@ Dispatcher APIs for Task Management
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/tasks/{id}`
 
 *This endpoint updates a Task's details*
 
@@ -6795,14 +6795,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/bulk_complete \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/tasks/bulk_complete \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/bulk_complete`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/tasks/bulk_complete`
 
 *this endpoint is used by a dispatcher to complete multiple tasks*
 
@@ -6836,14 +6836,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/bulk_complet
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/allocate \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/tasks/allocate \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/allocate`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/tasks/allocate`
 
 *This endpoint assigns a tasks from planner to a recommended worker*
 
@@ -6954,14 +6954,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/allocate \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/batches/{id}/status \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/tasks/batches/{id}/status \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/batches/{id}/status`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/tasks/batches/{id}/status`
 
 *This endpoint checks the status of all Tasks in a Batch*
 
@@ -6991,13 +6991,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/tasks/batches/{id}
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/delete_task_exception`
 
 *This endpoint deletes a TaskException associated with a Task*
 
@@ -7024,14 +7024,14 @@ curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{ta
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/mark_as_failed`
 
 *This endpoint marks a Task as failed by creating an associated TaskException*
 
@@ -7065,13 +7065,13 @@ null
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/task_groups/{task_group_id}/task/{id}/complete`
 
 *This endpoint marks a Task as completed by a Dispatcher*
 
@@ -7102,14 +7102,14 @@ Dispatcher APIs for TaskExceptionReason Management
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/task_exception_reasons/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/task_exception_reasons/{id}`
 
 *This endpoint deletes a TaskExceptionReason*
 
@@ -7139,7 +7139,7 @@ curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/task_exception_reasons \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -7147,7 +7147,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_re
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/task_exception_reasons`
 
 *This endpoint creates a new TaskExceptionReason*
 
@@ -7186,14 +7186,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_re
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/task_exception_reasons \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/task_exception_reasons`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/task_exception_reasons`
 
 *This endpoint retrieves all TaskExceptionReasons for a Company*
 
@@ -7226,14 +7226,14 @@ Dispatcher APIs for SubTask Management
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks`
 
 *This endpoint retrieves a list of SubTasks for an OrderItem*
 
@@ -7263,14 +7263,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/order_items/{order_item_id}/sub_tasks/{id}`
 
 *This endpoint retrieves information about a SubTask*
 
@@ -7305,7 +7305,7 @@ Dispatcher APIs for SubTaskRule Management
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -7313,7 +7313,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
 
 *This endpoint updates a SubTaskRule*
 
@@ -7358,14 +7358,14 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
 
 *This endpoint retrieves information about a SubTaskRule*
 
@@ -7395,13 +7395,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules/{id}`
 
 *This endpoint marks a SubTaskRule as invalidated*
 
@@ -7427,7 +7427,7 @@ curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules/
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -7435,7 +7435,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules`
 
 *This endpoint creates a new SubTaskRule*
 
@@ -7479,14 +7479,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules?page=1&page_size=10 \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules?page=1&page_size=10 \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/sub_task_rules`
 
 *This endpoint retrieves a list of SubTaskRules*
 
@@ -7519,14 +7519,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/sub_task_rules?pag
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/:id \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/settings/:id \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/:id`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/settings/:id`
 
 *This endpoint retrieves a setting belonging to a Company*
 
@@ -7556,13 +7556,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/:id \
 
 ```shell
 
-curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plan_settings/{id} \
+curl -X DELETE https://umbrella.yojee.com/api/v3/dispatcher/plan_settings/{id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plan_settings/{id}`
+`DELETE https://umbrella.yojee.com/api/v3/dispatcher/plan_settings/{id}`
 
 *This endpoint deletes a setting*
 
@@ -7588,7 +7588,7 @@ curl -X DELETE https://umbrella-beta.yojee.com/api/v3/dispatcher/plan_settings/{
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/{id} \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/settings/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -7596,7 +7596,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/{id} \
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/{id}`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/settings/{id}`
 
 *This endpoint updates a Dispatcher's information*
 
@@ -7638,7 +7638,7 @@ curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/settings/{id} \
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/settings \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/settings \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -7646,7 +7646,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/settings \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/settings`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/settings`
 
 *This endpoint creates a new Dispatcher*
 
@@ -7687,14 +7687,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/settings \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/settings \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/settings`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/settings`
 
 *This endpoint retrieves a list of settings belonging to a Company*
 
@@ -7727,7 +7727,7 @@ Broadcast management
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/broadcasts \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/broadcasts \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -7735,7 +7735,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/broadcasts \
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/broadcasts`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/broadcasts`
 
 *This endpoint creates a Broadcast for a TaskGroup*
 
@@ -7781,14 +7781,14 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/broadcasts \
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id} \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/chat/worker_channel/{worker_id}`
 
 *This endpoint returns list of worker channels*
 
@@ -7818,7 +7818,7 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/worker_channe
 
 ```shell
 
-curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/send_message \
+curl -X POST https://umbrella.yojee.com/api/v3/dispatcher/chat/send_message \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'ACCESS_TOKEN: string' \
@@ -7826,7 +7826,7 @@ curl -X POST https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/send_message
 
 ```
 
-`POST https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/send_message`
+`POST https://umbrella.yojee.com/api/v3/dispatcher/chat/send_message`
 
 *Dispatcher sends message*
 
@@ -7862,13 +7862,13 @@ null
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel/{channel_id} \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/chat/channel/{channel_id} \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel/{channel_id}`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/chat/channel/{channel_id}`
 
 *This endpoint return channel information*
 
@@ -7891,13 +7891,13 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel/{chan
 
 ```shell
 
-curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channels \
+curl -X GET https://umbrella.yojee.com/api/v3/dispatcher/chat/channels \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channels`
+`GET https://umbrella.yojee.com/api/v3/dispatcher/chat/channels`
 
 *This endpoint returns list of dispatcher channels*
 
@@ -7918,14 +7918,14 @@ curl -X GET https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channels \
 
 ```shell
 
-curl -X PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel \
+curl -X PUT https://umbrella.yojee.com/api/v3/dispatcher/chat/channel \
   -H 'Content-Type: application/json' \
   -H 'ACCESS_TOKEN: string' \
   -H 'COMPANY_SLUG: string'
 
 ```
 
-`PUT https://umbrella-beta.yojee.com/api/v3/dispatcher/chat/channel`
+`PUT https://umbrella.yojee.com/api/v3/dispatcher/chat/channel`
 
 *This endpoint returns update worker channel data*
 
@@ -7944,6 +7944,106 @@ null
 |body|body|any|false|Last read on date in ISO8601 format|
 
 <h3 id="apiweb.v3.dispatcher.chatcontroller.update-responses">Responses</h3>
+
+<h1 id="Yojee-APIs-[Dispatcher]-Webhook">Webhooks</h1>
+
+Webhooks allow you to build or setup applications which subscribe to certain events on Yojee. This mechanism is also useful for services that are not directly responsible for making an API request, but still need to know the response from that request.
+
+When one of those events is triggered, we'll send a HTTP POST payload to the webhook's configured URL.
+
+## Events
+
+When configuring a webhook, you can choose which events you would like to receive payloads for. You can change the list of subscribed events through the API or UI anytime.
+
+Each event corresponds to a certain set of actions that can happen to your company. For example, if you subscribe to the `order.created` event you'll receive detailed payloads every time an order is created.
+
+This is a list of all the types of events we currently send. We may add more at any time, so in developing and maintaining your code, you should not assume that only these types exist.
+
+| Name              | Description                            |
+|-------------------|----------------------------------------|
+| order.created     | Occurs whenever an order is created    |
+| sender.created    | Occurs whenever a sender is created    |
+| payment.completed | Occurs whenever a payment is completed |
+
+## Configuring your Webhooks settings
+
+Webhooks are configured in the Dashboard's Webhooks settings section. Click Add endpoint to reveal a form where you can add a new URL for receiving webhooks.
+
+## Delivery headers
+
+HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain a header
+
+| Header                | Description                                                                                                                                                                                                     |
+|---------------------  |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| yojee-signature       | The HMAC hex digest of the response body. The HMAC hex digest is generated using the `sha256` hash function and the `secret` as the HMAC `key`.  |
+
+## Responding to a webhook
+
+To acknowledge receipt of a webhook, your endpoint should return a 2xx HTTP status code. All response codes outside this range, including 3xx codes, will indicate to Yojee that you did not receive the webhook.
+
+We will attempt to deliver your webhooks for up to five times with an exponential back off.
+
+| Retry | Seconds |
+|-------|---------|
+| 1     | 120     |
+| 2     | 360     |
+| 3     | 840     |
+| 4     | 1800    |
+| 5     | 3720    |
+
+When viewing information about a specific event through the Dashboard, you can check how many times we've attempted to send an event to an endpoint by clicking on that endpoint URL in the Webhook details section. This will show you the latest response we received from your endpoint, along with a list of all attempted webhooks and the respective HTTP status codes we received.
+
+## Best practices
+
+If your webhook script performs complex logic, or makes network calls, it's possible that the script would time out before Yojee sees its complete execution. For that reason, you might want to have your webhook endpoint immediately acknowledge receipt by returning a 2xx HTTP status code, and then perform the rest of its duties.
+
+## Checking Webhook Signatures
+
+Yojee signs the webhook events it sends to your endpoints. We do so by including a signature using a hash-based message authentication code (HMAC) with SHA-256 in each event’s `yojee-signature` header. This allows you to validate that the events were sent by Yojee, not by a third party.
+
+Before you can verify signatures, you need to retrieve your endpoint’s secret from your Dashboard’s Webhooks settings. Each secret is unique to the endpoint to which it corresponds.
+
+**Step 1: Determine the expected signature**
+
+Compute an HMAC with the SHA256 hash function. Use the endpoint’s signing secret as the key, and use the JSON payload(ie the request's body) string as the message.
+
+**Step 2: Compare signatures**
+
+Compare the signature in the header to the expected signature.
+
+
+## Events
+
+### The event object
+
+| Attributes  | Description                                                                     |
+|------------ |-------------------------------------------------------------------------------- |
+| id          | Unique identifier for the event.                                                |
+| event_type  | Description of the event (e.g. order.created or payment.completed).             |
+| data        | Object containing data associated with the event.                               |
+| webhook_id  | The id of webhook which subscribes the event                                    |
+| created_at  | Time at which the event was created. Measured in seconds since the Unix epoch.  |
+
+
+### order.created
+
+<a id="opIdApiWeb.V3.Webhook.order-created"></a>
+
+Data: [WebhookOrderResponse](#schema_webhook_order_response)
+
+### sender.created
+
+<a id="opIdApiWeb.V3.Webhook.sender-created"></a>
+
+Data: [WebhookSenderResponse](#schema_webhook_sender_response)
+
+
+### payment.completed
+
+<a id="opIdApiWeb.V3.Webhook.payment-completed"></a>
+
+Data: [WebhookPaymentResponse](#schema_webhook_payment_response)
+
 
 # Schemas
 
@@ -12863,3 +12963,231 @@ null
 |description|string|false|none|none|
 |coordinates|[any]|false|none|none|
 |color|string|false|none|none|
+
+<h2 id="tocSwebhook_order_response">Webhook Order Response</h2>
+
+<a id="schema_webhook_order_response"></a>
+
+```json
+{
+  "cancelled_at": null,
+  "external_id": null,
+  "id": 5395,
+  "inserted_at": "2019-02-20T04:38:14.681548Z",
+  "number": "O-A2ROU1DHCJZH",
+  "order_items": [
+    {
+      "id": 37669,
+      "inserted_at": "2019-02-20T04:38:18.934173Z",
+      "item": {
+        "description": "1 package",
+        "global_tracking_number": "Y-ZKTVPQ",
+        "height": 40,
+        "id": 43271,
+        "length": 50,
+        "payload_type": "Package",
+        "quantity": 1,
+        "volume": 80000,
+        "volumetric_weight": 16,
+        "weight": 5,
+        "width": 40
+      },
+      "service_type": "same_day",
+      "status": "created",
+      "tracking_number": "YOJ-CMHWDJZ3PT0",
+      "transfer_info": null
+    }
+  ],
+  "price": {
+    "amount": "0.00000000",
+    "currency": "SGD"
+  },
+  "sender": {
+    "id": 488,
+    "name": null,
+    "organisation_name": "Test corporate yojee",
+    "type": "organisation"
+  },
+  "status": "accepted"
+}
+
+```
+
+### Properties
+
+| Name            | Type      | Description                                                                               |
+|---------------- |---------  |------------------------------------------------------------------------------------------ |
+| id              | integer   | order's id                                                                                |
+| number          | string    | order's number                                                                            |
+| price           | map       | price's information                                                                       |
+| price.amount    | string    | amount of money price                                                                     |
+| price.currency  | string    | currency name                                                                             |
+| status          | string    | id of webhook which subscribes the event                                                  |
+| order_items     | array     | an array containing the information of [order item](#schema_webhook_order_item_response)  |
+| sender          | map       | [sender's information](#schema_webhook_sender_response)                                   |
+| external_id     | string    | order's custom id                                                                         |
+| inserted_at     | string    | order creation date time                                                                  |
+| cancelled_at    | string    | order cancellation date time                                                              |
+
+
+<h2 id="tocSwebhook_order_item_response">Webhook Order Item Response</h2>
+
+<a id="schema_webhook_order_item_response"></a>
+
+```json
+{
+  "id": 37669,
+  "inserted_at": "2019-02-20T04:38:18.934173Z",
+  "item": {
+    "description": "1 package",
+    "global_tracking_number": "Y-ZKTVPQ",
+    "height": 40,
+    "id": 43271,
+    "length": 50,
+    "payload_type": "Package",
+    "quantity": 1,
+    "volume": 80000,
+    "volumetric_weight": 16,
+    "weight": 5,
+    "width": 40
+  },
+  "service_type": "same_day",
+  "status": "created",
+  "tracking_number": "YOJ-CMHWDJZ3PT0"
+}
+```
+
+### Properties
+
+| Name              | Type      | Description                                           |
+|-----------------  |---------  |-----------------------------------------------------  |
+| id                | integer   | order item's id                                       |
+| inserted_at       | string    | order item creation date time                         |
+| item              | map       | [item's information](#schema_webhook_item_response)   |
+| service_type      | string    | order item's service type                             |
+| status            | string    | order item's status                                   |
+| tracking_number   | string    | order item's tracking number                          |
+
+
+<h2 id="tocSwebhook_item_response">Webhook Item Response</h2>
+
+<a id="schema_webhook_item_response"></a>
+
+```json
+{
+  "description": "1 package",
+  "global_tracking_number": "Y-ZKTVPQ",
+  "height": 40,
+  "id": 43271,
+  "length": 50,
+  "payload_type": "Package",
+  "quantity": 1,
+  "volume": 80000,
+  "volumetric_weight": 16,
+  "weight": 5,
+  "width": 40
+}
+```
+
+### Properties
+
+| Name                    | Type      | Description               |
+|------------------------ |---------  |-------------------------- |
+| id                      | integer   | item's id                 |
+| description             | string    | item's description        |
+| global_tracking_number  | string    | item's tracking number    |
+| height                  | double    | item's height             |
+| length                  | double    | item's length             |
+| weight                  | double    | item's weight             |
+| width                   | double    | item's width              |
+| quantity                | integer   | the number of quantity    |
+| volume                  | double    | item's volume             |
+| volumetric_weight       | double    | item's volumetric weight  |
+
+<h2 id="tocSwebhook_sender_response">Webhook Sender Response</h2>
+
+<a id="schema_webhook_sender_response"></a>
+
+```json
+{
+  "id": 1,
+  "email": "mike@gmail.com",
+  "name": "Mike",
+  "phone": "+8499999999",
+  "billing_address": "123 Robinson Road",
+  "sender_type": "individual",
+  "inserted_at": "2019-02-20T04:38:18.934173Z",
+  "updated_at": "2019-02-20T04:38:18.934173Z"
+}
+```
+
+### Properties
+
+| Name              | Type      | Description                                 |
+|-----------------  |---------  |-------------------------------------------- |
+| id                | integer   | sender's id                                 |
+| description       | string    | the description of sender                   |
+| name              | string    | sender's name                               |
+| phone             | string    | phone number                                |
+| billing_address   | string    | the sender's address                        |
+| sender_type       | string    | type of sender: organisation or individual  |
+| inserted_at       | string    | sender creation date time                   |
+
+
+<h2 id="tocSwebhook_payment_response">Webhook Payment Response</h2>
+
+<a id="schema_webhook_payment_response"></a>
+
+```json
+{
+  "payment_data": {"id":"ch_1E7dnMEW8RIiGRid9COJH1Qk","object":"charge","amount":100,"amount_refunded":0,"application":null,"application_fee":null,"application_fee_amount":null,"balance_transaction":"txn_1E56OLEW8RIiGRid1eMRotPF","captured":false,"created":1551079356,"currency":"usd","customer":null,"description":"My First Test Charge (created for API docs)","destination":null,"dispute":null,"failure_code":null,"failure_message":null,"fraud_details":{},"invoice":null,"livemode":false,"metadata":{},"on_behalf_of":null,"order":null,"outcome":null,"paid":true,"payment_intent":null,"receipt_email":null,"receipt_number":null,"receipt_url":"https://pay.stripe.com/receipts/acct_1E2woUEW8RIiGRid/ch_1E7dnMEW8RIiGRid9COJH1Qk/rcpt_EapSCV0vOBLfqRG5wFODSX21oNdTiFw","refunded":false,"refunds":{"object":"list","data":[],"has_more":false,"total_count":0,"url":"/v1/charges/ch_1E7dnMEW8RIiGRid9COJH1Qk/refunds"},"review":null,"shipping":null,"source":{"id":"card_1E5BhNEW8RIiGRidtWxWUKSU","object":"card","address_city":null,"address_country":null,"address_line1":null,"address_line1_check":null,"address_line2":null,"address_state":null,"address_zip":null,"address_zip_check":null,"brand":"Visa","country":"US","customer":null,"cvc_check":null,"dynamic_last4":null,"exp_month":8,"exp_year":2020,"fingerprint":"muLJgjDWsgQDqh6c","funding":"credit","last4":"4242","metadata":{},"name":"Jenny Rosen","tokenization_method":null},"source_transfer":null,"statement_descriptor":null,"status":"succeeded","transfer_data":null,"transfer_group":null},
+  "order": {
+    "cancelled_at": null,
+    "external_id": null,
+    "id": 5395,
+    "inserted_at": "2019-02-20T04:38:14.681548Z",
+    "number": "O-A2ROU1DHCJZH",
+    "order_items": [
+      {
+        "id": 37669,
+        "inserted_at": "2019-02-20T04:38:18.934173Z",
+        "item": {
+          "description": "1 package",
+          "global_tracking_number": "Y-ZKTVPQ",
+          "height": 40,
+          "id": 43271,
+          "length": 50,
+          "payload_type": "Package",
+          "quantity": 1,
+          "volume": 80000,
+          "volumetric_weight": 16,
+          "weight": 5,
+          "width": 40
+        },
+        "service_type": "same_day",
+        "status": "created",
+        "tracking_number": "YOJ-CMHWDJZ3PT0",
+        "transfer_info": null
+      }
+    ],
+    "price": {
+      "amount": "0.00000000",
+      "currency": "SGD"
+    },
+    "sender": {
+      "id": 488,
+      "name": null,
+      "organisation_name": "Test corporate yojee",
+      "type": "organisation"
+    },
+    "status": "accepted"
+  }
+}
+```
+
+### Properties
+
+| Name          | Type    | Description                                                                 |
+|-------------- |-------- |---------------------------------------------------------------------------  |
+| payment_data  | string  | [the response is returned by Stripe](https://stripe.com/docs/api/charges)   |
+| order         | map     | [WebhookOrderResponse](#schema_webhook_order_response)                      |
