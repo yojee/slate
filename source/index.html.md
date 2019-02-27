@@ -8003,13 +8003,24 @@ Yojee signs the webhook events it sends to your endpoints. We do so by including
 
 Before you can verify signatures, you need to retrieve your endpoint’s secret from your Dashboard’s Webhooks settings. Each secret is unique to the endpoint to which it corresponds.
 
-**Step 1: Determine the expected signature**
+**Step 1: Get timestamp and signature from the header**
 
-Compute an HMAC with the SHA256 hash function. Use the endpoint’s signing secret as the key, and use the JSON payload(ie the request's body) string as the message.
+Retrieve the `yojee-request-timestamp` and `yojee-signature` header on the HTTP request
 
-**Step 2: Compare signatures**
+**Step 2: Prepare the signed payload string**
 
-Compare the signature in the header to the expected signature.
+You achieve this by concatenating:
+  * The timestamp (as a string)
+  * The character `.`
+  * The actual JSON payload (i.e., the request’s body)
+
+**Step 3: Determine the expected signature**
+
+Compute an HMAC with the SHA256 hash function. Use the endpoint’s signing secret as the key, and use the signed payload string as the message.
+
+**Step 4: Compare signatures**
+
+Compare the signature in the header to the expected signature. If a signature matches, compute the difference between the current timestamp and the received timestamp, then decide if the difference is within your tolerance.
 
 
 ## Events
